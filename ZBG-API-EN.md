@@ -1,9 +1,4 @@
-<link rel="stylesheet" type="text/css" href="/lib/docs/css/style.css">
-
-<script src="/lib/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/lib/docs/js/ztree.js"></script>
-
-------------------------------------------------------------------------------------------
+[TOC]
 
 ## Change Log
 
