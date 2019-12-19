@@ -1,1 +1,10 @@
-ZBG API Documentation Project
+ZBG API
+
+欢迎有优秀 maker 策略且交易量大的用户参与长期做市商项目。如果您的ZBG账户或者ZB账户中有折合大于5BTC资产（币币和合约账户分开统计），请提供以下信息发送邮件至：
+
+ZB Global做市商申请：sp@zbg.com；
+上币申请：http://zbglobal2018.mikecrm.com/mmyA604；
+提供uid（需不存在返佣关系的uid）
+提供其他交易平台maker交易量截图证明（比如30天内成交量，或者VIP等级等）
+简要阐述做市方法，不需要细节
+做市商项目可以支持ZT抵扣、VIP、交易量相关活动以及任何形式的返佣活动
