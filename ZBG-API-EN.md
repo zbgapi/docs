@@ -1,10 +1,10 @@
-                                                           ZBG API
 * [Change Log](#change-log)
 * [Introduction](#introduction)
   * [API Introduction](#api-introduction)
   * [Sub\-account](#sub-account)
 * [Access Instructions](#access-instructions)
   * [Access URLs](#access-urls)
+  * [SDK and Demo](#sdk-and-demo)
   * [Interface Type](#interface-type)
   * [Request Format](#request-format)
   * [Response Format](#response-format)
@@ -45,6 +45,15 @@
   * [Search Historical Orders](#search-historical-orders)
   * [Get the Order Detail of an Order](#get-the-order-detail-of-an-order)
   * [Get the Match Result of an Order](#get-the-match-result-of-an-order)
+* [Contract](#contract)
+  * [AuthLogin](#authlogin)
+  * [Public\-Get Contract Symbols](#public-get-contract-symbols)
+  * [Public\-Get Contract Currencies](#public-get-contract-currencies)
+  * [Public\-Get Contract Klines(Candles)](#public-get-contract-klinescandles)
+  * [Public\-Contract Tickers](#public-contract-tickers)
+  * [Public\-Ticker](#public-ticker)
+  * [Public\-Contract Depth](#public-contract-depth)
+  * [Public\-Contract Trade](#public-contract-trade)
 * [WebSocket Market Data](#websocket-market-data)
   * [General](#general)
   * [Market Candlestick](#market-candlestick)
@@ -52,11 +61,14 @@
   * [Market Trade](#market-trade)
   * [Market Tickers](#market-tickers)
   * [Order Change](#order-change)
+------------------------------------------------------------------------------------------
+
 
 ## Change Log
 
 Releas Time      |    API      | Add/Modify | Brief
 -----------------|-------------------|------------| ----
+2020-03-31 13:20 |[Contract](#Contract)           |  ==Add==     |Add [SDK](#sdk-and-demo) and Contract
 2019-12-09 15:20 |[GET /exchange/api/v1/commom/trade-history](#public-get-the-historical-trades)|  ==Add== | Add query historical transaction records
 2019-11-09 15:20 |[GET /https://kline.zbg.com/api/data/v1/trades](#public-get-the-last-trade)|  ==Modify==  |Increased the number of queries available
 2019-11-25 11:20 |[GET https://kline.zbg.com/api/data/v1/entrusts](#public-market-depth)|  Modify  |Enlarge the depth of the trading page 
@@ -68,6 +80,7 @@ Releas Time      |    API      | Add/Modify | Brief
 2019-09-24 20:00 |      ...          |  Add     | Add Websocket module
 2019-09-23 13:00 |[GET /exchange/api/v1/common/symbols][symbols],<br/>[GET /exchange/api/v1/common/currencys][currencies] |  Modify     | Add return fields ID
 2019-09-21 11:00 |      ...          |  Add     | Create a document
+
 
 ------------------------------------------------------------------------------------------
 
@@ -142,6 +155,16 @@ WebSocket
 
 <code>wss://kline.zbg.com/websocket</code>
 
+<br/>
+
+### SDK and Demo
+SDK (Suggested)
+
+[Java](https://github.com/zbgapi/zbg-api-v1-sdk/tree/master/zbg-java-sdk-api)
+
+[Python](https://github.com/zbgapi/zbg-api-v1-sdk/tree/master/zbg-python-sdk-api)
+
+[ccxt](https://github.com/zbgapi/ccxt)
 
 <br/>
 
@@ -248,23 +271,28 @@ Passphrase for the optional field users can choose to provide the field accordin
 Take the example of querying an order list
 
 <p><code>https://www.zbg.com/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
+
 1.Sort the parameters (keys) in the order of the ASCII code, such as:
 <p><code>from=1</code></p>
 <p><code>side=buy</code></p>
 <p><code>size=100</code></p>
 <p><code>symbol=zt_usdt</code></p>
+
 2.Concatenate the strings in the order above.
 
 <p><code>from1sizebuysize100sumbolzt_usdt</code></p>
+
 3.Use the request string from the previous step and your key to generate a digital signature : MD5(key + timestamp + signature + secret)
 
 <p><code>5fcbdb0862e10f9f6b885fdde42d58a1</code></p>
+
 4.Add fields such as the generated digital signature App key timestamp to the Header
 
 <p><code>header.put("Apiid",id);</code></p>
 <p><code>header.put("Timestamp", String.valueOf(timestamp));</code></p>
 <p><code>header.put("Passphrase", md5(timestamp + passphrase));</code></p>
 <p><code>header.put("Sign", "5fcbdb0862e10f9f6b885fdde42d58a1");</code></p>
+
 > Body mode *application/json* is slightly different for Post requests. In this case, there are no steps 1 or 2, so just enter step 3 using the body as a signature string
 
 
@@ -742,7 +770,7 @@ draw-flag       |   boolean  |  Whether can withdraw
 draw-fee        |   string   |	Withdraw Commission
 once-draw-limit |   integer  |	Maximum withdrawal limit
 daily-draw-limit|   integer  |	Maximum daily withdrawal limit
-min-draw-limit  |   integer  |	Minimum withdrawal limit
+min-draw-limit  |   decimal  |	Minimum withdrawal limit
 
 
 **Use Case**
@@ -809,7 +837,7 @@ This endpoint returns the discount price of the specified currency in usd, qc an
 
 Parameter      |  Data Type | Required |	Description
 ----------------|------------|--------------|--------------
-currencies      |   string   |    false     |	Currencies，Multiple currencies to separate such as : zt,usdt,btc
+currencys      |   string   |    false     |	Currencies，Multiple currencies to separate such as : zt,usdt,btc
 
 **Response Content**
 
@@ -1018,7 +1046,7 @@ marketName      |   string   |  true  |	trading pair
 
 **Response Content**
 
-turn string list，data declaration 
+return string list，data declaration 
 
 [ 
     marketId, 
@@ -1087,9 +1115,9 @@ isUseMarketName  |   boolean   |  true  |	Parameters must be uploaded，true，t
 
 **Response Content**
 
-turn list，The element in the list is a string list，
+return list，The element in the list is a string list，
 
-turn string list，data declaration 
+return string list，data declaration 
 
 [ 
     marketId, 
@@ -1591,7 +1619,6 @@ currency      |   string   |  true  |	currency，btc,ltc...(ZBG supports [curren
 
 **Response Content**
 
-The response data is a list, field description
 
 Field    | Data Type  |Required|	Description
 ------------|-----------|--------|-----------
@@ -1606,7 +1633,7 @@ memo         |	string  | false   |	Deposit address memo
     2.If your address is the recharge address of the exchange, a withdrawal address and a Tag (also known as Tag/ Tag/ Memo/ note, etc.) are required when withdrawing coins. The Tag ensures that your withdrawal address is unique and corresponds to the receipt address.
     
     3.Please be sure to follow the correct coin withdrawal steps and input the complete information when withdrawing the coin, otherwise you will face losing the coin.ZBG platform will not bear the risk of retrieving the service.  
-      
+  
     4.If you have any questions, please contact ZBG customer service
 
 **Use Case**
@@ -1654,9 +1681,9 @@ list        |	array   |	Data list, fields below
 
 Field    | Data Type  |	Description
 ------------|-----------|-----------
-desposit-id |	string  |	deposit ID
+deposit-id |	string  |	deposit ID
 currency    |	string  |	currency	
-amount      |	decima  |	depoist amount
+amount      |	decimal  |	deposit amount
 address     |	string  |	The deposit source address
 tx-hash     |	string  |	The on-chain transaction hash
 confirm-times     |	int  |	confirm-times
@@ -1898,7 +1925,7 @@ confirmed   | On-chain transfer completed with one confirmation
 <br/>
 
 ## Spot Trading 
-
+    
     Access to the spot transactions interface such as None specifically requires signature authentication
 
 ### Place a New Order
@@ -1926,7 +1953,7 @@ price      |   decimal      |  true |	The price of the order
 
 The data for turn is the order number of string type
 
-> Get this order number does not mean that the order was placed successfully. Users can place an order through [Get Order Details](#get-order-details) enquire order status.
+> Get this order number does not mean that the order was placed successfully. Users can place an order through [Get Order Details](#get-the-order-detail-of-an-order) enquire order status.
 
 > The order will be rejected if the precision of quantity and price exceeds the preset value of currency.
 
@@ -1973,14 +2000,14 @@ This endpoint submit cancellation for multiple orders at once with given criteri
 
 **HTTP Request**
 
-+ POST <code>/v1/order/batch-cancel</code>
++ POST <code>/exchange/api/v1/order/batch-cancel</code>
 
 **Request Parameter**
 
 Parameter       |  Data Type  | Required | Description
 ----------|------------|--------|--------
 symbol    |   string   |  true  |	trading pair，such as：btc_usdt,eth_usdt
-type    |   string   |  false | Active trading direction，“buy”or“sell”， 
+side    |   string   |  false | Active trading direction，“buy”or“sell”， 
 order-ids     |   list      |  false |	Order ID
 price-from    |   decimal   |  false |	Delegate price interval cancel: cancel the delegate of unit price >=price-from
 price-to    |   decimal   |  false |	Delegate price interval cancellation: cancel unit price <=price-to
@@ -2082,10 +2109,10 @@ Parameter       |  Data Type  | Required | Description
 ----------|------------|--------|--------
 symbol   |   string   |  true |	trading pair，example：btc_usdt,eth_usdt
 side   |   string   |  false |	order type，buy/sell
-state   |   string   |  false | status，valid status：partial-filled: portion deal, <br/> partial-canceled: portion deal withdrawal,<br/> filled: completely deal, <br/> canceled: Had withdrawn，<br/> created: created (in storage)
-start-date   |   string   |  false | enquire Start date, date formatyyyy-mm-dd 
-end-date   |   string   |  false | enquire end date, date formatyyyy-mm-dd 
-history  |   boolean   |  false | For enquire history, default flase
+state   |   string   |  false | status，valid status：<br/>partial-filled: portion deal, <br/> partial-canceled: portion deal withdrawal,<br/> filled: completely deal, <br/> canceled: Had withdrawn，<br/> created: created (in storage)
+start-date   |   string   |  false | enquire Start date, date format yyyy-mm-dd 
+end-date   |   string   |  false | enquire end date, date format yyyy-mm-dd 
+history  |   boolean   |  false | For enquire history, default false
 page    |   int   |  false |	Page number, default 1
 size    |   int   |  false |	Turn order quantity, default 20 Max 100
 
@@ -2260,6 +2287,414 @@ created-at  |	long  |	The timestamp in milliseconds when the match and fill is d
 <br/>
 <br/>
 
+
+## Contract
+
+### AuthLogin
+
+This interface authorizes login to the contract subaccount. If the user has registered a child account, then directly call the contract cloud login interface, otherwise the default first registered a child account.
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/account/future/auth</code>
+
+**Request Parameter**
+
+无
+
+**Response Content**
+
+Field    | Data Type  |	Description
+--------------------|-----------|--------
+user_id             |	string  |	ZBG account ID
+contract_id         |	string  |	Contract account ID
+access_token        |	string  |	contract access token
+refresh_token       |	string  |	contract refresh token
+expires_in          |	string  |   expires time：milliseconds
+
+**Use Case**
+
+```json
+"datas":{
+        "userId":"7eOUtLBFffU",
+        "contract_id":"63523",
+        "access_token":"9fb44af8-2245-4234-ac0c-c75f3cd3ab2b",
+        "refresh_token":"d347239d-8334-45f3-a99a-35699e8b2ae7",
+        "expires_in":"604799",
+}
+```
+
+<br/>
+
+### Public-Get Contract Symbols
+
+This endpoint returns all ZBG's supported contract symbols.
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/symbol</code>
+
+**Request Parameter**
+
+无
+
+**Response Content**
+
+Field    | Data Type  |	Description
+--------------------|-----------|--------
+id       |	string  |	Contract id
+baseAsset       |	string  |	Base currency in trading pairs
+quoteAsset      |	string  |	Base currency in trading pairs
+quoteAssetPrecision     |	integer |Quote currency precision when quote price(decimal places)
+baseAssetPrecision    |	integer |	Base currency precision when quote amount(decimal places)
+symbol              |	string  |	Contract symbol
+status               |	string  | The status of the symbol; Possible values:[trading,offline,suspend] 
+
+**Use Case**
+
+```json
+"datas":[
+        {
+            "symbol":"XRP_USDT",
+            "quoteAssetPrecision":0,
+            "baseAsset":"XRP",
+            "baseAssetPrecision":"0.000100000000000000",
+            "quoteAsset":"USDT",
+            "status":"trading"
+        },
+        {
+            "symbol":"BCH_USDT",
+            "quoteAssetPrecision":0,
+            "baseAsset":"BCH",
+            "baseAssetPrecision":"0.050000000000000000",
+            "quoteAsset":"USDT",
+            "status":"trading"
+        }
+]
+```
+
+<br/>
+
+
+
+### Public-Get Contract Currencies
+
+This endpoint returns all ZBG's supported contract currencies.
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/currency</code>
+
+**Request Parameter**
+
+无
+
+**Response Content**
+
+Field    | Data Type  |	Description
+----------------|------------|--------
+currencyId            |   string   |	contract currency id
+symbol            |   string   |	currency name
+displayPrecision       |	int  |	display precision
+enabled        |	int   |	1: available, 0: not available
+
+
+**Use Case**
+
+```json
+"datas":[
+    "datas":[
+        {
+            "currencyId":7,
+            "symbol":"USDT",
+            "displayPrecision":2,
+            "enabled":1
+        },
+        {
+            "currencyId":999999,
+            "symbol":"CUSD",
+            "displayPrecision":2,
+            "enabled":0
+        }
+]
+```
+
+<br/>
+
+
+
+### Public-Get Contract Klines(Candles)
+
+This endpoint retrieves all contract klines in a specific range.
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/kline</code>
+
+**Request Parameter**
+
+
+Parameter       |  Data Type  | Required | Description
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	contract symbol
+type            |	string  |	true  | type:1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;
+size        |	integer   |	true  |	 return data size, default 1000
+
+
+
+**Response Content**
+
+
+Returns a double-layer list and a list in the inner layer is a piece of data
+
+**Use Case**
+
+```json
+"datas":[
+        [
+            1585625580000,  // 时间戳
+            "6451",         // 开盘价
+            "6451.5",       // 最高价
+            "6450",         // 最低价
+            "6451.5",       // 收盘价
+            "205"           // 交易量
+        ],
+        [
+            1585625520000,
+            "6450.5",
+            "6451.5",
+            "6448",
+            "6451",
+            "1378"
+        ]
+    ..........
+]
+```
+
+<br/>
+
+### Public-Contract Tickers
+
+This endpoint retrieves the latest tickers for all supported contracts.
+
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/tickers</code>
+
+**Request Parameter**
+
+
+**Response Content**
+
+Field    | Data Type  |	Description
+------------|-----------|-----------
+timestamp    |	string  | millisecond
+ticker |	list  | Ticker list
+├─ symbol |	string  | Contract symbol
+├─ high |	decimal  | top price
+├─ last |	decimal  | Latest trading price
+├─ low |	decimal  | lowest price
+├─ vol |	decimal  | 24-hour volume (in base currency)
+├─ buy |	decimal  | Buy 1 price
+├─ sell |	decimal  | Sell 1 price
+
+**Use Case**
+
+```
+"datas":{
+        "ticker":[
+            {
+                "symbol":"XRP_USDT",    
+                "high":"0.1756",        
+                "vol":"19503683",       
+                "last":"0.1727",        
+                "low":"0.1711",         
+                "buy":"0.1726",        
+                "sell":"0.1727"         
+            },
+            {
+                "symbol":"EOS_USDT",
+                "high":"2.28",
+                "vol":"7402278",
+                "last":"2.226",
+                "low":"2.199",
+                "buy":"2.224",
+                "sell":"2.228"
+            }
+        ],
+        "timestamp":"1585625947002"     // 返回时间戳
+    },
+```
+
+<br/>
+
+
+### Public-Ticker
+
+This endpoint retrieves the latest ticker with some important 24h aggregated market data.
+
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/ticker</code>
+
+**Request Parameter**
+
+
+Parameter       |  Data Type  | Required | Description
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	contract symbol name
+
+
+**Response Content**
+
+Field    | Data Type  |	Description
+------------|-----------|-----------
+timestamp    |	string  | millisecond
+ticker |	list  | Ticker list
+├─ symbol |	string  | Contract symbol
+├─ high |	decimal  | top price
+├─ last |	decimal  | Latest trading price
+├─ low |	decimal  | lowest price
+├─ vol |	decimal  | 24-hour volume (in base currency)
+├─ buy |	decimal  | Buy 1 price
+├─ sell |	decimal  | Sell 1 price
+
+**Use Case**
+
+```json
+"datas":{
+        "ticker":[
+            {
+                "symbol":"XRP_USDT",    
+                "high":"0.1756",       
+                "vol":"19503683",      
+                "last":"0.1727",       
+                "low":"0.1711",         
+                "buy":"0.1726",        
+                "sell":"0.1727"       
+            }
+        ],
+        "timestamp":"1585625947002"     // 返回时间戳
+    },
+```
+
+<br/>
+
+
+### Public-Contract Depth
+
+This endpoint retrieves the contract order book of a specific pair.
+
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/depth</code>
+
+**Request Parameter**
+
+Parameter       |  Data Type  | Required | Description
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	contract name
+size        |	integer   |	true  |	data size, default 20
+
+
+**Response Content**
+
+
+
+**Use Case**
+
+```json
+"datas":{
+    "asks": [               // The selling
+        [
+            "741.47",       // The first gear The selling price
+            "392.99"        // The first gear The selling quantity
+        ],
+        [
+            "741.435",      // The second gear The selling price
+            "400.88"        // The second gear The selling quantity
+        ],
+        [
+            "824.898",      // The third gear The selling price
+            "305.95"        // The third gear The selling quantity
+        ] 
+    ],
+    "bids": [               // buy order  
+        [
+            "294",          // The first gear buy order  price
+            "240.32"        // The first gear buy order  quantity
+        ],
+        [
+            "247",          // The first gear buy order  price
+            "242.064"       // The second gear buy order  quantity
+        ],
+        [
+            "216",          // The first gear buy order  price
+            "174.043"       // The third gear buy order  quantity
+        ]
+    ]
+}
+```
+
+<br/>
+
+
+### Public-Contract Trade
+
+This endpoint returns the latest transaction records for contract.
+
+
+**HTTP Request**
+
++ GET <code>/exchange/api/v1/common/future/trades</code>
+
+**Request Parameter**
+
+Parameter       |  Data Type  | Required | Description
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	交易对
+size        |	integer   |	false  |	数据量，50
+
+
+**Response Content**
+
+return a list：
+
+Field    | Data Type  |	Description
+------------|-----------|-----------
+timestamp    |	string  |	millisecond
+amount |	 decimal | deal quantity
+price |	decimal  | deal price
+side |	string  | buy/sell
+
+
+**Use Case**
+
+```json
+"datas": [
+        {
+            "amount":"73",
+            "side":"sell",
+            "price":"6450",
+            "timestamp":"1585626655118"
+        },
+        {
+            "amount":"10",
+            "side":"sell",
+            "price":"6452.5",
+            "timestamp":"1585626651144"
+        }
+    ......
+]
+```
+----------------------------------------------------------------------------------
+
+<br/>
+<br/>
+
 ## WebSocket Market Data
 
 ### General
@@ -2352,7 +2787,7 @@ The unsubscribe format is as follows：
 
 Once the k-line data is generated, the Websocket server will push it to the client via this subscription topic interface.
 
-<code>*symbol-id*.KLINE.*period*.*symbol*</code>
+<code>symbol-id_**KLINE**_period_symbol</code>
 
 **Request Parameter**
 
@@ -2378,7 +2813,7 @@ If it is the first time, the full quantity data is turned.
 Request data：
 
 ```json
-{"action":"ADD", "dataType":"336_KLINE_1M_ZT_USDT","data Size":1000} 
+{"action":"ADD", "dataType":"336_KLINE_1M_ZT_USDT","dataSize":1000} 
 ```
 
 Response data：
@@ -2404,7 +2839,7 @@ Subsequent increase in quantity data:
 
 When the market depth changes, this topic sends the latest market depth update data:
 
-<code>*symbol-id*.ENTRUST_ADD.*symbol*</code>
+<code>symbol-id_**ENTRUST_ADD**_symbol</code>
 
 **Request Parameter**
 
@@ -2477,7 +2912,7 @@ Subsequent increase in quantity data.
 
 This topic provides the latest deal details in the market:
 
-<code>*symbol-id*.TRADE.*symbol*</code>
+<code>symbol-id_**TRADE**_symbol</code>
 
 **Request Parameter**
 
@@ -2529,7 +2964,7 @@ Subsequent increase in quantity data.
 
 Topics provide the latest market overview within 24 hours.：
 
-<code>*symbol-id*.TRADE_STATISTIC_24H</code>
+<code>symbol-id_**TRADE_STATISTIC_24H**</code>
 
 > The type data is refreshed every 5 seconds.
 
@@ -2599,7 +3034,7 @@ Response data：
 
 Topics provide user order updates
 
-<code>*symbol-id*.RECORD_ADD.*user-id*.*symbol*</code>
+<code>symbol-id_**RECORD_ADD**_user-id_symbol</code>
 
 <!--> This type data is not open to ordinary users, so you need to apply for the configuration, and after the application, you need to make a transaction to trigger the data initialization.-->
 
@@ -2615,17 +3050,20 @@ symbol   |   string   |  true |	trading pair，example：btc_usdt,eth_usdt，Ref
 
 **Response Content**
 
-Full data field description：[AR, market ID, user ID, The time stamp, [Order no, ask and bid type, status, price, entrust quantity, complete quantity, complete amount, average price, establish The time stamp]]
+Full data field description：[AR, market ID, user ID, The time stamp, [OrderNo, type, status, price, entrust quantity, complete quantity, complete amount, average price, establish The time stamp]]
 
-Increased quantity data field description.：[R, market ID, user ID, The time stamp, Order no., ask and bid type, status, price, entrust quantity, complete quantity, complete amount,Average price, create The time stamp
+Increased quantity data field description.：[R, market ID, user ID, The time stamp, OrderNo, type, status, price, entrust quantity, complete quantity, complete cash amount,Average price, create The time stamp
 
+type：1:buy, 0:sell
+
+status :  0:created 1:canceled 2: filled 3:partial-filled
 
 **Use Case**
 
 Request data：
 
 ```json
-{"data Type":"336_RECORD_ADD_7eOUtLBFXTU_ZT_USDT","data Size":50,"action":"ADD"}
+{"data Type":"336_RECORD_ADD_7eOUtLBFXTU_ZT_USDT","dataSize":50,"action":"ADD"}
 ```
 
 Response data：
