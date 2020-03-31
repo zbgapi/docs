@@ -1,11 +1,11 @@
-                                                     ZBG API
-
+                                            ZBG  API
 * [更新日志](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97)
 * [简介](#%E7%AE%80%E4%BB%8B)
   * [API简介](#api%E7%AE%80%E4%BB%8B)
   * [子账号](#%E5%AD%90%E8%B4%A6%E5%8F%B7)
 * [接入说明](#%E6%8E%A5%E5%85%A5%E8%AF%B4%E6%98%8E)
   * [接入 URLs](#%E6%8E%A5%E5%85%A5-urls)
+  * [SDK和代码示例](#sdk%E5%92%8C%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B)
   * [接口类型](#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B)
   * [请求格式](#%E8%AF%B7%E6%B1%82%E6%A0%BC%E5%BC%8F)
   * [返回格式](#%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
@@ -46,6 +46,15 @@
   * [查询历史订单](#%E6%9F%A5%E8%AF%A2%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95)
   * [查询订单详情](#%E6%9F%A5%E8%AF%A2%E8%AE%A2%E5%8D%95%E8%AF%A6%E6%83%85)
   * [查询成交明细](#%E6%9F%A5%E8%AF%A2%E6%88%90%E4%BA%A4%E6%98%8E%E7%BB%86)
+* [合约](#%E5%90%88%E7%BA%A6)
+  * [合约账户授权登录](#%E5%90%88%E7%BA%A6%E8%B4%A6%E6%88%B7%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95)
+  * [公共\-获取合约列表](#%E5%85%AC%E5%85%B1-%E8%8E%B7%E5%8F%96%E5%90%88%E7%BA%A6%E5%88%97%E8%A1%A8)
+  * [公共\-获取合约可用币种](#%E5%85%AC%E5%85%B1-%E8%8E%B7%E5%8F%96%E5%90%88%E7%BA%A6%E5%8F%AF%E7%94%A8%E5%B8%81%E7%A7%8D)
+  * [公共\-合约K线数据（蜡烛图）](#%E5%85%AC%E5%85%B1-%E5%90%88%E7%BA%A6k%E7%BA%BF%E6%95%B0%E6%8D%AE%E8%9C%A1%E7%83%9B%E5%9B%BE)
+  * [公共\-最新聚合行情（Tickers）](#%E5%85%AC%E5%85%B1-%E6%9C%80%E6%96%B0%E8%81%9A%E5%90%88%E8%A1%8C%E6%83%85tickers-1)
+  * [公共\-合约聚合行情（Ticker）](#%E5%85%AC%E5%85%B1-%E5%90%88%E7%BA%A6%E8%81%9A%E5%90%88%E8%A1%8C%E6%83%85ticker)
+  * [公共\-合约深度](#%E5%85%AC%E5%85%B1-%E5%90%88%E7%BA%A6%E6%B7%B1%E5%BA%A6)
+  * [公共\-合约历史成交记录](#%E5%85%AC%E5%85%B1-%E5%90%88%E7%BA%A6%E5%8E%86%E5%8F%B2%E6%88%90%E4%BA%A4%E8%AE%B0%E5%BD%95)
 * [Websocket行情数据](#websocket%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE)
   * [简介](#%E7%AE%80%E4%BB%8B-1)
   * [K线数据](#k%E7%BA%BF%E6%95%B0%E6%8D%AE)
@@ -54,13 +63,17 @@
   * [市场24H行情数据](#%E5%B8%82%E5%9C%BA24h%E8%A1%8C%E6%83%85%E6%95%B0%E6%8D%AE)
   * [订单更新](#%E8%AE%A2%E5%8D%95%E6%9B%B4%E6%96%B0)
 
+
+------------------------------------------------------------------------------------------
+
 ## 更新日志
 
 生效时间         |      接口         | 新增/修改 | 摘要
 -----------------|-------------------|-----------| ----
+2020-03-31 13:20 |[合约](#合约)           |  ==新增==     |增加[sdk](#SDK和代码示例)和合约
 2019-12-09 15:20 |[GET /exchange/api/v1/commom/trade-history](#公共-历史成交记录)|  ==新增==     | 添加查询历史的成交记录
-2019-11-09 15:20 |[GET https://kline.zbg.com/api/data/v1/trades](#公共-最近历史成交记录)|  ==修改==     | 放大查询数量限制
-2019-11-25 11:20 |[GET https://kline.zbg.com/api/data/v1/entrusts](#公共-市场深度数据)|  修改     | 放大盘口深度
+2019-11-09 15:20 |[GET https://kline.zbg.fun/api/data/v1/trades](#公共-最近历史成交记录)|  ==修改==     | 放大查询数量限制
+2019-11-25 11:20 |[GET https://kline.zbg.fun/api/data/v1/entrusts](#公共-市场深度数据)|  修改     | 放大盘口深度
 2019-11-21 11:20 |[GET /exchange/api/v1/account/balance/{currency}](#查询单个币种的账户余额)|  新增     | 查询单个币种的账户余额
 2019-11-21 11:00 |[GET /exchange/api/v1/account/balance](#账户余额)|  修改     | 增加balance返回字段
 2019-11-20 15:20 |...|  修改     | 签名规则中新增[API 访问口令](#签名认证)字段
@@ -135,18 +148,41 @@
 
 REST API
 
-<code>https://www.zbg.com</code>
+<code>https://www.zbg.fun</code>
 
-> 域名有时会存在被墙或延迟高等情况，可暂时使用备用域名 https://www.zbgpro.com 或 https://www.zbgpro.net 替换。
+> 域名有时会存在被墙或延迟高等情况，可暂时使用备用域名:
+>- https://www.zbgpro.com
+>- https://www.zbgpro.net
+>- https://www.zbg.kim
 
 Kline API
 
-<code>https://kline.zbg.com</code>
+<code>https://kline.zbg.fun</code>
+
+> 备用域名:
+>- https://kline.zbgpro.com
+>- https://kline.zbgpro.net
+>- https://kline.zbg.kim
 
 WebSocket 
 
-<code>wss://kline.zbg.com/websocket</code>
+<code>wss://kline.zbg.fun/websocket</code>
 
+> 备用域名:
+>- wss://kline.zbgpro.com/websocket
+>- wss://kline.zbgpro.net/websocket
+>- wss://kline.zbg.kim/websocket
+
+<br/>
+
+### SDK和代码示例
+SDK (推荐)
+
+[Java](https://github.com/zbgapi/zbg-api-v1-sdk/tree/master/zbg-java-sdk-api)
+
+[Python](https://github.com/zbgapi/zbg-api-v1-sdk/tree/master/zbg-python-sdk-api)
+
+[ccxt](https://github.com/zbgapi/ccxt)
 
 <br/>
 
@@ -204,7 +240,7 @@ API 请求在通过网络传输的过程中极有可能被篡改，为了确保�
 
 签名接口组成部分：
 
-+ 接口请求地址：如 https://www.zbg.com/exchange/api/v1/order/orders。
++ 接口请求地址：如 https://www.zbg.fun/exchange/api/v1/order/orders。
 + API 访问密钥（Apiid）：您申请的API Key中的 Access Key，位于Header中。
 + API 访问口令(Passphrase) ：创建API Key 时生成的。
 + 时间戳（Timestamp）：您发出请求的时间的毫秒级时间戳，位于Header中。
@@ -254,7 +290,7 @@ Passphrase 为选填字段用户可以根据自己的需求选择提不提供该
 
 以查询订单列表为例
 
-<p><code>https://www.zbg.com/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
+<p><code>https://www.zbg.fun/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
 1. 按照ASCII码的顺序对参数(key)进行排序，例如上面的请求排序后
 
 <p><code>from=1</code></p>
@@ -890,7 +926,7 @@ date  |	string  |	发起时间 yyyy-MM-dd HH:mm:ss
 
 ```
 # Request
-https://www.zbg.com/exchange/api/v1/common/trade-history/zt_usdt
+https://www.zbg.fun/exchange/api/v1/common/trade-history/zt_usdt
 
 # Response
 {
@@ -924,7 +960,7 @@ https://www.zbg.com/exchange/api/v1/common/trade-history/zt_usdt
     
     
 # Request
-https://www.zbg.com/exchange/api/v1/common/trade-history/zt_usdt/T6609287828167733248
+https://www.zbg.fun/exchange/api/v1/common/trade-history/zt_usdt/T6609287828167733248
 
 # Response
 {
@@ -971,7 +1007,7 @@ https://www.zbg.com/exchange/api/v1/common/trade-history/zt_usdt/T66092878281677
 
 **HTTP 请求**
 
-+ GET <code>https://kline.zbg.com/api/data/v1/klines</code>
++ GET <code>https://kline.zbg.fun/api/data/v1/klines</code>
 
 **请求参数**
 
@@ -1023,7 +1059,7 @@ dataSize        |	integer   |	true  |	返回 K 线数据条数,[1,100]
 
 **HTTP 请求**
 
-+ GET <code>https://kline.zbg.com/api/data/v1/ticker</code>
++ GET <code>https://kline.zbg.fun/api/data/v1/ticker</code>
 
 **请求参数**
 
@@ -1089,7 +1125,7 @@ marketName      |   string   |  true  |	交易对
 
 **HTTP 请求**
 
-+ GET <code>https://kline.zbg.com/api/data/v1/tickers</code>
++ GET <code>https://kline.zbg.fun/api/data/v1/tickers</code>
 
 **请求参数**
 
@@ -1183,7 +1219,7 @@ isUseMarketName  |   boolean   |  true  |	必传，true，会返回交易对
 
 **HTTP 请求**
 
-+ GET <code>https://kline.zbg.com/api/data/v1/entrusts</code>
++ GET <code>https://kline.zbg.fun/api/data/v1/entrusts</code>
 
 **请求参数**
 
@@ -1243,7 +1279,7 @@ dataSize        |	integer   |	true  |	档位数，表示买卖各5档，最大�
 
 **HTTP 请求**
 
-+ GET <code>https://kline.zbg.com/api/data/v1/trades</code>
++ GET <code>https://kline.zbg.fun/api/data/v1/trades</code>
 
 **请求参数**
 
@@ -1675,7 +1711,7 @@ list        |	array   |	数据列表，字段见下
 ------------|-----------|-----------
 deposit-id |	string  |	充币 ID
 currency    |	string  |	币种	
-amount      |	decima  |	充币数
+amount      |	decimal  |	充币数
 address     |	string  |	地址
 tx-hash     |	string  |	交易哈希
 confirm-times     |	int  |	确认次数
@@ -1750,8 +1786,6 @@ currency      |   string   |  true  |	币种，btc,ltc...(ZBG支持的[币种][c
 
 
 **返回字段**
-
-返回的数据是一个list，字段说明
 
 
 字段名称    | 数据类型  |是否必须|	描述
@@ -1994,14 +2028,14 @@ order-id    |   string   |  true |	订单号
 
 **HTTP 请求**
 
-+ POST <code>/v1/order/batch-cancel</code>
++ POST <code>/exchange/api/v1/order/batch-cancel</code>
 
 **请求参数**
 
 参数      |  数据类型  |是否必须|	描述
 ----------|------------|--------|--------
 symbol   |   string   |  true |	交易对，例如：btc_usdt,eth_usdt
-type    |   string   |  false | 主动交易方向，“buy”或“sell”， 
+side    |   string   |  false | 主动交易方向，“buy”或“sell”， 
 order-ids    |   list   |  false |	订单号
 price-from    |   decimal   |  false |	委托价格区间取消：取消单价>=price-from的委托
 price-to    |   decimal   |  false |	委托价格区间取消：取消单价<=price-to
@@ -2281,13 +2315,423 @@ created-at  |	long  |	发起时间
 <br/>
 <br/>
 
+## 合约
+
+### 合约账户授权登录
+
+此接口授权登录合约子账户。如果用户注册过子账户，则直接调用合约云登录接口，否则先默认注册一个子账号。
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/account/future/auth</code>
+
+**请求参数**
+
+无
+
+**返回字段**
+
+字段名称            | 数据类型  |	描述
+--------------------|-----------|--------
+user_id             |	string  |	zbg账户ID
+contract_id         |	string  |	合约账户ID
+access_token        |	string  |	合约登录token
+refresh_token       |	string  |	刷新token
+expires_in          |	string  |   有效时间：毫秒为单位
+
+**用例**
+
+```json
+"datas":{
+        "userId":"7eOUtLBFffU",
+        "contract_id":"63523",
+        "access_token":"9fb44af8-2245-4234-ac0c-c75f3cd3ab2b",
+        "refresh_token":"d347239d-8334-45f3-a99a-35699e8b2ae7",
+        "expires_in":"604799",
+}
+```
+
+<br/>
+
+### 公共-获取合约列表
+
+此接口获取ZBG平台支持的所有合约。
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/symbol</code>
+
+**请求参数**
+
+无
+
+**返回字段**
+
+字段名称            | 数据类型  |	描述
+--------------------|-----------|--------
+id       |	string  |	交易对ID
+baseAsset       |	string  |	交易对中的基础币种
+quoteAsset      |	string  |	交易对中的报价币种
+quoteAssetPrecision     |	integer |	交易对报价的精度（小数点后位数）
+baseAssetPrecision    |	integer |	交易对基础币种计数精度（小数点后位数）
+symbol              |	string  |	合约名称
+status               |	string  | 交易对状态；可能值: [trading,offline,suspend] <br/>online - 已上线；<br>offline - 交易对已下线，不可交易；<br/>suspend -- 交易暂停 
+
+**用例**
+
+```json
+"datas":[
+        {
+            "symbol":"XRP_USDT",
+            "quoteAssetPrecision":0,
+            "baseAsset":"XRP",
+            "baseAssetPrecision":"0.000100000000000000",
+            "quoteAsset":"USDT",
+            "status":"trading"
+        },
+        {
+            "symbol":"BCH_USDT",
+            "quoteAssetPrecision":0,
+            "baseAsset":"BCH",
+            "baseAssetPrecision":"0.050000000000000000",
+            "quoteAsset":"USDT",
+            "status":"trading"
+        }
+]
+```
+
+<br/>
+
+
+
+### 公共-获取合约可用币种
+
+此接口获取ZBG平台支持的合约币种列表。
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/currency</code>
+
+**请求参数**
+
+无
+
+**返回字段**
+
+字段名称        |  数据类型  |	描述
+----------------|------------|--------
+currencyId            |   string   |	合约方币种id
+symbol            |   string   |	币种名称
+displayPrecision       |	int  |	显示位数
+enabled        |	int   |	是否可充提，1:可用，0:不可用
+
+
+**用例**
+
+```json
+"datas":[
+    "datas":[
+        {
+            "currencyId":7,
+            "symbol":"USDT",
+            "displayPrecision":2,
+            "enabled":1
+        },
+        {
+            "currencyId":999999,
+            "symbol":"CUSD",
+            "displayPrecision":2,
+            "enabled":0
+        }
+]
+```
+
+<br/>
+
+
+
+### 公共-合约K线数据（蜡烛图）
+
+此接口返回历史K线数据。
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/kline</code>
+
+**请求参数**
+
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	交易对
+type            |	string  |	true  | K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;<br/>
+size        |	integer   |	true  |	返回K线数据条数,默认1000
+
+
+
+**返回字段**
+
+返回一个双层的list，里层一个list即为一条数据
+
+**用例**
+
+```json
+"datas":[
+        [
+            1585625580000,  // 时间戳
+            "6451",         // 开盘价
+            "6451.5",       // 最高价
+            "6450",         // 最低价
+            "6451.5",       // 收盘价
+            "205"           // 交易量
+        ],
+        [
+            1585625520000,
+            "6450.5",
+            "6451.5",
+            "6448",
+            "6451",
+            "1378"
+        ]
+    ..........
+]
+```
+
+<br/>
+
+### 公共-最新聚合行情（Tickers）
+
+获得所有交易对的 tickers，数据取值时间区间为24小时滚动。
+
+> 这个数据服务端更新速度为10秒一次，不必太过频繁获取
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/tickers</code>
+
+**请求参数**
+
+
+**返回字段**
+
+字段名称    | 数据类型  |	描述
+------------|-----------|-----------
+timestamp    |	string  |	返回时间戳，毫秒
+ticker |	list  | 聚合行情列表
+├─ symbol |	string  | 合约名称
+├─ high |	decimal  | 最高价
+├─ last |	decimal  | 收盘价
+├─ low |	decimal  | 最低价
+├─ vol |	decimal  | 交易量
+├─ buy |	decimal  | 买一价
+├─ sell |	decimal  | 卖一价
+
+**用例**
+
+```
+"datas":{
+        "ticker":[
+            {
+                "symbol":"XRP_USDT",    // 合约名称
+                "high":"0.1756",        // 最高价
+                "vol":"19503683",       // 交易量
+                "last":"0.1727",        // 收盘价
+                "low":"0.1711",         // 最低价
+                "buy":"0.1726",         // 买一价
+                "sell":"0.1727"         // 买一价
+            },
+            {
+                "symbol":"EOS_USDT",
+                "high":"2.28",
+                "vol":"7402278",
+                "last":"2.226",
+                "low":"2.199",
+                "buy":"2.224",
+                "sell":"2.228"
+            }
+        ],
+        "timestamp":"1585625947002"     // 返回时间戳
+    },
+```
+
+<br/>
+
+
+### 公共-合约聚合行情（Ticker）
+
+此接口获取ticker信息同时提供最近24小时的交易聚合信息。
+
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/ticker</code>
+
+**请求参数**
+
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	交易对
+
+
+**返回字段**
+
+字段名称    | 数据类型  |	描述
+------------|-----------|-----------
+timestamp    |	string  |	返回时间戳，毫秒
+ticker |	list  | 聚合行情列表
+├─ symbol |	string  | 合约名称
+├─ high |	decimal  | 最高价
+├─ last |	decimal  | 收盘价
+├─ low |	decimal  | 最低价
+├─ vol |	decimal  | 交易量
+├─ buy |	decimal  | 买一价
+├─ sell |	decimal  | 卖一价
+
+**用例**
+
+```json
+"datas":{
+        "ticker":[
+            {
+                "symbol":"XRP_USDT",    // 合约名称
+                "high":"0.1756",        // 最高价
+                "vol":"19503683",       // 交易量
+                "last":"0.1727",        // 收盘价
+                "low":"0.1711",         // 最低价
+                "buy":"0.1726",         // 买一价
+                "sell":"0.1727"         // 卖一价
+            }
+        ],
+        "timestamp":"1585625947002"     // 返回时间戳
+    },
+```
+
+<br/>
+
+
+### 公共-合约深度
+
+此接口返回指定合约的当前深度数据。
+
+> 本接口最多返回买卖==200==档的盘口数据
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/depth</code>
+
+**请求参数**
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	交易对
+size        |	integer   |	true  |	档位数，默认20
+
+
+**返回字段**
+
+见如下用例
+
+**用例**
+
+```json
+"datas":{
+    "asks": [               // 卖盘
+        [
+            "741.47",       // 第1档卖盘价格
+            "392.99"        // 第1档卖盘量
+        ],
+        [
+            "741.435",      // 第2档卖盘价格
+            "400.88"        // 第2档卖盘量
+        ],
+        [
+            "824.898",      // 第3档卖盘价格
+            "305.95"        // 第3档卖盘量
+        ]
+    ],
+    "bids": [               // 买盘
+        [
+            "294",          // 第1档买盘价格
+            "240.32"        // 第1档买盘量
+        ],
+        [
+            "247",          // 第1档买盘价格
+            "242.064"       // 第2档买盘量
+        ],
+        [
+            "216",          // 第1档买盘价格
+            "174.043"       // 第3档买盘量
+        ]
+    ],
+    "timestamp": "1532183394"   // 请求时的时间戳，秒级别
+}
+```
+
+<br/>
+
+
+### 公共-合约历史成交记录
+
+此接口返回指定交易对最新的交易记录。
+
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/common/future/trades</code>
+
+**请求参数**
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  true  |	交易对
+size        |	integer   |	false  |	数据量，50
+
+
+**返回字段**
+
+返回一个list列表，子项字段：
+
+字段名称    | 数据类型  |	描述
+------------|-----------|-----------
+timestamp    |	string  |	返回时间戳，毫秒
+amount |	 decimal | 交易数量
+price |	decimal  | 价格
+side |	string  | 买卖方向，buy/sell
+
+见如下用例
+
+**用例**
+
+```json
+"datas": [
+        {
+            "amount":"73",
+            "side":"sell",
+            "price":"6450",
+            "timestamp":"1585626655118"
+        },
+        {
+            "amount":"10",
+            "side":"sell",
+            "price":"6452.5",
+            "timestamp":"1585626651144"
+        }
+    ......
+]
+```
+----------------------------------------------------------------------------------
+
+<br/>
+<br/>
+
 ## Websocket行情数据
 
 ### 简介
 
 **接入URL**
 
-<code>wss://kline.zbg.com/websocket</code>
+<code>wss://kline.zbg.fun/websocket</code>
 
 
 **心跳消息**
@@ -2373,7 +2817,7 @@ created-at  |	long  |	发起时间
 
 一旦K线数据产生，Websocket服务器将通过此订阅主题接口推送至客户端：
 
-<code>*symbol-id*.KLINE.*period*.*symbol*</code>
+<code>symbol-id_KLINE_period_symbol</code>
 
 **参数**
 
@@ -2423,7 +2867,7 @@ symbol   |   string   |  true |	交易对，例如：btc_usdt,eth_usdt
 
 当市场深度发生变化时，此主题发送最新市场深度更新数据：
 
-<code>*symbol-id*.ENTRUST_ADD.*symbol*</code>
+<code>symbol-id_ENTRUST_ADD_symbol</code>
 
 **参数**
 
@@ -2495,7 +2939,7 @@ symbol   |   string   |  true |	交易对，例如：btc_usdt,eth_usdt
 
 此主题提供市场最新成交明细：
 
-<code>*symbol-id*.TRADE.*symbol*</code>
+<code>symbol-id_TRADE_symbol</code>
 
 **参数**
 
@@ -2546,7 +2990,7 @@ symbol   |   string   |  true |	交易对，例如：btc_usdt,eth_usdt
 
 主题提供24小时内最新市场概要：
 
-<code>*symbol-id*.TRADE_STATISTIC_24H</code>
+<code>*symbol-id*_TRADE_STATISTIC_24H</code>
 
 > 该类型数据每5秒钟刷新一次
 
@@ -2615,7 +3059,7 @@ symbol-id   |   string   |  true |	ALL 或交易对ID，参考[获取所有交�
 
 主题提供用户订单最新情况
 
-<code>*symbol-id*.RECORD_ADD.*user-id*.*symbol*</code>
+<code>symbol-id_RECORD_ADD_user-id_symbol</code>
 
 <!--> 该类型数据不对普通用户开放，需要申请配置，申请后需要进行交易从而触发数据初始化-->
 
@@ -2636,6 +3080,9 @@ symbol   |   string   |  true |	交易对，例如：btc_usdt,eth_usdt
 
 增量数据字段说明：[R, 市场ID, 用户ID, 时间戳, 委托单号, 买卖类型, 状态, 价格, 委托量, 完成量, 完成金额, 均价, 创建时间戳]
 
+买卖类型：1:买：0:卖
+
+状态 :  0起始 1取消 2交易成功 3交易一部分
 
 **用例**
 
