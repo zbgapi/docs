@@ -2445,7 +2445,7 @@ enabled        |	int   |	是否可充提，1:可用，0:不可用
 ----------------|------------|--------|--------
 symbol      |   string   |  true  |	交易对
 range            |	string  |	true  | K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;
-endTime        |	long   |	true  |	时间，与Kline 返回时间位数一致
+endTime        |	long   |	false  |	时间，与Kline 返回时间位数一致
 
 
 
