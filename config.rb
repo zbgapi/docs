@@ -19,6 +19,7 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 set :fonts_dir, 'fonts'
+set :layouts_dir, 'layouts'
 
 # Activate the syntax highlighter
 activate :syntax
@@ -40,7 +41,6 @@ set :relative_links, true
 
 # Build Configuration
 configure :build do
-  activate :asset_hash
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
