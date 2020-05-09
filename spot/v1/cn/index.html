@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
-
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <title>ZBG API 文档</title>
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -196,20 +196,49 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-a1ce949a.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-bccf8c07.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-c5541673.js"></script>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
   </head>
 
   <body class="index" data-languages="[&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
-        NAV
-        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
+    <header>
+      <div class="flex_box">
+        <img src="images/logo.svg" class="logo" alt="Logo" />
+        <div class="nav_box">
+          <span class="nav_cell" style="display: none">
+            <a href="javascript:;" class="nav_first">v1<i class="icon_nav"></i></a>
+            <ul class="nav_ul">
+              <li>
+                <a href="/docs/spot/v1/en/" id="v1_url">v1</a>
+              </li>
+              <li>
+                <a href="/docs/spot/v2/en/" id="v2_url">v2</a>
+              </li>
+            </ul>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="/docs/spot/v1/en/" id="btn_spot">现货</a>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="/docs/dm/v1/en/" id="btn_dm">交割合约</a>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="/docs/coin_margined_swap/v1/en/" id="btn_coin_margined_swap">币本位永续合约</a>
+          </span>
+          <!-- <span class="nav_cell nav_tab">
+            <a href="/docs/swap/v1/en/" id="btn_swap">永续合约</a>
+          </span> -->
+        </div>
+      </div>
+      <a href="/docs/spot/v1/cn/" class="lang" id="lang_box">简体中文</a>
+    </header>
     <div class="toc-wrapper">
-      <img src="images/logo-a0b83f0b.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="json">json</a>
         </div>
@@ -2032,8 +2061,6 @@ list里面元素是一个 string list；为true时是一个key为交易对名称
 <td>请求时的时间戳，秒级别</td>
 </tr>
 </tbody></table>
-
-<p><br/></p>
 <h2 id='e6bf273c4e'>公共-最近历史成交记录</h2>
 <p>此接口返回指定交易对最新的交易记录。</p>
 
@@ -2096,9 +2123,6 @@ list里面元素是一个 string list；为true时是一个key为交易对名称
         成交价格, 
         成交量
     ]</p>
-
-<p><br/>
-<br/></p>
 <h1 id='2a0d0be224'>账户相关</h1>
 <p>访问账户相关的接口如无特别说明都需要进行签名认证</p>
 <h2 id='bd9157656f'>账户信息</h2>
@@ -2974,10 +2998,12 @@ list里面元素是一个 string list；为true时是一个key为交易对名称
 <blockquote>
 <p>Response:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19cdJwd3j6ArHNhiYoWpN8cJq9ash7WDDC"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"zt"</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"datas"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19cdJwd3j6ArHNhiYoWpN8cJq9ash7WDDC"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"zt"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -6436,8 +6462,7 @@ stop_condition: 2（止损）</p>
 
 <p>[K, 交易对ID, 交易对, 时间戳, 开盘价, 最高价, 最低价, 收盘价, 成交量, 涨跌幅度, 美元汇率, K线周期, 是否经过转换, 交易额]</p>
 
-<p>如果是首次，则会返回全量数据。
-<br/></p>
+<p>如果是首次，则会返回全量数据。</p>
 <h2 id='1529c9267f'>市场深度</h2>
 <p><strong>主题订阅</strong></p>
 
@@ -6767,5 +6792,83 @@ stop_condition: 2（止损）</p>
           </div>
       </div>
     </div>
+    <script>
+      const lang_btn = document.getElementById('lang_box');
+      const btn_spot = document.getElementById('btn_spot');
+      const btn_dm = document.getElementById('btn_dm');
+      // const btn_swap = document.getElementById('btn_swap');
+      const btn_coin_margined_swap = document.getElementById('btn_coin_margined_swap');
+      const v1_url = document.getElementById('v1_url');
+      const v2_url = document.getElementById('v2_url');
+      const url = GetUrlRelativePath();
+      // <a href="/docs/coin_margined_swap/v1/en/" id="btn_coin_margined_swap">币本位永续合约</a>
+      if(url.indexOf('cn') != -1){
+        //如果是中文环境
+        lang_btn.innerHTML = 'English';
+        btn_spot.innerHTML = '现货';
+        btn_dm.innerHTML = '交割合约';
+        // btn_swap.innerHTML = '永续合约';
+        btn_coin_margined_swap.innerHTML = '币本位永续合约';
+        lang_btn.href = url.replace('cn/', 'en/');
+        btn_spot.href = btn_spot.href.replace('en/', 'cn/');
+        btn_dm.href = btn_dm.href.replace('en/', 'cn/');
+        // btn_swap.href = btn_swap.href.replace('en/', 'cn/');
+        btn_coin_margined_swap.href = btn_coin_margined_swap.href.replace('en/', 'cn/');
+        v1_url.href = '/docs/spot/v1/cn/';
+        v2_url.href = '/docs/spot/v2/cn/';
+      }else{
+        //如果是英文环境
+        lang_btn.innerHTML = '中文';
+        btn_spot.innerHTML = 'Spot';
+        btn_dm.innerHTML = 'Futures';
+        // btn_swap.innerHTML = 'SWAP API';
+        btn_coin_margined_swap.innerHTML = 'Coin Margined Swap';
+        lang_btn.href = url.replace('en/', 'cn/');
+        btn_spot.href = btn_spot.href.replace('cn/', 'en/');
+        btn_dm.href = btn_dm.href.replace('cn/', 'en/');
+        // btn_swap.href = btn_swap.href.replace('cn/', 'en/');
+        btn_coin_margined_swap.href = btn_coin_margined_swap.href.replace('cn/', 'en/');
+        v1_url.href = '/docs/spot/v1/en/';
+        v2_url.href = '/docs/spot/v2/en/';
+      }
+      if(location.href.indexOf('docs/dm/v') > 0){
+        btn_spot.className = '';
+        btn_coin_margined_swap.className = '';
+        // btn_swap.className = '';
+        btn_dm.className = 'current';
+      } 
+      // else if(location.href.indexOf('docs/swap/v') > 0){
+      //   btn_spot.className = '';
+      //   btn_coin_margined_swap.className = '';
+      //   // btn_swap.className = 'current';
+      //   btn_dm.className = '';
+      // } 
+      else if(location.href.indexOf('docs/coin_margined_swap/v') > 0){
+        btn_spot.className = '';
+        btn_coin_margined_swap.className = 'current';
+        // btn_swap.className = 'current';
+        btn_dm.className = '';
+      } else {
+        btn_spot.className = 'current';
+        // btn_swap.className = '';
+        btn_coin_margined_swap.className = '';
+        btn_dm.className = '';
+      }
+      //显示语言切换按钮
+      lang_btn.style.display = 'block';
+      function GetUrlRelativePath(){
+        let url = document.location.toString();
+        let arrUrl = url.split("//");
+        let start = arrUrl[1].indexOf("/");
+        let relUrl = arrUrl[1].substring(start);
+        if(relUrl.indexOf("?") != -1){
+          relUrl = relUrl.split("?")[0];
+        }
+        if(relUrl.indexOf("#") != -1){
+          relUrl = relUrl.split("#")[0];
+        }
+        return relUrl;
+  　　}
+    </script>
   </body>
 </html>
