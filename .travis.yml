@@ -9,6 +9,7 @@ branches:
   only:
     - v1_cn
     - v1_en
+    - future
 
 cache: bundler
 
