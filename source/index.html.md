@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href="/u/api" class="createApi">Create API Key</a>
+  - <a href="https://www.zbg.fun" class="createApi">ZBG Exchange</a>
 
 includes:
 
@@ -2163,6 +2163,82 @@ filled-fees       |	string  |	Transaction fee paid so far
 role        |	string  |	the role in the transaction: taker or maker
 created-at  |	long  |	The timestamp in milliseconds when the match and fill is done
 
+# WebSocket Market Data
+
+## General
+
+**URL**
+
+<code>wss://kline.zbg.com/websocket</code>
+
+
+**Heartbeat and Connection**
+
+When the user's Websocket client is connected to Websocket server, if there is no data push for a long time, the connection may be broken. The client can send ping messages regularly to ensure continuous connection.
+
+    {"action":"PING"}
+
+When the user's Websocket client receives this heartbeat message, it should turnpong message:
+
+    {"dataType":null,"action":"PING","msg":"action not support","code":"5021"}
+
+
+**Subscribe to Topic**
+
+After successfully establishing a connection with the Websocket server, the Websocket client sends the following request to subscribe to a specific topic:
+
+    {"action":"ADD", "dataType":"message topic", "dataSize":1}
+
+- *action*: request action type，ADD:Increase data subscription，DEL:Remove data subscription
+- *dataType*: The data type of the request is detailed in the following sections
+- *dataSize*: Request's quantity, determines the quantity of the first full quantity data, and turns a piece of data if it is not passed or 0.
+
+Example:
+
+    {"action":"ADD", "dataType":"336_ENTRUST_ADD_ZT_USDT", "dataSize":1}
+
+After successful subscription, if it is the first subscription, the Websocket client will receive the full quantity message:
+
+
+    [[
+        "AE",
+        "336",
+        "ZT_USDT",
+        "1569311844",
+        {
+            "asks":[
+                ["0.0485","2000"],
+                ["0.048","32000"],
+                ["0.0478","12584.2001"],
+                ...
+             ]
+        },{
+            "bids":[
+                ["0.0404","45.1537"],
+                ["0.0403","338.0193"],
+                ["0.0401","3831.9868"],
+                ["0.04","2086.9575"],
+                ...
+            ]
+        }
+    ]]
+
+After that, the Websocket client will receive an update pushed by the server as soon as the subscribed topic is updated.
+
+
+    ["E","336","1569311848","ZT_USDT","BID","0.0399","7897.5386"]
+
+
+**Unsubscribe**
+
+The unsubscribe format is as follows：
+
+{"action":"DEL", "dataType":"message topic"}
+
+
+Example:
+
+{"action":"DEL", "dataType":"336_ENTRUST_ADD_ZT_USDT"}
 
 
 ## Market Candlestick
@@ -2475,22 +2551,3 @@ status :  0:created 1:canceled 2: filled 3:partial-filled
 ---------------------------------------------------------------------
 
 <div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
-<script>
-    var ENV = '<%= ENV %>';
-    function getLocalStorage (name) {
-            var local = window.localStorage.getItem(name);
-            try {
-                var result = JSON.parse(decodeURIComponent(local));
-                return result;
-            } catch (e) {
-                return local;
-            }
-    }
-    var userinfo  = getLocalStorage(ENV + 'userInfo')
-    console.log(userinfo)
-    if(!userinfo){
-        $('.createApi').attr("href","/login?path=/u/api");
-        $('#payout').attr("href","/login?path=/u/payout");
-    }
-</script>
-
