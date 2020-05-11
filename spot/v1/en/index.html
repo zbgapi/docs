@@ -411,6 +411,14 @@
                   <li>
                     <a href="#get-the-match-result-of-an-order" class="toc-h2 toc-link" data-title="Get the Match Result of an Order">Get the Match Result of an Order</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#websocket-market-data" class="toc-h1 toc-link" data-title="WebSocket Market Data">WebSocket Market Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#general" class="toc-h2 toc-link" data-title="General">General</a>
+                  </li>
                   <li>
                     <a href="#market-candlestick" class="toc-h2 toc-link" data-title="Market Candlestick">Market Candlestick</a>
                   </li>
@@ -430,7 +438,7 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="/u/api" class="createApi">Create API Key</a></li>
+            <li><a href="https://www.zbg.fun" class="createApi">ZBG Exchange</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -3891,6 +3899,75 @@ In order to prevent users from misoperation, the price of purchase order should 
 <td>The timestamp in milliseconds when the match and fill is done</td>
 </tr>
 </tbody></table>
+<h1 id='websocket-market-data'>WebSocket Market Data</h1><h2 id='general'>General</h2>
+<p><strong>URL</strong></p>
+
+<p><code>wss://kline.zbg.com/websocket</code></p>
+
+<p><strong>Heartbeat and Connection</strong></p>
+
+<p>When the user&#39;s Websocket client is connected to Websocket server, if there is no data push for a long time, the connection may be broken. The client can send ping messages regularly to ensure continuous connection.</p>
+
+<p>{&quot;action&quot;:&quot;PING&quot;}</p>
+
+<p>When the user&#39;s Websocket client receives this heartbeat message, it should turnpong message:</p>
+
+<p>{&quot;dataType&quot;:null,&quot;action&quot;:&quot;PING&quot;,&quot;msg&quot;:&quot;action not support&quot;,&quot;code&quot;:&quot;5021&quot;}</p>
+
+<p><strong>Subscribe to Topic</strong></p>
+
+<p>After successfully establishing a connection with the Websocket server, the Websocket client sends the following request to subscribe to a specific topic:</p>
+
+<p>{&quot;action&quot;:&quot;ADD&quot;, &quot;dataType&quot;:&quot;message topic&quot;, &quot;dataSize&quot;:1}</p>
+
+<ul>
+<li><em>action</em>: request action type，ADD:Increase data subscription，DEL:Remove data subscription</li>
+<li><em>dataType</em>: The data type of the request is detailed in the following sections</li>
+<li><em>dataSize</em>: Request&#39;s quantity, determines the quantity of the first full quantity data, and turns a piece of data if it is not passed or 0.</li>
+</ul>
+
+<p>Example:</p>
+
+<p>{&quot;action&quot;:&quot;ADD&quot;, &quot;dataType&quot;:&quot;336_ENTRUST_ADD_ZT_USDT&quot;, &quot;dataSize&quot;:1}</p>
+
+<p>After successful subscription, if it is the first subscription, the Websocket client will receive the full quantity message:</p>
+
+<p>[[
+        &quot;AE&quot;,
+        &quot;336&quot;,
+        &quot;ZT_USDT&quot;,
+        &quot;1569311844&quot;,
+        {
+            &quot;asks&quot;:[
+                [&quot;0.0485&quot;,&quot;2000&quot;],
+                [&quot;0.048&quot;,&quot;32000&quot;],
+                [&quot;0.0478&quot;,&quot;12584.2001&quot;],
+                ...
+             ]
+        },{
+            &quot;bids&quot;:[
+                [&quot;0.0404&quot;,&quot;45.1537&quot;],
+                [&quot;0.0403&quot;,&quot;338.0193&quot;],
+                [&quot;0.0401&quot;,&quot;3831.9868&quot;],
+                [&quot;0.04&quot;,&quot;2086.9575&quot;],
+                ...
+            ]
+        }
+    ]]</p>
+
+<p>After that, the Websocket client will receive an update pushed by the server as soon as the subscribed topic is updated.</p>
+
+<p>[&quot;E&quot;,&quot;336&quot;,&quot;1569311848&quot;,&quot;ZT_USDT&quot;,&quot;BID&quot;,&quot;0.0399&quot;,&quot;7897.5386&quot;]</p>
+
+<p><strong>Unsubscribe</strong></p>
+
+<p>The unsubscribe format is as follows：</p>
+
+<p>{&quot;action&quot;:&quot;DEL&quot;, &quot;dataType&quot;:&quot;message topic&quot;}</p>
+
+<p>Example:</p>
+
+<p>{&quot;action&quot;:&quot;DEL&quot;, &quot;dataType&quot;:&quot;336_ENTRUST_ADD_ZT_USDT&quot;}</p>
 <h2 id='market-candlestick'>Market Candlestick</h2>
 <p><strong>Topic</strong></p>
 
@@ -4260,25 +4337,6 @@ ALL Market:</p>
 <hr>
 
 <div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
-
-<script>
-    var ENV = '<%= ENV %>';
-    function getLocalStorage (name) {
-            var local = window.localStorage.getItem(name);
-            try {
-                var result = JSON.parse(decodeURIComponent(local));
-                return result;
-            } catch (e) {
-                return local;
-            }
-    }
-    var userinfo  = getLocalStorage(ENV + 'userInfo')
-    console.log(userinfo)
-    if(!userinfo){
-        $('.createApi').attr("href","/login?path=/u/api");
-        $('#payout').attr("href","/login?path=/u/payout");
-    }
-</script>
 
       </div>
       <div class="dark-box">
