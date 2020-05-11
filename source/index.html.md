@@ -2583,21 +2583,3 @@ dataSize 最多100条
 [symbols]:#3f90dca7eb
 
 <div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
-<script>
-    var ENV = '<%= ENV %>';
-    function getLocalStorage (name) {
-            var local = window.localStorage.getItem(name);
-            try {
-                var result = JSON.parse(decodeURIComponent(local));
-                return result;
-            } catch (e) {
-                return local;
-            }
-    }
-    var userinfo  = getLocalStorage(ENV + 'userInfo')
-    console.log(userinfo)
-    if(!userinfo){
-        $('.createApi').attr("href","/login?path=/u/api");
-        $('#payout').attr("href","/login?path=/u/payout");
-    }
-</script>
