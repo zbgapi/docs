@@ -67,11 +67,12 @@ header{
   // This is the logo at the top of the ToC
   .logo {
     display: block;
-    max-width: 100%;
+    width: 230px;
+    margin-left: 30px;
   }
   .nav_box{
     position: relative;
-    margin-left: 56px;
+    margin-left: -56px;
     .nav_cell{
       position: relative;
       .nav_first{
