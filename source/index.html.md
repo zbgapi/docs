@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href="/u/api" class="createApi">创建 API Key</a>
+  - <a href="https://www.zbg.fun/" class="createApi">ZBG Exchange</a>
 
 includes:
 
@@ -2207,7 +2207,7 @@ created-at  |	long  |	发起时间
 
 **心跳消息**
 
-当用户的Websocket客户端连接到火币Websocket服务器后，如果长时间没有数据推可能会导致连接断开。客户端可以定时定时发送ping消息来保证连接不断。
+当用户的Websocket客户端连接到Websocket服务器后，如果长时间没有数据推可能会导致连接断开。客户端可以定时定时发送ping消息来保证连接不断。
 
     {"action":"PING"}
 
