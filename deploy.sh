@@ -21,12 +21,8 @@ Options:
 
 
 run_build() {
-  if [[ $version = dm ]]; then
-    build_dir=$build_directory/dm/v1/$language
-  elif [[ $version = swap ]]; then
-    build_dir=$build_directory/swap/v1/$language
-  elif [[ $version = coin ]]; then
-    build_dir=$build_directory/coin_margined_swap/v1/$language
+  if [[ $version = future ]]; then
+    build_dir=$build_directory/future/v1/$language
   else
     version="v"${version}
     build_dir=$build_directory/spot/$version/$language
