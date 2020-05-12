@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href="https://www.zbg.fun" class="createApi">ZBG Exchange</a>
+  - <a href="https://www.zbg.com" class="createApi">ZBG Exchange</a>
 
 includes:
 
@@ -56,7 +56,7 @@ You can use this API to access the platform's market data, trade, and manage you
 
 The interface path and field naming in this API document fit the industry's mainstream usage,that makes it more easier for programs to switch among the other header exchanges.       
 
-[Previous version](/help/restApi) All the interfaces were covered,but somewhat were inconsistent with the industry's mainstream usage.
+[Previous version](https://www.zbg.com/help/restApi) All the interfaces were covered,but somewhat were inconsistent with the industry's mainstream usage.
 
 You can view code examples in the dark area to the right.
 
@@ -138,7 +138,7 @@ The public interface can be used to obtain configuration information and market 
 
 The private interface can be used for order management and account management.Each private request must be signed using a canonical form of authentication.
 
-The private interface needs to be validated using your API key.You can generate API key <a href="/u/api" class="createApi">here</a>.
+The private interface needs to be validated using your API key.You can generate API key <a href="https://www.zbg.com/login?path=https://www.zbg.com/u/api" class="createApi">here</a>.
 
 
 ## Request Format
