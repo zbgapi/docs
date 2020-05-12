@@ -52,7 +52,7 @@ search: true
 欢迎使用 ZBG API！您可以通过使用此API获取本平台市场行情数据，进行交易，并且管理你的账户。
 
 此API文档接口路径、字段命名贴合行业主流用法，让您的程序从其他主流交易所更容易切换。
-[旧版](/help/restApi)有所有接口demo，但和行业主流用法习惯、接口、字段命名有部分差距。
+[旧版](https://www.zbg.fun/help/restApi)有所有接口demo，但和行业主流用法习惯、接口、字段命名有部分差距。
 
 文档右侧是针对请求参数以及响应结果的示例。
 
@@ -158,7 +158,7 @@ SDK (推荐)
 
 私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。
 
-私有接口需要使用您的API key进行验证。您可以在<a href="/u/api" class="createApi">这里</a>生成API key。
+私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=https://www.zbg.fun/u/api" class="createApi">这里</a>生成API key。
 
 
 
