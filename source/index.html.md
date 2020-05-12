@@ -100,7 +100,7 @@ REST API
 
 私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。
 
-私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=/u/api" class="createApi">这里</a>生成API key。
+私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=https://www.zbg.fun/u/api" class="createApi">这里</a>生成API key。
 
 
 
