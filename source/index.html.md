@@ -1,11 +1,11 @@
 ---
-title: ZBG 合约 API 文档
+title: ZBG Futures API Documentation
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href="https://www.zbg.fun/" class="createApi">ZBG Exchange</a>
+  - <a href="https://www.zbg.com/" class="createApi">ZBG Exchange</a>
 
 includes:
 
