@@ -1,0 +1,3553 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <title>ZBG API 文档</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <header>
+      <div class="flex_box">
+        <img src="images/logo.svg" class="logo" alt="Logo" />
+        <div class="nav_box">
+          <span class="nav_cell" style="display: none">
+            <a href="javascript:;" class="nav_first">v1<i class="icon_nav"></i></a>
+            <ul class="nav_ul">
+              <li>
+                <a href="/docs/spot/v1/en/" id="v1_url">v1</a>
+              </li>
+              <li>
+                <a href="/docs/spot/v2/en/" id="v2_url">v2</a>
+              </li>
+            </ul>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="/docs/spot/v1/en/" id="btn_spot">现货</a>
+          </span>
+          <span class="nav_cell nav_tab">
+            <a href="/docs/future/v1/en/" id="btn_future">合约</a>
+          </span>
+        </div>
+      </div>
+      <a href="/docs/spot/v1/cn/" class="lang" id="lang_box">简体中文</a>
+    </header>
+    <div class="toc-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">json</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#185368440e" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#2020-04-20" class="toc-h2 toc-link" data-title="2020-04-20">2020-04-20</a>
+                  </li>
+                  <li>
+                    <a href="#2020-03-31" class="toc-h2 toc-link" data-title="2020-03-31">2020-03-31</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#5ea2e0cde2" class="toc-h1 toc-link" data-title="简介">简介</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api" class="toc-h2 toc-link" data-title="API简介">API简介</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#2d07d50c97" class="toc-h1 toc-link" data-title="接入说明">接入说明</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#urls" class="toc-h2 toc-link" data-title="接入 URLs">接入 URLs</a>
+                  </li>
+                  <li>
+                    <a href="#5076603a3e" class="toc-h2 toc-link" data-title="接口类型">接口类型</a>
+                  </li>
+                  <li>
+                    <a href="#21d67c3c4c" class="toc-h2 toc-link" data-title="请求格式">请求格式</a>
+                  </li>
+                  <li>
+                    <a href="#dac673286f" class="toc-h2 toc-link" data-title="返回格式">返回格式</a>
+                  </li>
+                  <li>
+                    <a href="#c64cd15fdc" class="toc-h2 toc-link" data-title="签名认证">签名认证</a>
+                  </li>
+                  <li>
+                    <a href="#e08c1d4f9a" class="toc-h2 toc-link" data-title="错误码">错误码</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#41654e0268" class="toc-h1 toc-link" data-title="基础信息">基础信息</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#daedf585f3" class="toc-h2 toc-link" data-title="公共-获取合约列表">公共-获取合约列表</a>
+                  </li>
+                  <li>
+                    <a href="#b22727fec6" class="toc-h2 toc-link" data-title="公共-获取合约可用币种">公共-获取合约可用币种</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#9493d04700" class="toc-h1 toc-link" data-title="合约市场行情">合约市场行情</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#k" class="toc-h2 toc-link" data-title="公共-合约K线数据">公共-合约K线数据</a>
+                  </li>
+                  <li>
+                    <a href="#964054eba1" class="toc-h2 toc-link" data-title="公共-单个合约行情">公共-单个合约行情</a>
+                  </li>
+                  <li>
+                    <a href="#4802b68052" class="toc-h2 toc-link" data-title="公共-所有合约行情">公共-所有合约行情</a>
+                  </li>
+                  <li>
+                    <a href="#470b9cf6ae" class="toc-h2 toc-link" data-title="公共-合约深度">公共-合约深度</a>
+                  </li>
+                  <li>
+                    <a href="#540eaf650b" class="toc-h2 toc-link" data-title="公共-合约历史成交记录">公共-合约历史成交记录</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#5bf19eee5a" class="toc-h1 toc-link" data-title="合约交易">合约交易</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#9dc85ffb46" class="toc-h2 toc-link" data-title="合约下单">合约下单</a>
+                  </li>
+                  <li>
+                    <a href="#68a1fe7812" class="toc-h2 toc-link" data-title="合约撤单">合约撤单</a>
+                  </li>
+                  <li>
+                    <a href="#5538919b9f" class="toc-h2 toc-link" data-title="合约一键撤单">合约一键撤单</a>
+                  </li>
+                  <li>
+                    <a href="#01106676d4" class="toc-h2 toc-link" data-title="合约持仓查询">合约持仓查询</a>
+                  </li>
+                  <li>
+                    <a href="#513eb615d1" class="toc-h2 toc-link" data-title="查询合约当前委托">查询合约当前委托</a>
+                  </li>
+                  <li>
+                    <a href="#23889edae4" class="toc-h2 toc-link" data-title="查询合约历史委托">查询合约历史委托</a>
+                  </li>
+                  <li>
+                    <a href="#97ba66701c" class="toc-h2 toc-link" data-title="查询合约历史强平">查询合约历史强平</a>
+                  </li>
+                  <li>
+                    <a href="#4c8fd7c9eb" class="toc-h2 toc-link" data-title="查询合约历史强减">查询合约历史强减</a>
+                  </li>
+                  <li>
+                    <a href="#bdac9bbb53" class="toc-h2 toc-link" data-title="调整保证金率">调整保证金率</a>
+                  </li>
+                  <li>
+                    <a href="#9e3bc1e664" class="toc-h2 toc-link" data-title="调整保证金">调整保证金</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#683b4a8231" class="toc-h1 toc-link" data-title="合约资产">合约资产</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#f300a78dba" class="toc-h2 toc-link" data-title="查询合约资金流水">查询合约资金流水</a>
+                  </li>
+                  <li>
+                    <a href="#8da397f29a" class="toc-h2 toc-link" data-title="查询合约可用资金">查询合约可用资金</a>
+                  </li>
+                  <li>
+                    <a href="#1b4243a44a" class="toc-h2 toc-link" data-title="查询合约盈亏历史">查询合约盈亏历史</a>
+                  </li>
+                  <li>
+                    <a href="#0d83610961" class="toc-h2 toc-link" data-title="现货-合约资金划转">现货-合约资金划转</a>
+                  </li>
+                  <li>
+                    <a href="#dc5b365f5c" class="toc-h2 toc-link" data-title="现货-合约资金划转历史查询">现货-合约资金划转历史查询</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="https://www.zbg.fun/" class="createApi">ZBG Exchange</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='185368440e'>更新日志</h1><h2 id='2020-04-20'>2020-04-20</h2>
+<p>新增和修改合约下单<a href="#c0b35a1aa9">合约</a>等接口:</p>
+
+<ul>
+<li>新增接口[<a href="#daedf585f3">/exchange/api/v1/future/common/contracts</a>]，查询合约列表</li>
+<li>新增接口[<a href="#b22727fec6">/exchange/api/v1/future/common/currencies</a>]，获取合约可用币种</li>
+<li>新增接口[<a href="#9dc85ffb46">/exchange/api/v1/future/place</a>]，合约下单</li>
+<li>新增接口[<a href="#68a1fe7812">/exchange/api/v1/future/cancel</a>]，合约撤单</li>
+<li>新增接口[<a href="#5538919b9f">/exchange/api/v1/future/cancel-all</a>]，合约一键撤单</li>
+<li>新增接口[<a href="#01106676d4">/exchange/api/v1/future/positions</a>]，合约持仓查询</li>
+<li>新增接口[<a href="#513eb615d1">/exchange/api/v1/future/orders</a>]，查询合约当前委托</li>
+<li>新增接口[<a href="#23889edae4">/exchange/api/v1/future/orders/his</a>]，查询合约历史委托</li>
+<li>新增接口[<a href="#f300a78dba">/exchange/api/v1/future/assets/flow</a>]，查询合约资金流水</li>
+<li>新增接口[<a href="#8da397f29a">/exchange/api/v1/future/assets/available</a>]，查询合约可用资金</li>
+<li>新增接口[<a href="#1b4243a44a">/exchange/api/v1/future/assets/profits</a>]，查询合约盈亏历史</li>
+<li>新增接口[<a href="#1b4243a44a">/exchange/api/v1/future/assets/transfer</a>]，现货-合约资金划转</li>
+<li>新增接口[<a href="#1b4243a44a">/exchange/api/v1/future/assets/transfer-history</a>]，现货-合约资金划转记录</li>
+<li>新增接口[<a href="#bdac9bbb53">/exchange/api/v1/future/adjust-margin-rate</a>]，调整保证金率</li>
+<li>新增接口[<a href="#9e3bc1e664">/exchange/api/v1/future/adjust-margin</a>]，调整保证金</li>
+<li>新增接口[<a href="#4c8fd7c9eb">/exchange/api/v1/future/florders</a>]，查询合约历史强减</li>
+<li>新增接口[<a href="#97ba66701c">/exchange/api/v1/future/fcorders</a>]，查询合约历史强平</li>
+<li>新增接口[<a href="#k-2">/exchange/api/v1/future/market/klines</a>]，合约K线数据</li>
+<li>新增接口[<a href="#964054eba1">/exchange/api/v1/future/market/ticker</a>]，单个合约行情</li>
+<li>新增接口[<a href="#4802b68052">/exchange/api/v1/future/market/tickers</a>]，所有合约行情</li>
+<li>新增接口[<a href="#470b9cf6ae">/exchange/api/v1/future/market/depth</a>]，合约深度</li>
+<li>新增接口[<a href="#540eaf650b">/exchange/api/v1/future/market/trades</a>]，合约历史成交记录</li>
+<li>移除接口[/exchange/api/v1/account/future/auth]</li>
+<li>移除接口[/exchange/api/v1/common/future/symbol]</li>
+<li>移除接口[/exchange/api/v1/common/future/currency]</li>
+<li>移除接口[/exchange/api/v1/common/future/kline]</li>
+<li>移除接口[/exchange/api/v1/common/future/tickers]</li>
+<li>移除接口[ /exchange/api/v1/common/future/ticker]</li>
+<li>移除接口[ /exchange/api/v1/common/future/depth]</li>
+<li>移除接口[ /exchange/api/v1/common/future/trades]</li>
+</ul>
+<h2 id='2020-03-31'>2020-03-31</h2>
+<p>增加<a href="#c0b35a1aa9">合约</a> </p>
+<h1 id='5ea2e0cde2'>简介</h1><h2 id='api'>API简介</h2>
+<p>欢迎使用 ZBG API！您可以通过使用此API获取本平台市场行情数据，进行交易，并且管理你的账户。</p>
+
+<p>此API文档接口路径、字段命名贴合行业主流用法，让您的程序从其他主流交易所更容易切换。
+<a href="/help/restApi">旧版</a>有所有接口demo，但和行业主流用法习惯、接口、字段命名有部分差距。</p>
+
+<p>文档右侧是针对请求参数以及响应结果的示例。</p>
+
+<aside class="notice">
+如果在使用过程中有任何问题，请联系我们技术讨论QQ群：829230107，我们将会为您做出最权威的解答.
+</aside>
+<h1 id='2d07d50c97'>接入说明</h1><h2 id='urls'>接入 URLs</h2>
+<p>REST API</p>
+
+<p><code>https://www.zbg.fun</code></p>
+
+<p>域名有时会存在被墙或延迟高等情况，可暂时使用备用域名:</p>
+
+<ul>
+<li>https://www.zbgpro.com</li>
+<li>https://www.zbgpro.net</li>
+<li>https://www.zbg.kim</li>
+</ul>
+
+<p>Kline API</p>
+
+<p><code>https://kline.zbg.fun</code></p>
+
+<p>备用域名:</p>
+
+<ul>
+<li>https://kline.zbgpro.com</li>
+<li>https://kline.zbgpro.net</li>
+<li>https://kline.zbg.kim</li>
+</ul>
+<h2 id='5076603a3e'>接口类型</h2>
+<p>本章节主要为接口类型的细节分以下两个方面：</p>
+
+<ul>
+<li>公共接口</li>
+<li>私有接口</li>
+</ul>
+
+<p><strong>公共接口</strong></p>
+
+<p>公共接口可用于获取配置信息和行情数据。公共请求无需认证即可调用。</p>
+
+<p><strong>私有接口</strong></p>
+
+<p>私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。</p>
+
+<p>私有接口需要使用您的API key进行验证。您可以在<a href="/u/api" class="createApi">这里</a>生成API key。</p>
+<h2 id='21d67c3c4c'>请求格式</h2>
+<p><strong>所有的API请求都以GET或者POST形式发出。</strong></p>
+
+<p><strong>对于GET请求，所有的参数都在路径参数里；对于POST请求，所有参数则以JSON格式发送在请求主体（body）里。</strong></p>
+<h2 id='dac673286f'>返回格式</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"datas"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="err">接口返回数据主体</span><span class="w">
+</span><span class="s2">"resMsg"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">错误码</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success!"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">提示信息</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>所有的接口返回都是JSON格式。在JSON最上层有几个表示请求状态和属性的字段：&quot;code&quot;, 和 &quot;message&quot;。 实际的接口返回内容在&quot;datas&quot;字段里。返回码为1是表示请求成功，其他为请求失败，详细请参考<a href="#e08c1d4f9a">错误码列表</a></p>
+<h2 id='c64cd15fdc'>签名认证</h2>
+<blockquote>
+<p>java 签名用例如下：</p>
+</blockquote>
+<pre class="highlight java tab-java"><code><span class="kn">package</span> <span class="n">io</span><span class="o">.</span><span class="na">at</span><span class="o">.</span><span class="na">exchange</span><span class="o">.</span><span class="na">base</span><span class="o">.</span><span class="na">util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.alibaba.fastjson.JSON</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.example.kits.coder.DigestKit</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.at.exchange.base.exceptions.BuzException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.slf4j.Slf4j</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.http.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.client.RestTemplate</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.annotation.Resource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Collectors</span><span class="o">;</span>
+
+<span class="cm">/**
+ * @author zhangzp
+ */</span>
+<span class="nd">@Slf4j</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HttpUtil</span> <span class="o">{</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">"${exchange.user.api-id}"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">apiId</span><span class="o">;</span>
+
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">"${exchange.user.api-secret}"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">apiSecret</span><span class="o">;</span>
+
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">"${exchange.user.api-passphrase}"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">apiPassphrase</span><span class="o">;</span>
+
+    <span class="cm">/**
+     * 这里使用Spring自带的Http请求工具，用户也可使用其他开源项目
+     */</span>
+    <span class="nd">@Resource</span>
+    <span class="kd">private</span> <span class="n">RestTemplate</span> <span class="n">restTemplate</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">get</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BuzException</span> <span class="o">{</span>
+        <span class="n">Long</span> <span class="n">time</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">param</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">entrySet</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">isEmpty</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">sorted</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">Entry</span><span class="o">.</span><span class="na">comparingByKey</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">()</span> <span class="o">+</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">""</span><span class="o">));</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="n">extendVariables</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">param</span><span class="o">);</span>
+
+        <span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpHeaders</span><span class="o">();</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apiid"</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">apiId</span><span class="o">);</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Timestamp"</span><span class="o">,</span> <span class="n">time</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+        <span class="n">header</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Passphrase"</span><span class="o">,</span> <span class="n">EncryptUtils</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">time</span> <span class="o">+</span> <span class="n">apiPassphrase</span><span class="o">));</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">,</span> <span class="n">DigestKit</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">apiId</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="n">content</span> <span class="o">+</span> <span class="n">apiSecret</span><span class="o">).</span><span class="na">toLowerCase</span><span class="o">());</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sign ==&gt;"</span> <span class="o">+</span> <span class="n">headers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">));</span>
+        <span class="n">HttpEntity</span><span class="o">&lt;?&gt;</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpEntity</span><span class="o">&lt;&gt;(</span><span class="n">headers</span><span class="o">);</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">()</span> <span class="o">==</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"request url ["</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"] error"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">BuzException</span><span class="o">(</span><span class="s">"1001"</span><span class="o">,</span> <span class="s">"request api error"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="n">String</span> <span class="nf">extendVariables</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">param</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">param</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">url</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="n">param</span><span class="o">.</span><span class="na">entrySet</span><span class="o">().</span><span class="na">stream</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span> <span class="n">e</span><span class="o">.</span><span class="na">getKey</span><span class="o">()</span> <span class="o">+</span> <span class="s">"="</span> <span class="o">+</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="s">""</span> <span class="o">:</span> <span class="n">e</span><span class="o">.</span><span class="na">getValue</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="s">"&amp;"</span><span class="o">));</span>
+        <span class="k">return</span> <span class="n">String</span><span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">url</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'?'</span><span class="o">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="s">"&amp;"</span> <span class="o">:</span> <span class="s">"?"</span><span class="o">,</span> <span class="n">url</span><span class="o">,</span> <span class="n">query</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * 不为空、不为空字符串、不为双引号、不为空{}
+     */</span>
+    <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">(</span><span class="n">String</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">source</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"\"\""</span><span class="o">)</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"{}"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/**
+     * post 请求接口，ContentType 统一都是采用 appliation/json 方式
+     *
+     * @param url   请求接口
+     * @param param 请求参数
+     * @return 返回信息
+     * @throws BuzException 如果请求失败
+     */</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">post</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BuzException</span> <span class="o">{</span>
+        <span class="n">Long</span> <span class="n">time</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">param</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">param</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="n">JSON</span><span class="o">.</span><span class="na">toJSONString</span><span class="o">(</span><span class="n">param</span><span class="o">);</span>
+
+        <span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpHeaders</span><span class="o">();</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="n">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">);</span>
+
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apiid"</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">apiId</span><span class="o">);</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Timestamp"</span><span class="o">,</span> <span class="n">time</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+        <span class="n">header</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Passphrase"</span><span class="o">,</span> <span class="n">EncryptUtils</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">time</span> <span class="o">+</span> <span class="n">apiPassphrase</span><span class="o">));</span>
+        <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">,</span> <span class="n">DigestKit</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">apiId</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="n">content</span> <span class="o">+</span> <span class="n">apiSecret</span><span class="o">).</span><span class="na">toLowerCase</span><span class="o">());</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"sign ==&gt;"</span> <span class="o">+</span> <span class="n">headers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">));</span>
+        <span class="n">HttpEntity</span><span class="o">&lt;?&gt;</span> <span class="n">entity</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpEntity</span><span class="o">&lt;&gt;(</span><span class="n">content</span><span class="o">,</span> <span class="n">headers</span><span class="o">);</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">restTemplate</span><span class="o">.</span><span class="na">exchange</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">HttpMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">,</span> <span class="n">entity</span><span class="o">,</span> <span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">()</span> <span class="o">==</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"request url ["</span> <span class="o">+</span> <span class="n">url</span> <span class="o">+</span> <span class="s">"] error"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">BuzException</span><span class="o">(</span><span class="s">"1001"</span><span class="o">,</span> <span class="s">"request api error"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>md5摘要方法如下：</p>
+</blockquote>
+<pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ALGORITHM_MD5</span> <span class="o">=</span> <span class="s">"MD5"</span><span class="o">;</span>
+
+<span class="cm">/**
+ * md5加密
+ *
+ * @param message 源字符串
+ * @return 加密字符串
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">md5</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">StringKit</span><span class="o">.</span><span class="na">toHex</span><span class="o">(</span><span class="n">messageDigest</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">ALGORITHM_MD5</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="cm">/**
+ * 给字节数组生成摘要
+ *
+ * @param message   字符串
+ * @param algorithm 摘要算法
+ * @return 摘要字节数组
+ */</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="n">String</span> <span class="n">algorithm</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">UTF_8</span><span class="o">),</span> <span class="n">algorithm</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="cm">/**
+ * 给字节数组生成摘要
+ *
+ * @param message   字节码数组
+ * @param algorithm 摘要算法
+ * @return 摘要字节数组
+ */</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">message</span><span class="o">,</span> <span class="n">String</span> <span class="n">algorithm</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">MessageDigest</span> <span class="n">digest</span> <span class="o">=</span> <span class="n">MessageDigest</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">algorithm</span><span class="o">);</span>
+        <span class="n">digest</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">digest</span><span class="o">.</span><span class="na">digest</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchAlgorithmException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">EncryptException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>StringKit.toHex() 方法如下：</p>
+</blockquote>
+<pre class="highlight java tab-java"><code><span class="cm">/**
+ * 首先初始化一个字符数组，用来存放每个16进制字符
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">HEX_DIGITS</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'2'</span><span class="o">,</span> <span class="sc">'3'</span><span class="o">,</span> <span class="sc">'4'</span><span class="o">,</span> <span class="sc">'5'</span><span class="o">,</span> <span class="sc">'6'</span><span class="o">,</span> <span class="sc">'7'</span><span class="o">,</span> <span class="sc">'8'</span><span class="o">,</span> <span class="sc">'9'</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">,</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'C'</span><span class="o">,</span> <span class="sc">'D'</span><span class="o">,</span> <span class="sc">'E'</span><span class="o">,</span> <span class="sc">'F'</span><span class="o">};</span>
+<span class="cm">/**
+ * 转16进制字符串
+ *
+ * @param bytes 字节码数组
+ * @return 16进制字符串
+ */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toHex</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">bytes</span><span class="o">.</span><span class="na">length</span> <span class="o">*</span> <span class="mi">2</span><span class="o">];</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">byte</span> <span class="n">b</span> <span class="o">:</span> <span class="n">bytes</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">HEX_DIGITS</span><span class="o">[</span><span class="n">b</span> <span class="o">&gt;&gt;&gt;</span> <span class="mi">4</span> <span class="o">&amp;</span> <span class="mh">0xf</span><span class="o">];</span>
+        <span class="n">chars</span><span class="o">[</span><span class="n">index</span><span class="o">++]</span> <span class="o">=</span> <span class="n">HEX_DIGITS</span><span class="o">[</span><span class="n">b</span> <span class="o">&amp;</span> <span class="mh">0xf</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">String</span><span class="o">(</span><span class="n">chars</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+<blockquote>
+<p>JS 签名调用用例：</p>
+</blockquote>
+<pre class="highlight javascript"><code><span class="c1">// GET 方法请求签名，以 查询历史订单 接口为例。</span>
+
+<span class="c1">//引入axios模块</span>
+<span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'axios'</span><span class="p">)</span>
+<span class="c1">// 引入MD5模块</span>
+<span class="kr">const</span> <span class="nx">MD5</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'MD5'</span><span class="p">)</span>
+
+<span class="c1">//请求数据</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">symbol</span><span class="p">:</span> <span class="s2">"zt_usdt"</span><span class="p">,</span>
+    <span class="na">side</span><span class="p">:</span> <span class="s2">"buy"</span><span class="p">,</span>
+    <span class="na">page</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">size</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">();</span>
+<span class="c1">//请求头</span>
+<span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// 替换成自己的 api key</span>
+    <span class="na">Clienttype</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="na">Timestamp</span><span class="p">:</span> <span class="nx">timestamp</span><span class="p">,</span>
+    <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+    <span class="c1">// 替换签名中的 passphrase</span>
+    <span class="na">Passphrase</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'passphrase'</span><span class="p">)</span>
+    <span class="c1">// 签名顺序：Apiid+时间戳+请求参数+Apisecret</span>
+    <span class="c1">// 替换签名中的 api key 和 api secret</span>
+    <span class="na">Sign</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="s1">'api key'</span> <span class="o">+</span> <span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">dataStringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'api secret'</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zbgpro.net/exchange/api/v1/order/orders'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+    <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+    <span class="na">timeout</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+    <span class="na">params</span><span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+<span class="c1">//参数内容拼串为所有参数按key值首字母排序后再按key1+value1+key2+value2...的形式拼串</span>
+<span class="kd">function</span> <span class="nx">dataStringify</span><span class="p">(</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">''</span>
+    <span class="nx">keys</span><span class="p">.</span><span class="nx">sort</span><span class="p">()</span>
+    <span class="nx">keys</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">str</span> <span class="o">+=</span> <span class="nx">val</span> <span class="o">+</span> <span class="nx">data</span><span class="p">[</span><span class="nx">val</span><span class="p">]</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="nx">str</span>
+<span class="p">}</span>
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight javascript"><code><span class="c1">// POST 方法请求签名，以 下单 接口为例</span>
+
+<span class="c1">//引入axios模块</span>
+<span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'axios'</span><span class="p">)</span>
+<span class="c1">// 引入MD5模块</span>
+<span class="kr">const</span> <span class="nx">MD5</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'MD5'</span><span class="p">)</span>
+
+<span class="c1">//请求数据</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">symbol</span><span class="p">:</span> <span class="s1">'zt_usdt'</span><span class="p">,</span>
+    <span class="na">side</span><span class="p">:</span> <span class="s1">'buy'</span><span class="p">,</span>
+    <span class="na">amount</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">price</span><span class="p">:</span> <span class="mf">0.038</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">();</span>
+<span class="c1">//请求头</span>
+<span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// 替换成自己的 api key</span>
+    <span class="na">Clienttype</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="na">Timestamp</span><span class="p">:</span> <span class="nx">timestamp</span><span class="p">,</span>
+    <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+    <span class="c1">// 替换签名中的 passphrase</span>
+    <span class="na">Passphrase</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'passphrase'</span><span class="p">)</span>
+    <span class="c1">// 签名顺序：Apiid+时间戳+请求参数+Apisecret</span>
+    <span class="c1">// 替换签名中的 api key 和 api secret</span>
+    <span class="na">Sign</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="s1">'api key'</span> <span class="o">+</span> <span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'api secret'</span><span class="p">)</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zbgpro.net/exchange/api/v1/order/create'</span><span class="p">,</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
+    <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+    <span class="na">timeout</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">data</span>
+<span class="p">};</span>
+
+
+<span class="nx">axios</span><span class="p">(</span><span class="nx">config</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+<p><strong>签名说明</strong></p>
+
+<p>API 请求在通过网络传输的过程中极有可能被篡改，为了确保请求未被更改，除公共接口（基础信息，行情数据）外的私有接口均必须使用您的 API Key 和 API Secret 做签名认证，以校验参数或参数值在传输途中是否发生了更改。</p>
+
+<p>签名接口组成部分：</p>
+
+<ul>
+<li>接口请求地址：如 https://www.zbg.fun/exchange/api/v1/order/orders。</li>
+<li>API 访问密钥（Apiid）：您申请的API Key中的 Access Key，位于Header中。</li>
+<li>API 访问口令(Passphrase) ：创建API Key 时生成的。</li>
+<li>时间戳（Timestamp）：您发出请求的时间的毫秒级时间戳，位于Header中。</li>
+<li>必选和可选参数：每个方法都有一组用于定义 API 调用的必需参数和可选参数。可以在每个方法的说明中查看这些参数及其含义。 </li>
+<li>签名（Sign）：签名计算得出的值，用于确保签名有效和未被篡改，Sign=md5(Apiid+Timestamp+参数内容拼串+apisecret) ，位于Header中。</li>
+</ul>
+
+<p>即请求头都必须包含一下内容：</p>
+
+<p><em>Apiid</em> : 字符串类型的API Key。</p>
+
+<p><em>Timestamp</em> : 发起请求的时间戳。</p>
+
+<p><em>Sign</em> : 签名字符串(请参阅签名)。</p>
+
+<p><em>Passphrase</em> : 您在创建API密钥时指定的passphrase。</p>
+
+<aside class="notice">
+Passphrase 请求头是并非直接使用passphrase请求口令，而使经过 md5(timestamp+Passphrase) 处理的字符串。
+该字段非必填，取决于用户创建API Key时有没有指定该字段。
+</aside>
+
+<p><strong>创建 API Key</strong> </p>
+
+<p>您可以在 <a href="/u/api" class="createApi">这里</a> 创建 API Key。</p>
+
+<p>API Key 包括以下部分</p>
+
+<ul>
+<li>Access Key : API 访问密钥</li>
+<li>Secret Key : 签名认证加密所使用的密钥（仅申请时可见）</li>
+<li>Passphrase : API 访问口令</li>
+</ul>
+
+<aside class="warning">
+这两个密钥与账号安全紧密相关，无论何时都请勿向其它人透露
+</aside>
+
+<p>API Key和SecretKey将由ZBG随机生成和提供，Passphrase将由您提供以确保API访问的安全性。</p>
+
+<p>Passphrase 为选填字段用户可以根据自己的需求选择提不提供该字段，如果填写了改字段，则在访问接口时请求头必须带上，后台会进行校验。</p>
+
+<p><strong>时间戳</strong></p>
+
+<p><code>Timestamp</code>  请求头是毫秒级别的长整型时间戳。</p>
+
+<p>时间戳和服务器时间前后相差60秒以上的请求将被系统视为过期并拒绝。如果您认为服务器和API服务器之间存在较大的时间偏差，那么我们建议您使用<a href="#03482df8b5">获取服务器时间</a>的接口来查询API服务器时间</p>
+
+<p><strong>签名</strong></p>
+
+<p>以查询订单列表为例</p>
+
+<p><code>https://www.zbg.fun/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
+
+<ol>
+<li>按照ASCII码的顺序对参数(key)进行排序，例如上面的请求排序后</li>
+</ol>
+
+<p><code>from=1</code></p>
+
+<p><code>side=buy</code></p>
+
+<p><code>size=100</code></p>
+
+<p><code>symbol=zt_usdt</code></p>
+
+<ol>
+<li>按照上面的顺序拼接字符串</li>
+</ol>
+
+<p><code>from1sizebuysize100sumbolzt_usdt</code></p>
+
+<ol>
+<li>利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)</li>
+</ol>
+
+<p><code>5fcbdb0862e10f9f6b885fdde42d58a1</code></p>
+
+<ol>
+<li>将生成的数字签名、App key、时间戳等字段加入Header</li>
+</ol>
+
+<p><code>header.put("Apiid",id);</code></p>
+
+<p><code>header.put("Timestamp", String.valueOf(timestamp));</code></p>
+
+<p><code>header.put("Passphrase", md5(timestamp + passphrase));</code></p>
+
+<p><code>header.put("Sign", "5fcbdb0862e10f9f6b885fdde42d58a1"</code></p>
+
+<aside class="warning">
+Post 请求下 Body 方式 application/json 的情况略有差异。这种情况下没有1、2步骤，直接将body转成json字符串当成签名字符串进入第3步。
+</aside>
+<h2 id='e08c1d4f9a'>错误码</h2>
+<table><thead>
+<tr>
+<th>错误码</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>请求成功</td>
+</tr>
+<tr>
+<td>6000</td>
+<td>参数缺失</td>
+</tr>
+<tr>
+<td>6001</td>
+<td>一般错误提示</td>
+</tr>
+<tr>
+<td>6010</td>
+<td>找不到市场</td>
+</tr>
+<tr>
+<td>6011</td>
+<td>你已开启谷歌登录验证，本次登录需要您的谷歌验证码</td>
+</tr>
+<tr>
+<td>6012</td>
+<td>未知操作类型!</td>
+</tr>
+<tr>
+<td>6013</td>
+<td>您没有进行手机认证和Google认证，暂时不能进行充值/提现业务，为了您的账号安全，请进行手机认证或Google认证。</td>
+</tr>
+<tr>
+<td>6014</td>
+<td>短信验证码错误，请重新获取</td>
+</tr>
+<tr>
+<td>6019</td>
+<td>您的地址请求频繁，请一小时后重试</td>
+</tr>
+<tr>
+<td>6020</td>
+<td>网络异常，请稍后重试</td>
+</tr>
+<tr>
+<td>6021</td>
+<td>限制提币操作</td>
+</tr>
+<tr>
+<td>6033</td>
+<td>请输入正确的谷歌验证码</td>
+</tr>
+<tr>
+<td>6040</td>
+<td>该账户已冻结，暂时不能操作</td>
+</tr>
+<tr>
+<td>6041</td>
+<td>该账户不是主账户，暂时不能操作</td>
+</tr>
+<tr>
+<td>6043</td>
+<td>用户已经被列入登录黑名单不能进行登录</td>
+</tr>
+<tr>
+<td>6096</td>
+<td>无效的参数</td>
+</tr>
+<tr>
+<td>6097</td>
+<td>请求过于频繁</td>
+</tr>
+<tr>
+<td>6098</td>
+<td>用户已经被列入交易黑名单不能进行交易</td>
+</tr>
+<tr>
+<td>6115</td>
+<td>提交提币申请失败！</td>
+</tr>
+<tr>
+<td>6125</td>
+<td>无效的货币类型！</td>
+</tr>
+<tr>
+<td>6133</td>
+<td>提现地址不合法！</td>
+</tr>
+<tr>
+<td>6150</td>
+<td>单次提现超出或低于限额</td>
+</tr>
+<tr>
+<td>6151</td>
+<td>当天提现超出限额</td>
+</tr>
+<tr>
+<td>6152</td>
+<td>提现超出用户限额</td>
+</tr>
+<tr>
+<td>6153</td>
+<td>资金不足</td>
+</tr>
+<tr>
+<td>6154</td>
+<td>此记录不需要重新发起提币</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>委托信息不存在或系统正在处理！</td>
+</tr>
+<tr>
+<td>6400</td>
+<td>当前市场未到开盘时间</td>
+</tr>
+<tr>
+<td>6402</td>
+<td>您的下单量超出最大限制</td>
+</tr>
+<tr>
+<td>6403</td>
+<td>您的下单单价超出限制</td>
+</tr>
+<tr>
+<td>6603</td>
+<td>当前币种禁止充值</td>
+</tr>
+<tr>
+<td>6894</td>
+<td>时间过长，API签名已失效</td>
+</tr>
+<tr>
+<td>6895</td>
+<td>校验API权限失败，接口不属于授权API</td>
+</tr>
+<tr>
+<td>6896</td>
+<td>校验API权限失败,Userid和Apiid不匹配</td>
+</tr>
+<tr>
+<td>6897</td>
+<td>校验API权限失败，请确认是否开启Api权限</td>
+</tr>
+<tr>
+<td>6898</td>
+<td>多次校验API权限失败，请确认是否开启Api权限</td>
+</tr>
+<tr>
+<td>6899</td>
+<td>该市场现暂不对外开放api交易</td>
+</tr>
+<tr>
+<td>6900</td>
+<td>交易所现暂不对外开放api交易</td>
+</tr>
+<tr>
+<td>6991</td>
+<td>价格精度错误，价格小数位最多%s位</td>
+</tr>
+<tr>
+<td>6992</td>
+<td>订单数量精度错误，订单数量小数位最多%s位</td>
+</tr>
+<tr>
+<td>6999</td>
+<td>拒绝访问</td>
+</tr>
+</tbody></table>
+<h1 id='41654e0268'>基础信息</h1><h2 id='daedf585f3'>公共-获取合约列表</h2>
+<p>此接口获取ZBG平台支持的所有合约。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/common/contracts</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"XRP_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lotSize"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">1000010</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"takerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000750000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityId"</span><span class="p">:</span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000250000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"priceTick"</span><span class="p">:</span><span class="s2">"0.000100000000000000"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"BCH_USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lotSize"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">1000011</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"takerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000750000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityId"</span><span class="p">:</span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000250000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"priceTick"</span><span class="p">:</span><span class="s2">"0.050000000000000000"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contractId</td>
+<td>int</td>
+<td>合约ID</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>commodityId</td>
+<td>int</td>
+<td>商品币种ID</td>
+</tr>
+<tr>
+<td>currencyId</td>
+<td>int</td>
+<td>货币币种ID</td>
+</tr>
+<tr>
+<td>lotSize</td>
+<td>string</td>
+<td>最小交易单位</td>
+</tr>
+<tr>
+<td>priceTick</td>
+<td>string</td>
+<td>最小报价单位</td>
+</tr>
+<tr>
+<td>makerFeeRatio</td>
+<td>string</td>
+<td>maker 手续费率</td>
+</tr>
+<tr>
+<td>takerFeeRatio</td>
+<td>string</td>
+<td>taker 手续费率</td>
+</tr>
+</tbody></table>
+<h2 id='b22727fec6'>公共-获取合约可用币种</h2>
+<p>此接口获取ZBG平台支持的合约币种列表。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/common/currencies</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"displayPrecision"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="s2">"CUSD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"displayPrecision"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyId</td>
+<td>string</td>
+<td>合约方币种id</td>
+</tr>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>币种名称</td>
+</tr>
+<tr>
+<td>displayPrecision</td>
+<td>int</td>
+<td>显示位数</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>int</td>
+<td>是否可充提，1:可用，0:不可用</td>
+</tr>
+</tbody></table>
+<h1 id='9493d04700'>合约市场行情</h1><h2 id='k'>公共-合约K线数据</h2>
+<p>此接口返回历史K线数据。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/market/klines</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>range</td>
+<td>string</td>
+<td>true</td>
+<td>K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>false</td>
+<td>时间，与Kline 返回时间位数一致</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1581325200000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9893.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9893.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9775"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9833"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"8249154"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="w">
+            </span><span class="mi">1581328800000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9833.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9864.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9820.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"9844.5"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"4166873"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>lines数据结构：List<List>
+如：</p>
+
+<p>[
+        [${时间}, ${开市价格}, ${最高价格}, ${最低价格}, ${闭市价格}, ${成交量}]
+    ]</p>
+<h2 id='964054eba1'>公共-单个合约行情</h2>
+<p>此接口获取单个合约的行情快照。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/market/ticker</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易对</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"mt"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ai"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ci"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sb"</span><span class="p">:</span><span class="s2">"BTC_ZUSD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"td"</span><span class="p">:</span><span class="mi">20200410</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"te"</span><span class="p">:</span><span class="mi">1586505026969341</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lp"</span><span class="p">:</span><span class="s2">"6933"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mq"</span><span class="p">:</span><span class="s2">"116"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nt"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"op"</span><span class="p">:</span><span class="s2">"7282.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ph"</span><span class="p">:</span><span class="s2">"7315.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pl"</span><span class="p">:</span><span class="s2">"6872"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hph"</span><span class="p">:</span><span class="s2">"13968.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"hpl"</span><span class="p">:</span><span class="s2">"86"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tt"</span><span class="p">:</span><span class="s2">"555812827.765"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tv"</span><span class="p">:</span><span class="s2">"7780374"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tbv"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tav"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pp"</span><span class="p">:</span><span class="s2">"7282"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cp"</span><span class="p">:</span><span class="s2">"6934.03752"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pv"</span><span class="p">:</span><span class="s2">"8096351"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pcr"</span><span class="p">:</span><span class="s2">"-0.047991761071060762"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pc"</span><span class="p">:</span><span class="s2">"-349.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lui"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cs"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dp"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fr"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pfr"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pi"</span><span class="p">:</span><span class="s2">"-0.000221735171689697"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ppi"</span><span class="p">:</span><span class="s2">"-0.000157435804943317"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fb"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ts"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sl"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ip"</span><span class="p">:</span><span class="s2">"6934.03752"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"w24pc"</span><span class="p">:</span><span class="s2">"-391.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"w24pcr"</span><span class="p">:</span><span class="s2">"-0.053450747491296334"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">[</span><span class="s2">"6932.5"</span><span class="p">,</span><span class="s2">"4556"</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="s2">"6932"</span><span class="p">,</span><span class="w"> </span><span class="s2">"14112"</span><span class="p">],</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">[</span><span class="s2">"6933"</span><span class="p">,</span><span class="w"> </span><span class="s2">"15421"</span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="s2">"6933.5"</span><span class="p">,</span><span class="s2">"13339"</span><span class="p">],</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>mt</td>
+<td>number</td>
+<td>消息类型：messageType</td>
+</tr>
+<tr>
+<td>ai</td>
+<td>number</td>
+<td>应用ID：applId</td>
+</tr>
+<tr>
+<td>ci</td>
+<td>number</td>
+<td>合约ID：contractId</td>
+</tr>
+<tr>
+<td>sb</td>
+<td>string</td>
+<td>合约名称：symbol</td>
+</tr>
+<tr>
+<td>td</td>
+<td>number</td>
+<td>交易日期：tradeDate</td>
+</tr>
+<tr>
+<td>te</td>
+<td>number</td>
+<td>交易时间：time</td>
+</tr>
+<tr>
+<td>lp</td>
+<td>string</td>
+<td>最新价格：lastPrice</td>
+</tr>
+<tr>
+<td>mq</td>
+<td>string</td>
+<td>成交量：matchQty</td>
+</tr>
+<tr>
+<td>nt</td>
+<td>number</td>
+<td>成交比数：numTrades</td>
+</tr>
+<tr>
+<td>op</td>
+<td>string</td>
+<td>开盘价：openPrice</td>
+</tr>
+<tr>
+<td>ph</td>
+<td>string</td>
+<td>最高价：priceHigh</td>
+</tr>
+<tr>
+<td>pl</td>
+<td>string</td>
+<td>最低价：priceLow</td>
+</tr>
+<tr>
+<td>hph</td>
+<td>string</td>
+<td>历史最高价：historyPriceHigh</td>
+</tr>
+<tr>
+<td>hpl</td>
+<td>string</td>
+<td>历史最低价：historyPriceLow</td>
+</tr>
+<tr>
+<td>tt</td>
+<td>string</td>
+<td>当日成交额：totalTurnover</td>
+</tr>
+<tr>
+<td>tv</td>
+<td>string</td>
+<td>当日成交量：totalVolume</td>
+</tr>
+<tr>
+<td>tbv</td>
+<td>string</td>
+<td>买总委托数：totalBidVol</td>
+</tr>
+<tr>
+<td>tav</td>
+<td>string</td>
+<td>卖总委托数：totalAskVol</td>
+</tr>
+<tr>
+<td>pp</td>
+<td>string</td>
+<td>上一交易日收盘价：prevPrice</td>
+</tr>
+<tr>
+<td>cp</td>
+<td>string</td>
+<td>标记价格，结算价：clearPrice</td>
+</tr>
+<tr>
+<td>pv</td>
+<td>string</td>
+<td>总持仓量：posiVol</td>
+</tr>
+<tr>
+<td>pcr</td>
+<td>string</td>
+<td>当日涨跌幅度：priceChangeRadio</td>
+</tr>
+<tr>
+<td>pc</td>
+<td>string</td>
+<td>当日涨跌：priceChange</td>
+</tr>
+<tr>
+<td>lui</td>
+<td>number</td>
+<td>行情序号：lastUpdateId</td>
+</tr>
+<tr>
+<td>cs</td>
+<td>number</td>
+<td>交易对状态：contractStatus</td>
+</tr>
+<tr>
+<td>dp</td>
+<td>string</td>
+<td>交割价格：deliveryPrice</td>
+</tr>
+<tr>
+<td>fr</td>
+<td>null</td>
+<td>资金费率：fundingRate</td>
+</tr>
+<tr>
+<td>pfr</td>
+<td>null</td>
+<td>预测资金费率：predictionFundingRate</td>
+</tr>
+<tr>
+<td>pi</td>
+<td>null</td>
+<td>溢价指数：premiumIndex</td>
+</tr>
+<tr>
+<td>ppi</td>
+<td>null</td>
+<td>预溢价指数：predictionPremiumIndex</td>
+</tr>
+<tr>
+<td>fb</td>
+<td>string</td>
+<td>合理基差：fairBasis</td>
+</tr>
+<tr>
+<td>ts</td>
+<td>number</td>
+<td>交易信号，1=买，2=卖：tradingsignal</td>
+</tr>
+<tr>
+<td>sl</td>
+<td>number</td>
+<td>1~100,交易信号强度 ：signalLevel</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>string</td>
+<td>标的指数价格：indexPrice</td>
+</tr>
+<tr>
+<td>bids</td>
+<td>string[]</td>
+<td>买档位</td>
+</tr>
+<tr>
+<td>asks</td>
+<td>string[]</td>
+<td>卖档位</td>
+</tr>
+</tbody></table>
+
+<p>bids与asks结构：List<List>
+如</p>
+
+<p>[
+        [${价格}, ${数量}]
+    ]</p>
+
+<p><br/></p>
+<h2 id='4802b68052'>公共-所有合约行情</h2>
+<p>获得所有合约的行情快照</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/market/tickers</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>"datas":[
+    {}
+]
+</code></pre>
+<p>返回一个list，子项具体各字段含义，请参考<a href="#964054eba1">单个合约行情</a>接口</p>
+<h2 id='470b9cf6ae'>公共-合约深度</h2>
+<p>此接口返回指定合约的当前深度数据。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/market/depth</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>size</td>
+<td>integer</td>
+<td>true</td>
+<td>档位数，默认20</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9034"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"1889"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9033.5"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"3126"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9033"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"11536"</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"asks"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9043.5"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"8332"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9044"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"16162"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"9044.5"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"10041"</span><span class="w">
+            </span><span class="p">]</span><span class="w">        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1588754025882</span><span class="w">
+    </span><span class="p">}</span><span class="w">   
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>asks</td>
+<td>list</td>
+<td>卖盘列表，按卖价顺序</td>
+</tr>
+<tr>
+<td>bids</td>
+<td>list</td>
+<td>买盘列表，按买价倒序</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>请求时的时间戳，毫秒级别</td>
+</tr>
+</tbody></table>
+<h2 id='540eaf650b'>公共-合约历史成交记录</h2>
+<p>此接口返回指定交易对最新的交易记录。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/market/trades</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>true</td>
+<td>交易对</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<p>trades的结构为：List<List>
+如：</p>
+
+<p>[
+        [${时间戳}, ${成交价格}, ${成交数量}, ${方向}]
+    ]</p>
+
+<p>见如下用例</p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">[</span><span class="mi">1586504611360280</span><span class="p">,</span><span class="w"> </span><span class="s2">"6921.5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="mi">1586504615863710</span><span class="p">,</span><span class="w"> </span><span class="s2">"6920.5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"79"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+        </span><span class="p">[</span><span class="mi">1586504620979503</span><span class="p">,</span><span class="w"> </span><span class="s2">"6920.5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
+    </span><span class="err">......</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h1 id='5bf19eee5a'>合约交易</h1><h2 id='9dc85ffb46'>合约下单</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/place</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>必须</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>integer</td>
+<td>必须</td>
+<td>买1，卖-1</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>非必须</td>
+<td>order_type等于3（市价）时非必填</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>string</td>
+<td>必须</td>
+<td>下单量</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>integer</td>
+<td>必须</td>
+<td>1（限价），3（市价）</td>
+</tr>
+<tr>
+<td>positionEffect</td>
+<td>number</td>
+<td>必须</td>
+<td>开仓1，平仓2</td>
+</tr>
+<tr>
+<td>marginType</td>
+<td>number</td>
+<td>必须</td>
+<td>全仓1，逐仓2</td>
+</tr>
+<tr>
+<td>marginRate</td>
+<td>string</td>
+<td>必须</td>
+<td>全仓时0，逐仓时&gt;=0，保证金率</td>
+</tr>
+<tr>
+<td>orderSubType</td>
+<td>integer</td>
+<td>非必须</td>
+<td>0（默认值），1（被动委托），2（最近价触发条件委托），<br/>3（指数触发条件委托），4（标记价触发条件委托）</td>
+</tr>
+<tr>
+<td>stopPrice</td>
+<td>string</td>
+<td>非必须</td>
+<td>触发价格</td>
+</tr>
+<tr>
+<td>stopCondition</td>
+<td>integer</td>
+<td>非必须</td>
+<td>0：默认，2：止损</td>
+</tr>
+<tr>
+<td>minimalQuantity</td>
+<td>string</td>
+<td>非必须</td>
+<td>止损点位</td>
+</tr>
+</tbody></table>
+
+<p>备注：</p>
+
+<p>已实现订单类型：<br/>
+被动委托：<br/>
+order_sub_type: 1</p>
+
+<p>条件委托：<br/>
+order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
+stop_price: 触发价格</p>
+
+<p>追踪止损：<br/>
+order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
+minimal_quantity：止损点位<br/>
+stop_condition: 2（止损）</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="s2">"11585489047547210"</span><span class="w">
+</span></code></pre>
+<p>正常时为order_id</p>
+<h2 id='68a1fe7812'>合约撤单</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/cancel</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>必须</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>String</td>
+<td>必须</td>
+<td>合约订单号</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<p>无</p>
+<h2 id='5538919b9f'>合约一键撤单</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/cancel-all</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<p>无</p>
+
+<p><br/></p>
+<h2 id='01106676d4'>合约持仓查询</h2>
+<p>持仓量 &gt; 0 表示 多头，持仓量 &lt;0 表示空头</p>
+
+<p>contract_side ：正向合约和反向合约</p>
+
+<p>价值= 持仓量 * 最新价 * ContractUnit</p>
+
+<p>开仓价格 = 开仓金额/(持仓量*ContractUnit)</p>
+
+<p>标记价格： 行情获取</p>
+
+<p>强平价格：</p>
+
+<p>正向合约多头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+
+<p>正向合约空头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+
+<p>反向合约多头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+
+<p>反向合约空头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+
+<p>保证金： 初始保证金</p>
+
+<p>倍数： 1/初始保证率</p>
+
+<p>正向合约：</p>
+
+<p>多头时未实现盈亏=持仓量 <em>（最新价-开仓价）</em> ContractUnit； </p>
+
+<p>空头时未实现盈亏=持仓量 <em>（开仓价-最新价）</em> ContractUnit；</p>
+
+<p>反向合约：</p>
+
+<p>空头时未实现盈亏=持仓量 <em>（最新价-开仓价）</em> ContractUnit；</p>
+
+<p>多头时未实现盈亏=持仓量 <em>（开仓价-最新价）</em> ContractUnit；</p>
+
+<p>回报率：盈亏／ 价值</p>
+
+<p>减仓队列： 通过强减队列查询</p>
+
+<p>操作列： 当posiStatus为2时，不能平仓和市价全平</p>
+
+<p>已平仓仓位： 已实现盈亏，取值 closeProfitLoss</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/positions</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"posiQty"</span><span class="p">:</span><span class="s2">"-100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"openAmt"</span><span class="p">:</span><span class="s2">"7296.7444444444444444"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initMargin"</span><span class="p">:</span><span class="s2">"72.967444444444444444"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"posiStatus"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closeProfitLoss"</span><span class="p">:</span><span class="s2">"17.75555555555555554"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initMarginRate"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"maintainMarginRate"</span><span class="p">:</span><span class="s2">"0.005"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenCloseQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenOpenQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extraMargin"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contractId</td>
+<td>integer</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>posiQty</td>
+<td>string</td>
+<td>持仓量</td>
+</tr>
+<tr>
+<td>openAmt</td>
+<td>string</td>
+<td>开仓金额</td>
+</tr>
+<tr>
+<td>initMargin</td>
+<td>string</td>
+<td>初始保证金</td>
+</tr>
+<tr>
+<td>posiStatus</td>
+<td>number</td>
+<td>1正常，2等待强平</td>
+</tr>
+<tr>
+<td>marginType</td>
+<td>integer</td>
+<td>保证金类型，1全仓2逐仓</td>
+</tr>
+<tr>
+<td>closeProfitLoss</td>
+<td>string</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>initMargiRate</td>
+<td>string</td>
+<td>初始保证率</td>
+</tr>
+<tr>
+<td>maintainMarginRate</td>
+<td>string</td>
+<td>维持保证金</td>
+</tr>
+<tr>
+<td>frozenCloseQty</td>
+<td>string</td>
+<td>平仓委托冻结量</td>
+</tr>
+<tr>
+<td>frozenOpenQty</td>
+<td>string</td>
+<td>开仓委托冻结量</td>
+</tr>
+<tr>
+<td>contractUnit</td>
+<td>string</td>
+<td>合约单位</td>
+</tr>
+</tbody></table>
+<h2 id='513eb615d1'>查询合约当前委托</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/orders</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"applId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrderId"</span><span class="p">:</span><span class="s2">"9a9d444c6aa54eada3cbd5d42b2718b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderPrice"</span><span class="p">:</span><span class="s2">"7260"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderQty"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderId"</span><span class="p">:</span><span class="s2">"11585489048447590"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderTime"</span><span class="p">:</span><span class="mi">1586485163425147</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderStatus"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchAmt"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cancelQty"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchTime"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feeRate"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"markPrice"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"avgPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"positionEffect"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initMarginRate"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fcOrderId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSubType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stopCondition"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minimalQuantity"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contractId</td>
+<td>number</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>orderId</td>
+<td>string</td>
+<td>委托号</td>
+</tr>
+<tr>
+<td>clOrderId</td>
+<td>string</td>
+<td>客户订单编号</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>委托价格</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>string</td>
+<td>委托数量</td>
+</tr>
+<tr>
+<td>leftQuantity</td>
+<td>string</td>
+<td>剩余数量</td>
+</tr>
+<tr>
+<td>side</td>
+<td>number</td>
+<td>买卖方向，1买，-1卖</td>
+</tr>
+<tr>
+<td>placeTimestamp</td>
+<td>number</td>
+<td>委托时间</td>
+</tr>
+<tr>
+<td>cancelQty</td>
+<td>string</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>matchAmt</td>
+<td>string</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>positionEffect</td>
+<td>integer</td>
+<td>开平标志，1开仓2平仓</td>
+</tr>
+<tr>
+<td>marginType</td>
+<td>integer</td>
+<td>保证金类型，1全仓2逐仓</td>
+</tr>
+<tr>
+<td>fcOrderId</td>
+<td>string</td>
+<td>强平委托号，空时为强平委托</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>integer</td>
+<td>委托类型（1：限价，2：市价）</td>
+</tr>
+<tr>
+<td>stopPrice</td>
+<td>string</td>
+<td>条件单触发价</td>
+</tr>
+<tr>
+<td>orderSubType</td>
+<td>string</td>
+<td>订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托</td>
+</tr>
+<tr>
+<td>stopCondition</td>
+<td>integer</td>
+<td>0：默认，2：止损</td>
+</tr>
+<tr>
+<td>minimalQuantity</td>
+<td>string</td>
+<td>止损点位</td>
+</tr>
+</tbody></table>
+<h2 id='23889edae4'>查询合约历史委托</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/orders/his</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>必须</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>-1:上一页，1：下一页</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>否</td>
+<td>微秒级别</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认100</td>
+</tr>
+</tbody></table>
+
+<p>备注<br/>
+用户选择了查询时间条件时：<br/>
+每次用户选择上一页，下一页时，timestamp需有值<br/></p>
+
+<p>上一页：<br/>
+   timestamp= 当前页第一条数据的timestamp<br/>
+下一页：<br/>
+   timestamp= 当前页最后一条数据的timestamp<br/></p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"applId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mi">1586485163425147</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uuid"</span><span class="p">:</span><span class="s2">"11585489048447590"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">"7260"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderSubType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeInForce"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"minimalQuantity"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stopPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stopCondition"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderStatus"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"takerFeeRatio"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clOrderId"</span><span class="p">:</span><span class="s2">"9a9d444c6aa54eada3cbd5d42b2718b6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filledCurrency"</span><span class="p">:</span><span class="s2">"7260"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filledQuantity"</span><span class="p">:</span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"canceledQuantity"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchTime"</span><span class="p">:</span><span class="mi">1586485266453913</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"positionEffect"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"marginRate"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fcOrderId"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"deltaPrice"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenPrice"</span><span class="p">:</span><span class="s2">"7260"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>applId</td>
+<td>number</td>
+<td>2：期货</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>number</td>
+<td>下单时间戳，微秒级别</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>用户合约ID</td>
+</tr>
+<tr>
+<td>contractId</td>
+<td>number</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>string</td>
+<td>唯一标志符</td>
+</tr>
+<tr>
+<td>side</td>
+<td>number</td>
+<td>买卖方向，1买，-1卖</td>
+</tr>
+<tr>
+<td>price</td>
+<td>string</td>
+<td>委托价格</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>string</td>
+<td>委托数量</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>number</td>
+<td>委托类型（1：限价，2：市价）</td>
+</tr>
+<tr>
+<td>orderSubType</td>
+<td>number</td>
+<td>订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托</td>
+</tr>
+<tr>
+<td>timeInForce</td>
+<td>number</td>
+<td>订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用</td>
+</tr>
+<tr>
+<td>minimalQuantity</td>
+<td>string</td>
+<td>止损点位</td>
+</tr>
+<tr>
+<td>stopPrice</td>
+<td>string</td>
+<td>条件单触发价</td>
+</tr>
+<tr>
+<td>stopCondition</td>
+<td>number</td>
+<td>止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）</td>
+</tr>
+<tr>
+<td>orderStatus</td>
+<td>number</td>
+<td>委托状态</td>
+</tr>
+<tr>
+<td>makerFeeRatio</td>
+<td>string</td>
+<td>Maker手续费率</td>
+</tr>
+<tr>
+<td>takerFeeRatio</td>
+<td>string</td>
+<td>Taker手续费率</td>
+</tr>
+<tr>
+<td>clOrderId</td>
+<td>string</td>
+<td>客户订单编号</td>
+</tr>
+<tr>
+<td>filledCurrency</td>
+<td>string</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>filledQuantity</td>
+<td>string</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>canceledQuantity</td>
+<td>string</td>
+<td>取消数量</td>
+</tr>
+<tr>
+<td>matchTime</td>
+<td>number</td>
+<td>撮合时间戳</td>
+</tr>
+<tr>
+<td>positionEffect</td>
+<td>number</td>
+<td>开平标志，1：开仓，2：平仓</td>
+</tr>
+<tr>
+<td>marginType</td>
+<td>number</td>
+<td>保证金类型，1全仓，2逐仓</td>
+</tr>
+<tr>
+<td>marginRate</td>
+<td>string</td>
+<td>保证金率，全仓时0，逐仓时&gt;=0，</td>
+</tr>
+<tr>
+<td>fcOrderId</td>
+<td>string</td>
+<td>强平委托号，非空时为强平委托</td>
+</tr>
+<tr>
+<td>deltaPrice</td>
+<td>string</td>
+<td>标记价与委托价之差</td>
+</tr>
+<tr>
+<td>frozenPrice</td>
+<td>string</td>
+<td>资金计算价格</td>
+</tr>
+</tbody></table>
+
+<p>orderStatus委托状态：</p>
+
+<table><thead>
+<tr>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>0</td>
+<td>未申报</td>
+</tr>
+<tr>
+<td>1</td>
+<td>正在申报</td>
+</tr>
+<tr>
+<td>2</td>
+<td>已申报未成交</td>
+</tr>
+<tr>
+<td>3</td>
+<td>部分成交</td>
+</tr>
+<tr>
+<td>4</td>
+<td>全部成交</td>
+</tr>
+<tr>
+<td>5</td>
+<td>部分撤单</td>
+</tr>
+<tr>
+<td>6</td>
+<td>全部撤单</td>
+</tr>
+<tr>
+<td>7</td>
+<td>撤单中</td>
+</tr>
+<tr>
+<td>8</td>
+<td>失效</td>
+</tr>
+<tr>
+<td>11</td>
+<td>缓存高于条件的委托</td>
+</tr>
+<tr>
+<td>12</td>
+<td>缓存低于条件的委托</td>
+</tr>
+</tbody></table>
+<h2 id='97ba66701c'>查询合约历史强平</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/fcorders</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>否</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>买卖方向 1:买，-1:卖</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间,毫秒</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间,毫秒</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>int</td>
+<td>否</td>
+<td>当前页：默认：1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认10</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>totalRow</td>
+<td>number</td>
+<td>总记录数</td>
+</tr>
+<tr>
+<td>totalPage</td>
+<td>number</td>
+<td>总页数</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>number</td>
+<td>每页返回数</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>number</td>
+<td>当前页</td>
+</tr>
+<tr>
+<td>list</td>
+<td>object []</td>
+<td></td>
+</tr>
+<tr>
+<td>├─timestamp</td>
+<td>number</td>
+<td>委托时间</td>
+</tr>
+<tr>
+<td>├─userId</td>
+<td>number</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>├─contractId</td>
+<td>number</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>├─uuid</td>
+<td>string</td>
+<td>委托编号</td>
+</tr>
+<tr>
+<td>├─applId</td>
+<td>number</td>
+<td>应用标识</td>
+</tr>
+<tr>
+<td>├─side</td>
+<td>number</td>
+<td>买卖方向</td>
+</tr>
+<tr>
+<td>├─bankruptcyPrice</td>
+<td>number</td>
+<td>破产价格</td>
+</tr>
+<tr>
+<td>├─closeQty</td>
+<td>number</td>
+<td>委托量</td>
+</tr>
+<tr>
+<td>├─filledCurrency</td>
+<td>number</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>├─filledQuantity</td>
+<td>number</td>
+<td>成交量</td>
+</tr>
+<tr>
+<td>├─canceledQuantity</td>
+<td>number</td>
+<td>撤单数量</td>
+</tr>
+<tr>
+<td>├─orderStatus</td>
+<td>number</td>
+<td>委托状态</td>
+</tr>
+<tr>
+<td>├─feeRatio</td>
+<td>number</td>
+<td>手续费</td>
+</tr>
+<tr>
+<td>├─marginType</td>
+<td>number</td>
+<td>保证金类型</td>
+</tr>
+</tbody></table>
+
+<p>orderStatus
+    0: 未申报；1:正在申报；2:已申报未成交；3:部分成交；4:全部成交；5部分撤单；6:全部撤单；7:撤单中；8:失效</p>
+<h2 id='4c8fd7c9eb'>查询合约历史强减</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/florders</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>否</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>买卖方向 1:买，-1:卖</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间,毫秒</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间,毫秒</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>int</td>
+<td>否</td>
+<td>当前页：默认：1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认10</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>totalRow</td>
+<td>number</td>
+<td>总记录数</td>
+</tr>
+<tr>
+<td>totalPage</td>
+<td>number</td>
+<td>总页数</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>number</td>
+<td>每页返回数</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>number</td>
+<td>当前页</td>
+</tr>
+<tr>
+<td>list</td>
+<td>object []</td>
+<td></td>
+</tr>
+<tr>
+<td>├─contractId</td>
+<td>number</td>
+<td>交易对ID</td>
+</tr>
+<tr>
+<td>├─uuid</td>
+<td>string</td>
+<td>委托编号</td>
+</tr>
+<tr>
+<td>├─applId</td>
+<td>number</td>
+<td>应用标识</td>
+</tr>
+<tr>
+<td>├─lossUserId</td>
+<td>number</td>
+<td>强减用户（亏损方）</td>
+</tr>
+<tr>
+<td>├─profitUserId</td>
+<td>number</td>
+<td>被强减用户（盈利方）</td>
+</tr>
+<tr>
+<td>├─execId</td>
+<td>string</td>
+<td>成交编号</td>
+</tr>
+<tr>
+<td>├─side</td>
+<td>number</td>
+<td>买卖方向</td>
+</tr>
+<tr>
+<td>├─timestamp</td>
+<td>number</td>
+<td>委托时间</td>
+</tr>
+<tr>
+<td>├─lossMarginType</td>
+<td>number</td>
+<td>强减用户（亏损方）保证金类型</td>
+</tr>
+<tr>
+<td>├─profitMarginType</td>
+<td>number</td>
+<td>被强减用户（盈利方）保证金类型</td>
+</tr>
+<tr>
+<td>├─closePrice</td>
+<td>number</td>
+<td>强减价格</td>
+</tr>
+<tr>
+<td>├─closeQty</td>
+<td>number</td>
+<td>强减数量</td>
+</tr>
+<tr>
+<td>├─closeAmt</td>
+<td>number</td>
+<td>强减金额</td>
+</tr>
+<tr>
+<td>├─lossSubsidy</td>
+<td>number</td>
+<td>亏损方补偿金额</td>
+</tr>
+<tr>
+<td>├─profitSubsidy</td>
+<td>number</td>
+<td>盈利方补偿金额</td>
+</tr>
+</tbody></table>
+<h2 id='bdac9bbb53'>调整保证金率</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/adjust-margin-rate</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>是</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>initMarginRate</td>
+<td>string</td>
+<td>是</td>
+<td>初始保证金率</td>
+</tr>
+<tr>
+<td>marginType</td>
+<td>int</td>
+<td>是</td>
+<td>保证金类型，1全仓，2逐仓</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<p>无</p>
+<h2 id='9e3bc1e664'>调整保证金</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/adjust-margin</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>是</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>margin</td>
+<td>string</td>
+<td>是</td>
+<td>保证金</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<p>无</p>
+<h1 id='683b4a8231'>合约资产</h1><h2 id='f300a78dba'>查询合约资金流水</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/assets/flow</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyName</td>
+<td>string</td>
+<td>否</td>
+<td>币种名称</td>
+</tr>
+<tr>
+<td>flowId</td>
+<td>long</td>
+<td>否</td>
+<td>业务类型</td>
+</tr>
+<tr>
+<td>flowType</td>
+<td>long</td>
+<td>否</td>
+<td>流水ID</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>-1:上一页，1：下一页</td>
+</tr>
+<tr>
+<td>startTime</td>
+<td>long</td>
+<td>否</td>
+<td>开始时间，微秒</td>
+</tr>
+<tr>
+<td>endTime</td>
+<td>long</td>
+<td>否</td>
+<td>结束时间，微秒级别</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认10</td>
+</tr>
+</tbody></table>
+
+<p>上一页时：side = -1  id为当前页的第一条数据的flow_id</p>
+
+<p>下一页时：side =1  id为当前页最后一条数据的flow_id</p>
+
+<p>流水类型：</p>
+
+<ul>
+<li>3001：期货手续费，</li>
+<li>3002：期货手续费抵后返还，</li>
+<li>3003：期货手续费抵扣消耗点卡，</li>
+<li>3004：期货平仓盈亏，</li>
+<li>3005：期货定期结算盈亏，</li>
+<li>3006：期货交割手续费，</li>
+<li>3007：资金费用 &amp; 期货交割盈亏，</li>
+<li>3008：风险基金</li>
+<li>8001：资金划转</li>
+</ul>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"flowId"</span><span class="p">:</span><span class="mi">1586329715655317</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="s2">"7eOUtLBFXTU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"zusd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flowType"</span><span class="p">:</span><span class="mi">3004</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"num"</span><span class="p">:</span><span class="s2">"36.74444444444444445"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"occureTime"</span><span class="p">:</span><span class="mi">1586485266453705</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="mi">1586485266485605</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uuid"</span><span class="p">:</span><span class="s2">"11585489048448709"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"note"</span><span class="p">:</span><span class="s2">"999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"flowId"</span><span class="p">:</span><span class="mi">1586329715643559</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"userId"</span><span class="p">:</span><span class="s2">"7eOUtLBFXTU"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"accountId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"zusd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"flowType"</span><span class="p">:</span><span class="mi">3004</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"num"</span><span class="p">:</span><span class="s2">"-12.255555555555555567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"occureTime"</span><span class="p">:</span><span class="mi">1586429992480700</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createTime"</span><span class="p">:</span><span class="mi">1586429992507735</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uuid"</span><span class="p">:</span><span class="s2">"11585489047547536"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"note"</span><span class="p">:</span><span class="s2">"999999"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>flowId</td>
+<td>number</td>
+<td>流水ID</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>number</td>
+<td>用户合约ID</td>
+</tr>
+<tr>
+<td>applId</td>
+<td>number</td>
+<td>2</td>
+</tr>
+<tr>
+<td>currencyId</td>
+<td>number</td>
+<td>货币ID</td>
+</tr>
+<tr>
+<td>flowType</td>
+<td>number</td>
+<td>流水类型</td>
+</tr>
+<tr>
+<td>num</td>
+<td>number</td>
+<td>金额</td>
+</tr>
+<tr>
+<td>occureTime</td>
+<td>number</td>
+<td>转账时间</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>number</td>
+<td>记录创建时间</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>string</td>
+<td>对应的记录id（转账id、成交id等）</td>
+</tr>
+<tr>
+<td>note</td>
+<td>string</td>
+<td>备注</td>
+</tr>
+</tbody></table>
+<h2 id='8da397f29a'>查询合约可用资金</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/assets/available</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<p>无</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"totalBalance"</span><span class="p">:</span><span class="s2">"10016.25555555555555554"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"available"</span><span class="p">:</span><span class="s2">"9870.538111111111111096"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenForTrade"</span><span class="p">:</span><span class="s2">"72.75"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"initMargin"</span><span class="p">:</span><span class="s2">"72.967444444444444444"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"frozenInitMargin"</span><span class="p">:</span><span class="s2">"72.75"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"closeProfitLoss"</span><span class="p">:</span><span class="s2">"16.25555555555555554"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"zusd"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyId</td>
+<td>number</td>
+<td>货币ID</td>
+</tr>
+<tr>
+<td>currencyName</td>
+<td>String</td>
+<td>货币</td>
+</tr>
+<tr>
+<td>totalBalance</td>
+<td>string</td>
+<td>总资产</td>
+</tr>
+<tr>
+<td>available</td>
+<td>string</td>
+<td>可用资金</td>
+</tr>
+<tr>
+<td>frozenForTrade</td>
+<td>string</td>
+<td>委托冻结资金</td>
+</tr>
+<tr>
+<td>initMargin</td>
+<td>string</td>
+<td>已占用保证金</td>
+</tr>
+<tr>
+<td>frozenInitMargin</td>
+<td>string</td>
+<td>委托冻结保证金</td>
+</tr>
+<tr>
+<td>closeProfitLoss</td>
+<td>string</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>number</td>
+<td>记录创建时间</td>
+</tr>
+</tbody></table>
+<h2 id='1b4243a44a'>查询合约盈亏历史</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/assets/profits</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currencyName</td>
+<td>string</td>
+<td>否</td>
+<td>币种名称</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>string</td>
+<td>否</td>
+<td>开始时间,如‘2018-01-01’</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>string</td>
+<td>否</td>
+<td>结束时间,如‘2018-01-01’</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>int</td>
+<td>否</td>
+<td>当前页：默认：1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认10</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"totalRow"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"totalPage"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageNum"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"list"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"totalMoney"</span><span class="p">:</span><span class="s2">"10000.000000000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderFrozenMoney"</span><span class="p">:</span><span class="s2">"0E-18"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"closeProfitLoss"</span><span class="p">:</span><span class="s2">"-20.488888888888888910"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"startDate"</span><span class="p">:</span><span class="mi">1586361600000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endDate"</span><span class="p">:</span><span class="mi">253402185600000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="mi">63513</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"totalMoney"</span><span class="p">:</span><span class="s2">"10000.000000000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"orderFrozenMoney"</span><span class="p">:</span><span class="s2">"0E-18"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"closeProfitLoss"</span><span class="p">:</span><span class="s2">"-8.233333333333333343"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"startDate"</span><span class="p">:</span><span class="mi">1586275200000</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"endDate"</span><span class="p">:</span><span class="mi">1586275200000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>totalRow</td>
+<td>number</td>
+<td>总记录数</td>
+</tr>
+<tr>
+<td>totalPage</td>
+<td>number</td>
+<td>总页数</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>number</td>
+<td>每页返回数</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>number</td>
+<td>当前页</td>
+</tr>
+<tr>
+<td>list</td>
+<td>object []</td>
+<td></td>
+</tr>
+<tr>
+<td>├─userId</td>
+<td>number</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>├─currencyId</td>
+<td>number</td>
+<td>币种ID</td>
+</tr>
+<tr>
+<td>├─totalMoney</td>
+<td>number</td>
+<td>总资产</td>
+</tr>
+<tr>
+<td>├─orderFrozenMoney</td>
+<td>number</td>
+<td>冻结资产</td>
+</tr>
+<tr>
+<td>├─closeProfitLoss</td>
+<td>number</td>
+<td>已实现盈亏</td>
+</tr>
+<tr>
+<td>├─startDate</td>
+<td>number</td>
+<td>开始时间</td>
+</tr>
+<tr>
+<td>├─endDate</td>
+<td>number</td>
+<td>结束时间</td>
+</tr>
+</tbody></table>
+<h2 id='0d83610961'>现货-合约资金划转</h2>
+<p>此接口用户币币现货账户与合约账户之间的资金划转。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/assets/transfer</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>是</td>
+<td>币种名称</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>string</td>
+<td>是</td>
+<td>划转数量</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>是</td>
+<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+</tr>
+</tbody></table>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="s2">"4b79ca9e72294e3898999af23769f05e"</span><span class="w">
+</span></code></pre>
+<p>返回划转单号</p>
+<h2 id='dc5b365f5c'>现货-合约资金划转历史查询</h2>
+<p>接口返回用户币币现货账户与合约账户之间的资金划转记录。</p>
+
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>POST <code>/exchange/api/v1/future/assets/transfer-history</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client-id</td>
+<td>string</td>
+<td>否</td>
+<td>划转单号</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>string</td>
+<td>否</td>
+<td>币种名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>int</td>
+<td>否</td>
+<td>当前页：默认：1</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认10</td>
+</tr>
+</tbody></table>
+
+<p>state  | string  | 否  | 划转状态， confirming：划转中，completed：划转成功，failure：划转失败</p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"totalRow"</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageNum"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pagePage"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"list"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="s2">"2020-04-23 21:11:03"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientId"</span><span class="p">:</span><span class="s2">"2b8566ff7f274330a798dae4fcd1d494"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"failMsg"</span><span class="p">:</span><span class="s2">"101080704:sub account does not exist"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"ZUSD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmTime"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"failure"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="s2">"7eICyn8c5yq"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="s2">"2020-04-23 21:10:12"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"side"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"clientId"</span><span class="p">:</span><span class="s2">"03b4545e184f475ab16cbc528131a131"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"failMsg"</span><span class="p">:</span><span class="s2">"101080704:sub account does not exist"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currency"</span><span class="p">:</span><span class="s2">"ZUSD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmTime"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"failure"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"userId"</span><span class="p">:</span><span class="s2">"7eICyn8c5yq"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>totalRow</td>
+<td>number</td>
+<td>总记录数</td>
+</tr>
+<tr>
+<td>totalPage</td>
+<td>number</td>
+<td>总页数</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>number</td>
+<td>每页返回数</td>
+</tr>
+<tr>
+<td>pageNum</td>
+<td>number</td>
+<td>当前页</td>
+</tr>
+<tr>
+<td>list</td>
+<td>object []</td>
+<td></td>
+</tr>
+<tr>
+<td>├─clientId</td>
+<td>string</td>
+<td>划转账单</td>
+</tr>
+<tr>
+<td>├─userId</td>
+<td>number</td>
+<td>用户ID</td>
+</tr>
+<tr>
+<td>├─currency</td>
+<td>string</td>
+<td>币种</td>
+</tr>
+<tr>
+<td>├─amount</td>
+<td>number</td>
+<td>划转数量</td>
+</tr>
+<tr>
+<td>├─side</td>
+<td>int</td>
+<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+</tr>
+<tr>
+<td>├─state</td>
+<td>string</td>
+<td>划转状态， confirming：划转中，completed：划转成功，failure：划转失败</td>
+</tr>
+<tr>
+<td>├─createdAt</td>
+<td>string</td>
+<td>记录创建时间</td>
+</tr>
+<tr>
+<td>├─confirmTime</td>
+<td>string</td>
+<td>确认划转时间</td>
+</tr>
+</tbody></table>
+
+<div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">json</a>
+          </div>
+      </div>
+    </div>
+    <script>
+      const lang_btn = document.getElementById('lang_box');
+      const btn_spot = document.getElementById('btn_spot');
+      const btn_future = document.getElementById('btn_future');
+      const v1_url = document.getElementById('v1_url');
+      // const v2_url = document.getElementById('v2_url');
+      const url = GetUrlRelativePath();
+      if(url.indexOf('cn') != -1){
+        //如果是中文环境
+        lang_btn.innerHTML = 'English';
+        btn_spot.innerHTML = '现货';
+        btn_future.innerHTML = '合约';
+        lang_btn.href = url.replace('cn/', 'en/');
+        btn_spot.href = btn_spot.href.replace('en/', 'cn/');
+        btn_future.href = btn_future.href.replace('en/', 'cn/');
+        v1_url.href = '/docs/spot/v1/cn/';
+        // v2_url.href = '/docs/spot/v2/cn/';
+      }else{
+        //如果是英文环境
+        lang_btn.innerHTML = '中文';
+        btn_spot.innerHTML = 'Spot';
+        btn_future.innerHTML = 'Futures';
+        lang_btn.href = url.replace('en/', 'cn/');
+        btn_spot.href = btn_spot.href.replace('cn/', 'en/');
+        btn_future.href = btn_future.href.replace('cn/', 'en/');
+        v1_url.href = '/docs/spot/v1/en/';
+        // v2_url.href = '/docs/spot/v2/en/';
+      }
+
+      if(location.href.indexOf('docs/future/v') > 0){
+         btn_spot.className = '';
+         btn_future.className = 'current';
+      } else {
+        btn_spot.className = 'current';
+        btn_future.className = '';
+      }
+      //显示语言切换按钮
+      lang_btn.style.display = 'block';
+      function GetUrlRelativePath(){
+        let url = document.location.toString();
+        let arrUrl = url.split("//");
+        let start = arrUrl[1].indexOf("/");
+        let relUrl = arrUrl[1].substring(start);
+        if(relUrl.indexOf("?") != -1){
+          relUrl = relUrl.split("?")[0];
+        }
+        if(relUrl.indexOf("#") != -1){
+          relUrl = relUrl.split("#")[0];
+        }
+        return relUrl;
+  　　}
+    </script>
+  </body>
+</html>
