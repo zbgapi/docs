@@ -1158,7 +1158,7 @@ contractId  | integer  | 交易对
 posiQty  | string  | 持仓量
 openAmt  | string  | 开仓金额
 initMargin  | string  | 初始保证金
-posiStatus  | number  | 1正常，2等待强平
+posiStatus  | number  | 0：正常，1：禁止平仓，2：交割
 marginType  | integer  | 保证金类型，1全仓2逐仓 
 closeProfitLoss  | string  | 已实现盈亏
 initMargiRate  | string  | 初始保证率
