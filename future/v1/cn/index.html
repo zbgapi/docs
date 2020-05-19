@@ -450,7 +450,7 @@
 
 <p>私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。</p>
 
-<p>私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=/u/api" class="createApi">这里</a>生成API key。</p>
+<p>私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=https://www.zbg.fun/u/api" class="createApi">这里</a>生成API key。</p>
 <h2 id='21d67c3c4c'>请求格式</h2>
 <p><strong>所有的API请求都以GET或者POST形式发出。</strong></p>
 
@@ -1978,7 +1978,7 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>posiStatus</td>
 <td>number</td>
-<td>1正常，2等待强平</td>
+<td>0：正常，1：禁止平仓，2：交割</td>
 </tr>
 <tr>
 <td>marginType</td>
