@@ -6,7 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="images/favicon.ico" rel="icon" type="image/ico" />
-    <title>ZBG 合约 API 文档</title>
+    <title>ZBG Future API Documentation</title>
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -242,7 +242,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#185368440e" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
+            <a href="#update-log" class="toc-h1 toc-link" data-title="Update Log">Update Log</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#2020-04-20" class="toc-h2 toc-link" data-title="2020-04-20">2020-04-20</a>
@@ -253,222 +253,218 @@
               </ul>
           </li>
           <li>
-            <a href="#5ea2e0cde2" class="toc-h1 toc-link" data-title="简介">简介</a>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#api" class="toc-h2 toc-link" data-title="API简介">API简介</a>
+                    <a href="#api-introduction" class="toc-h2 toc-link" data-title="API Introduction">API Introduction</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#2d07d50c97" class="toc-h1 toc-link" data-title="接入说明">接入说明</a>
+            <a href="#access-instructions" class="toc-h1 toc-link" data-title="Access Instructions">Access Instructions</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#urls" class="toc-h2 toc-link" data-title="接入 URLs">接入 URLs</a>
+                    <a href="#access-urls" class="toc-h2 toc-link" data-title="Access URLs">Access URLs</a>
                   </li>
                   <li>
-                    <a href="#5076603a3e" class="toc-h2 toc-link" data-title="接口类型">接口类型</a>
+                    <a href="#interface-type" class="toc-h2 toc-link" data-title="Interface Type">Interface Type</a>
                   </li>
                   <li>
-                    <a href="#21d67c3c4c" class="toc-h2 toc-link" data-title="请求格式">请求格式</a>
+                    <a href="#request-format" class="toc-h2 toc-link" data-title="Request Format">Request Format</a>
                   </li>
                   <li>
-                    <a href="#dac673286f" class="toc-h2 toc-link" data-title="返回格式">返回格式</a>
+                    <a href="#response-format" class="toc-h2 toc-link" data-title="Response Format">Response Format</a>
                   </li>
                   <li>
-                    <a href="#c64cd15fdc" class="toc-h2 toc-link" data-title="签名认证">签名认证</a>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
-                    <a href="#e08c1d4f9a" class="toc-h2 toc-link" data-title="错误码">错误码</a>
+                    <a href="#error-code" class="toc-h2 toc-link" data-title="Error Code">Error Code</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#41654e0268" class="toc-h1 toc-link" data-title="基础信息">基础信息</a>
+            <a href="#reference-data" class="toc-h1 toc-link" data-title="Reference Data">Reference Data</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#daedf585f3" class="toc-h2 toc-link" data-title="公共-获取合约列表">公共-获取合约列表</a>
+                    <a href="#public-get-contracts" class="toc-h2 toc-link" data-title="Public-Get Contracts">Public-Get Contracts</a>
                   </li>
                   <li>
-                    <a href="#b22727fec6" class="toc-h2 toc-link" data-title="公共-获取合约可用币种">公共-获取合约可用币种</a>
+                    <a href="#public-get-contract-currencies" class="toc-h2 toc-link" data-title="Public-Get Contract Currencies">Public-Get Contract Currencies</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#9493d04700" class="toc-h1 toc-link" data-title="合约市场行情">合约市场行情</a>
+            <a href="#contract-market" class="toc-h1 toc-link" data-title="Contract Market">Contract Market</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#k" class="toc-h2 toc-link" data-title="公共-合约K线数据">公共-合约K线数据</a>
+                    <a href="#public-contract-kline" class="toc-h2 toc-link" data-title="Public-Contract KLine">Public-Contract KLine</a>
                   </li>
                   <li>
-                    <a href="#964054eba1" class="toc-h2 toc-link" data-title="公共-单个合约行情">公共-单个合约行情</a>
+                    <a href="#public-single-contract-market" class="toc-h2 toc-link" data-title="Public-Single Contract Market">Public-Single Contract Market</a>
                   </li>
                   <li>
-                    <a href="#4802b68052" class="toc-h2 toc-link" data-title="公共-所有合约行情">公共-所有合约行情</a>
+                    <a href="#public-all-contract-market" class="toc-h2 toc-link" data-title="Public-All Contract Market">Public-All Contract Market</a>
                   </li>
                   <li>
-                    <a href="#470b9cf6ae" class="toc-h2 toc-link" data-title="公共-合约深度">公共-合约深度</a>
+                    <a href="#public-contract-depth" class="toc-h2 toc-link" data-title="Public-Contract Depth">Public-Contract Depth</a>
                   </li>
                   <li>
-                    <a href="#540eaf650b" class="toc-h2 toc-link" data-title="公共-合约历史成交记录">公共-合约历史成交记录</a>
+                    <a href="#public-contract-trading-history" class="toc-h2 toc-link" data-title="Public-Contract Trading History">Public-Contract Trading History</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#5bf19eee5a" class="toc-h1 toc-link" data-title="合约交易">合约交易</a>
+            <a href="#contract-trade-interface" class="toc-h1 toc-link" data-title="Contract Trade Interface">Contract Trade Interface</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#9dc85ffb46" class="toc-h2 toc-link" data-title="合约下单">合约下单</a>
+                    <a href="#place-an-order" class="toc-h2 toc-link" data-title="Place an Order">Place an Order</a>
                   </li>
                   <li>
-                    <a href="#68a1fe7812" class="toc-h2 toc-link" data-title="合约撤单">合约撤单</a>
+                    <a href="#cancel-an-contract-order" class="toc-h2 toc-link" data-title="Cancel an Contract Order">Cancel an Contract Order</a>
                   </li>
                   <li>
-                    <a href="#5538919b9f" class="toc-h2 toc-link" data-title="合约一键撤单">合约一键撤单</a>
+                    <a href="#cancel-all-contract-orders" class="toc-h2 toc-link" data-title="Cancel All Contract Orders">Cancel All Contract Orders</a>
                   </li>
                   <li>
-                    <a href="#01106676d4" class="toc-h2 toc-link" data-title="合约持仓查询">合约持仓查询</a>
+                    <a href="#get-contract-position" class="toc-h2 toc-link" data-title="Get Contract Position">Get Contract Position</a>
                   </li>
                   <li>
-                    <a href="#513eb615d1" class="toc-h2 toc-link" data-title="查询合约当前委托">查询合约当前委托</a>
+                    <a href="#get-activity-orders" class="toc-h2 toc-link" data-title="Get Activity Orders">Get Activity Orders</a>
                   </li>
                   <li>
-                    <a href="#23889edae4" class="toc-h2 toc-link" data-title="查询合约历史委托">查询合约历史委托</a>
+                    <a href="#get-historical-orders" class="toc-h2 toc-link" data-title="Get Historical Orders">Get Historical Orders</a>
                   </li>
                   <li>
-                    <a href="#97ba66701c" class="toc-h2 toc-link" data-title="查询合约历史强平">查询合约历史强平</a>
+                    <a href="#get-contract-force-close-history" class="toc-h2 toc-link" data-title="Get Contract Force Close History">Get Contract Force Close History</a>
                   </li>
                   <li>
-                    <a href="#4c8fd7c9eb" class="toc-h2 toc-link" data-title="查询合约历史强减">查询合约历史强减</a>
+                    <a href="#get-contract-force-deduction-history" class="toc-h2 toc-link" data-title="Get Contract Force Deduction History">Get Contract Force Deduction History</a>
                   </li>
                   <li>
-                    <a href="#bdac9bbb53" class="toc-h2 toc-link" data-title="调整保证金率">调整保证金率</a>
+                    <a href="#adjust-margin-rate" class="toc-h2 toc-link" data-title="Adjust Margin Rate">Adjust Margin Rate</a>
                   </li>
                   <li>
-                    <a href="#9e3bc1e664" class="toc-h2 toc-link" data-title="调整保证金">调整保证金</a>
+                    <a href="#adjust-margin" class="toc-h2 toc-link" data-title="Adjust Margin">Adjust Margin</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#683b4a8231" class="toc-h1 toc-link" data-title="合约资产">合约资产</a>
+            <a href="#contract-asset" class="toc-h1 toc-link" data-title="Contract Asset">Contract Asset</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#f300a78dba" class="toc-h2 toc-link" data-title="查询合约资金流水">查询合约资金流水</a>
+                    <a href="#get-contract-asset-flow" class="toc-h2 toc-link" data-title="Get Contract Asset Flow">Get Contract Asset Flow</a>
                   </li>
                   <li>
-                    <a href="#8da397f29a" class="toc-h2 toc-link" data-title="查询合约可用资金">查询合约可用资金</a>
+                    <a href="#get-available-assets" class="toc-h2 toc-link" data-title="Get Available assets">Get Available assets</a>
                   </li>
                   <li>
-                    <a href="#1b4243a44a" class="toc-h2 toc-link" data-title="查询合约盈亏历史">查询合约盈亏历史</a>
+                    <a href="#get-contract-loss-and-benefit-history" class="toc-h2 toc-link" data-title="Get contract Loss and benefit history">Get contract Loss and benefit history</a>
                   </li>
                   <li>
-                    <a href="#0d83610961" class="toc-h2 toc-link" data-title="现货-合约资金划转">现货-合约资金划转</a>
+                    <a href="#transfer-margin-between-spot-account-and-future-account" class="toc-h2 toc-link" data-title="Transfer margin between Spot account and Future account">Transfer margin between Spot account and Future account</a>
                   </li>
                   <li>
-                    <a href="#dc5b365f5c" class="toc-h2 toc-link" data-title="现货-合约资金划转历史查询">现货-合约资金划转历史查询</a>
+                    <a href="#get-transfer-history" class="toc-h2 toc-link" data-title="Get Transfer History">Get Transfer History</a>
                   </li>
               </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="https://www.zbg.fun/" class="createApi">ZBG Exchange</a></li>
+            <li><a href="https://www.zbg.com/" class="createApi">ZBG Exchange</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='185368440e'>更新日志</h1><h2 id='2020-04-20'>2020-04-20</h2>
-<p>新增和修改合约下单<a href="#c0b35a1aa9">合约</a>等接口:</p>
+        <h1 id='update-log'>Update Log</h1><h2 id='2020-04-20'>2020-04-20</h2>
+<p>Add <a href="#place-an-order">Place an Order</a> interface and etc.:</p>
 
 <ul>
-<li>新增接口[<a href="#daedf585f3">/exchange/api/v1/future/common/contracts</a>]，查询合约列表</li>
-<li>新增接口[<a href="#b22727fec6">/exchange/api/v1/future/common/currencies</a>]，获取合约可用币种</li>
-<li>新增接口[<a href="#9dc85ffb46">/exchange/api/v1/future/place</a>]，合约下单</li>
-<li>新增接口[<a href="#68a1fe7812">/exchange/api/v1/future/cancel</a>]，合约撤单</li>
-<li>新增接口[<a href="#5538919b9f">/exchange/api/v1/future/cancel-all</a>]，合约一键撤单</li>
-<li>新增接口[<a href="#01106676d4">/exchange/api/v1/future/positions</a>]，合约持仓查询</li>
-<li>新增接口[<a href="#513eb615d1">/exchange/api/v1/future/orders</a>]，查询合约当前委托</li>
-<li>新增接口[<a href="#23889edae4">/exchange/api/v1/future/orders/his</a>]，查询合约历史委托</li>
-<li>新增接口[<a href="#f300a78dba">/exchange/api/v1/future/assets/flow</a>]，查询合约资金流水</li>
-<li>新增接口[<a href="#8da397f29a">/exchange/api/v1/future/assets/available</a>]，查询合约可用资金</li>
-<li>新增接口[<a href="#1b4243a44a">/exchange/api/v1/future/assets/profits</a>]，查询合约盈亏历史</li>
-<li>新增接口[<a href="#0d83610961">/exchange/api/v1/future/assets/transfer</a>]，现货-合约资金划转</li>
-<li>新增接口[<a href="#dc5b365f5c">/exchange/api/v1/future/assets/transfer-history</a>]，现货-合约资金划转记录</li>
-<li>新增接口[<a href="#bdac9bbb53">/exchange/api/v1/future/adjust-margin-rate</a>]，调整保证金率</li>
-<li>新增接口[<a href="#9e3bc1e664">/exchange/api/v1/future/adjust-margin</a>]，调整保证金</li>
-<li>新增接口[<a href="#4c8fd7c9eb">/exchange/api/v1/future/florders</a>]，查询合约历史强减</li>
-<li>新增接口[<a href="#97ba66701c">/exchange/api/v1/future/fcorders</a>]，查询合约历史强平</li>
-<li>新增接口[<a href="#k-2">/exchange/api/v1/future/market/klines</a>]，合约K线数据</li>
-<li>新增接口[<a href="#964054eba1">/exchange/api/v1/future/market/ticker</a>]，单个合约行情</li>
-<li>新增接口[<a href="#4802b68052">/exchange/api/v1/future/market/tickers</a>]，所有合约行情</li>
-<li>新增接口[<a href="#470b9cf6ae">/exchange/api/v1/future/market/depth</a>]，合约深度</li>
-<li>新增接口[<a href="#540eaf650b">/exchange/api/v1/future/market/trades</a>]，合约历史成交记录</li>
-<li>移除接口[/exchange/api/v1/account/future/auth]</li>
-<li>移除接口[/exchange/api/v1/common/future/symbol]</li>
-<li>移除接口[/exchange/api/v1/common/future/currency]</li>
-<li>移除接口[/exchange/api/v1/common/future/kline]</li>
-<li>移除接口[/exchange/api/v1/common/future/tickers]</li>
-<li>移除接口[/exchange/api/v1/common/future/ticker]</li>
-<li>移除接口[/exchange/api/v1/common/future/depth]</li>
-<li>移除接口[/exchange/api/v1/common/future/trades]</li>
+<li>Add interface [<a href="#public-get-contracts">/exchange/api/v1/future/common/contracts</a>]</li>
+<li>Add interface [<a href="#public-get-contract-currencies">/exchange/api/v1/future/common/currencies</a>]</li>
+<li>Add interface [<a href="#place-an-order">/exchange/api/v1/future/place</a>]</li>
+<li>Add interface [<a href="#cancel-an-contract-order">/exchange/api/v1/future/cancel</a>]</li>
+<li>Add interface [<a href="#cancel-all-contract-orders">/exchange/api/v1/future/cancel-all</a>]</li>
+<li>Add interface [<a href="#get-contract-position">/exchange/api/v1/future/positions</a>]</li>
+<li>Add interface [<a href="#get-activity-orders">/exchange/api/v1/future/orders</a>]</li>
+<li>Add interface [<a href="#get-historical-orders">/exchange/api/v1/future/orders/his</a>]</li>
+<li>Add interface [<a href="#get-contract-asset-flow">/exchange/api/v1/future/assets/flow</a>]</li>
+<li>Add interface [<a href="#get-available-assets">/exchange/api/v1/future/assets/available</a>]</li>
+<li>Add interface [<a href="#get-contract-loss-and-benefit-history">/exchange/api/v1/future/assets/profits</a>]</li>
+<li>Add interface [<a href="#transfer-margin-between-spot-account-and-future-account">/exchange/api/v1/future/assets/transfer</a>]</li>
+<li>Add interface [<a href="#get-transfer-history">/exchange/api/v1/future/assets/transfer-history</a>]</li>
+<li>Add interface [<a href="#adjust-margin-rate">/exchange/api/v1/future/adjust-margin-rate</a>]</li>
+<li>Add interface [<a href="#adjust-margin">/exchange/api/v1/future/adjust-margin</a>]</li>
+<li>Add interface [<a href="#get-contract-force-close-history">/exchange/api/v1/future/florders</a>]</li>
+<li>Add interface [<a href="#get-contract-force-deduction-history">/exchange/api/v1/future/fcorders</a>]</li>
+<li>Add interface [<a href="#public-contract-kline">/exchange/api/v1/future/market/klines</a>]</li>
+<li>Add interface [<a href="#public-single-contract-market">/exchange/api/v1/future/market/ticker</a>]</li>
+<li>Add interface [<a href="#public-all-contract-market">/exchange/api/v1/future/market/tickers</a>]</li>
+<li>Add interface [<a href="#public-contract-depth">/exchange/api/v1/future/market/depth</a>]</li>
+<li>Add interface [<a href="#public-contract-trading-history">/exchange/api/v1/future/market/trades</a>]</li>
+<li>Remove interface [/exchange/api/v1/account/future/auth]</li>
+<li>Remove interface [/exchange/api/v1/common/future/symbol]</li>
+<li>Remove interface [/exchange/api/v1/common/future/currency]</li>
+<li>Remove interface [/exchange/api/v1/common/future/kline]</li>
+<li>Remove interface [/exchange/api/v1/common/future/tickers]</li>
+<li>Remove interface [/exchange/api/v1/common/future/ticker]</li>
+<li>Remove interface [/exchange/api/v1/common/future/depth]</li>
+<li>Remove interface [/exchange/api/v1/common/future/trades]</li>
 </ul>
 <h2 id='2020-03-31'>2020-03-31</h2>
-<p>增加<a href="#c0b35a1aa9">合约</a> </p>
-<h1 id='5ea2e0cde2'>简介</h1><h2 id='api'>API简介</h2>
-<p>欢迎使用 ZBG 合约 API！您可以通过使用此API获取合约市场行情数据，进行交易，并且管理你的账户。</p>
+<p>Add Contract Interfaces</p>
+<h1 id='introduction'>Introduction</h1><h2 id='api-introduction'>API Introduction</h2>
+<p>Welcome to the ZBG API!     </p>
 
-<p>文档右侧是针对请求参数以及响应结果的示例。</p>
+<p>You can use this API to access the contract&#39;s market data, trade, and manage your account.</p>
+
+<p>You can view code examples in the dark area to the right.</p>
 
 <aside class="notice">
-如果在使用过程中有任何问题，请联系我们技术讨论QQ群：829230107，我们将会为您做出最权威的解答.
+Any problems during use, please contact us: QQ group:829230107
 </aside>
-<h1 id='2d07d50c97'>接入说明</h1><h2 id='urls'>接入 URLs</h2>
+<h1 id='access-instructions'>Access Instructions</h1><h2 id='access-urls'>Access URLs</h2>
 <p>REST API</p>
 
-<p><code>https://www.zbg.fun</code></p>
-
-<p>域名有时会存在被墙或延迟高等情况，可暂时使用备用域名:</p>
-
-<ul>
-<li>https://www.zbgpro.com</li>
-<li>https://www.zbgpro.net</li>
-<li>https://www.zbg.kim</li>
-</ul>
-<h2 id='5076603a3e'>接口类型</h2>
-<p>本章节主要为接口类型的细节分以下两个方面：</p>
+<p><code>https://www.zbg.com</code></p>
+<h2 id='interface-type'>Interface Type</h2>
+<p>In this section we divides interfaces into two types：</p>
 
 <ul>
-<li>公共接口</li>
-<li>私有接口</li>
+<li>Public interface</li>
+<li>Private interface</li>
 </ul>
 
-<p><strong>公共接口</strong></p>
+<p><strong>Public Interface</strong></p>
 
-<p>公共接口可用于获取配置信息和行情数据。公共请求无需认证即可调用。</p>
+<p>The public interface can be used to obtain configuration information and market data and the public request can be invoked without authentication</p>
 
-<p><strong>私有接口</strong></p>
+<p><strong>Private Interface</strong></p>
 
-<p>私有接口可用于订单管理和账户管理。每个私有请求必须使用规范的验证形式进行签名。</p>
+<p>The private interface can be used for order management and account management.Each private request must be signed using a canonical form of authentication.</p>
 
-<p>私有接口需要使用您的API key进行验证。您可以在<a href="https://www.zbg.fun/login?path=https://www.zbg.fun/u/api" class="createApi">这里</a>生成API key。</p>
-<h2 id='21d67c3c4c'>请求格式</h2>
-<p><strong>所有的API请求都以GET或者POST形式发出。</strong></p>
+<p>The private interface needs to be validated using your API key.You can generate API key <a href="https://www.zbg.com/login?path=https://www.zbg.com/u/api">here</a>.</p>
+<h2 id='request-format'>Request Format</h2>
+<p><strong>All API requests are made as GET or POST.</strong></p>
 
-<p><strong>对于GET请求，所有的参数都在路径参数里；对于POST请求，所有参数则以JSON格式发送在请求主体（body）里。</strong></p>
-<h2 id='dac673286f'>返回格式</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-</span><span class="s2">"datas"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="err">接口返回数据主体</span><span class="w">
+<p><strong>For GET requests, all parameters are in the path parameters;For POST requests, all parameters are sent as JSON in the request body.</strong></p>
+<h2 id='response-format'>Response Format</h2>
+<p>All the interface returns are in JSON format and at the top of the JSON there are several fields that represent the response status and properties :
+&quot;code&quot; and &quot;message&quot; In the &quot;datas&quot; field, the return code of &quot;1&quot; means that the request was successful, while the rest means that the request failed. 
+Please refer to the error code list for details.</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"datas"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">                 </span><span class="err">//</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">response</span><span class="w">
 </span><span class="s2">"resMsg"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">错误码</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success!"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">提示信息</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">          </span><span class="err">//</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">code</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"success!"</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">prompt</span><span class="w"> </span><span class="err">message</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>所有的接口返回都是JSON格式。在JSON最上层有几个表示请求状态和属性的字段：&quot;code&quot;, 和 &quot;message&quot;。 实际的接口返回内容在&quot;datas&quot;字段里。返回码为1是表示请求成功，其他为请求失败，详细请参考<a href="#e08c1d4f9a">错误码列表</a></p>
-<h2 id='c64cd15fdc'>签名认证</h2>
+</span></code></pre><h2 id='authentication'>Authentication</h2>
 <blockquote>
-<p>java 签名用例如下：</p>
+<p>Java signatures are used for example：</p>
 </blockquote>
 <pre class="highlight java tab-java"><code><span class="kn">package</span> <span class="n">io</span><span class="o">.</span><span class="na">at</span><span class="o">.</span><span class="na">exchange</span><span class="o">.</span><span class="na">base</span><span class="o">.</span><span class="na">util</span><span class="o">;</span>
 
@@ -502,7 +498,7 @@
     <span class="kd">private</span> <span class="n">String</span> <span class="n">apiPassphrase</span><span class="o">;</span>
 
     <span class="cm">/**
-     * 这里使用Spring自带的Http请求工具，用户也可使用其他开源项目
+     * Spring's native Http request facility is used here, as are other open source projects.
      */</span>
     <span class="nd">@Resource</span>
     <span class="kd">private</span> <span class="n">RestTemplate</span> <span class="n">restTemplate</span><span class="o">;</span>
@@ -525,7 +521,7 @@
         <span class="n">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HttpHeaders</span><span class="o">();</span>
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apiid"</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">apiId</span><span class="o">);</span>
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Timestamp"</span><span class="o">,</span> <span class="n">time</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+        <span class="c1">// If the user sets the API Key when creating it, pass the parameter:</span>
         <span class="n">header</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Passphrase"</span><span class="o">,</span> <span class="n">EncryptUtils</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">time</span> <span class="o">+</span> <span class="n">apiPassphrase</span><span class="o">));</span>
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">,</span> <span class="n">DigestKit</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">apiId</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="n">content</span> <span class="o">+</span> <span class="n">apiSecret</span><span class="o">).</span><span class="na">toLowerCase</span><span class="o">());</span>
 
@@ -557,19 +553,19 @@
     <span class="o">}</span>
 
     <span class="cm">/**
-     * 不为空、不为空字符串、不为双引号、不为空{}
+     * Not null, not empty string, not double quotes, not {}
      */</span>
     <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">(</span><span class="n">String</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">source</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"\"\""</span><span class="o">)</span> <span class="o">||</span> <span class="n">source</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"{}"</span><span class="o">);</span>
     <span class="o">}</span>
 
     <span class="cm">/**
-     * post 请求接口，ContentType 统一都是采用 appliation/json 方式
+     * post request interface，ContentType : appliation/json
      *
-     * @param url   请求接口
-     * @param param 请求参数
-     * @return 返回信息
-     * @throws BuzException 如果请求失败
+     * @param url   request path
+     * @param param required parameter map
+     * @return repsonse string
+     * @throws BuzException If the request fails
      */</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">post</span><span class="o">(</span><span class="n">String</span> <span class="n">url</span><span class="o">,</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">param</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BuzException</span> <span class="o">{</span>
         <span class="n">Long</span> <span class="n">time</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
@@ -585,7 +581,7 @@
 
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Apiid"</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">apiId</span><span class="o">);</span>
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Timestamp"</span><span class="o">,</span> <span class="n">time</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-        <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
+        <span class="c1">// If the user sets the API Key when creating it，this parameter must be required</span>
         <span class="n">header</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"Passphrase"</span><span class="o">,</span> <span class="n">EncryptUtils</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">time</span> <span class="o">+</span> <span class="n">apiPassphrase</span><span class="o">));</span>
         <span class="n">headers</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"Sign"</span><span class="o">,</span> <span class="n">DigestKit</span><span class="o">.</span><span class="na">md5</span><span class="o">(</span><span class="n">apiId</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="n">content</span> <span class="o">+</span> <span class="n">apiSecret</span><span class="o">).</span><span class="na">toLowerCase</span><span class="o">());</span>
 
@@ -607,37 +603,37 @@
 <span class="o">}</span>
 </code></pre>
 <blockquote>
-<p>md5摘要方法如下：</p>
+<p>md5 The abstract method is as follows：</p>
 </blockquote>
 <pre class="highlight java tab-java"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">ALGORITHM_MD5</span> <span class="o">=</span> <span class="s">"MD5"</span><span class="o">;</span>
 
 <span class="cm">/**
- * md5加密
+ * md5 encryption
  *
- * @param message 源字符串
- * @return 加密字符串
+ * @param message the source string
+ * @return encrypted string
  */</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">md5</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="n">StringKit</span><span class="o">.</span><span class="na">toHex</span><span class="o">(</span><span class="n">messageDigest</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">ALGORITHM_MD5</span><span class="o">));</span>
 <span class="o">}</span>
 
 <span class="cm">/**
- * 给字节数组生成摘要
+ * md5 encryption
  *
- * @param message   字符串
- * @param algorithm 摘要算法
- * @return 摘要字节数组
+ * @param message   the source string
+ * @param algorithm digest algorithm
+ * @return summary byte array
  */</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="n">String</span> <span class="n">algorithm</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="n">message</span><span class="o">.</span><span class="na">getBytes</span><span class="o">(</span><span class="n">UTF_8</span><span class="o">),</span> <span class="n">algorithm</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="cm">/**
- * 给字节数组生成摘要
+ * generates a summary for the byte array
  *
- * @param message   字节码数组
- * @param algorithm 摘要算法
- * @return 摘要字节数组
+ * @param message   bytecode array
+ * @param algorithm digest algorithm
+ * @return summary byte array
  */</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">messageDigest</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">message</span><span class="o">,</span> <span class="n">String</span> <span class="n">algorithm</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">try</span> <span class="o">{</span>
@@ -650,17 +646,17 @@
 <span class="o">}</span>
 </code></pre>
 <blockquote>
-<p>StringKit.toHex() 方法如下：</p>
+<p>StringKit.toHex() ：</p>
 </blockquote>
 <pre class="highlight java tab-java"><code><span class="cm">/**
- * 首先初始化一个字符数组，用来存放每个16进制字符
+ * initialize an array of characters to hold each hexadecimal character
  */</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">char</span><span class="o">[]</span> <span class="n">HEX_DIGITS</span> <span class="o">=</span> <span class="o">{</span><span class="sc">'0'</span><span class="o">,</span> <span class="sc">'1'</span><span class="o">,</span> <span class="sc">'2'</span><span class="o">,</span> <span class="sc">'3'</span><span class="o">,</span> <span class="sc">'4'</span><span class="o">,</span> <span class="sc">'5'</span><span class="o">,</span> <span class="sc">'6'</span><span class="o">,</span> <span class="sc">'7'</span><span class="o">,</span> <span class="sc">'8'</span><span class="o">,</span> <span class="sc">'9'</span><span class="o">,</span> <span class="sc">'A'</span><span class="o">,</span> <span class="sc">'B'</span><span class="o">,</span> <span class="sc">'C'</span><span class="o">,</span> <span class="sc">'D'</span><span class="o">,</span> <span class="sc">'E'</span><span class="o">,</span> <span class="sc">'F'</span><span class="o">};</span>
 <span class="cm">/**
- * 转16进制字符串
+ * turn the hexadecimal string
  *
- * @param bytes 字节码数组
- * @return 16进制字符串
+ * @param bytes bytecode array
+ * @return hexadecimal string
  */</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">toHex</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">bytes</span><span class="o">)</span> <span class="o">{</span>
     <span class="kt">char</span><span class="o">[]</span> <span class="n">chars</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="o">[</span><span class="n">bytes</span><span class="o">.</span><span class="na">length</span> <span class="o">*</span> <span class="mi">2</span><span class="o">];</span>
@@ -675,16 +671,16 @@
 <span class="o">}</span>
 </code></pre>
 <blockquote>
-<p>JS 签名调用用例：</p>
+<p>JS Signature Call Example：</p>
 </blockquote>
-<pre class="highlight javascript"><code><span class="c1">// GET 方法请求签名，以 查询历史订单 接口为例。</span>
+<pre class="highlight javascript"><code><span class="c1">// The GET method requests a signature, taking the interface for querying historical orders as an example.</span>
 
-<span class="c1">//引入axios模块</span>
+<span class="c1">//Import the axios module</span>
 <span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'axios'</span><span class="p">)</span>
-<span class="c1">// 引入MD5模块</span>
+<span class="c1">//Import the MD5 module</span>
 <span class="kr">const</span> <span class="nx">MD5</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'MD5'</span><span class="p">)</span>
 
-<span class="c1">//请求数据</span>
+<span class="c1">//request data</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">symbol</span><span class="p">:</span> <span class="s2">"zt_usdt"</span><span class="p">,</span>
     <span class="na">side</span><span class="p">:</span> <span class="s2">"buy"</span><span class="p">,</span>
@@ -692,28 +688,29 @@
     <span class="na">size</span><span class="p">:</span> <span class="mi">10</span>
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">();</span>
-<span class="c1">//请求头</span>
+<span class="c1">//request headers</span>
 <span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// 替换成自己的 api key</span>
+    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// replace it with your own API key</span>
     <span class="na">Clienttype</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">Timestamp</span><span class="p">:</span> <span class="nx">timestamp</span><span class="p">,</span>
-    <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
-    <span class="c1">// 替换签名中的 passphrase</span>
+    <span class="c1">//If the user sets the API Key when creating it, the parameter must be passed</span>
+    <span class="c1">// Replace passphrase in the signature</span>
     <span class="na">Passphrase</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'passphrase'</span><span class="p">)</span>
-    <span class="c1">// 签名顺序：Apiid+时间戳+请求参数+Apisecret</span>
-    <span class="c1">// 替换签名中的 api key 和 api secret</span>
+    <span class="c1">// Signature order :Apiid+ timestamp + request parameter +Apisecret</span>
+    <span class="c1">// Replace the API key and API secret in the signature</span>
     <span class="na">Sign</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="s1">'api key'</span> <span class="o">+</span> <span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">dataStringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'api secret'</span><span class="p">)</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zbgpro.net/exchange/api/v1/order/orders'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zbg.com/exchange/api/v1/order/orders'</span><span class="p">,</span>
     <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
     <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
     <span class="na">timeout</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
     <span class="na">params</span><span class="p">:</span> <span class="nx">data</span>
 <span class="p">};</span>
 
-<span class="c1">//参数内容拼串为所有参数按key值首字母排序后再按key1+value1+key2+value2...的形式拼串</span>
+<span class="c1">//Parameter content string is used to sort all parameters by the first letter of key value before pressing</span>
+<span class="c1">//Key1 + value1 + key2 + value2...Form string</span>
 <span class="kd">function</span> <span class="nx">dataStringify</span><span class="p">(</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">''</span>
@@ -729,14 +726,13 @@
 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight javascript"><code><span class="c1">// POST 方法请求签名，以 下单 接口为例</span>
-
-<span class="c1">//引入axios模块</span>
+</code></pre><pre class="highlight javascript"><code><span class="c1">// The POST method requests a signature, as shown in the following list and interface</span>
+<span class="c1">// Import the axios module</span>
 <span class="kr">const</span> <span class="nx">axios</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'axios'</span><span class="p">)</span>
-<span class="c1">// 引入MD5模块</span>
+<span class="c1">// Import the MD5 module</span>
 <span class="kr">const</span> <span class="nx">MD5</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'MD5'</span><span class="p">)</span>
 
-<span class="c1">//请求数据</span>
+<span class="c1">// Request datas</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="na">symbol</span><span class="p">:</span> <span class="s1">'zt_usdt'</span><span class="p">,</span>
     <span class="na">side</span><span class="p">:</span> <span class="s1">'buy'</span><span class="p">,</span>
@@ -744,20 +740,20 @@
     <span class="na">price</span><span class="p">:</span> <span class="mf">0.038</span>
 <span class="p">}</span>
 <span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">()).</span><span class="nx">getTime</span><span class="p">();</span>
-<span class="c1">//请求头</span>
+<span class="c1">// Request headers</span>
 <span class="kd">var</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// 替换成自己的 api key</span>
+    <span class="na">Apiid</span><span class="p">:</span> <span class="s1">'api key'</span><span class="p">,</span> <span class="c1">// replace it with your own API key</span>
     <span class="na">Clienttype</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
     <span class="na">Timestamp</span><span class="p">:</span> <span class="nx">timestamp</span><span class="p">,</span>
-    <span class="c1">// 如果用户在创建API Key时设置了，则必传</span>
-    <span class="c1">// 替换签名中的 passphrase</span>
+    <span class="c1">//If the user sets the API Key when creating it, the parameter must be passed</span>
+        <span class="c1">// Replace passphrase in the signature</span>
     <span class="na">Passphrase</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="s1">'passphrase'</span><span class="p">)</span>
-    <span class="c1">// 签名顺序：Apiid+时间戳+请求参数+Apisecret</span>
-    <span class="c1">// 替换签名中的 api key 和 api secret</span>
+    <span class="c1">// Signature order :Apiid+ timestamp + request parameter +Apisecret</span>
+    <span class="c1">// Replace the API key and API secret in the signature</span>
     <span class="na">Sign</span><span class="p">:</span> <span class="nx">MD5</span><span class="p">(</span><span class="s1">'api key'</span> <span class="o">+</span> <span class="nx">timestamp</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'api secret'</span><span class="p">)</span>
 <span class="p">};</span>
 <span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zbgpro.net/exchange/api/v1/order/create'</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.zb.com/exchange/api/v1/order/create'</span><span class="p">,</span>
     <span class="na">headers</span><span class="p">:</span> <span class="nx">headers</span><span class="p">,</span>
     <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
     <span class="na">timeout</span><span class="p">:</span> <span class="mi">3000</span><span class="p">,</span>
@@ -771,70 +767,72 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
 <span class="p">});</span>
 </code></pre>
-<p><strong>签名说明</strong></p>
+<p><strong>Overview</strong></p>
 
-<p>API 请求在通过网络传输的过程中极有可能被篡改，为了确保请求未被更改，除公共接口（基础信息，行情数据）外的私有接口均必须使用您的 API Key 和 API Secret 做签名认证，以校验参数或参数值在传输途中是否发生了更改。</p>
+<p>the API requests may be tampered during internet. In order to ensure that the request is not changed, all private API must be signed by your API Key (Secrete Key).</p>
 
-<p>签名接口组成部分：</p>
+<p>A valid request consists of below parts:</p>
 
 <ul>
-<li>接口请求地址：如 https://www.zbg.fun/exchange/api/v1/order/orders。</li>
-<li>API 访问密钥（Apiid）：您申请的API Key中的 Access Key，位于Header中。</li>
-<li>API 访问口令(Passphrase) ：创建API Key 时生成的。</li>
-<li>时间戳（Timestamp）：您发出请求的时间的毫秒级时间戳，位于Header中。</li>
-<li>必选和可选参数：每个方法都有一组用于定义 API 调用的必需参数和可选参数。可以在每个方法的说明中查看这些参数及其含义。 </li>
-<li>签名（Sign）：签名计算得出的值，用于确保签名有效和未被篡改，Sign=md5(Apiid+Timestamp+参数内容拼串+apisecret) ，位于Header中。</li>
+<li>Interface Address : https://www.zbg.com/exchange/api/v1/order/orders</li>
+<li>API Access Key : The Access Key in the API Key</li>
+<li>Signature Method : The Hash method that is used to sign, it uses md5</li>
+<li>Timestamp : The millisecond timestamp of the time you made the request, located in the Header</li>
+<li>Parameters : Each API method has a group of parameters, you can refer to detailed document for each of them..</li>
+<li>Signature : The value after signed, it is guarantee the signature is valid and the request is not be tempered.</li>
 </ul>
 
-<p>即请求头都必须包含一下内容：</p>
+<p>That is, the request header must contain the following content：</p>
 
-<p><em>Apiid</em> : 字符串类型的API Key。</p>
+<p><em>Apiid</em> : API Key of string type.</p>
 
-<p><em>Timestamp</em> : 发起请求的时间戳。</p>
+<p><em>Timestamp</em> : The timestamp of the request.</p>
 
-<p><em>Sign</em> : 签名字符串(请参阅签名)。</p>
+<p><em>Sign</em> :  Signature string (Sign according to the reference format).</p>
 
-<p><em>Passphrase</em> : 您在创建API密钥时指定的passphrase。</p>
+<p><em>Passphrase</em> : The passphrase that you specified when you created the API key. This field is not required, depending on whether the user specified it when creating the API Key.</p>
 
 <aside class="notice">
-Passphrase 请求头是并非直接使用passphrase请求口令，而使经过 md5(timestamp+Passphrase) 处理的字符串。
-该字段非必填，取决于用户创建API Key时有没有指定该字段。
+Passphrase request headers are strings that are processed by *md5(timestamp+passphrase)* instead of directly using Passphrase to request a password
 </aside>
 
-<p><strong>创建 API Key</strong> </p>
+<p><strong>Create API Key</strong> </p>
 
-<p>您可以在 <a href="/u/api" class="createApi">这里</a> 创建 API Key。</p>
+<p>You can create API Key <a href="https://www.zbg.com/login?path=https://www.zbg.com/u/api">here</a>.</p>
 
-<p>API Key 包括以下部分</p>
+<p>API key including the following three parts:</p>
 
 <ul>
-<li>Access Key : API 访问密钥</li>
-<li>Secret Key : 签名认证加密所使用的密钥（仅申请时可见）</li>
-<li>Passphrase : API 访问口令</li>
+<li>Access Key : API access key</li>
+<li>Secret Key : The key used for signature authentication encryption (visible on application only)</li>
+<li>Passphrase : API access command</li>
 </ul>
 
-<aside class="warning">
-这两个密钥与账号安全紧密相关，无论何时都请勿向其它人透露
+<p>The API key and secret Key will be randomly generated and provided by ZBG, and Passphrase will be provided by you to ensure the security of API access.</p>
+
+<p>Passphrase for the optional field users can choose to provide the field according to their own needs, if the field is filled in, the request header must be put on when accessing the interface, the background system will carry out the verification.</p>
+
+<aside class="notice">
+API key it has all operation rights including trading, depositing and withdrawing currency.
 </aside>
 
-<p>API Key和SecretKey将由ZBG随机生成和提供，Passphrase将由您提供以确保API访问的安全性。</p>
+<aside class="warning">
+These keys are closely related to account security and should not be disclosed to others at any time.If you find your API Key is disposed, please remove it immediately.
+</aside>
 
-<p>Passphrase 为选填字段用户可以根据自己的需求选择提不提供该字段，如果填写了改字段，则在访问接口时请求头必须带上，后台会进行校验。</p>
+<p><strong>Timestamp</strong></p>
 
-<p><strong>时间戳</strong></p>
+<p>The request header is a long integer timestamp at the millisecond level, and requests that differ by more than 60 seconds between the timestamp and the server time are considered expired and rejected by the system. 
+If you think there is a significant time bias between the server and the API server, we recommend that you use []the fetch server time interface](#) to query the API server time.</p>
 
-<p><code>Timestamp</code>  请求头是毫秒级别的长整型时间戳。</p>
+<p><strong>Signature</strong></p>
 
-<p>时间戳和服务器时间前后相差60秒以上的请求将被系统视为过期并拒绝。如果您认为服务器和API服务器之间存在较大的时间偏差，那么我们建议您使用<a href="#03482df8b5">获取服务器时间</a>的接口来查询API服务器时间</p>
+<p>Take the example of querying an order list:</p>
 
-<p><strong>签名</strong></p>
-
-<p>以查询订单列表为例</p>
-
-<p><code>https://www.zbg.fun/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
+<p><code>https://www.zbg.com/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
 
 <ol>
-<li>按照ASCII码的顺序对参数(key)进行排序，例如上面的请求排序后</li>
+<li>Sort the parameters (keys) in the order of the ASCII code, such as:</li>
 </ol>
 
 <p><code>from=1</code></p>
@@ -846,20 +844,18 @@ Passphrase 请求头是并非直接使用passphrase请求口令，而使经过 m
 <p><code>symbol=zt_usdt</code></p>
 
 <ol>
-<li>按照上面的顺序拼接字符串</li>
+<li>Concatenate the strings in the order above.</li>
 </ol>
 
 <p><code>from1sizebuysize100sumbolzt_usdt</code></p>
 
 <ol>
-<li>利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)</li>
+<li>Use the request string from the previous step and your key to generate a digital signature : MD5(key + timestamp + signature + secret).</li>
 </ol>
 
 <p><code>5fcbdb0862e10f9f6b885fdde42d58a1</code></p>
 
-<ol>
-<li>将生成的数字签名、App key、时间戳等字段加入Header</li>
-</ol>
+<p>4.Add fields such as the generated digital signature App key timestamp to the Header</p>
 
 <p><code>header.put("Apiid",id);</code></p>
 
@@ -870,194 +866,218 @@ Passphrase 请求头是并非直接使用passphrase请求口令，而使经过 m
 <p><code>header.put("Sign", "5fcbdb0862e10f9f6b885fdde42d58a1"</code></p>
 
 <aside class="warning">
-Post 请求下 Body 方式 application/json 的情况略有差异。这种情况下没有1、2步骤，直接将body转成json字符串当成签名字符串进入第3步。
+Body mode *application/json* is slightly different for Post requests. In this case, there are no steps 1 or 2, so just enter step 3 using the body as a signature string.
 </aside>
-<h2 id='e08c1d4f9a'>错误码</h2>
+<h2 id='error-code'>Error Code</h2>
 <table><thead>
 <tr>
-<th>错误码</th>
-<th>描述</th>
+<th>Code</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>1</td>
-<td>请求成功</td>
+<td>success</td>
 </tr>
 <tr>
 <td>6000</td>
-<td>参数缺失</td>
+<td>Parameters are missing</td>
 </tr>
 <tr>
 <td>6001</td>
-<td>一般错误提示</td>
+<td>General error prompt</td>
 </tr>
 <tr>
 <td>6010</td>
-<td>找不到市场</td>
+<td>Can&#39;t find a market</td>
 </tr>
 <tr>
 <td>6011</td>
-<td>你已开启谷歌登录验证，本次登录需要您的谷歌验证码</td>
+<td>You have enable Google verification for account login, please enter Google verification code</td>
 </tr>
 <tr>
 <td>6012</td>
-<td>未知操作类型!</td>
+<td>Unknown operation type!</td>
 </tr>
 <tr>
 <td>6013</td>
-<td>您没有进行手机认证和Google认证，暂时不能进行充值/提现业务，为了您的账号安全，请进行手机认证或Google认证。</td>
+<td>You cannot deposit and withdraw until you passed the mobile phone authentication and Google authentication, for the sake of your account security，Please pass the mobile phone authentication or Google authentication first</td>
 </tr>
 <tr>
 <td>6014</td>
-<td>短信验证码错误，请重新获取</td>
+<td>SMS verification code error, please require it again</td>
 </tr>
 <tr>
 <td>6019</td>
-<td>您的地址请求频繁，请一小时后重试</td>
+<td>Address requests are frequent. Please try again one hour later</td>
 </tr>
 <tr>
 <td>6020</td>
-<td>网络异常，请稍后重试</td>
+<td>Network exception, please try again later</td>
 </tr>
 <tr>
 <td>6021</td>
-<td>限制提币操作</td>
+<td>Restrictions on withdrawal operations</td>
 </tr>
 <tr>
 <td>6033</td>
-<td>请输入正确的谷歌验证码</td>
+<td>Please enter the correct Google verification code</td>
 </tr>
 <tr>
 <td>6040</td>
-<td>该账户已冻结，暂时不能操作</td>
+<td>The account has been frozen and temporarily unavailable</td>
 </tr>
 <tr>
 <td>6041</td>
-<td>该账户不是主账户，暂时不能操作</td>
+<td>This account is not the main account, temporarily unable to operate</td>
 </tr>
 <tr>
 <td>6043</td>
-<td>用户已经被列入登录黑名单不能进行登录</td>
+<td>The user has been blacklisted and cannot log in</td>
 </tr>
 <tr>
 <td>6096</td>
-<td>无效的参数</td>
+<td>Invalid parameter</td>
 </tr>
 <tr>
 <td>6097</td>
-<td>请求过于频繁</td>
+<td>Request too frequently</td>
 </tr>
 <tr>
 <td>6098</td>
-<td>用户已经被列入交易黑名单不能进行交易</td>
+<td>The user has been listed on the transaction blacklist and cannot trade</td>
 </tr>
 <tr>
 <td>6115</td>
-<td>提交提币申请失败！</td>
+<td>Failed to submit the withdrawal application！</td>
+</tr>
+<tr>
+<td>6117</td>
+<td>There is no withdrawal record selected to cancel！</td>
+</tr>
+<tr>
+<td>6118</td>
+<td>Withdrawal cancellation failed！</td>
+</tr>
+<tr>
+<td>6119</td>
+<td>This record cannot cancel withdrawal！</td>
 </tr>
 <tr>
 <td>6125</td>
-<td>无效的货币类型！</td>
+<td>An invalid currency type！</td>
 </tr>
 <tr>
 <td>6133</td>
-<td>提现地址不合法！</td>
+<td>Withdrawal address is illegal！</td>
 </tr>
 <tr>
 <td>6150</td>
-<td>单次提现超出或低于限额</td>
+<td>Single withdrawal exceeds or falls below the limit</td>
 </tr>
 <tr>
 <td>6151</td>
-<td>当天提现超出限额</td>
+<td>The current withdrawal exceeds the limit</td>
 </tr>
 <tr>
 <td>6152</td>
-<td>提现超出用户限额</td>
+<td>Cash withdrawal exceeds user limit</td>
 </tr>
 <tr>
 <td>6153</td>
-<td>资金不足</td>
+<td>Insufficient funds</td>
 </tr>
 <tr>
 <td>6154</td>
-<td>此记录不需要重新发起提币</td>
+<td>The record is not need re-withdraw</td>
 </tr>
 <tr>
 <td>2012</td>
-<td>委托信息不存在或系统正在处理！</td>
+<td>entrust not exists or on dealing with system！</td>
 </tr>
 <tr>
 <td>6400</td>
-<td>当前市场未到开盘时间</td>
+<td>The market is currently closed</td>
 </tr>
 <tr>
 <td>6402</td>
-<td>您的下单量超出最大限制</td>
+<td>Your order quantity exceeds the maximum limit :%s</td>
 </tr>
 <tr>
 <td>6403</td>
-<td>您的下单单价超出限制</td>
+<td>Your order price exceeds the limit :%s~%s</td>
+</tr>
+<tr>
+<td>6601</td>
+<td>Bitbank does not have this currency</td>
+</tr>
+<tr>
+<td>6602</td>
+<td>Bitbank has insufficient balance in this currency. Please recharge first</td>
 </tr>
 <tr>
 <td>6603</td>
-<td>当前币种禁止充值</td>
+<td>Current currency is forbidden to be recharged</td>
 </tr>
 <tr>
 <td>6894</td>
-<td>时间过长，API签名已失效</td>
+<td>The API signature is no longer valid!</td>
 </tr>
 <tr>
 <td>6895</td>
-<td>校验API权限失败，接口不属于授权API</td>
+<td>Failed to verify API permissions. Interface is not an authorization API</td>
 </tr>
 <tr>
 <td>6896</td>
-<td>校验API权限失败,Userid和Apiid不匹配</td>
+<td>Failed to verify the API permission. The Userid is not matching with Apiid</td>
 </tr>
 <tr>
 <td>6897</td>
-<td>校验API权限失败，请确认是否开启Api权限</td>
+<td>Failed to verify the API permission. Please confirm whether to enable API permission</td>
 </tr>
 <tr>
 <td>6898</td>
-<td>多次校验API权限失败，请确认是否开启Api权限</td>
+<td>Failed to verify the API permission for multiple times. Please confirm whether to enable API permission</td>
 </tr>
 <tr>
 <td>6899</td>
-<td>该市场现暂不对外开放api交易</td>
+<td>The market is temporarily not open to API trading</td>
 </tr>
 <tr>
 <td>6900</td>
-<td>交易所现暂不对外开放api交易</td>
+<td>The exchange server temporarily not open to API trading</td>
 </tr>
 <tr>
 <td>6991</td>
-<td>价格精度错误，价格小数位最多%s位</td>
+<td>Incorrect price accuracy, up to %s digits in decimal places</td>
 </tr>
 <tr>
 <td>6992</td>
-<td>订单数量精度错误，订单数量小数位最多%s位</td>
+<td>The quantity accuracy of the order is wrong, and the number of decimal places is up to %s digits</td>
+</tr>
+<tr>
+<td>6993</td>
+<td>The minimum order quantity of the order is wrong, the minimum amount is %s&quot;</td>
 </tr>
 <tr>
 <td>6999</td>
-<td>拒绝访问</td>
+<td>access forbidden</td>
 </tr>
 </tbody></table>
-<h1 id='41654e0268'>基础信息</h1><h2 id='daedf585f3'>公共-获取合约列表</h2>
-<p>此接口获取ZBG平台支持的所有合约。</p>
+<h1 id='reference-data'>Reference Data</h1><h2 id='public-get-contracts'>Public-Get Contracts</h2>
+<p>This endpoint returns all the contracts supported by the ZBG platform.。</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/common/contracts</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1088,66 +1108,66 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>contractId</td>
 <td>int</td>
-<td>合约ID</td>
+<td>contract ID</td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>合约名称</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>commodityId</td>
 <td>int</td>
-<td>商品币种ID</td>
+<td>base currency ID</td>
 </tr>
 <tr>
 <td>currencyId</td>
 <td>int</td>
-<td>货币币种ID</td>
+<td>quote currency ID</td>
 </tr>
 <tr>
 <td>lotSize</td>
 <td>string</td>
-<td>最小交易单位</td>
+<td>Minimum trading unit</td>
 </tr>
 <tr>
 <td>priceTick</td>
 <td>string</td>
-<td>最小报价单位</td>
+<td>Minimum quoted unit</td>
 </tr>
 <tr>
 <td>makerFeeRatio</td>
 <td>string</td>
-<td>maker 手续费率</td>
+<td>maker trading fee</td>
 </tr>
 <tr>
 <td>takerFeeRatio</td>
 <td>string</td>
-<td>taker 手续费率</td>
+<td>taker  trading fee</td>
 </tr>
 </tbody></table>
-<h2 id='b22727fec6'>公共-获取合约可用币种</h2>
-<p>此接口获取ZBG平台支持的合约币种列表。</p>
+<h2 id='public-get-contract-currencies'>Public-Get Contract Currencies</h2>
+<p>This endpoint returns all contract currencies supported by the ZBG platform.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/common/currencies</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1170,72 +1190,72 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>currencyId</td>
 <td>string</td>
-<td>合约方币种id</td>
+<td>contract currency id</td>
 </tr>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>币种名称</td>
+<td>currency</td>
 </tr>
 <tr>
 <td>displayPrecision</td>
 <td>int</td>
-<td>显示位数</td>
+<td>Display decimals</td>
 </tr>
 <tr>
 <td>enabled</td>
 <td>int</td>
-<td>是否可充提，1:可用，0:不可用</td>
+<td>withidrawal，1:able，0:unable</td>
 </tr>
 </tbody></table>
-<h1 id='9493d04700'>合约市场行情</h1><h2 id='k'>公共-合约K线数据</h2>
-<p>此接口返回历史K线数据。</p>
+<h1 id='contract-market'>Contract Market</h1><h2 id='public-contract-kline'>Public-Contract KLine</h2>
+<p>This endpoint returns historical k-line data.。</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/market/klines</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
 <td>true</td>
-<td>交易对</td>
+<td>trading pair</td>
 </tr>
 <tr>
 <td>range</td>
 <td>string</td>
 <td>true</td>
-<td>K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;</td>
+<td>K line type,support1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;</td>
 </tr>
 <tr>
-<td>endTime</td>
-<td>long</td>
-<td>false</td>
-<td>时间，与Kline 返回时间位数一致</td>
+<td>size</td>
+<td>int</td>
+<td>true</td>
+<td>data size</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1260,40 +1280,41 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
         </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>lines数据结构：List<List>
-如：</p>
+<p>lines data structure：List<List></p>
+
+<p>eg：</p>
 
 <p>[
-        [${时间}, ${开市价格}, ${最高价格}, ${最低价格}, ${闭市价格}, ${成交量}]
+        [${timestamp}, ${opening market price}, ${highest price}, ${lowest price}, ${closing prices}, ${trading volume}]
     ]</p>
-<h2 id='964054eba1'>公共-单个合约行情</h2>
-<p>此接口获取单个合约的行情快照。</p>
+<h2 id='public-single-contract-market'>Public-Single Contract Market</h2>
+<p>This endpoint returns a snapshot of a single contract market.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/market/ticker</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Datatype</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
 <td>true</td>
-<td>交易对</td>
+<td>trading pairs</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1349,213 +1370,213 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>Datatype</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>mt</td>
 <td>number</td>
-<td>消息类型：messageType</td>
+<td>messageType</td>
 </tr>
 <tr>
 <td>ai</td>
 <td>number</td>
-<td>应用ID：applId</td>
+<td>application ID：applId</td>
 </tr>
 <tr>
 <td>ci</td>
 <td>number</td>
-<td>合约ID：contractId</td>
+<td>contractId</td>
 </tr>
 <tr>
 <td>sb</td>
 <td>string</td>
-<td>合约名称：symbol</td>
+<td>contract symbol</td>
 </tr>
 <tr>
 <td>td</td>
 <td>number</td>
-<td>交易日期：tradeDate</td>
+<td>tradeDate</td>
 </tr>
 <tr>
 <td>te</td>
 <td>number</td>
-<td>交易时间：time</td>
+<td>trading time</td>
 </tr>
 <tr>
 <td>lp</td>
 <td>string</td>
-<td>最新价格：lastPrice</td>
+<td>lastPrice</td>
 </tr>
 <tr>
 <td>mq</td>
-<td>string</td>
-<td>成交量：matchQty</td>
+<td>stri</td>
+<td>matchQty</td>
 </tr>
 <tr>
 <td>nt</td>
-<td>number</td>
-<td>成交比数：numTrades</td>
+<td>numbe</td>
+<td>numTrades</td>
 </tr>
 <tr>
 <td>op</td>
 <td>string</td>
-<td>开盘价：openPrice</td>
+<td>openPrice</td>
 </tr>
 <tr>
 <td>ph</td>
 <td>string</td>
-<td>最高价：priceHigh</td>
+<td>priceHigh</td>
 </tr>
 <tr>
 <td>pl</td>
 <td>string</td>
-<td>最低价：priceLow</td>
+<td>priceLow</td>
 </tr>
 <tr>
 <td>hph</td>
 <td>string</td>
-<td>历史最高价：historyPriceHigh</td>
+<td>historyPriceHigh</td>
 </tr>
 <tr>
 <td>hpl</td>
 <td>string</td>
-<td>历史最低价：historyPriceLow</td>
+<td>historyPriceLow</td>
 </tr>
 <tr>
 <td>tt</td>
 <td>string</td>
-<td>当日成交额：totalTurnover</td>
+<td>totalTurnover</td>
 </tr>
 <tr>
 <td>tv</td>
 <td>string</td>
-<td>当日成交量：totalVolume</td>
+<td>totalVolume</td>
 </tr>
 <tr>
 <td>tbv</td>
 <td>string</td>
-<td>买总委托数：totalBidVol</td>
+<td>totalBidVol</td>
 </tr>
 <tr>
 <td>tav</td>
 <td>string</td>
-<td>卖总委托数：totalAskVol</td>
+<td>totalAskVol</td>
 </tr>
 <tr>
 <td>pp</td>
 <td>string</td>
-<td>上一交易日收盘价：prevPrice</td>
+<td>prevPrice</td>
 </tr>
 <tr>
 <td>cp</td>
 <td>string</td>
-<td>标记价格，结算价：clearPrice</td>
+<td>clearPrice</td>
 </tr>
 <tr>
 <td>pv</td>
 <td>string</td>
-<td>总持仓量：posiVol</td>
+<td>posiVol</td>
 </tr>
 <tr>
 <td>pcr</td>
 <td>string</td>
-<td>当日涨跌幅度：priceChangeRadio</td>
+<td>priceChangeRadio</td>
 </tr>
 <tr>
 <td>pc</td>
 <td>string</td>
-<td>当日涨跌：priceChange</td>
+<td>priceChange</td>
 </tr>
 <tr>
 <td>lui</td>
 <td>number</td>
-<td>行情序号：lastUpdateId</td>
+<td>lastUpdateId</td>
 </tr>
 <tr>
 <td>cs</td>
 <td>number</td>
-<td>交易对状态：contractStatus</td>
+<td>contractStatus</td>
 </tr>
 <tr>
 <td>dp</td>
 <td>string</td>
-<td>交割价格：deliveryPrice</td>
+<td>deliveryPrice</td>
 </tr>
 <tr>
 <td>fr</td>
 <td>null</td>
-<td>资金费率：fundingRate</td>
+<td>fundingRate</td>
 </tr>
 <tr>
 <td>pfr</td>
 <td>null</td>
-<td>预测资金费率：predictionFundingRate</td>
+<td>predictionFundingRate</td>
 </tr>
 <tr>
 <td>pi</td>
 <td>null</td>
-<td>溢价指数：premiumIndex</td>
+<td>premiumIndex</td>
 </tr>
 <tr>
 <td>ppi</td>
 <td>null</td>
-<td>预溢价指数：predictionPremiumIndex</td>
+<td>predictionPremiumIndex</td>
 </tr>
 <tr>
 <td>fb</td>
 <td>string</td>
-<td>合理基差：fairBasis</td>
+<td>fairBasis</td>
 </tr>
 <tr>
 <td>ts</td>
 <td>number</td>
-<td>交易信号，1=买，2=卖：tradingsignal</td>
+<td>trading signal, 1=buy, 2=sell</td>
 </tr>
 <tr>
 <td>sl</td>
 <td>number</td>
-<td>1~100,交易信号强度 ：signalLevel</td>
+<td>1~100, signalLevel</td>
 </tr>
 <tr>
 <td>ip</td>
 <td>string</td>
-<td>标的指数价格：indexPrice</td>
+<td>indexPrice</td>
 </tr>
 <tr>
 <td>bids</td>
 <td>string[]</td>
-<td>买档位</td>
+<td>buy gear</td>
 </tr>
 <tr>
 <td>asks</td>
 <td>string[]</td>
-<td>卖档位</td>
+<td>sell gear</td>
 </tr>
 </tbody></table>
 
-<p>bids与asks结构：List<List>
-如</p>
+<p>bids and asks structure：List<List>
+eg：</p>
 
 <p>[
-        [${价格}, ${数量}]
+        [${price}, ${Qty}]
     ]</p>
+<h2 id='public-all-contract-market'>Public-All Contract Market</h2>
+<p>The endpoint returns a snapshot of all contracts markets</p>
 
-<p><br/></p>
-<h2 id='4802b68052'>公共-所有合约行情</h2>
-<p>获得所有合约的行情快照</p>
-
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/market/tickers</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p><strong>返回字段</strong></p>
+<p>None</p>
+
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1564,41 +1585,41 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
     {}
 ]
 </code></pre>
-<p>返回一个list，子项具体各字段含义，请参考<a href="#964054eba1">单个合约行情</a>接口</p>
-<h2 id='470b9cf6ae'>公共-合约深度</h2>
-<p>此接口返回指定合约的当前深度数据。</p>
+<p>Returns a list with the specific meaning of each field of the subitem. Please refer to the <a href="#public-single-contract-market">Public-Single Contract Market</a> interface.</p>
+<h2 id='public-contract-depth'>Public-Contract Depth</h2>
+<p>This endpoint returns the current depth data for the specified contract.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/market/depth</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
 <td>true</td>
-<td>交易对</td>
+<td>trading pairs</td>
 </tr>
 <tr>
 <td>size</td>
 <td>integer</td>
 <td>true</td>
-<td>档位数，默认20</td>
+<td>gears, default 20</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1645,56 +1666,47 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 <tr>
 <td>asks</td>
 <td>list</td>
-<td>卖盘列表，按卖价顺序</td>
+<td>sell gear, order by price asc</td>
 </tr>
 <tr>
 <td>bids</td>
 <td>list</td>
-<td>买盘列表，按买价倒序</td>
+<td>buy gear, order by price desc</td>
 </tr>
 <tr>
 <td>timestamp</td>
 <td>long</td>
-<td>请求时的时间戳，毫秒级别</td>
+<td>Request timestamp, millisecond level</td>
 </tr>
 </tbody></table>
-<h2 id='540eaf650b'>公共-合约历史成交记录</h2>
-<p>此接口返回指定交易对最新的交易记录。</p>
+<h2 id='public-contract-trading-history'>Public-Contract Trading History</h2>
+<p>This endpoint returns the latest trading record for the specified contract market.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/market/trades</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
 <td>true</td>
-<td>交易对</td>
+<td>contract market</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
-
-<p>trades的结构为：List<List>
-如：</p>
-
-<p>[
-        [${时间戳}, ${成交价格}, ${成交数量}, ${方向}]
-    ]</p>
-
-<p>见如下用例</p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1705,226 +1717,232 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
         </span><span class="p">[</span><span class="mi">1586504620979503</span><span class="p">,</span><span class="w"> </span><span class="s2">"6920.5"</span><span class="p">,</span><span class="w"> </span><span class="s2">"16"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w">
     </span><span class="err">......</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h1 id='5bf19eee5a'>合约交易</h1><h2 id='9dc85ffb46'>合约下单</h2>
-<p><strong>HTTP 请求</strong></p>
+</span></code></pre>
+<p>trades structure：List<List></p>
+
+<p>Eg：</p>
+
+<p>[
+      [${time stamp}, ${trading price}, ${trading volume}, ${direction}]
+    ]</p>
+<h1 id='contract-trade-interface'>Contract Trade Interface</h1><h2 id='place-an-order'>Place an Order</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/place</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>必须</td>
-<td>合约名称</td>
+<td>yes</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>side</td>
 <td>integer</td>
-<td>必须</td>
-<td>买1，卖-1</td>
+<td>yes</td>
+<td>1: buy, -1: sell</td>
 </tr>
 <tr>
 <td>price</td>
 <td>string</td>
-<td>非必须</td>
-<td>order_type等于3（市价）时非必填</td>
+<td>no</td>
+<td>not required when order_type=3（market price)</td>
 </tr>
 <tr>
 <td>quantity</td>
 <td>string</td>
-<td>必须</td>
-<td>下单量</td>
+<td>yes</td>
+<td>Order Qty</td>
 </tr>
 <tr>
 <td>orderType</td>
 <td>integer</td>
-<td>必须</td>
-<td>1（限价），3（市价）</td>
+<td>yes</td>
+<td>1（price limit），3（market price）</td>
 </tr>
 <tr>
 <td>positionEffect</td>
 <td>number</td>
-<td>必须</td>
-<td>开仓1，平仓2</td>
+<td>yes</td>
+<td>1: position，2: close position</td>
 </tr>
 <tr>
 <td>marginType</td>
 <td>number</td>
-<td>必须</td>
-<td>全仓1，逐仓2</td>
+<td>yes</td>
+<td>1: Cross，2: Isolated</td>
 </tr>
 <tr>
 <td>marginRate</td>
 <td>string</td>
-<td>必须</td>
-<td>全仓时0，逐仓时&gt;=0，保证金率</td>
+<td>yes</td>
+<td>Cross=0, Isolated&gt;=0，margin rate</td>
 </tr>
 <tr>
 <td>orderSubType</td>
 <td>integer</td>
-<td>非必须</td>
-<td>0（默认值），1（被动委托），2（最近价触发条件委托），<br/>3（指数触发条件委托），4（标记价触发条件委托）</td>
+<td>no</td>
+<td>0（default market），1（passive intrust），2（limit intrust），<br/>3（take Profit intrust），4（stop loss intrust）</td>
 </tr>
 <tr>
 <td>stopPrice</td>
 <td>string</td>
-<td>非必须</td>
-<td>触发价格</td>
+<td>no</td>
+<td>trigger price</td>
 </tr>
 <tr>
 <td>stopCondition</td>
 <td>integer</td>
-<td>非必须</td>
-<td>0：默认，2：止损</td>
+<td>no</td>
+<td>0 default，2：stop-loss</td>
 </tr>
 <tr>
 <td>minimalQuantity</td>
 <td>string</td>
-<td>非必须</td>
-<td>止损点位</td>
+<td>no</td>
+<td>stop-loss point</td>
 </tr>
 </tbody></table>
 
-<p>备注：</p>
+<p>Note：</p>
 
-<p>已实现订单类型：<br/>
-被动委托：<br/>
+<p>Implemented order type：<br/>
+passive intrust：<br/>
 order_sub_type: 1</p>
 
-<p>条件委托：<br/>
-order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
-stop_price: 触发价格</p>
+<p>Contingent order：<br/>
+order_sub_type: 2（limit intrust），3（take Profit intrust），4（stop loss intrust）<br/>
+stop_price: trigger price</p>
 
-<p>追踪止损：<br/>
-order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
-minimal_quantity：止损点位<br/>
-stop_condition: 2（止损）</p>
+<p>Tracking stop-loss：<br/>
+order_sub_type: 2（limit intrust），3（take Profit intrust），4（stop loss intrust）<br/>
+minimal_quantity：Stop-loss point<br/>
+stop_condition: 2（Stop-loss）</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
 </blockquote>
+
+<p>OrderId is returned on success.</p>
 <pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="s2">"11585489047547210"</span><span class="w">
-</span></code></pre>
-<p>正常时为order_id</p>
-<h2 id='68a1fe7812'>合约撤单</h2>
-<p><strong>HTTP 请求</strong></p>
+</span></code></pre><h2 id='cancel-an-contract-order'>Cancel an Contract Order</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/cancel</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>必须</td>
-<td>合约名称</td>
+<td>yes</td>
+<td>contract id</td>
 </tr>
 <tr>
 <td>orderId</td>
 <td>String</td>
-<td>必须</td>
-<td>合约订单号</td>
+<td>yes</td>
+<td>contract order id</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
-<p>无</p>
-<h2 id='5538919b9f'>合约一键撤单</h2>
-<p><strong>HTTP 请求</strong></p>
+<p>None</p>
+<h2 id='cancel-all-contract-orders'>Cancel All Contract Orders</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/cancel-all</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
-<p>无</p>
+<p>None</p>
+<h2 id='get-contract-position'>Get Contract Position</h2>
+<p>position &gt; 0 means long，position &lt;0 means short</p>
 
-<p><br/></p>
-<h2 id='01106676d4'>合约持仓查询</h2>
-<p>持仓量 &gt; 0 表示 多头，持仓量 &lt;0 表示空头</p>
+<p>contract_side ：usdt contract  or coin-base contract</p>
 
-<p>contract_side ：正向合约和反向合约</p>
+<p>value = PositionQty * LatestPrice* ContractUnit</p>
 
-<p>价值= 持仓量 * 最新价 * ContractUnit</p>
+<p>openPositionPrice = position / (positionQty * ContractUnit)</p>
 
-<p>开仓价格 = 开仓金额/(持仓量*ContractUnit)</p>
+<p>IndexPrice： request market price</p>
 
-<p>标记价格： 行情获取</p>
+<p>Forced Liquidation price：</p>
 
-<p>强平价格：</p>
+<p>USDT long position：openPositionPrice + position * (initialMarginRate - maintenanceMarginRate) / positionQty.</p>
 
-<p>正向合约多头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+<p>USDT short position：openPositionPrice - position * (initialMarginRate - maintenanceMarginRate) / positionQty.</p>
 
-<p>正向合约空头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+<p>Reverse long position：openPositionPrice + position * (initialMarginRate - maintenanceMarginRate) / positionQty.</p>
 
-<p>反向合约多头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+<p>Reverse short position：openPositionPrice + position * (initialMarginRate - maintenanceMarginRate) / positionQty.</p>
 
-<p>反向合约空头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
+<p>Deposit：  initial margin</p>
 
-<p>保证金： 初始保证金</p>
+<p>multiple： 1/initialMarginRate</p>
 
-<p>倍数： 1/初始保证率</p>
+<p>Usdt contract：</p>
 
-<p>正向合约：</p>
+<p>Unrealized profit and loss when long position = positionQty <em>（latestPrice - open price）</em> ContractUnit；</p>
 
-<p>多头时未实现盈亏=持仓量 <em>（最新价-开仓价）</em> ContractUnit； </p>
+<p>Unrealized profit and loss when short position = positionQty <em>（latestPrice - open price）</em> ContractUnit；</p>
 
-<p>空头时未实现盈亏=持仓量 <em>（开仓价-最新价）</em> ContractUnit；</p>
+<p>Reverse contract：</p>
 
-<p>反向合约：</p>
+<p>Unrealized profit and loss when short position = positionQty <em>（latestPrice - openPrice）</em> ContractUnit；</p>
 
-<p>空头时未实现盈亏=持仓量 <em>（最新价-开仓价）</em> ContractUnit；</p>
+<p>Unrealized profit and loss when long position = positionQty <em>（openPrice - latestPrice）</em> ContractUnit；</p>
 
-<p>多头时未实现盈亏=持仓量 <em>（开仓价-最新价）</em> ContractUnit；</p>
+<p>return rate：(profit or loss)／ value</p>
 
-<p>回报率：盈亏／ 价值</p>
+<p>deduct position queue： inquiry through deduct position queue</p>
 
-<p>减仓队列： 通过强减队列查询</p>
+<p>Operation queue： when posiStatus=2，can not close position or close according market price</p>
 
-<p>操作列： 当posiStatus为2时，不能平仓和市价全平</p>
+<p>already closed position： Realized profit and loss，Read-Out Values： closeProfitLoss</p>
 
-<p>已平仓仓位： 已实现盈亏，取值 closeProfitLoss</p>
-
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/positions</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -1950,84 +1968,84 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>contractId</td>
 <td>integer</td>
-<td>交易对</td>
+<td>trading pair</td>
 </tr>
 <tr>
 <td>posiQty</td>
 <td>string</td>
-<td>持仓量</td>
+<td>position</td>
 </tr>
 <tr>
 <td>openAmt</td>
 <td>string</td>
-<td>开仓金额</td>
+<td>open position amount</td>
 </tr>
 <tr>
 <td>initMargin</td>
 <td>string</td>
-<td>初始保证金</td>
+<td>initial margin</td>
 </tr>
 <tr>
 <td>posiStatus</td>
 <td>number</td>
-<td>0：正常，1：禁止平仓，2：交割</td>
+<td>0: normal，1: forbid close position 2: settlement</td>
 </tr>
 <tr>
 <td>marginType</td>
 <td>integer</td>
-<td>保证金类型，1全仓2逐仓</td>
+<td>margin type，1: Cross 2: Isolated</td>
 </tr>
 <tr>
 <td>closeProfitLoss</td>
 <td>string</td>
-<td>已实现盈亏</td>
+<td>already realized benefit and loss</td>
 </tr>
 <tr>
 <td>initMargiRate</td>
 <td>string</td>
-<td>初始保证率</td>
+<td>original margin</td>
 </tr>
 <tr>
 <td>maintainMarginRate</td>
 <td>string</td>
-<td>维持保证金</td>
+<td>maintenance margin rate</td>
 </tr>
 <tr>
 <td>frozenCloseQty</td>
 <td>string</td>
-<td>平仓委托冻结量</td>
+<td>frozen Qty for close position entrust</td>
 </tr>
 <tr>
 <td>frozenOpenQty</td>
 <td>string</td>
-<td>开仓委托冻结量</td>
+<td>frozen Qty for open position entrust</td>
 </tr>
 <tr>
 <td>contractUnit</td>
 <td>string</td>
-<td>合约单位</td>
+<td>contract unit</td>
 </tr>
 </tbody></table>
-<h2 id='513eb615d1'>查询合约当前委托</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='get-activity-orders'>Get Activity Orders</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/orders</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -2068,155 +2086,155 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>FieldName</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>contractId</td>
 <td>number</td>
-<td>交易对</td>
+<td>trading pairs</td>
 </tr>
 <tr>
 <td>orderId</td>
 <td>string</td>
-<td>委托号</td>
+<td>order ID</td>
 </tr>
 <tr>
 <td>clOrderId</td>
 <td>string</td>
-<td>客户订单编号</td>
+<td>customer order ID</td>
 </tr>
 <tr>
 <td>price</td>
 <td>string</td>
-<td>委托价格</td>
+<td>entrust price</td>
 </tr>
 <tr>
 <td>quantity</td>
 <td>string</td>
-<td>委托数量</td>
+<td>entrust Qty.</td>
 </tr>
 <tr>
 <td>leftQuantity</td>
 <td>string</td>
-<td>剩余数量</td>
+<td>left Qty.</td>
 </tr>
 <tr>
 <td>side</td>
 <td>number</td>
-<td>买卖方向，1买，-1卖</td>
+<td>sell or buy，1: buy，-1: sell</td>
 </tr>
 <tr>
 <td>placeTimestamp</td>
 <td>number</td>
-<td>委托时间</td>
+<td>entrust time</td>
 </tr>
 <tr>
 <td>cancelQty</td>
 <td>string</td>
-<td>成交数量</td>
+<td>volume of trade</td>
 </tr>
 <tr>
 <td>matchAmt</td>
 <td>string</td>
-<td>成交金额</td>
+<td>match amount</td>
 </tr>
 <tr>
 <td>positionEffect</td>
 <td>integer</td>
-<td>开平标志，1开仓2平仓</td>
+<td>open/close position sign，1: open position 2: close position</td>
 </tr>
 <tr>
 <td>marginType</td>
 <td>integer</td>
-<td>保证金类型，1全仓2逐仓</td>
+<td>margin type，1: Cross 2: Isolated</td>
 </tr>
 <tr>
 <td>fcOrderId</td>
 <td>string</td>
-<td>强平委托号，空时为强平委托</td>
+<td>force close position ，blank means force close position</td>
 </tr>
 <tr>
 <td>orderType</td>
 <td>integer</td>
-<td>委托类型（1：限价，2：市价）</td>
+<td>entrust type（1：price limit，2：market price limit）</td>
 </tr>
 <tr>
 <td>stopPrice</td>
 <td>string</td>
-<td>条件单触发价</td>
+<td>condition oder triggered price</td>
 </tr>
 <tr>
 <td>orderSubType</td>
 <td>string</td>
-<td>订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托</td>
+<td>Order type，0：default，1：passive intrust，2：limit intrust，<br/>3 ：take Profit intrust，4：stop loss intrust</td>
 </tr>
 <tr>
 <td>stopCondition</td>
 <td>integer</td>
-<td>0：默认，2：止损</td>
+<td>0：default，2：stop loss</td>
 </tr>
 <tr>
 <td>minimalQuantity</td>
 <td>string</td>
-<td>止损点位</td>
+<td>stop-loss price</td>
 </tr>
 </tbody></table>
-<h2 id='23889edae4'>查询合约历史委托</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='get-historical-orders'>Get Historical Orders</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/orders/his</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameters</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>必须</td>
-<td>合约名称</td>
+<td>yes</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>否</td>
-<td>-1:上一页，1：下一页</td>
+<td>no</td>
+<td>-1:last page，1：next page</td>
 </tr>
 <tr>
 <td>timestamp</td>
 <td>long</td>
-<td>否</td>
-<td>微秒级别</td>
+<td>no</td>
+<td>Microsecond level</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认100</td>
+<td>no</td>
+<td>default 100</td>
 </tr>
 </tbody></table>
 
-<p>备注<br/>
-用户选择了查询时间条件时：<br/>
-每次用户选择上一页，下一页时，timestamp需有值<br/></p>
+<p>Note<br/>
+when users choose the enquiry conditions：<br/>
+when users choose last page，next page，timestamp which must have a value<br/></p>
 
-<p>上一页：<br/>
-   timestamp= 当前页第一条数据的timestamp<br/>
-下一页：<br/>
-   timestamp= 当前页最后一条数据的timestamp<br/></p>
+<p>Last Page：<br/>
+   timestamp = the first data’s timestamp in the current page<br/>
+Next Page：<br/>
+   timestamp = the last data’s timestamp in the current page<br/></p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -2257,289 +2275,289 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>FieldName</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>applId</td>
 <td>number</td>
-<td>2：期货</td>
+<td>2：future</td>
 </tr>
 <tr>
 <td>timestamp</td>
 <td>number</td>
-<td>下单时间戳，微秒级别</td>
+<td>order timestamp，microsecond level</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>用户合约ID</td>
+<td>contract user ID</td>
 </tr>
 <tr>
 <td>contractId</td>
 <td>number</td>
-<td>交易对</td>
+<td>trading pairs</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>string</td>
-<td>唯一标志符</td>
+<td>Unique identifier</td>
 </tr>
 <tr>
 <td>side</td>
 <td>number</td>
-<td>买卖方向，1买，-1卖</td>
+<td>buy or sell，1: buy，-1: sell</td>
 </tr>
 <tr>
 <td>price</td>
 <td>string</td>
-<td>委托价格</td>
+<td>entrust price</td>
 </tr>
 <tr>
 <td>quantity</td>
 <td>string</td>
-<td>委托数量</td>
+<td>entrust volume</td>
 </tr>
 <tr>
 <td>orderType</td>
 <td>number</td>
-<td>委托类型（1：限价，2：市价）</td>
+<td>entrust type（1：limit price，2：market price）</td>
 </tr>
 <tr>
 <td>orderSubType</td>
 <td>number</td>
-<td>订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托</td>
+<td>order entrust type，0：default，1：passive intrust，2：limit intrust，<br/>3 ：take Profit intrust，4：stop loss intrust</td>
 </tr>
 <tr>
 <td>timeInForce</td>
 <td>number</td>
-<td>订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用</td>
+<td>order validity type：1: valid before cancel，2:Immediate orders are complete，otherwise cancelled, not enabled，<br/>3:All orders are completed, otherwise cancelled, not enabled，4:five gears’ oders completed，others cancell，not enabled，5:five gears’ oders completed，others turns into price  limit order，not enabled</td>
 </tr>
 <tr>
 <td>minimalQuantity</td>
 <td>string</td>
-<td>止损点位</td>
+<td>stop-loss</td>
 </tr>
 <tr>
 <td>stopPrice</td>
 <td>string</td>
-<td>条件单触发价</td>
+<td>condition order trigger price</td>
 </tr>
 <tr>
 <td>stopCondition</td>
 <td>number</td>
-<td>止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）</td>
+<td>Stop-loss ，stop-profit sign 1（stop profit，not enabled），2（stop loss，not enabled），3（only deduct position，not enabled）</td>
 </tr>
 <tr>
 <td>orderStatus</td>
 <td>number</td>
-<td>委托状态</td>
+<td>intrust status</td>
 </tr>
 <tr>
 <td>makerFeeRatio</td>
 <td>string</td>
-<td>Maker手续费率</td>
+<td>Maker fee rate</td>
 </tr>
 <tr>
 <td>takerFeeRatio</td>
 <td>string</td>
-<td>Taker手续费率</td>
+<td>Taker fee rate</td>
 </tr>
 <tr>
 <td>clOrderId</td>
 <td>string</td>
-<td>客户订单编号</td>
+<td>users’order number</td>
 </tr>
 <tr>
 <td>filledCurrency</td>
 <td>string</td>
-<td>成交金额</td>
+<td>trading amount</td>
 </tr>
 <tr>
 <td>filledQuantity</td>
 <td>string</td>
-<td>成交数量</td>
+<td>trading Qty</td>
 </tr>
 <tr>
 <td>canceledQuantity</td>
 <td>string</td>
-<td>取消数量</td>
+<td>cancelled Qty</td>
 </tr>
 <tr>
 <td>matchTime</td>
 <td>number</td>
-<td>撮合时间戳</td>
+<td>match timestamp</td>
 </tr>
 <tr>
 <td>positionEffect</td>
 <td>number</td>
-<td>开平标志，1：开仓，2：平仓</td>
+<td>Open position sign，1：open position，2：close position</td>
 </tr>
 <tr>
 <td>marginType</td>
 <td>number</td>
-<td>保证金类型，1全仓，2逐仓</td>
+<td>margin type，1: Cross 2: Isolated</td>
 </tr>
 <tr>
 <td>marginRate</td>
 <td>string</td>
-<td>保证金率，全仓时0，逐仓时&gt;=0，</td>
+<td>margin rate，when full position=0，when position by position&gt;=0，</td>
 </tr>
 <tr>
 <td>fcOrderId</td>
 <td>string</td>
-<td>强平委托号，非空时为强平委托</td>
+<td>force close position sign，if it&#39;s not empty，then means force close position entrust</td>
 </tr>
 <tr>
 <td>deltaPrice</td>
 <td>string</td>
-<td>标记价与委托价之差</td>
+<td>spread between index price and intrust price</td>
 </tr>
 <tr>
 <td>frozenPrice</td>
 <td>string</td>
-<td>资金计算价格</td>
+<td>asset accumulate price</td>
 </tr>
 </tbody></table>
 
-<p>orderStatus委托状态：</p>
+<p>orderStatus：</p>
 
 <table><thead>
 <tr>
-<th>状态</th>
-<th>描述</th>
+<th>status</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>0</td>
-<td>未申报</td>
+<td>not been declared</td>
 </tr>
 <tr>
 <td>1</td>
-<td>正在申报</td>
+<td>declaring</td>
 </tr>
 <tr>
 <td>2</td>
-<td>已申报未成交</td>
+<td>declared but unsettled</td>
 </tr>
 <tr>
 <td>3</td>
-<td>部分成交</td>
+<td>settled partly</td>
 </tr>
 <tr>
 <td>4</td>
-<td>全部成交</td>
+<td>all settled</td>
 </tr>
 <tr>
 <td>5</td>
-<td>部分撤单</td>
+<td>cancel partly</td>
 </tr>
 <tr>
 <td>6</td>
-<td>全部撤单</td>
+<td>all cancel</td>
 </tr>
 <tr>
 <td>7</td>
-<td>撤单中</td>
+<td>cancelling</td>
 </tr>
 <tr>
 <td>8</td>
-<td>失效</td>
+<td>invalid</td>
 </tr>
 <tr>
 <td>11</td>
-<td>缓存高于条件的委托</td>
+<td>save the cache of the intrust order which higher than condition</td>
 </tr>
 <tr>
 <td>12</td>
-<td>缓存低于条件的委托</td>
+<td>save the cache of the intrust order which lower than condition</td>
 </tr>
 </tbody></table>
-<h2 id='97ba66701c'>查询合约历史强平</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='get-contract-force-close-history'>Get Contract Force Close History</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/fcorders</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>否</td>
-<td>合约名称</td>
+<td>no</td>
+<td>contract anme</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>否</td>
-<td>买卖方向 1:买，-1:卖</td>
+<td>no</td>
+<td>buy or sell 1: buy，-1: sell</td>
 </tr>
 <tr>
 <td>startDate</td>
 <td>long</td>
-<td>否</td>
-<td>开始时间,毫秒</td>
+<td>no</td>
+<td>start time, microsecond</td>
 </tr>
 <tr>
 <td>endDate</td>
 <td>long</td>
-<td>否</td>
-<td>结束时间,毫秒</td>
+<td>no</td>
+<td>end time, microsecond</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>int</td>
-<td>否</td>
-<td>当前页：默认：1</td>
+<td>no</td>
+<td>current page：default：1</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认10</td>
+<td>no</td>
+<td>default 10</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>totalRow</td>
 <td>number</td>
-<td>总记录数</td>
+<td>total record</td>
 </tr>
 <tr>
 <td>totalPage</td>
 <td>number</td>
-<td>总页数</td>
+<td>toral pages</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>number</td>
-<td>每页返回数</td>
+<td>page returned records</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>number</td>
-<td>当前页</td>
+<td>current page</td>
 </tr>
 <tr>
 <td>list</td>
@@ -2549,160 +2567,160 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>├─timestamp</td>
 <td>number</td>
-<td>委托时间</td>
+<td>entrust time</td>
 </tr>
 <tr>
 <td>├─userId</td>
 <td>number</td>
-<td>用户ID</td>
+<td>user ID</td>
 </tr>
 <tr>
 <td>├─contractId</td>
 <td>number</td>
-<td>交易对</td>
+<td>trading pairs</td>
 </tr>
 <tr>
 <td>├─uuid</td>
 <td>string</td>
-<td>委托编号</td>
+<td>entrust No.</td>
 </tr>
 <tr>
 <td>├─applId</td>
 <td>number</td>
-<td>应用标识</td>
+<td>apply id</td>
 </tr>
 <tr>
 <td>├─side</td>
 <td>number</td>
-<td>买卖方向</td>
+<td>buy and sell direction</td>
 </tr>
 <tr>
 <td>├─bankruptcyPrice</td>
 <td>number</td>
-<td>破产价格</td>
+<td>bankruptcy price</td>
 </tr>
 <tr>
 <td>├─closeQty</td>
 <td>number</td>
-<td>委托量</td>
+<td>entrust qty.</td>
 </tr>
 <tr>
 <td>├─filledCurrency</td>
 <td>number</td>
-<td>成交金额</td>
+<td>deal settled qty</td>
 </tr>
 <tr>
 <td>├─filledQuantity</td>
 <td>number</td>
-<td>成交量</td>
+<td>deal settled qty</td>
 </tr>
 <tr>
 <td>├─canceledQuantity</td>
 <td>number</td>
-<td>撤单数量</td>
+<td>cancelled qty</td>
 </tr>
 <tr>
 <td>├─orderStatus</td>
 <td>number</td>
-<td>委托状态</td>
+<td>entrust status</td>
 </tr>
 <tr>
 <td>├─feeRatio</td>
 <td>number</td>
-<td>手续费</td>
+<td>trading fee ratio</td>
 </tr>
 <tr>
 <td>├─marginType</td>
 <td>number</td>
-<td>保证金类型</td>
+<td>margin type</td>
 </tr>
 </tbody></table>
 
 <p>orderStatus
-    0: 未申报；1:正在申报；2:已申报未成交；3:部分成交；4:全部成交；5部分撤单；6:全部撤单；7:撤单中；8:失效</p>
-<h2 id='4c8fd7c9eb'>查询合约历史强减</h2>
-<p><strong>HTTP 请求</strong></p>
+    0: undeclared；1:declaring；2:declared but not settled yet；3:partly settled；4:all settled；5部partly cancelled；6:all cancelled；7:cancelling；8:invalid</p>
+<h2 id='get-contract-force-deduction-history'>Get Contract Force Deduction History</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/florders</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>否</td>
-<td>合约名称</td>
+<td>no</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>否</td>
-<td>买卖方向 1:买，-1:卖</td>
+<td>no</td>
+<td>buy and sell 1: buy，-1: sell</td>
 </tr>
 <tr>
 <td>startDate</td>
 <td>long</td>
-<td>否</td>
-<td>开始时间,毫秒</td>
+<td>no</td>
+<td>Start time, microsecond</td>
 </tr>
 <tr>
 <td>endDate</td>
 <td>long</td>
-<td>否</td>
-<td>结束时间,毫秒</td>
+<td>no</td>
+<td>end time ,microsecond</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>int</td>
-<td>否</td>
-<td>当前页：默认：1</td>
+<td>no</td>
+<td>current page：default：1</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认10</td>
+<td>no</td>
+<td>default 10</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>totalRow</td>
 <td>number</td>
-<td>总记录数</td>
+<td>total record</td>
 </tr>
 <tr>
 <td>totalPage</td>
 <td>number</td>
-<td>总页数</td>
+<td>total pages</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>number</td>
-<td>每页返回数</td>
+<td>pages returned record numbers</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>number</td>
-<td>当前页</td>
+<td>current page</td>
 </tr>
 <tr>
 <td>list</td>
@@ -2712,233 +2730,232 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>├─contractId</td>
 <td>number</td>
-<td>交易对ID</td>
+<td>trading pairs ID</td>
 </tr>
 <tr>
 <td>├─uuid</td>
 <td>string</td>
-<td>委托编号</td>
+<td>entrust order No.</td>
 </tr>
 <tr>
 <td>├─applId</td>
 <td>number</td>
-<td>应用标识</td>
+<td>apply sign</td>
 </tr>
 <tr>
 <td>├─lossUserId</td>
 <td>number</td>
-<td>强减用户（亏损方）</td>
+<td>Force deduction user（loss side）</td>
 </tr>
 <tr>
 <td>├─profitUserId</td>
 <td>number</td>
-<td>被强减用户（盈利方）</td>
+<td>Force deduction user（profit side）</td>
 </tr>
 <tr>
 <td>├─execId</td>
 <td>string</td>
-<td>成交编号</td>
+<td>Deal No.</td>
 </tr>
 <tr>
 <td>├─side</td>
 <td>number</td>
-<td>买卖方向</td>
+<td>sell and buy</td>
 </tr>
 <tr>
 <td>├─timestamp</td>
 <td>number</td>
-<td>委托时间</td>
+<td>entrust time</td>
 </tr>
 <tr>
 <td>├─lossMarginType</td>
 <td>number</td>
-<td>强减用户（亏损方）保证金类型</td>
+<td>force deduction user（loss side）margin type</td>
 </tr>
 <tr>
 <td>├─profitMarginType</td>
 <td>number</td>
-<td>被强减用户（盈利方）保证金类型</td>
+<td>force deduction user（profit side）margin type</td>
 </tr>
 <tr>
 <td>├─closePrice</td>
 <td>number</td>
-<td>强减价格</td>
+<td>force deduction price</td>
 </tr>
 <tr>
 <td>├─closeQty</td>
 <td>number</td>
-<td>强减数量</td>
+<td>force deduction qty</td>
 </tr>
 <tr>
 <td>├─closeAmt</td>
 <td>number</td>
-<td>强减金额</td>
+<td>force deduction amount</td>
 </tr>
 <tr>
 <td>├─lossSubsidy</td>
 <td>number</td>
-<td>亏损方补偿金额</td>
+<td>loss side subsidy</td>
 </tr>
 <tr>
 <td>├─profitSubsidy</td>
 <td>number</td>
-<td>盈利方补偿金额</td>
+<td>profit side subsidy</td>
 </tr>
 </tbody></table>
-<h2 id='bdac9bbb53'>调整保证金率</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='adjust-margin-rate'>Adjust Margin Rate</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/adjust-margin-rate</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>是</td>
-<td>合约名称</td>
+<td>yes</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>initMarginRate</td>
 <td>string</td>
-<td>是</td>
-<td>初始保证金率</td>
+<td>yes</td>
+<td>original margin</td>
 </tr>
 <tr>
 <td>marginType</td>
 <td>int</td>
-<td>是</td>
-<td>保证金类型，1全仓，2逐仓</td>
+<td>yes</td>
+<td>margin type，1: Cross 2: Isolated</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
-<p>无</p>
-<h2 id='9e3bc1e664'>调整保证金</h2>
-<p><strong>HTTP 请求</strong></p>
+<p>None</p>
+<h2 id='adjust-margin'>Adjust Margin</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/adjust-margin</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>symbol</td>
 <td>string</td>
-<td>是</td>
-<td>合约名称</td>
+<td>yes</td>
+<td>contract name</td>
 </tr>
 <tr>
 <td>margin</td>
 <td>string</td>
-<td>是</td>
-<td>保证金</td>
+<td>yes</td>
+<td>margin</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
-<p>无</p>
-<h1 id='683b4a8231'>合约资产</h1><h2 id='f300a78dba'>查询合约资金流水</h2>
-<p><strong>HTTP 请求</strong></p>
+<p>None</p>
+<h1 id='contract-asset'>Contract Asset</h1><h2 id='get-contract-asset-flow'>Get Contract Asset Flow</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/assets/flow</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>Data type</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>currencyName</td>
 <td>string</td>
-<td>否</td>
-<td>币种名称</td>
+<td>no</td>
+<td>currency name</td>
 </tr>
 <tr>
 <td>flowId</td>
 <td>long</td>
-<td>否</td>
-<td>业务类型</td>
+<td>no</td>
+<td>flowID</td>
 </tr>
 <tr>
 <td>flowType</td>
 <td>long</td>
-<td>否</td>
-<td>流水ID</td>
+<td>no</td>
+<td>business type</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>否</td>
-<td>-1:上一页，1：下一页</td>
+<td>no</td>
+<td>-1: last page，1：next page</td>
 </tr>
 <tr>
 <td>startTime</td>
 <td>long</td>
-<td>否</td>
-<td>开始时间，微秒</td>
+<td>no</td>
+<td>start time，microseconds</td>
 </tr>
 <tr>
 <td>endTime</td>
 <td>long</td>
-<td>否</td>
-<td>结束时间，微秒级别</td>
+<td>no</td>
+<td>end up time，microseconds</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认10</td>
+<td>no</td>
+<td>default 10</td>
 </tr>
 </tbody></table>
 
-<p>上一页时：side = -1  id为当前页的第一条数据的flow_id</p>
+<p>when last page：side = -1  flowId is the first data of this page flow_id
+when next page：side =1  flowId is the last data of this page flow_id</p>
 
-<p>下一页时：side =1  id为当前页最后一条数据的flow_id</p>
-
-<p>流水类型：</p>
+<p>flowType：</p>
 
 <ul>
-<li>3001：期货手续费，</li>
-<li>3002：期货手续费抵后返还，</li>
-<li>3003：期货手续费抵扣消耗点卡，</li>
-<li>3004：期货平仓盈亏，</li>
-<li>3005：期货定期结算盈亏，</li>
-<li>3006：期货交割手续费，</li>
-<li>3007：资金费用 &amp; 期货交割盈亏，</li>
-<li>3008：风险基金</li>
-<li>8001：资金划转</li>
+<li>3001：future trading fees，</li>
+<li>3002：future trading fees deduct refund，</li>
+<li>3003：future trading fees deduct coupon consumption，</li>
+<li>3004：loss and benifits of future closing position，</li>
+<li>3005：The profit and loss of futures in regular settlement ，</li>
+<li>3006：contract settlement trading fee，</li>
+<li>3007：rate &amp; profit and loss of future settlement，</li>
+<li>3008：risk fund</li>
+<li>8001：asset transfer<br></li>
 </ul>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -2975,20 +2992,20 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>FieldName</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>flowId</td>
 <td>number</td>
-<td>流水ID</td>
+<td>flow ID</td>
 </tr>
 <tr>
 <td>userId</td>
 <td>number</td>
-<td>用户合约ID</td>
+<td>user ID</td>
 </tr>
 <tr>
 <td>applId</td>
@@ -2998,51 +3015,51 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>currencyId</td>
 <td>number</td>
-<td>货币ID</td>
+<td>currency ID</td>
 </tr>
 <tr>
 <td>flowType</td>
 <td>number</td>
-<td>流水类型</td>
+<td>flow type</td>
 </tr>
 <tr>
 <td>num</td>
 <td>number</td>
-<td>金额</td>
+<td>amount</td>
 </tr>
 <tr>
 <td>occureTime</td>
 <td>number</td>
-<td>转账时间</td>
+<td>time of transfer</td>
 </tr>
 <tr>
 <td>createTime</td>
 <td>number</td>
-<td>记录创建时间</td>
+<td>record create time</td>
 </tr>
 <tr>
 <td>uuid</td>
 <td>string</td>
-<td>对应的记录id（转账id、成交id等）</td>
+<td>corresponding record id（transfer id、deal id eg.）</td>
 </tr>
 <tr>
 <td>note</td>
 <td>string</td>
-<td>备注</td>
+<td>notes</td>
 </tr>
 </tbody></table>
-<h2 id='8da397f29a'>查询合约可用资金</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='get-available-assets'>Get Available assets</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/assets/available</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
-<p>无</p>
+<p>None</p>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -3063,107 +3080,107 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>FieldName</th>
+<th>DataType</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>currencyId</td>
 <td>number</td>
-<td>货币ID</td>
+<td>currency ID</td>
 </tr>
 <tr>
 <td>currencyName</td>
 <td>String</td>
-<td>货币</td>
+<td>currency</td>
 </tr>
 <tr>
 <td>totalBalance</td>
 <td>string</td>
-<td>总资产</td>
+<td>total assets</td>
 </tr>
 <tr>
 <td>available</td>
 <td>string</td>
-<td>可用资金</td>
+<td>available assets</td>
 </tr>
 <tr>
 <td>frozenForTrade</td>
 <td>string</td>
-<td>委托冻结资金</td>
+<td>frozen assets of entrust</td>
 </tr>
 <tr>
 <td>initMargin</td>
 <td>string</td>
-<td>已占用保证金</td>
+<td>assigned margin</td>
 </tr>
 <tr>
 <td>frozenInitMargin</td>
 <td>string</td>
-<td>委托冻结保证金</td>
+<td>frozen margin for intrust</td>
 </tr>
 <tr>
 <td>closeProfitLoss</td>
 <td>string</td>
-<td>已实现盈亏</td>
+<td>profit and loss of the close position</td>
 </tr>
 <tr>
 <td>createTime</td>
 <td>number</td>
-<td>记录创建时间</td>
+<td>create record time</td>
 </tr>
 </tbody></table>
-<h2 id='1b4243a44a'>查询合约盈亏历史</h2>
-<p><strong>HTTP 请求</strong></p>
+<h2 id='get-contract-loss-and-benefit-history'>Get contract Loss and benefit history</h2>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>GET <code>/exchange/api/v1/future/assets/profits</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>currencyName</td>
 <td>string</td>
-<td>否</td>
-<td>币种名称</td>
+<td>no</td>
+<td>currency name</td>
 </tr>
 <tr>
 <td>startDate</td>
 <td>string</td>
-<td>否</td>
-<td>开始时间,如‘2018-01-01’</td>
+<td>no</td>
+<td>start time, eg. ‘2018-01-01’</td>
 </tr>
 <tr>
 <td>endDate</td>
 <td>string</td>
-<td>否</td>
-<td>结束时间,如‘2018-01-01’</td>
+<td>no</td>
+<td>end time, eg. ‘2018-01-01’</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>int</td>
-<td>否</td>
-<td>当前页：默认：1</td>
+<td>no</td>
+<td>currency page：default 1</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认10</td>
+<td>no</td>
+<td>default 10</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -3197,30 +3214,30 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>Data type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>totalRow</td>
 <td>number</td>
-<td>总记录数</td>
+<td>total record amount</td>
 </tr>
 <tr>
 <td>totalPage</td>
 <td>number</td>
-<td>总页数</td>
+<td>total page</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>number</td>
-<td>每页返回数</td>
+<td>page return number</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>number</td>
-<td>当前页</td>
+<td>current page</td>
 </tr>
 <tr>
 <td>list</td>
@@ -3230,138 +3247,138 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>├─userId</td>
 <td>number</td>
-<td>用户ID</td>
+<td>user ID</td>
 </tr>
 <tr>
 <td>├─currencyId</td>
 <td>number</td>
-<td>币种ID</td>
+<td>currency ID</td>
 </tr>
 <tr>
 <td>├─totalMoney</td>
 <td>number</td>
-<td>总资产</td>
+<td>total asset</td>
 </tr>
 <tr>
 <td>├─orderFrozenMoney</td>
 <td>number</td>
-<td>冻结资产</td>
+<td>frozen asset</td>
 </tr>
 <tr>
 <td>├─closeProfitLoss</td>
 <td>number</td>
-<td>已实现盈亏</td>
+<td>realized profit and loss</td>
 </tr>
 <tr>
 <td>├─startDate</td>
 <td>number</td>
-<td>开始时间</td>
+<td>start time</td>
 </tr>
 <tr>
 <td>├─endDate</td>
 <td>number</td>
-<td>结束时间</td>
+<td>end time</td>
 </tr>
 </tbody></table>
-<h2 id='0d83610961'>现货-合约资金划转</h2>
-<p>此接口用户币币现货账户与合约账户之间的资金划转。</p>
+<h2 id='transfer-margin-between-spot-account-and-future-account'>Transfer margin between Spot account and Future account</h2>
+<p>This interface is used to transfer assets between Spot account and Future account.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/assets/transfer</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>是</td>
-<td>币种名称</td>
+<td>yes</td>
+<td>currency name eg. btc</td>
 </tr>
 <tr>
 <td>amount</td>
 <td>string</td>
-<td>是</td>
-<td>划转数量</td>
+<td>yes</td>
+<td>transfer qty</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>是</td>
-<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+<td>yes</td>
+<td>transfer side，0: Transfer from Spot account to Future account 1: Transfer from Future account to Spot account</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:</span><span class="s2">"4b79ca9e72294e3898999af23769f05e"</span><span class="w">
 </span></code></pre>
-<p>返回划转单号</p>
-<h2 id='dc5b365f5c'>现货-合约资金划转历史查询</h2>
-<p>接口返回用户币币现货账户与合约账户之间的资金划转记录。</p>
+<p>return clientId</p>
+<h2 id='get-transfer-history'>Get Transfer History</h2>
+<p>The endpoint returns the record of asset transfer between spot account and future account.</p>
 
-<p><strong>HTTP 请求</strong></p>
+<p><strong>HTTP Request</strong></p>
 
 <ul>
 <li>POST <code>/exchange/api/v1/future/assets/transfer-history</code></li>
 </ul>
 
-<p><strong>请求参数</strong></p>
+<p><strong>Request Parameter</strong></p>
 
 <table><thead>
 <tr>
-<th>参数</th>
-<th>数据类型</th>
-<th>是否必须</th>
-<th>描述</th>
+<th>Parameter</th>
+<th>DataType</th>
+<th>Required</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>clientId</td>
 <td>string</td>
-<td>否</td>
-<td>划转单号</td>
+<td>no</td>
+<td>transfer id</td>
 </tr>
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>否</td>
-<td>币种名称</td>
+<td>no</td>
+<td>currency name</td>
 </tr>
 <tr>
 <td>side</td>
 <td>int</td>
-<td>否</td>
-<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+<td>no</td>
+<td>transfer side，0: Transfer from Spot account to Future account 1: Transfer from Future account to Spot account</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>int</td>
-<td>否</td>
-<td>当前页：默认：1</td>
+<td>no</td>
+<td>current page default 1</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>int</td>
-<td>否</td>
-<td>默认10</td>
+<td>no</td>
+<td>default 10</td>
 </tr>
 </tbody></table>
 
-<p><strong>返回字段</strong></p>
+<p><strong>Response Content</strong></p>
 
 <blockquote>
 <p>Response:</p>
@@ -3399,30 +3416,30 @@ stop_condition: 2（止损）</p>
 </span></code></pre>
 <table><thead>
 <tr>
-<th>字段名称</th>
-<th>数据类型</th>
-<th>描述</th>
+<th>Field</th>
+<th>Data type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>totalRow</td>
 <td>number</td>
-<td>总记录数</td>
+<td>total record amount</td>
 </tr>
 <tr>
 <td>totalPage</td>
 <td>number</td>
-<td>总页数</td>
+<td>total page</td>
 </tr>
 <tr>
 <td>pageSize</td>
 <td>number</td>
-<td>每页返回数</td>
+<td>page return number</td>
 </tr>
 <tr>
 <td>pageNum</td>
 <td>number</td>
-<td>当前页</td>
+<td>current page</td>
 </tr>
 <tr>
 <td>list</td>
@@ -3432,42 +3449,42 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>├─clientId</td>
 <td>string</td>
-<td>划转账单</td>
+<td>transfer id</td>
 </tr>
 <tr>
 <td>├─userId</td>
 <td>number</td>
-<td>用户ID</td>
+<td>user id</td>
 </tr>
 <tr>
 <td>├─currency</td>
 <td>string</td>
-<td>币种</td>
+<td>currency name</td>
 </tr>
 <tr>
 <td>├─amount</td>
 <td>number</td>
-<td>划转数量</td>
+<td>transfer qty</td>
 </tr>
 <tr>
 <td>├─side</td>
 <td>int</td>
-<td>划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转</td>
+<td>transfer side，0: Transfer from Spot account to Future account 1: Transfer from Future account to Spot account</td>
 </tr>
 <tr>
 <td>├─state</td>
 <td>string</td>
-<td>划转状态， confirming：划转中，completed：划转成功，failure：划转失败</td>
+<td>transfer status， confirming，completed，failure</td>
 </tr>
 <tr>
 <td>├─createdAt</td>
 <td>string</td>
-<td>记录创建时间</td>
+<td>create time</td>
 </tr>
 <tr>
 <td>├─confirmTime</td>
 <td>string</td>
-<td>确认划转时间</td>
+<td>transfer success time</td>
 </tr>
 </tbody></table>
 
