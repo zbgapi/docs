@@ -14,6 +14,9 @@ search: true
 
 # 更新日志
 
+## 2020-05-27 
+
+修改合约下单[合约](#c0b35a1aa9)接口: 增加 clientOrderId 字段
 
 ## 2020-04-20 
 
@@ -996,6 +999,7 @@ trades的结构为：List<List>
 
 参数            |  数据类型  |是否必须|	描述
 ----------------|------------|--------|--------
+clientOrderId      |   string   |  非必须  |	客户端委托ID, 不传递时，内部会自动生成
 symbol      |   string   |  必须  |	合约名称
 side  | integer  | 必须  | 买1，卖-1
 price  | string  | 非必须  | order_type等于3（市价）时非必填
