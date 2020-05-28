@@ -16,11 +16,11 @@ search: true
 
 ## 2020-05-27 
 
-修改合约下单[合约](#c0b35a1aa9)接口: 增加 clientOrderId 字段
+修改[合约下单](#9dc85ffb46)接口: 增加 clientOrderId 字段
 
 ## 2020-04-20 
 
-新增和修改合约下单[合约](#c0b35a1aa9)等接口:
+新增和修改[合约下单](#9dc85ffb46)等接口:
 
 * 新增接口[[/exchange/api/v1/future/common/contracts](#daedf585f3)]，查询合约列表
 * 新增接口[[/exchange/api/v1/future/common/currencies](#b22727fec6)]，获取合约可用币种
@@ -56,7 +56,7 @@ search: true
 
 ## 2020-03-31
 
-增加[合约](#c0b35a1aa9) 
+增加合约
 
 
 
