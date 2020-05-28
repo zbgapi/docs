@@ -15,6 +15,11 @@ search: true
 # Update Log
 
 
+## 2020-05-27 
+
+Modify [Place an Order](#place-an-order) interface: Add field clientOrderId
+
+
 ## 2020-04-20 
 
 Add [Place an Order](#place-an-order) interface and etc.:
@@ -1001,6 +1006,7 @@ Eg：
 
 Parameter            |  DataType  |Required| Description 
 ----------------|------------|--------|--------
+clientOrderId      |   string   |  no  | client order id (unique) 
 symbol      |   string   |  yes  | contract name 
 side  | integer  | yes | 1: buy, -1: sell
 price  | string  | no | not required when order_type=3（market price) 
