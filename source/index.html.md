@@ -562,22 +562,22 @@ Passphrase 为选填字段用户可以根据自己的需求选择提不提供该
 以查询订单列表为例
 
 <p><code>https://www.zbg.fun/exchange/api/v1/order/orders?symbol=zt_ust&side=buy&from=1&size=100</code></p>
-1. 按照ASCII码的顺序对参数(key)进行排序，例如上面的请求排序后
+1.按照ASCII码的顺序对参数(key)进行排序，例如上面的请求排序后
 
 <p><code>from=1</code></p>
 <p><code>side=buy</code></p>
 <p><code>size=100</code></p>
 <p><code>symbol=zt_usdt</code></p>
 
-2. 按照上面的顺序拼接字符串
+2.按照上面的顺序拼接字符串
 
 <p><code>from1sizebuysize100sumbolzt_usdt</code></p>
 
-3. 利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)
+3.利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)
 
 <p><code>5fcbdb0862e10f9f6b885fdde42d58a1</code></p>
 
-4. 将生成的数字签名、App key、时间戳等字段加入Header
+4.将生成的数字签名、App key、时间戳等字段加入Header
 
 <p><code>header.put("Apiid",id);</code></p>
 <p><code>header.put("Timestamp", String.valueOf(timestamp));</code></p>
