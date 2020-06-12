@@ -1882,7 +1882,7 @@ list  | object []  |
 }
 ```
 
-- action: 请求的动作类型，sub:增加数据订阅，unsub:移除数据订阅。 
+- action: 请求的动作类型，sub:增加数据订阅，unsub:移除数据订阅，auth：授权。 
 - topic: 订阅主题及参数。
 
 
@@ -1892,7 +1892,7 @@ list  | object []  |
 > 返回数据
 
 ```
-42[
+[
   "future_kline",
   {
     "contractId": 1000000,
@@ -1943,9 +1943,10 @@ list  | object []  |
 ]
 ```
 
-返回的以42开头后接一个数组，
-数组第一项是一个字符串，为订阅的主题，如 future_kline、future_snapshot_depth等，
-第二项是一个map或list，为返回的数据，具体内容查看给订阅介绍。
+返回的数据为一个数组：
+
+* 第一项是一个字符串，为订阅的主题，如 future_kline、future_snapshot_depth等，
+* 第二项是一个map或list，为返回的数据，具体内容查看给订阅介绍。
 
 
 **取消订阅**
@@ -2002,7 +2003,7 @@ period取值：
 > Response:
 
 ```json
-42[
+[
   "future_kline",
   {
     "contractId": 1000000,
@@ -2060,7 +2061,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42[
+[
   "future_snapshot_depth",
   {
     "asks": [
@@ -2143,7 +2144,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42["future_tick",{"contractId":1000000,"trades":[1591865456714597,"9817","24",1]}]
+["future_tick",{"contractId":1000000,"trades":[1591865456714597,"9817","24",1]}]
 ```
 
 字段名称    | 数据类型  |	描述 
@@ -2182,7 +2183,7 @@ trades 数据结构 List
 > Response:
 
 ```json
-42[
+[
   "future_all_indicator",
   [
     {
@@ -2294,7 +2295,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42[
+[
     "future_snapshot_indicator",
     {
       "tt": "141440394.31",
@@ -2363,7 +2364,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42[
+[
   "coin_price",
   [
     {
@@ -2447,7 +2448,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42[
+[
   "exchange",
   [
     {
@@ -2527,7 +2528,7 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 > Response:
 
 ```json
-42[
+[
   "future_market_stat",
   {
     "messageType": "13",
@@ -2570,7 +2571,7 @@ total30dTurnover | string |30日成交额
 > Response:
 
 ```json
-42["realtime",{"messageType":14,"timeSlice":1591871522722056}]
+["realtime",{"messageType":14,"timeSlice":1591871522722056}]
 
 ```
 
@@ -2622,7 +2623,7 @@ sign   |   string   |  true |	签名字符串 md5(apiid + timestamp + (passphras
 > 授权成功返回结果:
 
 ```json
-42["auth",{"header":{"type":1002},"body":{"code":0,"msg":"success"}}]
+["auth",{"header":{"type":1002},"body":{"code":0,"msg":"success"}}]
 
 ```
 
@@ -2666,7 +2667,7 @@ sign   |   string   |  true |	签名字符串 md5(apiid + timestamp + (passphras
 > 用户持仓推送结果:
 
 ```json
-42[
+[
   "match",
   {
     "posis": [
@@ -2739,8 +2740,8 @@ ranks |object []|减仓队列
 
 > 当前委托推送结果:
 
-```
-42[
+```json
+[
   "match",
   {
     "messageType": 3004,
@@ -2804,8 +2805,8 @@ minimalQuantity  | string  | 止损点位
 
 > 成交记录推送结果:
 
-```
-42[
+```json
+[
   "match",
   {
     "accountId": 44855,
@@ -2856,8 +2857,8 @@ matchs |object []|成交列表
 
 > 资产推送结果:
 
-```
-42[
+```json
+[
   "match",
   {
     "accountId": 44855,
