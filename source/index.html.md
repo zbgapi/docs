@@ -1849,7 +1849,7 @@ list  | object []  |
 
 **接入URL**
 
-<code>wss://kline.zbg.fun/api/v1/futurews</code>
+<code>wss://kline.zbg.fun/exchange/v1/futurews</code>
 
 
 **心跳消息**
