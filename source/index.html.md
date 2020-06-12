@@ -14,6 +14,10 @@ search: true
 
 # 更新日志
 
+## 2020-06-12
+
+增加[WebSocket推送](#300f34d976)
+
 ## 2020-05-27 
 
 修改[合约下单](#9dc85ffb46)接口: 增加 clientOrderId 字段
@@ -1222,24 +1226,70 @@ contractUnit  | string  | 合约单位
     },
     ...
 ]
+
+{
+  "datas": [
+    {
+      "applId": 2,
+      "contractId": 999999,
+      "accountId": 44855,
+      "clOrderId": "1157c94ea1004e6394bef4c1f652c5fa",
+      "side": 1,
+      "orderPrice": "9330.5",
+      "orderQty": "1",
+      "orderId": "11591898129054320",
+      "orderTime": 1591926799650345,
+      "orderStatus": 2,
+      "matchQty": "0",
+      "matchAmt": "0",
+      "cancelQty": "0",
+      "matchTime": 0,
+      "orderType": 1,
+      "timeInForce": 0,
+      "feeRate": "0",
+      "markPrice": null,
+      "avgPrice": "0",
+      "positionEffect": 1,
+      "marginType": 1,
+      "initMarginRate": "0.01",
+      "fcOrderId": "",
+      "contractUnit": "0.01",
+      "stopPrice": "0",
+      "orderSubType": 0,
+      "stopCondition": 0,
+      "minimalQuantity": null,
+      "deltaPrice": "0",
+      "frozenPrice": "9330.5"
+    }
+  ],
+  "resMsg": {
+    "message": "success !",
+    "method": null,
+    "code": "1"
+  }
+}
 ```
 
 字段名称    | 数据类型  |	描述
 ----------------|------------|--------
 contractId  | number  | 交易对
+accountId  | number  | 账户ID
 orderId  | string    | 委托号
 clOrderId  | string   | 客户订单编号
-price  | string    | 委托价格
-quantity  | string    | 委托数量
-leftQuantity  | string    | 剩余数量
 side  | number    | 买卖方向，1买，-1卖
-placeTimestamp  | number    | 委托时间
-cancelQty  | string    | 成交数量
+orderPrice  | string    | 委托价格
+orderQty  | string    | 委托数量
+orderTime  | number    | 委托时间
+orderStatus  | number    | 委托状态（0未申报，1正在申报，2已申报未成交，3部分成交，4全部成交，5部成部撤,6全部撤单，7撤单中，8失效）
+matchQty  | string    | 成交数量
+cancelQty  | string    | 撤单数量
 matchAmt  | string    | 成交金额
+matchTime  | number    | 成交时间
 positionEffect  | integer    | 开平标志，1开仓2平仓
 marginType  | integer    | 保证金类型，1全仓2逐仓
 fcOrderId  | string   | 强平委托号，空时为强平委托
 orderType  | integer  | 委托类型（1：限价，2：市价）
+timeInForce  | number  |   订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 
 stopPrice  | string  | 条件单触发价
 orderSubType  | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
 stopCondition  | integer  | 0：默认，2：止损
@@ -1791,5 +1841,1052 @@ list  | object []  |
 ├─state  | string  | 划转状态， confirming：划转中，completed：划转成功，failure：划转失败
 ├─createdAt  | string  | 记录创建时间
 ├─confirmTime  | string  | 确认划转时间
+
+
+# 期货推送
+
+## 简介
+
+**接入URL**
+
+<code>wss://kline.zbg.fun/api/v1/futurews</code>
+
+
+**心跳消息**
+
+当用户的Websocket客户端连接到Websocket服务器后，如果长时间没有数据推可能会导致连接断开。客户端可以定时定时发送ping消息来保证连接不断。
+
+    Ping
+
+当用户的Websocket客户端接收到此心跳消息后，应返回pong消息：
+
+    Pong
+
+
+**订阅主题**
+
+成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题。例如：
+
+    
+    {
+      "action":"sub",
+      "topic":"future_kline-1000000-900000"
+    }
+    
+> 发送订阅
+
+```
+{
+    "action":"sub",
+    "topic":"future_kline-1000000-900000"
+}
+```
+
+- action: 请求的动作类型，sub:增加数据订阅，unsub:移除数据订阅。 
+- topic: 订阅主题及参数。
+
+
+成功订阅后，如果是第一次订阅则Websocket客户端将会收到信息：
+
+
+> 返回数据
+
+```
+42[
+  "future_kline",
+  {
+    "contractId": 1000000,
+    "range": "900000",
+    "lines": [
+      [
+        1591858800000,
+        "9832",
+        "9832.5",
+        "9801.5",
+        "9820",
+        "8138"
+      ],
+      [
+        1591859700000,
+        "9820",
+        "9820.5",
+        "9795.5",
+        "9804.5",
+        "6518"
+      ],
+      [
+        1591860600000,
+        "9802.5",
+        "9813",
+        "9801",
+        "9810",
+        "3641"
+      ],
+      [
+        1591861500000,
+        "9810.5",
+        "9815",
+        "9790",
+        "9792",
+        "5000"
+      ],
+      [
+        1591862400000,
+        "9800.5",
+        "9800.5",
+        "9789",
+        "9794",
+        "1369"
+      ]
+    ]
+  }
+]
+```
+
+返回的以42开头后接一个数组，
+数组第一项是一个字符串，为订阅的主题，如 future_kline、future_snapshot_depth等，
+第二项是一个map或list，为返回的数据，具体内容查看给订阅介绍。
+
+
+**取消订阅**
+
+取消订阅的格式如下：
+
+  {
+    "action":"unsub",
+    "topic":"topic detail"
+  }
+
+
+
+## K线数据
+
+**主题订阅**
+
+一旦K线数据产生，Websocket服务器将通过此订阅主题接口推送至客户端：
+
+`future_kline-$contractId-$period`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_kline-1000000-900000"
+}
+```
+
+**参数**
+
+参数      |  数据类型  |是否必须|	描述
+----------|------------|--------|--------
+contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+period   |   string   |  true |	K线周期，毫秒值
+
+period取值：
+
+1Min = 60000<br>
+3Min = 180000<br>
+5Min = 300000<br>
+15Min = 900000<br>
+30Min = 1800000<br>
+1Hour = 3600000<br>
+2Hour = 7200000<br>
+4Hour = 14400000<br>
+6Hour = 21600000<br>
+12Hour = 43200000<br>
+1Day = 86400000<br>
+1Week = 604800000<br>
+
+**返回字段**
+
+
+> Response:
+
+```json
+42[
+  "future_kline",
+  {
+    "contractId": 1000000,
+    "range": "900000",
+    "lines": [
+      [1591858800000, "9832", "9832.5", "9801.5", "9820", "8138"],
+      [1591859700000, "9820", "9820.5", "9795.5", "9804.5", "6518"],
+      [1591860600000, "9802.5", "9813", "9801", "9810", "3641"],
+      [1591861500000, "9810.5", "9815", "9790", "9792", "5000"],
+      [1591862400000, "9800.5", "9800.5", "9789", "9794", "1369"]
+    ]
+  }
+]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+contractId	|integer	|合约ID
+period	|string	|类型	
+lines	|object[]|item类型为list
+
+
+
+lines 的数据结构为：List<List>
+如：
+[
+    [${时间戳}, ${开市价格}, ${最高价格}, ${最低价格}, ${闭市价格}, ${成交量}]
+]
+
+## 市场深度
+
+**主题订阅**
+
+当市场深度发生变化时，此主题发送最新市场深度更新数据：
+
+`future_snapshot_depth-$contractId`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_snapshot_depth-1000000"
+}
+```
+
+**参数**
+
+参数      |  数据类型  |是否必须|	描述
+----------|------------|--------|--------
+contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+  "future_snapshot_depth",
+  {
+    "asks": [
+      [
+        "9803",
+        "2066"
+      ],
+      [
+        "9803.5",
+        "2951"
+      ],
+      [
+        "9804",
+        "3873"
+      ]...
+    ],
+    "contractId": 1000000,
+    "bids": [
+      [
+        "9802.5",
+        "2051"
+      ],
+      [
+        "9802",
+        "1444"
+      ],
+      [
+        "9801.5",
+        "3481"
+      ],
+      [
+        "9801",
+        "2306"
+      ]...
+    ],
+    "tradeDate": 20200611,
+    "time": 1591864527866096
+  }
+]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+contractId	|integer	|合约ID| 
+bids	|object []|买档位数据列表
+asks	|object []|卖档位数据列表
+
+asks与bids 的数据格式：List<List>
+如：
+
+    [
+        [${价格}, ${数量}]
+    ]
+
+
+## 交易记录
+
+**主题订阅**
+
+此主题提供市场最新成交明细：
+
+`future_tick-$contractId`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_tick-1000000"
+}
+```
+
+**参数**
+
+参数      |  数据类型  |是否必须|	描述
+----------|------------|--------|--------
+contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+
+
+**返回字段**
+
+> Response:
+
+```json
+42["future_tick",{"contractId":1000000,"trades":[1591865456714597,"9817","24",1]}]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+contractId	|integer	|合约ID| 
+trades	|object[]|数据列表
+
+trades 数据结构 List
+  
+    [
+        [${时间戳}, ${成交价格}, ${成交数量}, ${方向}]
+    ]
+
+
+## 全量行情数据
+
+**主题订阅**
+
+订阅所有合约市场的24小时行情：
+
+`future_all_indicator`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_all_indicator"
+}
+```
+
+**参数**
+
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+  "future_all_indicator",
+  [
+    {
+      "tt": "141440394.31",
+      "pp": "9758",
+      "lui": 1591746335507642,
+      "tv": "1436675",
+      "lp": "9812",
+      "pv": "13409118",
+      "w24pc": "96",
+      "tbv": "0",
+      "dp": "0",
+      "fr": "0",
+      "sb": "BTC-CUSD",
+      "uf": -1,
+      "sl": 0,
+      "pcr": "0.005533920885427342",
+      "op": "9758",
+      "hph": "13968.5",
+      "mq": "118",
+      "hpl": "86",
+      "ci": 999999,
+      "mt": 4,
+      "ip": "9810.822222",
+      "ai": 2,
+      "tav": "0",
+      "ppi": "-0.000034649460970969",
+      "w24pcr": "0.009880609304240428",
+      "cp": "9810.822222",
+      "td": 20200611,
+      "cs": 2,
+      "te": 1591867203146343,
+      "pc": "54",
+      "ph": "9981",
+      "pi": "-0.000014722925024173",
+      "pl": "9716",
+      "fb": "0",
+      "pfr": "0",
+      "ts": 0
+    },
+    {
+      "tt": "15894646.29",
+      "pp": "193.25",
+      "lui": 1591746335507641,
+      "tv": "822833",
+      "lp": "192.5",
+      "pv": "2906602",
+      "w24pc": "1.75",
+      "tbv": "0",
+      "dp": "0",
+      "fr": "0.0001",
+      "sb": "BSV/USDT",
+      "uf": 0,
+      "sl": 0,
+      "pcr": "-0.004138644593895499",
+      "op": "193.3",
+      "hph": "430",
+      "mq": "66",
+      "hpl": "76.55",
+      "ci": 1000013,
+      "mt": 4,
+      "ip": "192.43324",
+      "ai": 2,
+      "tav": "0",
+      "ppi": "-0.000108076738748447",
+      "w24pcr": "0.009174311926605505",
+      "cp": "192.449275266115104968",
+      "td": 20200611,
+      "cs": 2,
+      "te": 1591867203125485,
+      "pc": "-0.8",
+      "ph": "195.55",
+      "pi": "-0.000948460183464691",
+      "pl": "190.2",
+      "fb": "0.000083328982638888",
+      "pfr": "0.0001",
+      "ts": 0
+    }
+  ]
+]
+```
+
+返回所有市场行情列表，列表字段参考接口：[单个合约行情](#964054eba1)
+
+## 当个市场行情数据
+
+**主题订阅**
+
+订阅单个合约市场的24小时行情：
+
+`future_snapshot_indicator-$contractId`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_snapshot_indicator-1000000"
+}
+```
+
+**参数**
+
+参数      |  数据类型  |是否必须|	描述
+----------|------------|--------|--------
+contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+    "future_snapshot_indicator",
+    {
+      "tt": "141440394.31",
+      "pp": "9758",
+      "lui": 1591746335507642,
+      "tv": "1436675",
+      "lp": "9812",
+      "pv": "13409118",
+      "w24pc": "96",
+      "tbv": "0",
+      "dp": "0",
+      "fr": "0",
+      "sb": "BTC-CUSD",
+      "uf": -1,
+      "sl": 0,
+      "pcr": "0.005533920885427342",
+      "op": "9758",
+      "hph": "13968.5",
+      "mq": "118",
+      "hpl": "86",
+      "ci": 999999,
+      "mt": 4,
+      "ip": "9810.822222",
+      "ai": 2,
+      "tav": "0",
+      "ppi": "-0.000034649460970969",
+      "w24pcr": "0.009880609304240428",
+      "cp": "9810.822222",
+      "td": 20200611,
+      "cs": 2,
+      "te": 1591867203146343,
+      "pc": "54",
+      "ph": "9981",
+      "pi": "-0.000014722925024173",
+      "pl": "9716",
+      "fb": "0",
+      "pfr": "0",
+      "ts": 0
+    }
+]
+```
+
+返回市场行情列表，列表字段参考接口：[单个合约行情](#964054eba1)
+
+
+## 获取币种价格
+
+**主题订阅**
+
+订阅单个合约市场的24小时行情：
+
+`coin_price`
+
+```json
+{
+  "action":"sub",
+  "topic":"coin_price"
+}
+```
+
+**参数**
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+  "coin_price",
+  [
+    {
+      "currencyId": 1,
+      "latest": "245.5169500089001"
+    },
+    {
+      "currencyId": 2,
+      "latest": "9791.92213954213"
+    },
+    {
+      "currencyId": 3,
+      "latest": "2.733843844580362"
+    },
+    {
+      "currencyId": 4,
+      "latest": "11.744225332755393"
+    },
+    {
+      "currencyId": 5,
+      "latest": "6.742779046706635"
+    },
+    {
+      "currencyId": 6,
+      "latest": "254.36055729245862"
+    },
+    {
+      "currencyId": 7,
+      "latest": "0.9997432723324695"
+    },
+    {
+      "currencyId": 8,
+      "latest": "0.09997432723324695"
+    },
+    {
+      "currencyId": 9,
+      "latest": "46.202457030303194"
+    },
+    {
+      "currencyId": 100001,
+      "latest": "1"
+    },
+    {
+      "currencyId": 999999
+    },
+    {
+      "currencyId": 1000000,
+      "latest": "0.2009493494096959"
+    },
+    {
+      "currencyId": 1000002
+    }
+  ]
+]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+	-|object []|	
+├─currencyId|int|货币ID	
+├─latest |string|最新价格,可能为空
+
+## 获取法币汇率
+
+**主题订阅**
+
+`exchange`
+
+```json
+{
+  "action":"sub",
+  "topic":"exchange"
+}
+```
+
+**参数**
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+  "exchange",
+  [
+    {
+      "rate": 1.000000,
+      "name": "USD",
+      "updateTime": 1591848001000,
+      "id": 1
+    },
+    {
+      "rate": 0.880427,
+      "name": "EUR",
+      "updateTime": 1591848001000,
+      "id": 2
+    },
+    {
+      "rate": 107.115933,
+      "name": "JPY",
+      "updateTime": 1591848001000,
+      "id": 3
+    },
+    {
+      "rate": 0.786096,
+      "name": "GBP",
+      "updateTime": 1591848001000,
+      "id": 4
+    },
+    {
+      "rate": 7.064841,
+      "name": "CNY",
+      "updateTime": 1591848001000,
+      "id": 6
+    },
+    {
+      "rate": 1191.795015,
+      "name": "KRW",
+      "updateTime": 1591848001000,
+      "id": 7
+    },
+    {
+      "rate": 75.735014,
+      "name": "INR",
+      "updateTime": 1591848001000,
+      "id": 8
+    }
+  ]
+]
+```
+
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+	-|object []|	
+├─ id |int|法币Id
+├─ name |string|法币名称
+├─ rate |decimal|法币汇率
+├─ updateTime |long|更新时间戳
+
+
+## 获取市场统计
+
+**主题订阅**
+
+`future_market_stat`
+
+```json
+{
+  "action":"sub",
+  "topic":"future_market_stat"
+}
+```
+
+**参数**
+
+
+**返回字段**
+
+> Response:
+
+```json
+42[
+  "future_market_stat",
+  {
+    "messageType": "13",
+    "total24hTurnover": "24803.836697074525504066",
+    "total7dTurnover": "174621.047055869328317103",
+    "currencyId": 1,
+    "total30dTurnover": "796996.164926202363621735"
+  }
+]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| string|消息类型：13
+currencyId |int|币种ID
+total24hTurnover |string|24小时成交额
+total7dTurnover | string |7日成交额
+total30dTurnover | string |30日成交额
+
+
+
+## 获取系统时间
+
+**主题订阅**
+
+`realtime`
+
+```json
+{
+  "action":"sub",
+  "topic":"realtime"
+}
+```
+
+**参数**
+
+
+**返回字段**
+
+> Response:
+
+```json
+42["realtime",{"messageType":14,"timeSlice":1591871522722056}]
+
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| string|消息类型：14
+timeSlice | string|微秒
+
+## 获取私有数据推送
+
+### 授权认证
+
+获取用户个人数据推送需要先进行授权认证
+
+**主题订阅**
+
+{
+  "action":"auth",
+  "apiid":"7ljSc36ADq47ljSc36ADq5",
+  "timestamp":"1591873540440",
+  "passphrase":"",
+  "sign":"f3c6e8f868838a670aa6360ef9ec50e7"
+}
+
+> 授权入参：
+
+```json
+{
+  "action":"auth",
+  "apiid":"7ljSc36ADq47ljSc36ADq5",
+  "timestamp":"1591873540440",
+  "passphrase":"",
+  "sign":"f3c6e8f868838a670aa6360ef9ec50e7"
+}
+```
+
+**参数**
+
+参数      |  数据类型  |是否必须|	描述
+----------|------------|--------|--------
+apiid   |   string   |  true |	用户API Key
+timestamp   |   string   |  true |	时间戳，毫秒
+passphrase   |   string   |  false |	访问口令 md5(timestamp + passphrase) 
+sign   |   string   |  true |	签名字符串 md5(apiid + timestamp + (passphrase == null ? "" : passphrase) + apiSecret)
+
+
+**返回字段**
+
+> 授权成功返回结果:
+
+```json
+42["auth",{"header":{"type":1002},"body":{"code":0,"msg":"success"}}]
+
+```
+
+**授权过程中可能出现的异常**
+
+`{"code":%s, "message":%s}`
+
+> 异常:
+
+```
+{
+    "code":6897, 
+    "message":"Failed to verify the API permission. Please confirm whether to enable API permission!"
+}
+```
+
+### 订阅数据
+
+
+**主题订阅**
+
+`match`
+
+> 私有数据订阅：
+
+```json
+{
+  "action":"sub",
+  "topic":"match",
+}
+```
+
+**参数**
+
+**返回字段**
+
+订阅数据后会返回用户持仓、减仓队列、当前委托、成交记录、资产等数据
+
+1.用户持仓
+
+> 用户持仓推送结果:
+
+```json
+42[
+  "match",
+  {
+    "posis": [
+      {
+        "extraMargin": "0",
+        "frozenOpenQty": "0",
+        "frozenCloseQty": "0",
+        "posiQty": "-1",
+        "openAmt": "97.795",
+        "initMarginRate": "0.01",
+        "posiSide": 0,
+        "maintainMarginRate": "0.005",
+        "posiStatus": 0,
+        "marginType": 1,
+        "contractId": 999999,
+        "initMargin": "0.97795",
+        "contractUnit": "0.01",
+        "closeProfitLoss": "0"
+      }
+    ],
+    "accountId": 44855,
+    "applId": 2,
+    "messageType": 3012,
+    "lastId": 7
+  }
+]
+
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| int|消息类型：3012
+lastId | int|消息ID
+applId | int|2
+accountId | int|合约账号ID
+posis |object []|持仓列表	
+├─ contractId |int|合约ID
+├─ marginType  | integer  | 保证金类型，1全仓2逐仓 
+├─ initMargiRate  | string  | 初始保证率
+├─ maintainMarginRate  | string  | 维持保证金
+├─ initMargin  | string  | 初始保证金
+├─ extraMargin  | string  | 额外保证金
+├─ posiQty  | string  | 持仓量
+├─ openAmt  | string  | 开仓金额
+├─ frozenCloseQty  | string  | 平仓委托冻结量
+├─ frozenOpenQty  | string  | 开仓委托冻结量
+├─ posiStatus  | number  | 0：正常，1：禁止平仓，2：交割
+├─ closeProfitLoss  | string  | 已实现盈亏
+├─ contractUnit  | string  | 合约单位
+
+
+2.减仓队列
+
+> 减仓队列推送结果:
+
+```
+42["match",{"accountId":44855,"applId":2,"ranks":[{"contractId":999999,"rank":56}],"messageType":3014}]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| int|消息类型：3014
+applId | int|2
+accountId | int|合约账号ID
+ranks |object []|减仓队列	
+├─ contractId |int|合约ID
+├─ rank  | int  | 强减信号，值越小强减可能性越大
+
+3.当前委托
+
+> 当前委托推送结果:
+
+```
+42[
+  "match",
+  {
+    "messageType": 3004,
+    "accountId": 44855,
+    "contractId": 999999,
+    "orderId": "11591746488553820",
+    "clientOrderId": "906b425f66ee4bb4a8c3d94ecb582b04",
+    "price": "9766.5",
+    "quantity": "1",
+    "leftQuantity": "1",
+    "side": 1,
+    "placeTimestamp": 1591876003621601,
+    "matchAmt": "0",
+    "orderType": 1,
+    "positionEffect": 1,
+    "marginType": 1,
+    "initMarginRate": "0.01",
+    "fcOrderId": "",
+    "feeRate": "0",
+    "contractUnit": "0.01",
+    "orderStatus": 2,
+    "orderSubType": 0,
+    "avgPrice": "0",
+    "stopPrice": "0",
+    "matchQty": "0",
+    "stopCondition": 0
+  }
+]
+```
+
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| int|消息类型：3004
+accountId | int|合约账号ID
+contractId  | number  | 交易对
+orderId  | string    | 委托号
+clientOrderId  | string   | 客户订单编号
+price  | string    | 委托价格
+quantity  | string    | 委托数量
+leftQuantity  | string    | 剩余数量
+side  | number    | 买卖方向，1：买，-1：卖
+placeTimestamp  | number    | 委托时间
+matchQty  | string    | 成交数量
+matchAmt  | string    | 成交金额
+orderType  | integer  | 委托类型（1：限价，2：市价）
+positionEffect  | integer    | 开平标志，1：开仓，2：平仓
+marginType  | integer    | 保证金类型，1全仓2逐仓
+fcOrderId  | string   | 强平委托号，空时为强平委托
+markPrice  | string  | 标记价格
+feeRate  | string  | 标手续费率
+contractUnit  | string  | 合约单位
+orderStatus  | int  | 委托状态 0-未申报,1-正在申报,2-已申报未成交,3-部分成交,4-全部成交,5-部分撤单,6-全部撤单,7-撤单中,8-失效,11-缓存高于条件的委托,12-缓存低于条件的委托
+avgPrice  | string  | 成交均价
+stopPrice  | string  | 条件单触发价
+orderSubType  | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
+stopCondition  | integer  | 0：默认，2：止损
+minimalQuantity  | string  | 止损点位
+
+
+4.成交记录推送
+
+> 成交记录推送结果:
+
+```
+42[
+  "match",
+  {
+    "accountId": 44855,
+    "applId": 2,
+    "matchs": [
+      {
+        "pnlType": 0,
+        "applId": 2,
+        "side": -1,
+        "matchQty": "1",
+        "orderId": "11591746488557916",
+        "matchType": 0,
+        "fee": "0",
+        "matchTime": 1591876630862404,
+        "opp": "c",
+        "execId": "11591746488557917",
+        "pnl": "0",
+        "matchAmt": "97.795",
+        "contractId": 999999,
+        "positionEffect": 1,
+        "matchPrice": "9779.5"
+      }
+    ],
+    "messageType": 3010,
+    "lastId": 6
+  }
+]
+```
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| int|消息类型：3010
+lastId | int|消息ID
+accountId | int|合约账号ID
+matchs |object []|成交列表
+├─ contractId |int|合约ID
+├─ applId  | int  | 2
+├─ matchTime  | long  | 成交时间
+├─ matchPrice  | string  | 成交价格
+├─ matchQty  | string  | 成交数量
+├─ execId  | string  | 成交号
+├─ orderId  | string  | 委托ID
+├─ fee  | string  | 手续费
+├─ positionEffect  | int  | 开平标志，1：开仓，2：平仓
+├─ side  | int  | 买入方向，1：买，-1：卖
+├─ matchType  | int  | 成交类型：0-正常、1-强平、2- 破产强减、3-自动减仓盈利方
+
+5.资产推送
+
+> 资产推送结果:
+
+```
+42[
+  "match",
+  {
+    "accountId": 44855,
+    "messageType": 3002,
+    "frozenForTrade": "0",
+    "totalBalance": "42.7297125",
+    "available": "41.7517625",
+    "initMargin": "0.97795",
+    "posiMode": 0,
+    "lastId": 4,
+    "currencyId": 999999,
+    "frozenInitMargin": "0",
+    "closeProfitLoss": "-9246.795"
+  }
+]
+]
+```
+字段名称    | 数据类型  |	描述 
+------|-------|------
+messageType| int|消息类型：3002
+lastId | int|2
+accountId | int|合约账号ID
+currencyId |int|币种I
+totalBalance  | string  | 总资产
+available  | string  | 可用资产
+frozenForTrade  | string  | 委托冻结保证金和手续费
+initMargin  | string  | 仓位已占用保证金
+frozenInitMargin  | string  | 委托冻结保证金，不含手续费
+closeProfitLoss  | string  | 累计已实现盈亏
+
 
 <div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
