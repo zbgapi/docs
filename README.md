@@ -26,7 +26,7 @@ ZBG API 文档项目
 1. `checkout`想要修改的分支代码
 2. 修改`./source/index.html.md`文件并提交
 3. 并运行`./deploy.sh`
-4. 确认页面效果，并推送提交
+4. 确认页面效果
 
 ## slate 编辑
 
@@ -50,3 +50,7 @@ ZB Global做市商申请：sp@zbg.com；
 提供其他交易平台maker交易量截图证明（比如30天内成交量，或者VIP等级等）
 简要阐述做市方法，不需要细节
 做市商项目可以支持ZT抵扣、VIP、交易量相关活动以及任何形式的返佣活动
+
+本地运行命令：
+
+bundle exec middleman server

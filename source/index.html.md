@@ -14,6 +14,10 @@ search: true
 
 # 更新日志
 
+## 2020-07-14
+
+增加[查询单个订单](#b6b00ede13)接口，接口根据下单时返回的订单号进行查询
+
 ## 2020-06-12
 
 增加[WebSocket推送](#300f34d976)
@@ -840,6 +844,8 @@ cp  | string  | 标记价格，结算价：clearPrice
 pv  | string  | 总持仓量：posiVol
 pcr  | string  | 当日涨跌幅度：priceChangeRadio
 pc  | string  | 当日涨跌：priceChange
+w24pcr  | string  | 近24小时涨跌幅度：priceChangeRadio
+w24pc  | string  | 近24小时涨跌：priceChange
 lui  | number  | 行情序号：lastUpdateId
 cs  | number  | 交易对状态：contractStatus
 dp  | string  | 交割价格：deliveryPrice
@@ -848,7 +854,7 @@ pfr  | null  | 预测资金费率：predictionFundingRate
 pi  | null  | 溢价指数：premiumIndex
 ppi  | null  | 预溢价指数：predictionPremiumIndex
 fb  | string  | 合理基差：fairBasis
-ts  | number  | 交易信号，1=买，2=卖：tradingsignal
+ts  | number  | 交易信号，1=买，2=卖：tradingSignal
 sl  | number  | 1~100,交易信号强度 ：signalLevel
 ip  | string  | 标的指数价格：indexPrice
 bids  | string[]  | 买档位
@@ -1227,52 +1233,12 @@ contractUnit  | string  | 合约单位
     ...
 ]
 
-{
-  "datas": [
-    {
-      "applId": 2,
-      "contractId": 999999,
-      "accountId": 44855,
-      "clOrderId": "1157c94ea1004e6394bef4c1f652c5fa",
-      "side": 1,
-      "orderPrice": "9330.5",
-      "orderQty": "1",
-      "orderId": "11591898129054320",
-      "orderTime": 1591926799650345,
-      "orderStatus": 2,
-      "matchQty": "0",
-      "matchAmt": "0",
-      "cancelQty": "0",
-      "matchTime": 0,
-      "orderType": 1,
-      "timeInForce": 0,
-      "feeRate": "0",
-      "markPrice": null,
-      "avgPrice": "0",
-      "positionEffect": 1,
-      "marginType": 1,
-      "initMarginRate": "0.01",
-      "fcOrderId": "",
-      "contractUnit": "0.01",
-      "stopPrice": "0",
-      "orderSubType": 0,
-      "stopCondition": 0,
-      "minimalQuantity": null,
-      "deltaPrice": "0",
-      "frozenPrice": "9330.5"
-    }
-  ],
-  "resMsg": {
-    "message": "success !",
-    "method": null,
-    "code": "1"
-  }
-}
 ```
 
 字段名称    | 数据类型  |	描述
 ----------------|------------|--------
 contractId  | number  | 交易对
+symbol  | string  | 交易对
 accountId  | number  | 账户ID
 orderId  | string    | 委托号
 clOrderId  | string   | 客户订单编号
@@ -1296,6 +1262,109 @@ stopCondition  | integer  | 0：默认，2：止损
 minimalQuantity  | string  | 止损点位
 
 
+
+## 查询单个委托
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/future/order</code>
+
+**请求参数**
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  必须  |	合约名称
+orderId  | string  | 必须  | 委托编号
+
+
+**返回字段**
+
+> Response:
+
+```json
+"datas":{
+    "applId":2,
+    "timestamp":1594638410287303,
+    "userId":18965,
+    "contractId":999999,
+    "uuid":"11594283302262205",
+    "orderId":"11594283302262205",
+    "side":1,
+    "price":"9300",
+    "quantity":"1",
+    "orderType":1,
+    "orderSubType":0,
+    "timeInForce":1,
+    "minimalQuantity":"0",
+    "stopPrice":"0",
+    "stopCondition":0,
+    "orderStatus":6,
+    "makerFeeRatio":"0.00025",
+    "takerFeeRatio":"0.00075",
+    "clOrderId":"dfad992a291b483db637cbde84360bf7",
+    "filledCurrency":"0",
+    "filledQuantity":"0",
+    "canceledQuantity":"1",
+    "matchTime":0,
+    "positionEffect":1,
+    "marginType":2,
+    "marginRate":"0.02",
+    "fcOrderId":"",
+    "deltaPrice":"0",
+    "frozenPrice":"9300"
+}
+
+```
+
+字段名称    | 数据类型  |	描述
+----------------|------------|--------
+applId  | number  |   2：期货
+timestamp  | number  | 下单时间戳，微秒级别
+userId  | number  | 用户合约ID
+contractId  | number  | 交易对
+symbol  | string  | 交易对
+orderId  | string  | 委托编号，orderId
+side  | number  | 买卖方向，1买，-1卖
+price  | string  | 委托价格
+quantity  | string  | 委托数量
+orderType  | number  | 委托类型（1：限价，2：市价）
+orderSubType  | number  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
+timeInForce  | number  |   订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 
+minimalQuantity  | string  | 止损点位
+stopPrice  | string  | 条件单触发价
+stopCondition  | number  | 止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）
+orderStatus  | number  | 委托状态
+makerFeeRatio  | string  | Maker手续费率
+takerFeeRatio  | string  | Taker手续费率
+clOrderId  | string  | 客户订单编号
+filledCurrency  | string  | 成交金额
+filledQuantity  | string  | 成交数量
+canceledQuantity  | string  | 取消数量 
+matchTime  | number  | 撮合时间戳
+positionEffect  | number  | 开平标志，1：开仓，2：平仓
+marginType  | number  | 保证金类型，1全仓，2逐仓
+marginRate  | string  | 保证金率，全仓时0，逐仓时>=0，
+fcOrderId  | string  | 强平委托号，非空时为强平委托
+deltaPrice  | string  | 标记价与委托价之差
+frozenPrice  | string  | 资金计算价格
+
+
+orderStatus委托状态：
+
+状态 | 描述
+---|---
+ 0|未申报
+ 1|正在申报
+ 2|已申报未成交
+ 3|部分成交
+ 4|全部成交
+ 5|部分撤单
+ 6|全部撤单
+ 7|撤单中
+ 8|失效
+ 11|缓存高于条件的委托
+ 12|缓存低于条件的委托
+ 
 
 ## 查询合约历史委托
 
@@ -1369,6 +1438,7 @@ applId  | number  |   2：期货
 timestamp  | number  | 下单时间戳，微秒级别
 userId  | number  | 用户合约ID
 contractId  | number  | 交易对
+symbol  | string  | 交易对
 uuid  | string  | 唯一标志符
 side  | number  | 买卖方向，1买，-1卖
 price  | string  | 委托价格
