@@ -1133,6 +1133,11 @@ contract_side ：正向合约和反向合约
     
 已平仓仓位： 已实现盈亏，取值 closeProfitLoss
 
+
+<aside class="notice">
+接口每个用户每2秒能请求10次
+</aside>
+
 **HTTP 请求**
 
 + GET <code>/exchange/api/v1/future/positions</code>
