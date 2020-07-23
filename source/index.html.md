@@ -1629,6 +1629,8 @@ margin  | string  | 是  | 保证金
 
 ## 调整持仓模式
 
+在单向持仓和双向持仓连个模式中进行切换。调用此接口前请确保切换的币种没有持仓。
+
 **HTTP 请求**
 
 + POST <code>/exchange/api/v1/future/adjust-mode</code>
