@@ -1700,14 +1700,15 @@ currency      |   string   |  true  |	币种，btc,ltc...(ZBG支持的[币种][c
 > Response:
 
 ```json
-{
-  "datas":
+"datas":[
     {
         "address": "19cdJwd3j6ArHNhiYoWpN8cJq9ash7WDDC",
         "currency":"zt"
     }
-}
+]
 ```
+
+返回一个提币列表
 
 字段名称    | 数据类型  |是否必须|	描述
 ------------|-----------|--------|-----------
