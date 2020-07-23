@@ -14,6 +14,13 @@ search: true
 
 # 更新日志
 
+## 2020-07-23
+
+增加[调整持仓模式](#b81972a71d)接口；
+
+修改[查询合约可用资金](#8da397f29a)接口，增加posiMode字段
+
+
 ## 2020-07-14
 
 增加[查询单个订单](#b6b00ede13)接口，接口根据下单时返回的订单号进行查询
@@ -999,6 +1006,7 @@ trades的结构为：List<List>
 
 # 合约交易
 
+
 ## 合约下单
 
 **HTTP 请求**
@@ -1619,6 +1627,22 @@ margin  | string  | 是  | 保证金
 无
 
 
+## 调整持仓模式
+
+**HTTP 请求**
+
++ POST <code>/exchange/api/v1/future/adjust-mode</code>
+
+**请求参数**
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+currency      |   string   |  必须  |	合约货币名称， 如：usdt,btc,eth
+type      |   int   |  必须  |	持仓模式，0：对冲，1：双边
+
+
+**返回字段**
+
 
 # 合约资产
 
@@ -1732,7 +1756,8 @@ note  | string  | 备注
         "initMargin":"72.967444444444444444",
         "frozenInitMargin":"72.75",
         "closeProfitLoss":"16.25555555555555554",
-        "currencyName":"zusd"
+        "currencyName":"zusd",
+        "posiMode":"1"
     },
     ...
 ]
@@ -1750,6 +1775,7 @@ initMargin  | string  | 已占用保证金
 frozenInitMargin  | string  | 委托冻结保证金
 closeProfitLoss  | string  | 已实现盈亏
 createTime  | number  | 记录创建时间
+posiMode  | number  | 持仓模式，0：对冲，1：双边
 
 
 
