@@ -14,7 +14,9 @@ search: true
 
 # 更新日志
 
-## 2020-07-23
+## 2020-07-24
+
+增加[查询历史成交](#23889edae4)接口；
 
 增加[调整持仓模式](#b81972a71d)接口；
 
@@ -1493,6 +1495,104 @@ orderStatus委托状态：
  8|失效
  11|缓存高于条件的委托
  12|缓存低于条件的委托
+
+
+## 查询合约历史成交
+
+**HTTP 请求**
+
++ GET <code>/exchange/api/v1/future/match/his</code>
+
+**请求参数**
+
+参数            |  数据类型  |是否必须|	描述
+----------------|------------|--------|--------
+symbol      |   string   |  否  |	合约名称
+side  | int  | 否  | -1:上一页，1：下一页
+timestamp  | long  | 否  | 微秒级别
+pageSize  | int  | 否  | 默认100
+
+备注<br/>
+用户选择了查询时间条件时：<br/>
+每次用户选择上一页，下一页时，timestamp需有值<br/>
+
+上一页：<br/>
+   timestamp= 当前页第一条数据的matchTime<br/>
+下一页：<br/>
+   timestamp= 当前页最后一条数据的matchTime<br/>
+       
+
+
+**返回字段**
+
+> Response:
+
+```json
+"datas":[
+    {
+        "execId":"11591746488557917",
+        "applId":2,
+        "contractId":999999,
+        "contractName":"BTC_ZUSD",
+        "bidUserId":12,
+        "askUserId":44855,
+        "bidOrderId":"11591746488557908",
+        "askOrderId":"11591746488557916",
+        "matchPrice":"9779.5",
+        "matchQty":"1",
+        "matchAmt":"97.795",
+        "bidFee":"0",
+        "askFee":"0",
+        "takerSide":-1,
+        "bidPositionEffect":1,
+        "askPositionEffect":1,
+        "bidMarginType":1,
+        "askMarginType":1,
+        "bidInitRate":"0.2",
+        "askInitRate":"0.01",
+        "bidMatchType":0,
+        "askMatchType":0,
+        "bidPnlType":1,
+        "bidPnl":"-1.673940291211605264",
+        "askPnlType":0,
+        "askPnl":"0",
+        "matchTime":1591876630862404,
+        "updateTime":1591876630875995
+    }
+]
+```
+
+字段名称    | 数据类型  |	描述
+----------------|------------|--------
+execId  | number  |   成交编号
+applId  | number  |   2：期货
+contractId  | number  | 交易对
+contractName  | string  | 交易对名称
+bidUserId|	number	|		买方用户ID
+askUserId|	number	|		卖方用户ID
+bidOrderId|	string	|		买方委托号
+askOrderId|	string	|		卖方委托号
+matchPrice|	string	|		成交价
+matchQty|	string	|		成交数量
+matchAmt|	string	|		成交金额
+bidFee|	string	|		买方手续费
+askFee|	string	|		卖方手续费
+takerSide|	number	|		订单成交方向 1买，-1卖
+bidPositionEffect|	number	|		买方开平标志：1开仓2平仓
+askPositionEffect|	number	|		卖方开平标志：1开仓2平仓
+bidMarginType|	number	|		买方保证金类型：1全仓，2逐仓
+askMarginType|	number	|		卖方保证金类型：1全仓，2逐仓
+bidInitRate|	string	|		买方初始保证金率
+askInitRate| string	|		卖方初始保证金率
+bidMatchType|	number	|		买方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）
+askMatchType|	number	|		卖方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）
+bidPnlType|	number	|		买方盈亏类型：0正常成交1正常平仓2强平3强减
+bidPnl|	number	|		买方平仓盈亏
+askPnlType|	number	|		卖方盈亏类型：0正常成交1正常平仓2强平3强减
+askPnl|	number	|		卖方平仓盈亏
+matchTime|	number	|		成交时间
+updateTime|	number	|		最近更新时间
+
 
 ## 查询合约历史强平
 
