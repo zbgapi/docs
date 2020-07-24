@@ -245,7 +245,7 @@
             <a href="#185368440e" class="toc-h1 toc-link" data-title="更新日志">更新日志</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#2020-07-23" class="toc-h2 toc-link" data-title="2020-07-23">2020-07-23</a>
+                    <a href="#2020-07-24" class="toc-h2 toc-link" data-title="2020-07-24">2020-07-24</a>
                   </li>
                   <li>
                     <a href="#2020-07-14" class="toc-h2 toc-link" data-title="2020-07-14">2020-07-14</a>
@@ -351,6 +351,9 @@
                     <a href="#23889edae4" class="toc-h2 toc-link" data-title="查询合约历史委托">查询合约历史委托</a>
                   </li>
                   <li>
+                    <a href="#ca04484e3e" class="toc-h2 toc-link" data-title="查询合约历史成交">查询合约历史成交</a>
+                  </li>
+                  <li>
                     <a href="#97ba66701c" class="toc-h2 toc-link" data-title="查询合约历史强平">查询合约历史强平</a>
                   </li>
                   <li>
@@ -433,7 +436,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='185368440e'>更新日志</h1><h2 id='2020-07-23'>2020-07-23</h2>
+        <h1 id='185368440e'>更新日志</h1><h2 id='2020-07-24'>2020-07-24</h2>
+<p>增加<a href="#23889edae4">查询历史成交</a>接口；</p>
+
 <p>增加<a href="#b81972a71d">调整持仓模式</a>接口；</p>
 
 <p>修改<a href="#8da397f29a">查询合约可用资金</a>接口，增加posiMode字段</p>
@@ -2848,6 +2853,244 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>12</td>
 <td>缓存低于条件的委托</td>
+</tr>
+</tbody></table>
+<h2 id='ca04484e3e'>查询合约历史成交</h2>
+<p><strong>HTTP 请求</strong></p>
+
+<ul>
+<li>GET <code>/exchange/api/v1/future/match/his</code></li>
+</ul>
+
+<p><strong>请求参数</strong></p>
+
+<table><thead>
+<tr>
+<th>参数</th>
+<th>数据类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>symbol</td>
+<td>string</td>
+<td>否</td>
+<td>合约名称</td>
+</tr>
+<tr>
+<td>side</td>
+<td>int</td>
+<td>否</td>
+<td>-1:上一页，1：下一页</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>否</td>
+<td>微秒级别</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>int</td>
+<td>否</td>
+<td>默认100</td>
+</tr>
+</tbody></table>
+
+<p>备注<br/>
+用户选择了查询时间条件时：<br/>
+每次用户选择上一页，下一页时，timestamp需有值<br/></p>
+
+<p>上一页：<br/>
+   timestamp= 当前页第一条数据的matchTime<br/>
+下一页：<br/>
+   timestamp= 当前页最后一条数据的matchTime<br/></p>
+
+<p><strong>返回字段</strong></p>
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"datas"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"execId"</span><span class="p">:</span><span class="s2">"11591746488557917"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"applId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractId"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractName"</span><span class="p">:</span><span class="s2">"BTC_ZUSD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidUserId"</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askUserId"</span><span class="p">:</span><span class="mi">44855</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidOrderId"</span><span class="p">:</span><span class="s2">"11591746488557908"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askOrderId"</span><span class="p">:</span><span class="s2">"11591746488557916"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchPrice"</span><span class="p">:</span><span class="s2">"9779.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchQty"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchAmt"</span><span class="p">:</span><span class="s2">"97.795"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidFee"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askFee"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"takerSide"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidPositionEffect"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askPositionEffect"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidMarginType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askMarginType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidInitRate"</span><span class="p">:</span><span class="s2">"0.2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askInitRate"</span><span class="p">:</span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidMatchType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askMatchType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidPnlType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bidPnl"</span><span class="p">:</span><span class="s2">"-1.673940291211605264"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askPnlType"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"askPnl"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"matchTime"</span><span class="p">:</span><span class="mi">1591876630862404</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updateTime"</span><span class="p">:</span><span class="mi">1591876630875995</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>字段名称</th>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>execId</td>
+<td>number</td>
+<td>成交编号</td>
+</tr>
+<tr>
+<td>applId</td>
+<td>number</td>
+<td>2：期货</td>
+</tr>
+<tr>
+<td>contractId</td>
+<td>number</td>
+<td>交易对</td>
+</tr>
+<tr>
+<td>contractName</td>
+<td>string</td>
+<td>交易对名称</td>
+</tr>
+<tr>
+<td>bidUserId</td>
+<td>number</td>
+<td>买方用户ID</td>
+</tr>
+<tr>
+<td>askUserId</td>
+<td>number</td>
+<td>卖方用户ID</td>
+</tr>
+<tr>
+<td>bidOrderId</td>
+<td>string</td>
+<td>买方委托号</td>
+</tr>
+<tr>
+<td>askOrderId</td>
+<td>string</td>
+<td>卖方委托号</td>
+</tr>
+<tr>
+<td>matchPrice</td>
+<td>string</td>
+<td>成交价</td>
+</tr>
+<tr>
+<td>matchQty</td>
+<td>string</td>
+<td>成交数量</td>
+</tr>
+<tr>
+<td>matchAmt</td>
+<td>string</td>
+<td>成交金额</td>
+</tr>
+<tr>
+<td>bidFee</td>
+<td>string</td>
+<td>买方手续费</td>
+</tr>
+<tr>
+<td>askFee</td>
+<td>string</td>
+<td>卖方手续费</td>
+</tr>
+<tr>
+<td>takerSide</td>
+<td>number</td>
+<td>订单成交方向 1买，-1卖</td>
+</tr>
+<tr>
+<td>bidPositionEffect</td>
+<td>number</td>
+<td>买方开平标志：1开仓2平仓</td>
+</tr>
+<tr>
+<td>askPositionEffect</td>
+<td>number</td>
+<td>卖方开平标志：1开仓2平仓</td>
+</tr>
+<tr>
+<td>bidMarginType</td>
+<td>number</td>
+<td>买方保证金类型：1全仓，2逐仓</td>
+</tr>
+<tr>
+<td>askMarginType</td>
+<td>number</td>
+<td>卖方保证金类型：1全仓，2逐仓</td>
+</tr>
+<tr>
+<td>bidInitRate</td>
+<td>string</td>
+<td>买方初始保证金率</td>
+</tr>
+<tr>
+<td>askInitRate</td>
+<td>string</td>
+<td>卖方初始保证金率</td>
+</tr>
+<tr>
+<td>bidMatchType</td>
+<td>number</td>
+<td>买方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）</td>
+</tr>
+<tr>
+<td>askMatchType</td>
+<td>number</td>
+<td>卖方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）</td>
+</tr>
+<tr>
+<td>bidPnlType</td>
+<td>number</td>
+<td>买方盈亏类型：0正常成交1正常平仓2强平3强减</td>
+</tr>
+<tr>
+<td>bidPnl</td>
+<td>number</td>
+<td>买方平仓盈亏</td>
+</tr>
+<tr>
+<td>askPnlType</td>
+<td>number</td>
+<td>卖方盈亏类型：0正常成交1正常平仓2强平3强减</td>
+</tr>
+<tr>
+<td>askPnl</td>
+<td>number</td>
+<td>卖方平仓盈亏</td>
+</tr>
+<tr>
+<td>matchTime</td>
+<td>number</td>
+<td>成交时间</td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td>number</td>
+<td>最近更新时间</td>
 </tr>
 </tbody></table>
 <h2 id='97ba66701c'>查询合约历史强平</h2>
