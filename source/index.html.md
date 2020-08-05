@@ -844,15 +844,15 @@ ph  | string  | 最高价：priceHigh
 pl  | string  | 最低价：priceLow
 hph  | string  | 历史最高价：historyPriceHigh
 hpl  | string  | 历史最低价：historyPriceLow
-tt  | string  | 当日成交额：totalTurnover
-tv  | string  | 当日成交量：totalVolume
+tt  | string  | 24小时成交额：totalTurnover
+tv  | string  | 24小时成交量：totalVolume
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
 cp  | string  | 标记价格，结算价：clearPrice
 pv  | string  | 总持仓量：posiVol
-pcr  | string  | 当日涨跌幅度：priceChangeRadio
-pc  | string  | 当日涨跌：priceChange
+pcr  | string  | 24小时涨跌幅度：priceChangeRadio
+pc  | string  | 24小时涨跌：priceChange
 w24pcr  | string  | 近24小时涨跌幅度：priceChangeRadio
 w24pc  | string  | 近24小时涨跌：priceChange
 lui  | number  | 行情序号：lastUpdateId
@@ -2471,7 +2471,7 @@ trades 数据结构 List
 
 返回所有市场行情列表，列表字段参考接口：[单个合约行情](#964054eba1)
 
-## 当个市场行情数据
+## 单个市场行情数据
 
 **主题订阅**
 
