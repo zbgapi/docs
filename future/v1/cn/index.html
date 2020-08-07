@@ -409,7 +409,7 @@
                     <a href="#b8518bf435" class="toc-h2 toc-link" data-title="全量行情数据">全量行情数据</a>
                   </li>
                   <li>
-                    <a href="#2ca8303787" class="toc-h2 toc-link" data-title="当个市场行情数据">当个市场行情数据</a>
+                    <a href="#d77fff3bd2" class="toc-h2 toc-link" data-title="单个市场行情数据">单个市场行情数据</a>
                   </li>
                   <li>
                     <a href="#89485959d4" class="toc-h2 toc-link" data-title="获取币种价格">获取币种价格</a>
@@ -1498,12 +1498,12 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 <tr>
 <td>tt</td>
 <td>string</td>
-<td>当日成交额：totalTurnover</td>
+<td>24小时成交额：totalTurnover</td>
 </tr>
 <tr>
 <td>tv</td>
 <td>string</td>
-<td>当日成交量：totalVolume</td>
+<td>24小时成交量：totalVolume</td>
 </tr>
 <tr>
 <td>tbv</td>
@@ -1533,12 +1533,12 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 <tr>
 <td>pcr</td>
 <td>string</td>
-<td>当日涨跌幅度：priceChangeRadio</td>
+<td>24小时涨跌幅度：priceChangeRadio</td>
 </tr>
 <tr>
 <td>pc</td>
 <td>string</td>
-<td>当日涨跌：priceChange</td>
+<td>24小时涨跌：priceChange</td>
 </tr>
 <tr>
 <td>w24pcr</td>
@@ -1957,6 +1957,8 @@ stop_condition: 2（止损）</p>
 
 <p><br/></p>
 <h2 id='01106676d4'>合约持仓查询</h2>
+<p><em>名词解释：</em></p>
+
 <p>持仓量 &gt; 0 表示 多头，持仓量 &lt;0 表示空头</p>
 
 <p>contract_side ：正向合约和反向合约</p>
@@ -1965,9 +1967,9 @@ stop_condition: 2（止损）</p>
 
 <p>开仓价格 = 开仓金额/(持仓量*ContractUnit)</p>
 
-<p>标记价格： 行情获取</p>
+<p>标记价格： <a href="#964054eba1">合约行情接口</a>获取</p>
 
-<p>强平价格：</p>
+<p>强平价格(在<a href="#ca04484e3e">历史成交接口</a>中可以查看)：</p>
 
 <p>正向合约多头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量</p>
 
@@ -4618,7 +4620,7 @@ stop_condition: 2（止损）</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>返回所有市场行情列表，列表字段参考接口：<a href="#964054eba1">单个合约行情</a></p>
-<h2 id='2ca8303787'>当个市场行情数据</h2>
+<h2 id='d77fff3bd2'>单个市场行情数据</h2>
 <p><strong>主题订阅</strong></p>
 
 <p>订阅单个合约市场的24小时行情：</p>
