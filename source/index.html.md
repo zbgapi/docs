@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href="https://www.zbg.fun/" class="createApi">ZBG Exchange</a>
+  - ZBG Exchange
 
 includes:
 
@@ -531,15 +531,15 @@ Passphrase 为选填字段用户可以根据自己的需求选择提不提供该
 <p><code>size=100</code></p>
 <p><code>symbol=zt_usdt</code></p>
 
-2. 按照上面的顺序拼接字符串
+1. 按照上面的顺序拼接字符串
 
 <p><code>from1sizebuysize100sumbolzt_usdt</code></p>
 
-3. 利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)
+1. 利用上一步的请求“字符串”和您的密钥生成一个数字签名：MD5(key + timestamp + 签名串 + secret)
 
 <p><code>5fcbdb0862e10f9f6b885fdde42d58a1</code></p>
 
-4. 将生成的数字签名、App key、时间戳等字段加入Header
+1. 将生成的数字签名、App key、时间戳等字段加入Header
 
 <p><code>header.put("Apiid",id);</code></p>
 <p><code>header.put("Timestamp", String.valueOf(timestamp));</code></p>
@@ -553,49 +553,49 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 
 
 ## 错误码
-错误码|描述
-----|-----
-1|请求成功
-6000| 参数缺失
-6001|一般错误提示
-6010|找不到市场
-6011|你已开启谷歌登录验证，本次登录需要您的谷歌验证码
-6012|未知操作类型!
-6013|您没有进行手机认证和Google认证，暂时不能进行充值/提现业务，为了您的账号安全，请进行手机认证或Google认证。
-6014|短信验证码错误，请重新获取
-6019|您的地址请求频繁，请一小时后重试
-6020|网络异常，请稍后重试
-6021|限制提币操作
-6033|请输入正确的谷歌验证码
-6040|该账户已冻结，暂时不能操作
-6041|该账户不是主账户，暂时不能操作
-6043|用户已经被列入登录黑名单不能进行登录
-6096 |无效的参数
-6097 |请求过于频繁
-6098|用户已经被列入交易黑名单不能进行交易
-6115|提交提币申请失败！
-6125|无效的货币类型！
-6133|提现地址不合法！
-6150|单次提现超出或低于限额
-6151|当天提现超出限额
-6152|提现超出用户限额
-6153|资金不足
-6154|此记录不需要重新发起提币    
-2012|委托信息不存在或系统正在处理！
-6400|当前市场未到开盘时间
-6402|您的下单量超出最大限制
-6403|您的下单单价超出限制
-6603|当前币种禁止充值
-6894|时间过长，API签名已失效
-6895|校验API权限失败，接口不属于授权API
-6896|校验API权限失败,Userid和Apiid不匹配
-6897|校验API权限失败，请确认是否开启Api权限
-6898|多次校验API权限失败，请确认是否开启Api权限
-6899|该市场现暂不对外开放api交易
-6900|交易所现暂不对外开放api交易
-6991|价格精度错误，价格小数位最多%s位
-6992|订单数量精度错误，订单数量小数位最多%s位
-6999|拒绝访问
+| 错误码  | 描述                                       |
+| ---- | ---------------------------------------- |
+| 1    | 请求成功                                     |
+| 6000 | 参数缺失                                     |
+| 6001 | 一般错误提示                                   |
+| 6010 | 找不到市场                                    |
+| 6011 | 你已开启谷歌登录验证，本次登录需要您的谷歌验证码                 |
+| 6012 | 未知操作类型!                                  |
+| 6013 | 您没有进行手机认证和Google认证，暂时不能进行充值/提现业务，为了您的账号安全，请进行手机认证或Google认证。 |
+| 6014 | 短信验证码错误，请重新获取                            |
+| 6019 | 您的地址请求频繁，请一小时后重试                         |
+| 6020 | 网络异常，请稍后重试                               |
+| 6021 | 限制提币操作                                   |
+| 6033 | 请输入正确的谷歌验证码                              |
+| 6040 | 该账户已冻结，暂时不能操作                            |
+| 6041 | 该账户不是主账户，暂时不能操作                          |
+| 6043 | 用户已经被列入登录黑名单不能进行登录                       |
+| 6096 | 无效的参数                                    |
+| 6097 | 请求过于频繁                                   |
+| 6098 | 用户已经被列入交易黑名单不能进行交易                       |
+| 6115 | 提交提币申请失败！                                |
+| 6125 | 无效的货币类型！                                 |
+| 6133 | 提现地址不合法！                                 |
+| 6150 | 单次提现超出或低于限额                              |
+| 6151 | 当天提现超出限额                                 |
+| 6152 | 提现超出用户限额                                 |
+| 6153 | 资金不足                                     |
+| 6154 | 此记录不需要重新发起提币                             |
+| 2012 | 委托信息不存在或系统正在处理！                          |
+| 6400 | 当前市场未到开盘时间                               |
+| 6402 | 您的下单量超出最大限制                              |
+| 6403 | 您的下单单价超出限制                               |
+| 6603 | 当前币种禁止充值                                 |
+| 6894 | 时间过长，API签名已失效                            |
+| 6895 | 校验API权限失败，接口不属于授权API                     |
+| 6896 | 校验API权限失败,Userid和Apiid不匹配                |
+| 6897 | 校验API权限失败，请确认是否开启Api权限                   |
+| 6898 | 多次校验API权限失败，请确认是否开启Api权限                 |
+| 6899 | 该市场现暂不对外开放api交易                          |
+| 6900 | 交易所现暂不对外开放api交易                          |
+| 6991 | 价格精度错误，价格小数位最多%s位                        |
+| 6992 | 订单数量精度错误，订单数量小数位最多%s位                    |
+| 6999 | 拒绝访问                                     |
 
 
 
@@ -643,16 +643,16 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
 ]
 ```
 
-字段名称            | 数据类型  |	描述
---------------------|-----------|--------
-contractId       |	int  |	合约ID
-symbol              |	string  |	合约名称
-commodityId       |	int  |	商品币种ID
-currencyId      |	int  |	货币币种ID
-lotSize     |	string |	最小交易单位
-priceTick    |	string |	最小报价单位
-makerFeeRatio   |	string  | maker 手续费率
-takerFeeRatio   |	string  | taker 手续费率
+| 字段名称          | 数据类型   | 描述         |
+| ------------- | ------ | ---------- |
+| contractId    | int    | 合约ID       |
+| symbol        | string | 合约名称       |
+| commodityId   | int    | 商品币种ID     |
+| currencyId    | int    | 货币币种ID     |
+| lotSize       | string | 最小交易单位     |
+| priceTick     | string | 最小报价单位     |
+| makerFeeRatio | string | maker 手续费率 |
+| takerFeeRatio | string | taker 手续费率 |
 
 
 
@@ -690,12 +690,12 @@ takerFeeRatio   |	string  | taker 手续费率
 ]
 ```
 
-字段名称        |  数据类型  |	描述
-----------------|------------|--------
-currencyId            |   string   |	合约方币种id
-symbol            |   string   |	币种名称
-displayPrecision       |	int  |	显示位数
-enabled        |	int   |	是否可充提，1:可用，0:不可用
+| 字段名称             | 数据类型   | 描述               |
+| ---------------- | ------ | ---------------- |
+| currencyId       | string | 合约方币种id          |
+| symbol           | string | 币种名称             |
+| displayPrecision | int    | 显示位数             |
+| enabled          | int    | 是否可充提，1:可用，0:不可用 |
 
 
 # 合约市场行情
@@ -711,11 +711,11 @@ enabled        |	int   |	是否可充提，1:可用，0:不可用
 **请求参数**
 
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  true  |	交易对
-range            |	string  |	true  | K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W;
-endTime        |	long   |	false  |	时间，与Kline 返回时间位数一致
+| 参数      | 数据类型   | 是否必须  | 描述                                       |
+| ------- | ------ | ----- | ---------------------------------------- |
+| symbol  | string | true  | 交易对                                      |
+| range   | string | true  | K线类型,支持1M; 3M; 5M; 15M; 30M; 1H; 2H; 4H; 6H; 12H; 1D; 1W; |
+| endTime | long   | false | 时间，与Kline 返回时间位数一致                       |
 
 
 
@@ -768,9 +768,9 @@ lines数据结构：List<List>
 **请求参数**
 
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  true  |	交易对
+| 参数     | 数据类型   | 是否必须 | 描述   |
+| ------ | ------ | ---- | ---- |
+| symbol | string | true | 交易对  |
 
 
 **返回字段**
@@ -828,46 +828,46 @@ symbol      |   string   |  true  |	交易对
     },
 ```
 
-字段名称    | 数据类型  |	描述
-------------|-----------|-----------
-mt  | number  | 消息类型：messageType
-ai  | number  | 应用ID：applId
-ci  | number  | 合约ID：contractId
-sb  | string  | 合约名称：symbol
-td  | number  | 交易日期：tradeDate
-te  | number  | 交易时间：time
-lp  | string  | 最新价格：lastPrice
-mq  | string  | 成交量：matchQty
-nt  | number  | 成交比数：numTrades
-op  | string  | 开盘价：openPrice
-ph  | string  | 最高价：priceHigh
-pl  | string  | 最低价：priceLow
-hph  | string  | 历史最高价：historyPriceHigh
-hpl  | string  | 历史最低价：historyPriceLow
-tt  | string  | 24小时成交额：totalTurnover
-tv  | string  | 24小时成交量：totalVolume
-tbv  | string  | 买总委托数：totalBidVol
-tav  | string  | 卖总委托数：totalAskVol
-pp  | string  | 上一交易日收盘价：prevPrice
-cp  | string  | 标记价格，结算价：clearPrice
-pv  | string  | 总持仓量：posiVol
-pcr  | string  | 24小时涨跌幅度：priceChangeRadio
-pc  | string  | 24小时涨跌：priceChange
-w24pcr  | string  | 近24小时涨跌幅度：priceChangeRadio
-w24pc  | string  | 近24小时涨跌：priceChange
-lui  | number  | 行情序号：lastUpdateId
-cs  | number  | 交易对状态：contractStatus
-dp  | string  | 交割价格：deliveryPrice
-fr  | null  | 资金费率：fundingRate
-pfr  | null  | 预测资金费率：predictionFundingRate
-pi  | null  | 溢价指数：premiumIndex
-ppi  | null  | 预溢价指数：predictionPremiumIndex
-fb  | string  | 合理基差：fairBasis
-ts  | number  | 交易信号，1=买，2=卖：tradingSignal
-sl  | number  | 1~100,交易信号强度 ：signalLevel
-ip  | string  | 标的指数价格：indexPrice
-bids  | string[]  | 买档位
-asks  | string[]  | 卖档位
+| 字段名称   | 数据类型     | 描述                           |
+| ------ | -------- | ---------------------------- |
+| mt     | number   | 消息类型：messageType             |
+| ai     | number   | 应用ID：applId                  |
+| ci     | number   | 合约ID：contractId              |
+| sb     | string   | 合约名称：symbol                  |
+| td     | number   | 交易日期：tradeDate               |
+| te     | number   | 交易时间：time                    |
+| lp     | string   | 最新价格：lastPrice               |
+| mq     | string   | 成交量：matchQty                 |
+| nt     | number   | 成交比数：numTrades               |
+| op     | string   | 开盘价：openPrice                |
+| ph     | string   | 最高价：priceHigh                |
+| pl     | string   | 最低价：priceLow                 |
+| hph    | string   | 历史最高价：historyPriceHigh       |
+| hpl    | string   | 历史最低价：historyPriceLow        |
+| tt     | string   | 24小时成交额：totalTurnover        |
+| tv     | string   | 24小时成交量：totalVolume          |
+| tbv    | string   | 买总委托数：totalBidVol            |
+| tav    | string   | 卖总委托数：totalAskVol            |
+| pp     | string   | 上一交易日收盘价：prevPrice           |
+| cp     | string   | 标记价格，结算价：clearPrice          |
+| pv     | string   | 总持仓量：posiVol                 |
+| pcr    | string   | 24小时涨跌幅度：priceChangeRadio    |
+| pc     | string   | 24小时涨跌：priceChange           |
+| w24pcr | string   | 近24小时涨跌幅度：priceChangeRadio   |
+| w24pc  | string   | 近24小时涨跌：priceChange          |
+| lui    | number   | 行情序号：lastUpdateId            |
+| cs     | number   | 交易对状态：contractStatus         |
+| dp     | string   | 交割价格：deliveryPrice           |
+| fr     | null     | 资金费率：fundingRate             |
+| pfr    | null     | 预测资金费率：predictionFundingRate |
+| pi     | null     | 溢价指数：premiumIndex            |
+| ppi    | null     | 预溢价指数：predictionPremiumIndex |
+| fb     | string   | 合理基差：fairBasis               |
+| ts     | number   | 交易信号，1=买，2=卖：tradingSignal   |
+| sl     | number   | 1~100,交易信号强度 ：signalLevel    |
+| ip     | string   | 标的指数价格：indexPrice            |
+| bids   | string[] | 买档位                          |
+| asks   | string[] | 卖档位                          |
 
 bids与asks结构：List<List>
 如
@@ -915,10 +915,10 @@ bids与asks结构：List<List>
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  true  |	交易对
-size        |	integer   |	true  |	档位数，默认20
+| 参数     | 数据类型    | 是否必须 | 描述       |
+| ------ | ------- | ---- | -------- |
+| symbol | string  | true | 交易对      |
+| size   | integer | true | 档位数，默认20 |
 
 
 **返回字段**
@@ -959,11 +959,11 @@ size        |	integer   |	true  |	档位数，默认20
 }
 ```
 
-字段名称            | 数据类型  |	描述
---------------------|-----------|--------
-asks             |	list  |	卖盘列表，按卖价顺序
-bids          |	list  |	买盘列表，按买价倒序
-timestamp               |	long  |	请求时的时间戳，毫秒级别
+| 字段名称      | 数据类型 | 描述           |
+| --------- | ---- | ------------ |
+| asks      | list | 卖盘列表，按卖价顺序   |
+| bids      | list | 买盘列表，按买价倒序   |
+| timestamp | long | 请求时的时间戳，毫秒级别 |
 
 
 
@@ -979,16 +979,16 @@ timestamp               |	long  |	请求时的时间戳，毫秒级别
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  true  |	交易对
+| 参数     | 数据类型   | 是否必须 | 描述   |
+| ------ | ------ | ---- | ---- |
+| symbol | string | true | 交易对  |
 
 
 **返回字段**
 
 trades的结构为：List<List>
 如：
-        
+​        
     [
         [${时间戳}, ${成交价格}, ${成交数量}, ${方向}]
     ]
@@ -1017,32 +1017,32 @@ trades的结构为：List<List>
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-clientOrderId      |   string   |  非必须  |	客户端委托ID, 不传递时，内部会自动生成
-symbol      |   string   |  必须  |	合约名称
-side  | integer  | 必须  | 买1，卖-1
-price  | string  | 非必须  | order_type等于3（市价）时非必填
-quantity  | string  | 必须  |  下单量
-orderType  | integer  | 必须  | 1（限价），3（市价）
-positionEffect  | number  | 必须  | 开仓1，平仓2
-marginType  | number  | 必须  | 全仓1，逐仓2
-marginRate  | string  | 必须  | 全仓时0，逐仓时>=0，保证金率
-orderSubType  | integer  | 非必须  | 0（默认值），1（被动委托），2（最近价触发条件委托），<br/>3（指数触发条件委托），4（标记价触发条件委托）
-stopPrice  | string  | 非必须  | 触发价格
-stopCondition  | integer  | 非必须  | 0：默认，2：止损
-minimalQuantity  | string  | 非必须  | 止损点位
+| 参数              | 数据类型    | 是否必须 | 描述                                       |
+| --------------- | ------- | ---- | ---------------------------------------- |
+| clientOrderId   | string  | 非必须  | 客户端委托ID, 不传递时，内部会自动生成                    |
+| symbol          | string  | 必须   | 合约名称                                     |
+| side            | integer | 必须   | 买1，卖-1                                   |
+| price           | string  | 非必须  | order_type等于3（市价）时非必填                    |
+| quantity        | string  | 必须   | 下单量                                      |
+| orderType       | integer | 必须   | 1（限价），3（市价）                              |
+| positionEffect  | number  | 必须   | 开仓1，平仓2                                  |
+| marginType      | number  | 必须   | 全仓1，逐仓2                                  |
+| marginRate      | string  | 必须   | 全仓时0，逐仓时>=0，保证金率                         |
+| orderSubType    | integer | 非必须  | 0（默认值），1（被动委托），2（最近价触发条件委托），<br/>3（指数触发条件委托），4（标记价触发条件委托） |
+| stopPrice       | string  | 非必须  | 触发价格                                     |
+| stopCondition   | integer | 非必须  | 0：默认，2：止损                                |
+| minimalQuantity | string  | 非必须  | 止损点位                                     |
 
 备注：
-    
+​    
 已实现订单类型：<br/>
 被动委托：<br/>
 order_sub_type: 1
-    
+​    
 条件委托：<br/>
 order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
 stop_price: 触发价格
-    
+​    
 追踪止损：<br/>
 order_sub_type: 2（最近价触发条件委托），3（指数触发条件委托），4（标记价触发条件委托）<br/>
 minimal_quantity：止损点位<br/>
@@ -1055,7 +1055,7 @@ stop_condition: 2（止损）
 ```json
 "datas":"11585489047547210"
 ```
-  
+
 正常时为order_id
 
 
@@ -1068,16 +1068,16 @@ stop_condition: 2（止损）
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  必须  |	合约名称
-orderId  | String  | 必须  | 合约订单号
+| 参数      | 数据类型   | 是否必须 | 描述    |
+| ------- | ------ | ---- | ----- |
+| symbol  | string | 必须   | 合约名称  |
+| orderId | String | 必须   | 合约订单号 |
 
 
 **返回字段**
 
 无
-  
+
 
 
 ## 合约一键撤单
@@ -1098,49 +1098,50 @@ orderId  | String  | 必须  | 合约订单号
 
 ## 合约持仓查询
 
+**名词解释：**
 
 持仓量 > 0 表示 多头，持仓量 <0 表示空头
-    
+​    
 contract_side ：正向合约和反向合约
-    
+​    
 价值= 持仓量 * 最新价 * ContractUnit
-    
+​    
 开仓价格 = 开仓金额/(持仓量*ContractUnit)
-    
-标记价格： 行情获取
-    
-强平价格：
+​    
+标记价格： [合约行情接口]((#964054eba1))获取
+​    
+强平价格（在历史成交接口可以看到）：
 
     正向合约多头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量
-    
+
     正向合约空头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量
-    
+
     反向合约多头持仓：开仓价 - 开仓金额 * (初始保证金率-维持保证金率)/持仓量
-    
+
     反向合约空头持仓：开仓价 + 开仓金额 * (初始保证金率-维持保证金率)/持仓量
-    
+
 保证金： 初始保证金
-    
+​    
 倍数： 1/初始保证率
-    
+​    
 正向合约：
 
     多头时未实现盈亏=持仓量 *（最新价-开仓价）* ContractUnit； 
-                
+
     空头时未实现盈亏=持仓量 *（开仓价-最新价）* ContractUnit；
 
 反向合约：
 
     空头时未实现盈亏=持仓量 *（最新价-开仓价）* ContractUnit；
-                   
+
     多头时未实现盈亏=持仓量 *（开仓价-最新价）* ContractUnit；
-    
+
 回报率：盈亏／ 价值
-    
+​    
 减仓队列： 通过强减队列查询
-    
+​    
 操作列： 当posiStatus为2时，不能平仓和市价全平
-    
+​    
 已平仓仓位： 已实现盈亏，取值 closeProfitLoss
 
 
@@ -1181,20 +1182,20 @@ contract_side ：正向合约和反向合约
 ]
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-contractId  | integer  | 交易对
-posiQty  | string  | 持仓量
-openAmt  | string  | 开仓金额
-initMargin  | string  | 初始保证金
-posiStatus  | number  | 0：正常，1：禁止平仓，2：交割
-marginType  | integer  | 保证金类型，1全仓2逐仓 
-closeProfitLoss  | string  | 已实现盈亏
-initMargiRate  | string  | 初始保证率
-maintainMarginRate  | string  | 维持保证金
-frozenCloseQty  | string  | 平仓委托冻结量
-frozenOpenQty  | string  | 开仓委托冻结量
-contractUnit  | string  | 合约单位
+| 字段名称               | 数据类型    | 描述               |
+| ------------------ | ------- | ---------------- |
+| contractId         | integer | 交易对              |
+| posiQty            | string  | 持仓量              |
+| openAmt            | string  | 开仓金额             |
+| initMargin         | string  | 初始保证金            |
+| posiStatus         | number  | 0：正常，1：禁止平仓，2：交割 |
+| marginType         | integer | 保证金类型，1全仓2逐仓     |
+| closeProfitLoss    | string  | 已实现盈亏            |
+| initMargiRate      | string  | 初始保证率            |
+| maintainMarginRate | string  | 维持保证金            |
+| frozenCloseQty     | string  | 平仓委托冻结量          |
+| frozenOpenQty      | string  | 开仓委托冻结量          |
+| contractUnit       | string  | 合约单位             |
 
 
 
@@ -1250,31 +1251,31 @@ contractUnit  | string  | 合约单位
 
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-contractId  | number  | 交易对
-symbol  | string  | 交易对
-accountId  | number  | 账户ID
-orderId  | string    | 委托号
-clOrderId  | string   | 客户订单编号
-side  | number    | 买卖方向，1买，-1卖
-orderPrice  | string    | 委托价格
-orderQty  | string    | 委托数量
-orderTime  | number    | 委托时间
-orderStatus  | number    | 委托状态（0未申报，1正在申报，2已申报未成交，3部分成交，4全部成交，5部成部撤,6全部撤单，7撤单中，8失效）
-matchQty  | string    | 成交数量
-cancelQty  | string    | 撤单数量
-matchAmt  | string    | 成交金额
-matchTime  | number    | 成交时间
-positionEffect  | integer    | 开平标志，1开仓2平仓
-marginType  | integer    | 保证金类型，1全仓2逐仓
-fcOrderId  | string   | 强平委托号，空时为强平委托
-orderType  | integer  | 委托类型（1：限价，2：市价）
-timeInForce  | number  |   订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 
-stopPrice  | string  | 条件单触发价
-orderSubType  | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
-stopCondition  | integer  | 0：默认，2：止损
-minimalQuantity  | string  | 止损点位
+| 字段名称            | 数据类型    | 描述                                       |
+| --------------- | ------- | ---------------------------------------- |
+| contractId      | number  | 交易对                                      |
+| symbol          | string  | 交易对                                      |
+| accountId       | number  | 账户ID                                     |
+| orderId         | string  | 委托号                                      |
+| clOrderId       | string  | 客户订单编号                                   |
+| side            | number  | 买卖方向，1买，-1卖                              |
+| orderPrice      | string  | 委托价格                                     |
+| orderQty        | string  | 委托数量                                     |
+| orderTime       | number  | 委托时间                                     |
+| orderStatus     | number  | 委托状态（0未申报，1正在申报，2已申报未成交，3部分成交，4全部成交，5部成部撤,6全部撤单，7撤单中，8失效） |
+| matchQty        | string  | 成交数量                                     |
+| cancelQty       | string  | 撤单数量                                     |
+| matchAmt        | string  | 成交金额                                     |
+| matchTime       | number  | 成交时间                                     |
+| positionEffect  | integer | 开平标志，1开仓2平仓                              |
+| marginType      | integer | 保证金类型，1全仓2逐仓                             |
+| fcOrderId       | string  | 强平委托号，空时为强平委托                            |
+| orderType       | integer | 委托类型（1：限价，2：市价）                          |
+| timeInForce     | number  | 订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 |
+| stopPrice       | string  | 条件单触发价                                   |
+| orderSubType    | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托 |
+| stopCondition   | integer | 0：默认，2：止损                                |
+| minimalQuantity | string  | 止损点位                                     |
 
 
 
@@ -1286,10 +1287,10 @@ minimalQuantity  | string  | 止损点位
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  必须  |	合约名称
-orderId  | string  | 必须  | 委托编号
+| 参数      | 数据类型   | 是否必须 | 描述   |
+| ------- | ------ | ---- | ---- |
+| symbol  | string | 必须   | 合约名称 |
+| orderId | string | 必须   | 委托编号 |
 
 
 **返回字段**
@@ -1331,55 +1332,55 @@ orderId  | string  | 必须  | 委托编号
 
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-applId  | number  |   2：期货
-timestamp  | number  | 下单时间戳，微秒级别
-userId  | number  | 用户合约ID
-contractId  | number  | 交易对
-symbol  | string  | 交易对
-orderId  | string  | 委托编号，orderId
-side  | number  | 买卖方向，1买，-1卖
-price  | string  | 委托价格
-quantity  | string  | 委托数量
-orderType  | number  | 委托类型（1：限价，2：市价）
-orderSubType  | number  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
-timeInForce  | number  |   订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 
-minimalQuantity  | string  | 止损点位
-stopPrice  | string  | 条件单触发价
-stopCondition  | number  | 止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）
-orderStatus  | number  | 委托状态
-makerFeeRatio  | string  | Maker手续费率
-takerFeeRatio  | string  | Taker手续费率
-clOrderId  | string  | 客户订单编号
-filledCurrency  | string  | 成交金额
-filledQuantity  | string  | 成交数量
-canceledQuantity  | string  | 取消数量 
-matchTime  | number  | 撮合时间戳
-positionEffect  | number  | 开平标志，1：开仓，2：平仓
-marginType  | number  | 保证金类型，1全仓，2逐仓
-marginRate  | string  | 保证金率，全仓时0，逐仓时>=0，
-fcOrderId  | string  | 强平委托号，非空时为强平委托
-deltaPrice  | string  | 标记价与委托价之差
-frozenPrice  | string  | 资金计算价格
+| 字段名称             | 数据类型   | 描述                                       |
+| ---------------- | ------ | ---------------------------------------- |
+| applId           | number | 2：期货                                     |
+| timestamp        | number | 下单时间戳，微秒级别                               |
+| userId           | number | 用户合约ID                                   |
+| contractId       | number | 交易对                                      |
+| symbol           | string | 交易对                                      |
+| orderId          | string | 委托编号，orderId                             |
+| side             | number | 买卖方向，1买，-1卖                              |
+| price            | string | 委托价格                                     |
+| quantity         | string | 委托数量                                     |
+| orderType        | number | 委托类型（1：限价，2：市价）                          |
+| orderSubType     | number | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托 |
+| timeInForce      | number | 订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 |
+| minimalQuantity  | string | 止损点位                                     |
+| stopPrice        | string | 条件单触发价                                   |
+| stopCondition    | number | 止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）    |
+| orderStatus      | number | 委托状态                                     |
+| makerFeeRatio    | string | Maker手续费率                                |
+| takerFeeRatio    | string | Taker手续费率                                |
+| clOrderId        | string | 客户订单编号                                   |
+| filledCurrency   | string | 成交金额                                     |
+| filledQuantity   | string | 成交数量                                     |
+| canceledQuantity | string | 取消数量                                     |
+| matchTime        | number | 撮合时间戳                                    |
+| positionEffect   | number | 开平标志，1：开仓，2：平仓                           |
+| marginType       | number | 保证金类型，1全仓，2逐仓                            |
+| marginRate       | string | 保证金率，全仓时0，逐仓时>=0，                        |
+| fcOrderId        | string | 强平委托号，非空时为强平委托                           |
+| deltaPrice       | string | 标记价与委托价之差                                |
+| frozenPrice      | string | 资金计算价格                                   |
 
 
 orderStatus委托状态：
 
-状态 | 描述
----|---
- 0|未申报
- 1|正在申报
- 2|已申报未成交
- 3|部分成交
- 4|全部成交
- 5|部分撤单
- 6|全部撤单
- 7|撤单中
- 8|失效
- 11|缓存高于条件的委托
- 12|缓存低于条件的委托
- 
+| 状态   | 描述        |
+| ---- | --------- |
+| 0    | 未申报       |
+| 1    | 正在申报      |
+| 2    | 已申报未成交    |
+| 3    | 部分成交      |
+| 4    | 全部成交      |
+| 5    | 部分撤单      |
+| 6    | 全部撤单      |
+| 7    | 撤单中       |
+| 8    | 失效        |
+| 11   | 缓存高于条件的委托 |
+| 12   | 缓存低于条件的委托 |
+
 
 ## 查询合约历史委托
 
@@ -1389,12 +1390,12 @@ orderStatus委托状态：
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  必须  |	合约名称
-side  | int  | 否  | -1:上一页，1：下一页
-timestamp  | long  | 否  | 微秒级别
-pageSize  | int  | 否  | 默认100
+| 参数        | 数据类型   | 是否必须 | 描述           |
+| --------- | ------ | ---- | ------------ |
+| symbol    | string | 必须   | 合约名称         |
+| side      | int    | 否    | -1:上一页，1：下一页 |
+| timestamp | long   | 否    | 微秒级别         |
+| pageSize  | int    | 否    | 默认100        |
 
 备注<br/>
 用户选择了查询时间条件时：<br/>
@@ -1404,7 +1405,7 @@ pageSize  | int  | 否  | 默认100
    timestamp= 当前页第一条数据的timestamp<br/>
 下一页：<br/>
    timestamp= 当前页最后一条数据的timestamp<br/>
-       
+​       
 
 
 **返回字段**
@@ -1447,54 +1448,54 @@ pageSize  | int  | 否  | 默认100
 ]
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-applId  | number  |   2：期货
-timestamp  | number  | 下单时间戳，微秒级别
-userId  | number  | 用户合约ID
-contractId  | number  | 交易对
-symbol  | string  | 交易对
-uuid  | string  | 唯一标志符
-side  | number  | 买卖方向，1买，-1卖
-price  | string  | 委托价格
-quantity  | string  | 委托数量
-orderType  | number  | 委托类型（1：限价，2：市价）
-orderSubType  | number  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
-timeInForce  | number  |   订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 
-minimalQuantity  | string  | 止损点位
-stopPrice  | string  | 条件单触发价
-stopCondition  | number  | 止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）
-orderStatus  | number  | 委托状态
-makerFeeRatio  | string  | Maker手续费率
-takerFeeRatio  | string  | Taker手续费率
-clOrderId  | string  | 客户订单编号
-filledCurrency  | string  | 成交金额
-filledQuantity  | string  | 成交数量
-canceledQuantity  | string  | 取消数量 
-matchTime  | number  | 撮合时间戳
-positionEffect  | number  | 开平标志，1：开仓，2：平仓
-marginType  | number  | 保证金类型，1全仓，2逐仓
-marginRate  | string  | 保证金率，全仓时0，逐仓时>=0，
-fcOrderId  | string  | 强平委托号，非空时为强平委托
-deltaPrice  | string  | 标记价与委托价之差
-frozenPrice  | string  | 资金计算价格
+| 字段名称             | 数据类型   | 描述                                       |
+| ---------------- | ------ | ---------------------------------------- |
+| applId           | number | 2：期货                                     |
+| timestamp        | number | 下单时间戳，微秒级别                               |
+| userId           | number | 用户合约ID                                   |
+| contractId       | number | 交易对                                      |
+| symbol           | string | 交易对                                      |
+| uuid             | string | 唯一标志符                                    |
+| side             | number | 买卖方向，1买，-1卖                              |
+| price            | string | 委托价格                                     |
+| quantity         | string | 委托数量                                     |
+| orderType        | number | 委托类型（1：限价，2：市价）                          |
+| orderSubType     | number | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托 |
+| timeInForce      | number | 订单有效时期类型：1:取消前有效，2:立即成交剩余撤销，未启用，<br/>3:全部成交否则撤销，未启用，4:五档成交剩余撤销，未启用，5:五档成交剩余转限价，未启用 |
+| minimalQuantity  | string | 止损点位                                     |
+| stopPrice        | string | 条件单触发价                                   |
+| stopCondition    | number | 止损止盈标志 1（止盈，未启用），2（止损，未启用），3（只减仓，未启用）    |
+| orderStatus      | number | 委托状态                                     |
+| makerFeeRatio    | string | Maker手续费率                                |
+| takerFeeRatio    | string | Taker手续费率                                |
+| clOrderId        | string | 客户订单编号                                   |
+| filledCurrency   | string | 成交金额                                     |
+| filledQuantity   | string | 成交数量                                     |
+| canceledQuantity | string | 取消数量                                     |
+| matchTime        | number | 撮合时间戳                                    |
+| positionEffect   | number | 开平标志，1：开仓，2：平仓                           |
+| marginType       | number | 保证金类型，1全仓，2逐仓                            |
+| marginRate       | string | 保证金率，全仓时0，逐仓时>=0，                        |
+| fcOrderId        | string | 强平委托号，非空时为强平委托                           |
+| deltaPrice       | string | 标记价与委托价之差                                |
+| frozenPrice      | string | 资金计算价格                                   |
 
 
 orderStatus委托状态：
 
-状态 | 描述
----|---
- 0|未申报
- 1|正在申报
- 2|已申报未成交
- 3|部分成交
- 4|全部成交
- 5|部分撤单
- 6|全部撤单
- 7|撤单中
- 8|失效
- 11|缓存高于条件的委托
- 12|缓存低于条件的委托
+| 状态   | 描述        |
+| ---- | --------- |
+| 0    | 未申报       |
+| 1    | 正在申报      |
+| 2    | 已申报未成交    |
+| 3    | 部分成交      |
+| 4    | 全部成交      |
+| 5    | 部分撤单      |
+| 6    | 全部撤单      |
+| 7    | 撤单中       |
+| 8    | 失效        |
+| 11   | 缓存高于条件的委托 |
+| 12   | 缓存低于条件的委托 |
 
 
 ## 查询合约历史成交
@@ -1505,12 +1506,12 @@ orderStatus委托状态：
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  否  |	合约名称
-side  | int  | 否  | -1:上一页，1：下一页
-timestamp  | long  | 否  | 微秒级别
-pageSize  | int  | 否  | 默认100
+| 参数        | 数据类型   | 是否必须 | 描述           |
+| --------- | ------ | ---- | ------------ |
+| symbol    | string | 否    | 合约名称         |
+| side      | int    | 否    | -1:上一页，1：下一页 |
+| timestamp | long   | 否    | 微秒级别         |
+| pageSize  | int    | 否    | 默认100        |
 
 备注<br/>
 用户选择了查询时间条件时：<br/>
@@ -1520,7 +1521,7 @@ pageSize  | int  | 否  | 默认100
    timestamp= 当前页第一条数据的matchTime<br/>
 下一页：<br/>
    timestamp= 当前页最后一条数据的matchTime<br/>
-       
+​       
 
 
 **返回字段**
@@ -1562,36 +1563,36 @@ pageSize  | int  | 否  | 默认100
 ]
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-execId  | number  |   成交编号
-applId  | number  |   2：期货
-contractId  | number  | 交易对
-contractName  | string  | 交易对名称
-bidUserId|	number	|		买方用户ID
-askUserId|	number	|		卖方用户ID
-bidOrderId|	string	|		买方委托号
-askOrderId|	string	|		卖方委托号
-matchPrice|	string	|		成交价
-matchQty|	string	|		成交数量
-matchAmt|	string	|		成交金额
-bidFee|	string	|		买方手续费
-askFee|	string	|		卖方手续费
-takerSide|	number	|		订单成交方向 1买，-1卖
-bidPositionEffect|	number	|		买方开平标志：1开仓2平仓
-askPositionEffect|	number	|		卖方开平标志：1开仓2平仓
-bidMarginType|	number	|		买方保证金类型：1全仓，2逐仓
-askMarginType|	number	|		卖方保证金类型：1全仓，2逐仓
-bidInitRate|	string	|		买方初始保证金率
-askInitRate| string	|		卖方初始保证金率
-bidMatchType|	number	|		买方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）
-askMatchType|	number	|		卖方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方）
-bidPnlType|	number	|		买方盈亏类型：0正常成交1正常平仓2强平3强减
-bidPnl|	number	|		买方平仓盈亏
-askPnlType|	number	|		卖方盈亏类型：0正常成交1正常平仓2强平3强减
-askPnl|	number	|		卖方平仓盈亏
-matchTime|	number	|		成交时间
-updateTime|	number	|		最近更新时间
+| 字段名称              | 数据类型   | 描述                                    |
+| ----------------- | ------ | ------------------------------------- |
+| execId            | number | 成交编号                                  |
+| applId            | number | 2：期货                                  |
+| contractId        | number | 交易对                                   |
+| contractName      | string | 交易对名称                                 |
+| bidUserId         | number | 买方用户ID                                |
+| askUserId         | number | 卖方用户ID                                |
+| bidOrderId        | string | 买方委托号                                 |
+| askOrderId        | string | 卖方委托号                                 |
+| matchPrice        | string | 成交价                                   |
+| matchQty          | string | 成交数量                                  |
+| matchAmt          | string | 成交金额                                  |
+| bidFee            | string | 买方手续费                                 |
+| askFee            | string | 卖方手续费                                 |
+| takerSide         | number | 订单成交方向 1买，-1卖                         |
+| bidPositionEffect | number | 买方开平标志：1开仓2平仓                         |
+| askPositionEffect | number | 卖方开平标志：1开仓2平仓                         |
+| bidMarginType     | number | 买方保证金类型：1全仓，2逐仓                       |
+| askMarginType     | number | 卖方保证金类型：1全仓，2逐仓                       |
+| bidInitRate       | string | 买方初始保证金率                              |
+| askInitRate       | string | 卖方初始保证金率                              |
+| bidMatchType      | number | 买方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方） |
+| askMatchType      | number | 卖方成交类型：0普通成交1强平成交2强减成交（破产方）3强减成交（盈利方） |
+| bidPnlType        | number | 买方盈亏类型：0正常成交1正常平仓2强平3强减               |
+| bidPnl            | number | 买方平仓盈亏                                |
+| askPnlType        | number | 卖方盈亏类型：0正常成交1正常平仓2强平3强减               |
+| askPnl            | number | 卖方平仓盈亏                                |
+| matchTime         | number | 成交时间                                  |
+| updateTime        | number | 最近更新时间                                |
 
 
 ## 查询合约历史强平
@@ -1602,40 +1603,40 @@ updateTime|	number	|		最近更新时间
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  否  |	合约名称
-side  | int  | 否  | 买卖方向 1:买，-1:卖
-startDate  | long  | 否  | 开始时间,毫秒
-endDate  | long  | 否  | 结束时间,毫秒
-pageNum  | int  | 否  | 当前页：默认：1
-pageSize  | int  | 否  | 默认10
-       
+| 参数        | 数据类型   | 是否必须 | 描述            |
+| --------- | ------ | ---- | ------------- |
+| symbol    | string | 否    | 合约名称          |
+| side      | int    | 否    | 买卖方向 1:买，-1:卖 |
+| startDate | long   | 否    | 开始时间,毫秒       |
+| endDate   | long   | 否    | 结束时间,毫秒       |
+| pageNum   | int    | 否    | 当前页：默认：1      |
+| pageSize  | int    | 否    | 默认10          |
+
 
 
 **返回字段**
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-totalRow  | number  | 总记录数
-totalPage  | number  | 总页数
-pageSize  | number  | 每页返回数
-pageNum  | number  | 当前页
-list  | object []  | 
-├─timestamp  | number  | 委托时间
-├─userId  | number  | 用户ID
-├─contractId  | number  | 交易对
-├─uuid  | string  | 委托编号
-├─applId  | number  | 应用标识
-├─side  | number  | 买卖方向
-├─bankruptcyPrice  | number  | 破产价格
-├─closeQty  | number  | 委托量
-├─filledCurrency  | number  | 成交金额
-├─filledQuantity  | number  | 成交量
-├─canceledQuantity  | number  | 撤单数量
-├─orderStatus  | number  | 委托状态
-├─feeRatio  | number  | 手续费
-├─marginType  | number  | 保证金类型
+| 字段名称               | 数据类型      | 描述    |
+| ------------------ | --------- | ----- |
+| totalRow           | number    | 总记录数  |
+| totalPage          | number    | 总页数   |
+| pageSize           | number    | 每页返回数 |
+| pageNum            | number    | 当前页   |
+| list               | object [] |       |
+| ├─timestamp        | number    | 委托时间  |
+| ├─userId           | number    | 用户ID  |
+| ├─contractId       | number    | 交易对   |
+| ├─uuid             | string    | 委托编号  |
+| ├─applId           | number    | 应用标识  |
+| ├─side             | number    | 买卖方向  |
+| ├─bankruptcyPrice  | number    | 破产价格  |
+| ├─closeQty         | number    | 委托量   |
+| ├─filledCurrency   | number    | 成交金额  |
+| ├─filledQuantity   | number    | 成交量   |
+| ├─canceledQuantity | number    | 撤单数量  |
+| ├─orderStatus      | number    | 委托状态  |
+| ├─feeRatio         | number    | 手续费   |
+| ├─marginType       | number    | 保证金类型 |
 
     orderStatus
     0: 未申报；1:正在申报；2:已申报未成交；3:部分成交；4:全部成交；5部分撤单；6:全部撤单；7:撤单中；8:失效
@@ -1650,41 +1651,41 @@ list  | object []  |
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  否  |	合约名称
-side  | int  | 否  | 买卖方向 1:买，-1:卖
-startDate  | long  | 否  | 开始时间,毫秒
-endDate  | long  | 否  | 结束时间,毫秒
-pageNum  | int  | 否  | 当前页：默认：1
-pageSize  | int  | 否  | 默认10
-       
+| 参数        | 数据类型   | 是否必须 | 描述            |
+| --------- | ------ | ---- | ------------- |
+| symbol    | string | 否    | 合约名称          |
+| side      | int    | 否    | 买卖方向 1:买，-1:卖 |
+| startDate | long   | 否    | 开始时间,毫秒       |
+| endDate   | long   | 否    | 结束时间,毫秒       |
+| pageNum   | int    | 否    | 当前页：默认：1      |
+| pageSize  | int    | 否    | 默认10          |
+
 
 
 **返回字段**
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-totalRow  | number  | 总记录数
-totalPage  | number  | 总页数
-pageSize  | number  | 每页返回数
-pageNum  | number  | 当前页
-list  | object []  | 
-├─contractId  | number  | 交易对ID
-├─uuid  | string  | 委托编号
-├─applId  | number  | 应用标识
-├─lossUserId  | number  | 强减用户（亏损方）
-├─profitUserId  | number  | 被强减用户（盈利方）
-├─execId  | string  | 成交编号
-├─side  | number  | 买卖方向
-├─timestamp  | number  | 委托时间
-├─lossMarginType  | number  | 强减用户（亏损方）保证金类型
-├─profitMarginType  | number  | 被强减用户（盈利方）保证金类型
-├─closePrice  | number  | 强减价格
-├─closeQty  | number  | 强减数量
-├─closeAmt  | number  | 强减金额
-├─lossSubsidy  | number  | 亏损方补偿金额
-├─profitSubsidy  | number  | 盈利方补偿金额
+| 字段名称               | 数据类型      | 描述              |
+| ------------------ | --------- | --------------- |
+| totalRow           | number    | 总记录数            |
+| totalPage          | number    | 总页数             |
+| pageSize           | number    | 每页返回数           |
+| pageNum            | number    | 当前页             |
+| list               | object [] |                 |
+| ├─contractId       | number    | 交易对ID           |
+| ├─uuid             | string    | 委托编号            |
+| ├─applId           | number    | 应用标识            |
+| ├─lossUserId       | number    | 强减用户（亏损方）       |
+| ├─profitUserId     | number    | 被强减用户（盈利方）      |
+| ├─execId           | string    | 成交编号            |
+| ├─side             | number    | 买卖方向            |
+| ├─timestamp        | number    | 委托时间            |
+| ├─lossMarginType   | number    | 强减用户（亏损方）保证金类型  |
+| ├─profitMarginType | number    | 被强减用户（盈利方）保证金类型 |
+| ├─closePrice       | number    | 强减价格            |
+| ├─closeQty         | number    | 强减数量            |
+| ├─closeAmt         | number    | 强减金额            |
+| ├─lossSubsidy      | number    | 亏损方补偿金额         |
+| ├─profitSubsidy    | number    | 盈利方补偿金额         |
 
 
 
@@ -1696,12 +1697,12 @@ list  | object []  |
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  是  |	合约名称
-initMarginRate  | string  | 是  | 初始保证金率
-marginType  | int  | 是  | 保证金类型，1全仓，2逐仓
-       
+| 参数             | 数据类型   | 是否必须 | 描述            |
+| -------------- | ------ | ---- | ------------- |
+| symbol         | string | 是    | 合约名称          |
+| initMarginRate | string | 是    | 初始保证金率        |
+| marginType     | int    | 是    | 保证金类型，1全仓，2逐仓 |
+
 
 
 **返回字段**
@@ -1717,10 +1718,10 @@ marginType  | int  | 是  | 保证金类型，1全仓，2逐仓
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-symbol      |   string   |  是  |	合约名称
-margin  | string  | 是  | 保证金
+| 参数     | 数据类型   | 是否必须 | 描述   |
+| ------ | ------ | ---- | ---- |
+| symbol | string | 是    | 合约名称 |
+| margin | string | 是    | 保证金  |
 
 **返回字段**
 
@@ -1737,10 +1738,10 @@ margin  | string  | 是  | 保证金
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-currency      |   string   |  必须  |	合约货币名称， 如：usdt,btc,eth
-type      |   int   |  必须  |	持仓模式，0：对冲，1：双边
+| 参数       | 数据类型   | 是否必须 | 描述                     |
+| -------- | ------ | ---- | ---------------------- |
+| currency | string | 必须   | 合约货币名称， 如：usdt,btc,eth |
+| type     | int    | 必须   | 持仓模式，0：对冲，1：双边         |
 
 
 **返回字段**
@@ -1756,23 +1757,23 @@ type      |   int   |  必须  |	持仓模式，0：对冲，1：双边
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-currencyName      |   string   |  否  |	币种名称
-flowId  | long  | 否  | 业务类型
-flowType  | long  | 否  | 流水ID
-side  | int  | 否  | -1:上一页，1：下一页
-startTime  | long  | 否  | 开始时间，微秒
-endTime  | long  | 否  | 结束时间，微秒级别
-pageSize  | int  | 否  | 默认10
-       
+| 参数           | 数据类型   | 是否必须 | 描述           |
+| ------------ | ------ | ---- | ------------ |
+| currencyName | string | 否    | 币种名称         |
+| flowId       | long   | 否    | 业务类型         |
+| flowType     | long   | 否    | 流水ID         |
+| side         | int    | 否    | -1:上一页，1：下一页 |
+| startTime    | long   | 否    | 开始时间，微秒      |
+| endTime      | long   | 否    | 结束时间，微秒级别    |
+| pageSize     | int    | 否    | 默认10         |
+
 
 上一页时：side = -1  id为当前页的第一条数据的flow_id
-    
+​    
 下一页时：side =1  id为当前页最后一条数据的flow_id
-    
+​    
 流水类型：
-    
+​    
 * 3001：期货手续费，
 * 3002：期货手续费抵后返还，
 * 3003：期货手续费抵扣消耗点卡，
@@ -1819,18 +1820,18 @@ pageSize  | int  | 否  | 默认10
 ]
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-flowId  | number  | 流水ID
-userId  | number  | 用户合约ID
-applId  | number  | 2
-currencyId  | number  | 货币ID
-flowType  | number  | 流水类型
-num  | number  | 金额
-occureTime  | number  | 转账时间
-createTime  | number  | 记录创建时间
-uuid  | string  | 对应的记录id（转账id、成交id等）
-note  | string  | 备注
+| 字段名称       | 数据类型   | 描述                  |
+| ---------- | ------ | ------------------- |
+| flowId     | number | 流水ID                |
+| userId     | number | 用户合约ID              |
+| applId     | number | 2                   |
+| currencyId | number | 货币ID                |
+| flowType   | number | 流水类型                |
+| num        | number | 金额                  |
+| occureTime | number | 转账时间                |
+| createTime | number | 记录创建时间              |
+| uuid       | string | 对应的记录id（转账id、成交id等） |
+| note       | string | 备注                  |
 
 
 
@@ -1866,18 +1867,18 @@ note  | string  | 备注
 ```
 
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-currencyId  | number  | 货币ID
-currencyName  | String  | 货币
-totalBalance  | string  | 总资产
-available  | string  | 可用资金
-frozenForTrade  | string  | 委托冻结资金
-initMargin  | string  | 已占用保证金
-frozenInitMargin  | string  | 委托冻结保证金
-closeProfitLoss  | string  | 已实现盈亏
-createTime  | number  | 记录创建时间
-posiMode  | number  | 持仓模式，0：对冲，1：双边
+| 字段名称             | 数据类型   | 描述             |
+| ---------------- | ------ | -------------- |
+| currencyId       | number | 货币ID           |
+| currencyName     | String | 货币             |
+| totalBalance     | string | 总资产            |
+| available        | string | 可用资金           |
+| frozenForTrade   | string | 委托冻结资金         |
+| initMargin       | string | 已占用保证金         |
+| frozenInitMargin | string | 委托冻结保证金        |
+| closeProfitLoss  | string | 已实现盈亏          |
+| createTime       | number | 记录创建时间         |
+| posiMode         | number | 持仓模式，0：对冲，1：双边 |
 
 
 
@@ -1889,14 +1890,14 @@ posiMode  | number  | 持仓模式，0：对冲，1：双边
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-currencyName      |   string   |  否  |	币种名称
-startDate  | string  | 否  | 开始时间,如‘2018-01-01’
-endDate  | string  | 否  | 结束时间,如‘2018-01-01’
-pageNum  | int  | 否  | 当前页：默认：1
-pageSize  | int  | 否  | 默认10
-       
+| 参数           | 数据类型   | 是否必须 | 描述                 |
+| ------------ | ------ | ---- | ------------------ |
+| currencyName | string | 否    | 币种名称               |
+| startDate    | string | 否    | 开始时间,如‘2018-01-01’ |
+| endDate      | string | 否    | 结束时间,如‘2018-01-01’ |
+| pageNum      | int    | 否    | 当前页：默认：1           |
+| pageSize     | int    | 否    | 默认10               |
+
 
 
 **返回字段**
@@ -1932,20 +1933,20 @@ pageSize  | int  | 否  | 默认10
 }
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-totalRow  | number  | 总记录数
-totalPage  | number  | 总页数
-pageSize  | number  | 每页返回数
-pageNum  | number  | 当前页
-list  | object []  | 
-├─userId  | number  | 用户ID
-├─currencyId  | number  | 币种ID
-├─totalMoney  | number  | 总资产
-├─orderFrozenMoney  | number  | 冻结资产
-├─closeProfitLoss  | number  | 已实现盈亏
-├─startDate  | number  | 开始时间
-├─endDate  | number  | 结束时间
+| 字段名称               | 数据类型      | 描述    |
+| ------------------ | --------- | ----- |
+| totalRow           | number    | 总记录数  |
+| totalPage          | number    | 总页数   |
+| pageSize           | number    | 每页返回数 |
+| pageNum            | number    | 当前页   |
+| list               | object [] |       |
+| ├─userId           | number    | 用户ID  |
+| ├─currencyId       | number    | 币种ID  |
+| ├─totalMoney       | number    | 总资产   |
+| ├─orderFrozenMoney | number    | 冻结资产  |
+| ├─closeProfitLoss  | number    | 已实现盈亏 |
+| ├─startDate        | number    | 开始时间  |
+| ├─endDate          | number    | 结束时间  |
 
 ## 现货-合约资金划转
 
@@ -1957,13 +1958,13 @@ list  | object []  |
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-currency      |   string   |  是  |	币种名称
-amount  | string  | 是  | 划转数量
-side  | int  | 是  | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转
+| 参数       | 数据类型   | 是否必须 | 描述                                 |
+| -------- | ------ | ---- | ---------------------------------- |
+| currency | string | 是    | 币种名称                               |
+| amount   | string | 是    | 划转数量                               |
+| side     | int    | 是    | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转 |
 
-       
+
 **返回字段**
 
 > Response:
@@ -1984,14 +1985,14 @@ side  | int  | 是  | 划转方向，0: 现货账户向合约账户划转 1: 合
 
 **请求参数**
 
-参数            |  数据类型  |是否必须|	描述
-----------------|------------|--------|--------
-clientId      |   string   |  否  |	划转单号
-currency      |   string   |  否  |	币种名称
-side  | int  | 否  | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转
-pageNum  | int  | 否  | 当前页：默认：1
-pageSize  | int  | 否  | 默认10
-       
+| 参数       | 数据类型   | 是否必须 | 描述                                 |
+| -------- | ------ | ---- | ---------------------------------- |
+| clientId | string | 否    | 划转单号                               |
+| currency | string | 否    | 币种名称                               |
+| side     | int    | 否    | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转 |
+| pageNum  | int    | 否    | 当前页：默认：1                           |
+| pageSize | int    | 否    | 默认10                               |
+
 **返回字段**
 
 > Response:
@@ -2029,21 +2030,21 @@ pageSize  | int  | 否  | 默认10
 }
 ```
 
-字段名称    | 数据类型  |	描述
-----------------|------------|--------
-totalRow  | number  | 总记录数
-totalPage  | number  | 总页数
-pageSize  | number  | 每页返回数
-pageNum  | number  | 当前页
-list  | object []  | 
-├─clientId  | string  | 划转账单
-├─userId  | number  | 用户ID
-├─currency  | string  | 币种
-├─amount  | number  | 划转数量
-├─side  | int  | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转
-├─state  | string  | 划转状态， confirming：划转中，completed：划转成功，failure：划转失败
-├─createdAt  | string  | 记录创建时间
-├─confirmTime  | string  | 确认划转时间
+| 字段名称          | 数据类型      | 描述                                       |
+| ------------- | --------- | ---------------------------------------- |
+| totalRow      | number    | 总记录数                                     |
+| totalPage     | number    | 总页数                                      |
+| pageSize      | number    | 每页返回数                                    |
+| pageNum       | number    | 当前页                                      |
+| list          | object [] |                                          |
+| ├─clientId    | string    | 划转账单                                     |
+| ├─userId      | number    | 用户ID                                     |
+| ├─currency    | string    | 币种                                       |
+| ├─amount      | number    | 划转数量                                     |
+| ├─side        | int       | 划转方向，0: 现货账户向合约账户划转 1: 合约账户向现货账户划转       |
+| ├─state       | string    | 划转状态， confirming：划转中，completed：划转成功，failure：划转失败 |
+| ├─createdAt   | string    | 记录创建时间                                   |
+| ├─confirmTime | string    | 确认划转时间                                   |
 
 
 # 期货推送
@@ -2070,12 +2071,12 @@ list  | object []  |
 
 成功建立与Websocket服务器的连接后，Websocket客户端发送如下请求以订阅特定主题。例如：
 
-    
+
     {
       "action":"sub",
       "topic":"future_kline-1000000-900000"
     }
-    
+
 > 发送订阅
 
 ```
@@ -2180,10 +2181,10 @@ list  | object []  |
 
 **参数**
 
-参数      |  数据类型  |是否必须|	描述
-----------|------------|--------|--------
-contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
-period   |   string   |  true |	K线周期，毫秒值
+| 参数         | 数据类型   | 是否必须 | 描述                                    |
+| ---------- | ------ | ---- | ------------------------------------- |
+| contractId | string | true | 交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID |
+| period     | string | true | K线周期，毫秒值                              |
 
 period取值：
 
@@ -2222,11 +2223,11 @@ period取值：
 ]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-contractId	|integer	|合约ID
-period	|string	|类型	
-lines	|object[]|item类型为list
+| 字段名称       | 数据类型     | 描述          |
+| ---------- | -------- | ----------- |
+| contractId | integer  | 合约ID        |
+| period     | string   | 类型          |
+| lines      | object[] | item类型为list |
 
 
 
@@ -2253,9 +2254,9 @@ lines 的数据结构为：List<List>
 
 **参数**
 
-参数      |  数据类型  |是否必须|	描述
-----------|------------|--------|--------
-contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+| 参数         | 数据类型   | 是否必须 | 描述                                    |
+| ---------- | ------ | ---- | ------------------------------------- |
+| contractId | string | true | 交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID |
 
 
 
@@ -2306,11 +2307,11 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 ]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-contractId	|integer	|合约ID| 
-bids	|object []|买档位数据列表
-asks	|object []|卖档位数据列表
+| 字段名称       | 数据类型      | 描述      |
+| ---------- | --------- | ------- |
+| contractId | integer   | 合约ID    |
+| bids       | object [] | 买档位数据列表 |
+| asks       | object [] | 卖档位数据列表 |
 
 asks与bids 的数据格式：List<List>
 如：
@@ -2337,9 +2338,9 @@ asks与bids 的数据格式：List<List>
 
 **参数**
 
-参数      |  数据类型  |是否必须|	描述
-----------|------------|--------|--------
-contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+| 参数         | 数据类型   | 是否必须 | 描述                                    |
+| ---------- | ------ | ---- | ------------------------------------- |
+| contractId | string | true | 交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID |
 
 
 **返回字段**
@@ -2350,13 +2351,13 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 ["future_tick",{"contractId":1000000,"trades":[1591865456714597,"9817","24",1]}]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-contractId	|integer	|合约ID| 
-trades	|object[]|数据列表
+| 字段名称       | 数据类型     | 描述   |
+| ---------- | -------- | ---- |
+| contractId | integer  | 合约ID |
+| trades     | object[] | 数据列表 |
 
 trades 数据结构 List
-  
+
     [
         [${时间戳}, ${成交价格}, ${成交数量}, ${方向}]
     ]
@@ -2488,9 +2489,9 @@ trades 数据结构 List
 
 **参数**
 
-参数      |  数据类型  |是否必须|	描述
-----------|------------|--------|--------
-contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID
+| 参数         | 数据类型   | 是否必须 | 描述                                    |
+| ---------- | ------ | ---- | ------------------------------------- |
+| contractId | string | true | 交易对ID，参考[查询合约列表](#daedf585f3)接口中返回值ID |
 
 
 **返回字段**
@@ -2624,11 +2625,11 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 ]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-	-|object []|	
-├─currencyId|int|货币ID	
-├─latest |string|最新价格,可能为空
+| 字段名称         | 数据类型      | 描述        |
+| ------------ | --------- | --------- |
+| -            | object [] |           |
+| ├─currencyId | int       | 货币ID      |
+| ├─latest     | string    | 最新价格,可能为空 |
 
 ## 获取法币汇率
 
@@ -2701,13 +2702,13 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 ```
 
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-	-|object []|	
-├─ id |int|法币Id
-├─ name |string|法币名称
-├─ rate |decimal|法币汇率
-├─ updateTime |long|更新时间戳
+| 字段名称          | 数据类型      | 描述    |
+| ------------- | --------- | ----- |
+| -             | object [] |       |
+| ├─ id         | int       | 法币Id  |
+| ├─ name       | string    | 法币名称  |
+| ├─ rate       | decimal   | 法币汇率  |
+| ├─ updateTime | long      | 更新时间戳 |
 
 
 ## 获取市场统计
@@ -2743,13 +2744,13 @@ contractId   |   string   |  true |	交易对ID，参考[查询合约列表](#da
 ]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| string|消息类型：13
-currencyId |int|币种ID
-total24hTurnover |string|24小时成交额
-total7dTurnover | string |7日成交额
-total30dTurnover | string |30日成交额
+| 字段名称             | 数据类型   | 描述      |
+| ---------------- | ------ | ------- |
+| messageType      | string | 消息类型：13 |
+| currencyId       | int    | 币种ID    |
+| total24hTurnover | string | 24小时成交额 |
+| total7dTurnover  | string | 7日成交额   |
+| total30dTurnover | string | 30日成交额  |
 
 
 
@@ -2778,10 +2779,10 @@ total30dTurnover | string |30日成交额
 
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| string|消息类型：14
-timeSlice | string|微秒
+| 字段名称        | 数据类型   | 描述      |
+| ----------- | ------ | ------- |
+| messageType | string | 消息类型：14 |
+| timeSlice   | string | 微秒      |
 
 ## 获取私有数据推送
 
@@ -2813,12 +2814,12 @@ timeSlice | string|微秒
 
 **参数**
 
-参数      |  数据类型  |是否必须|	描述
-----------|------------|--------|--------
-apiid   |   string   |  true |	用户API Key
-timestamp   |   string   |  true |	时间戳，毫秒
-passphrase   |   string   |  false |	访问口令 md5(timestamp + passphrase) 
-sign   |   string   |  true |	签名字符串 md5(apiid + timestamp + (passphrase == null ? "" : passphrase) + apiSecret)
+| 参数         | 数据类型   | 是否必须  | 描述                                       |
+| ---------- | ------ | ----- | ---------------------------------------- |
+| apiid      | string | true  | 用户API Key                                |
+| timestamp  | string | true  | 时间戳，毫秒                                   |
+| passphrase | string | false | 访问口令 md5(timestamp + passphrase)         |
+| sign       | string | true  | 签名字符串 md5(apiid + timestamp + (passphrase == null ? "" : passphrase) + apiSecret) |
 
 
 **返回字段**
@@ -2900,26 +2901,26 @@ sign   |   string   |  true |	签名字符串 md5(apiid + timestamp + (passphras
 
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| int|消息类型：3012
-lastId | int|消息ID
-applId | int|2
-accountId | int|合约账号ID
-posis |object []|持仓列表	
-├─ contractId |int|合约ID
-├─ marginType  | integer  | 保证金类型，1全仓2逐仓 
-├─ initMargiRate  | string  | 初始保证率
-├─ maintainMarginRate  | string  | 维持保证金
-├─ initMargin  | string  | 初始保证金
-├─ extraMargin  | string  | 额外保证金
-├─ posiQty  | string  | 持仓量
-├─ openAmt  | string  | 开仓金额
-├─ frozenCloseQty  | string  | 平仓委托冻结量
-├─ frozenOpenQty  | string  | 开仓委托冻结量
-├─ posiStatus  | number  | 0：正常，1：禁止平仓，2：交割
-├─ closeProfitLoss  | string  | 已实现盈亏
-├─ contractUnit  | string  | 合约单位
+| 字段名称                  | 数据类型      | 描述               |
+| --------------------- | --------- | ---------------- |
+| messageType           | int       | 消息类型：3012        |
+| lastId                | int       | 消息ID             |
+| applId                | int       | 2                |
+| accountId             | int       | 合约账号ID           |
+| posis                 | object [] | 持仓列表             |
+| ├─ contractId         | int       | 合约ID             |
+| ├─ marginType         | integer   | 保证金类型，1全仓2逐仓     |
+| ├─ initMargiRate      | string    | 初始保证率            |
+| ├─ maintainMarginRate | string    | 维持保证金            |
+| ├─ initMargin         | string    | 初始保证金            |
+| ├─ extraMargin        | string    | 额外保证金            |
+| ├─ posiQty            | string    | 持仓量              |
+| ├─ openAmt            | string    | 开仓金额             |
+| ├─ frozenCloseQty     | string    | 平仓委托冻结量          |
+| ├─ frozenOpenQty      | string    | 开仓委托冻结量          |
+| ├─ posiStatus         | number    | 0：正常，1：禁止平仓，2：交割 |
+| ├─ closeProfitLoss    | string    | 已实现盈亏            |
+| ├─ contractUnit       | string    | 合约单位             |
 
 
 2.减仓队列
@@ -2930,14 +2931,14 @@ posis |object []|持仓列表
 42["match",{"accountId":44855,"applId":2,"ranks":[{"contractId":999999,"rank":56}],"messageType":3014}]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| int|消息类型：3014
-applId | int|2
-accountId | int|合约账号ID
-ranks |object []|减仓队列	
-├─ contractId |int|合约ID
-├─ rank  | int  | 强减信号，值越小强减可能性越大
+| 字段名称          | 数据类型      | 描述              |
+| ------------- | --------- | --------------- |
+| messageType   | int       | 消息类型：3014       |
+| applId        | int       | 2               |
+| accountId     | int       | 合约账号ID          |
+| ranks         | object [] | 减仓队列            |
+| ├─ contractId | int       | 合约ID            |
+| ├─ rank       | int       | 强减信号，值越小强减可能性越大 |
 
 3.当前委托
 
@@ -2975,33 +2976,33 @@ ranks |object []|减仓队列
 ]
 ```
 
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| int|消息类型：3004
-accountId | int|合约账号ID
-contractId  | number  | 交易对
-orderId  | string    | 委托号
-clientOrderId  | string   | 客户订单编号
-price  | string    | 委托价格
-quantity  | string    | 委托数量
-leftQuantity  | string    | 剩余数量
-side  | number    | 买卖方向，1：买，-1：卖
-placeTimestamp  | number    | 委托时间
-matchQty  | string    | 成交数量
-matchAmt  | string    | 成交金额
-orderType  | integer  | 委托类型（1：限价，2：市价）
-positionEffect  | integer    | 开平标志，1：开仓，2：平仓
-marginType  | integer    | 保证金类型，1全仓2逐仓
-fcOrderId  | string   | 强平委托号，空时为强平委托
-markPrice  | string  | 标记价格
-feeRate  | string  | 标手续费率
-contractUnit  | string  | 合约单位
-orderStatus  | int  | 委托状态 0-未申报,1-正在申报,2-已申报未成交,3-部分成交,4-全部成交,5-部分撤单,6-全部撤单,7-撤单中,8-失效,11-缓存高于条件的委托,12-缓存低于条件的委托
-avgPrice  | string  | 成交均价
-stopPrice  | string  | 条件单触发价
-orderSubType  | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托
-stopCondition  | integer  | 0：默认，2：止损
-minimalQuantity  | string  | 止损点位
+| 字段名称            | 数据类型    | 描述                                       |
+| --------------- | ------- | ---------------------------------------- |
+| messageType     | int     | 消息类型：3004                                |
+| accountId       | int     | 合约账号ID                                   |
+| contractId      | number  | 交易对                                      |
+| orderId         | string  | 委托号                                      |
+| clientOrderId   | string  | 客户订单编号                                   |
+| price           | string  | 委托价格                                     |
+| quantity        | string  | 委托数量                                     |
+| leftQuantity    | string  | 剩余数量                                     |
+| side            | number  | 买卖方向，1：买，-1：卖                            |
+| placeTimestamp  | number  | 委托时间                                     |
+| matchQty        | string  | 成交数量                                     |
+| matchAmt        | string  | 成交金额                                     |
+| orderType       | integer | 委托类型（1：限价，2：市价）                          |
+| positionEffect  | integer | 开平标志，1：开仓，2：平仓                           |
+| marginType      | integer | 保证金类型，1全仓2逐仓                             |
+| fcOrderId       | string  | 强平委托号，空时为强平委托                            |
+| markPrice       | string  | 标记价格                                     |
+| feeRate         | string  | 标手续费率                                    |
+| contractUnit    | string  | 合约单位                                     |
+| orderStatus     | int     | 委托状态 0-未申报,1-正在申报,2-已申报未成交,3-部分成交,4-全部成交,5-部分撤单,6-全部撤单,7-撤单中,8-失效,11-缓存高于条件的委托,12-缓存低于条件的委托 |
+| avgPrice        | string  | 成交均价                                     |
+| stopPrice       | string  | 条件单触发价                                   |
+| orderSubType    | string  | 订单委托类型，0：默认值，1：被动委托，2：最近价触发条件，<br/>3 ：指数除非条件委托，4：标记价触发条件委托 |
+| stopCondition   | integer | 0：默认，2：止损                                |
+| minimalQuantity | string  | 止损点位                                     |
 
 
 4.成交记录推送
@@ -3038,23 +3039,23 @@ minimalQuantity  | string  | 止损点位
   }
 ]
 ```
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| int|消息类型：3010
-lastId | int|消息ID
-accountId | int|合约账号ID
-matchs |object []|成交列表
-├─ contractId |int|合约ID
-├─ applId  | int  | 2
-├─ matchTime  | long  | 成交时间
-├─ matchPrice  | string  | 成交价格
-├─ matchQty  | string  | 成交数量
-├─ execId  | string  | 成交号
-├─ orderId  | string  | 委托ID
-├─ fee  | string  | 手续费
-├─ positionEffect  | int  | 开平标志，1：开仓，2：平仓
-├─ side  | int  | 买入方向，1：买，-1：卖
-├─ matchType  | int  | 成交类型：0-正常、1-强平、2- 破产强减、3-自动减仓盈利方
+| 字段名称              | 数据类型      | 描述                               |
+| ----------------- | --------- | -------------------------------- |
+| messageType       | int       | 消息类型：3010                        |
+| lastId            | int       | 消息ID                             |
+| accountId         | int       | 合约账号ID                           |
+| matchs            | object [] | 成交列表                             |
+| ├─ contractId     | int       | 合约ID                             |
+| ├─ applId         | int       | 2                                |
+| ├─ matchTime      | long      | 成交时间                             |
+| ├─ matchPrice     | string    | 成交价格                             |
+| ├─ matchQty       | string    | 成交数量                             |
+| ├─ execId         | string    | 成交号                              |
+| ├─ orderId        | string    | 委托ID                             |
+| ├─ fee            | string    | 手续费                              |
+| ├─ positionEffect | int       | 开平标志，1：开仓，2：平仓                   |
+| ├─ side           | int       | 买入方向，1：买，-1：卖                    |
+| ├─ matchType      | int       | 成交类型：0-正常、1-强平、2- 破产强减、3-自动减仓盈利方 |
 
 5.资产推送
 
@@ -3079,18 +3080,18 @@ matchs |object []|成交列表
 ]
 ]
 ```
-字段名称    | 数据类型  |	描述 
-------|-------|------
-messageType| int|消息类型：3002
-lastId | int|2
-accountId | int|合约账号ID
-currencyId |int|币种I
-totalBalance  | string  | 总资产
-available  | string  | 可用资产
-frozenForTrade  | string  | 委托冻结保证金和手续费
-initMargin  | string  | 仓位已占用保证金
-frozenInitMargin  | string  | 委托冻结保证金，不含手续费
-closeProfitLoss  | string  | 累计已实现盈亏
+| 字段名称             | 数据类型   | 描述            |
+| ---------------- | ------ | ------------- |
+| messageType      | int    | 消息类型：3002     |
+| lastId           | int    | 2             |
+| accountId        | int    | 合约账号ID        |
+| currencyId       | int    | 币种I           |
+| totalBalance     | string | 总资产           |
+| available        | string | 可用资产          |
+| frozenForTrade   | string | 委托冻结保证金和手续费   |
+| initMargin       | string | 仓位已占用保证金      |
+| frozenInitMargin | string | 委托冻结保证金，不含手续费 |
+| closeProfitLoss  | string | 累计已实现盈亏       |
 
 
 <div style="text-align: right;font-size:0"> created by zhangzp at 2019-09-21 </div>
