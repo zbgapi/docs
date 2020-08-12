@@ -1106,7 +1106,7 @@ contract_side ：正向合约和反向合约
     
 价值= 持仓量 * 最新价 * ContractUnit
     
-开仓价格 = 开仓金额/(持仓量*ContractUnit)
+开仓价格 = 开仓金额/(abs(持仓量)*ContractUnit)
     
 标记价格： [合约行情接口](#964054eba1)获取
     
@@ -1191,7 +1191,7 @@ posiStatus  | number  | 0：正常，1：禁止平仓，2：交割
 marginType  | integer  | 保证金类型，1全仓2逐仓 
 closeProfitLoss  | string  | 已实现盈亏
 initMargiRate  | string  | 初始保证率
-maintainMarginRate  | string  | 维持保证金
+maintainMarginRate  | string  | 维持保证金率
 frozenCloseQty  | string  | 平仓委托冻结量
 frozenOpenQty  | string  | 开仓委托冻结量
 contractUnit  | string  | 合约单位
