@@ -1110,13 +1110,15 @@ contract_side ：正向合约和反向合约
     
 标记价格： [合约行情接口](#964054eba1)获取
     
-强平价格(在[历史成交接口](#ca04484e3e)中可以查看)：
+实际强平价格(在[历史成交接口](#ca04484e3e)中可以查看)
+
+预估强平价格：
 
     持仓方向  posiQty > 0 ? 1 : -1
-
-    持仓记录为全仓，marginType=1时：强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin +可用资金 ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }
     
-    持仓记录为逐仓，marginType=2时：强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }
+    持仓记录为全仓，marginType=1时：预估强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin +可用资金 ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }
+    
+    持仓记录为逐仓，marginType=2时：预估强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }
 
     
 保证金： 初始保证金
