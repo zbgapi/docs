@@ -1965,7 +1965,7 @@ stop_condition: 2（止损）</p>
 
 <p>价值= 持仓量 * 最新价 * ContractUnit</p>
 
-<p>开仓价格 = 开仓金额/(持仓量*ContractUnit)</p>
+<p>开仓价格 = 开仓金额/(abs(持仓量)*ContractUnit)</p>
 
 <p>标记价格： <a href="#964054eba1">合约行情接口</a>获取</p>
 
@@ -2089,7 +2089,7 @@ stop_condition: 2（止损）</p>
 <tr>
 <td>maintainMarginRate</td>
 <td>string</td>
-<td>维持保证金</td>
+<td>维持保证金率</td>
 </tr>
 <tr>
 <td>frozenCloseQty</td>
