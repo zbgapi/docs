@@ -1969,13 +1969,15 @@ stop_condition: 2（止损）</p>
 
 <p>标记价格： <a href="#964054eba1">合约行情接口</a>获取</p>
 
-<p>强平价格(在<a href="#ca04484e3e">历史成交接口</a>中可以查看)：</p>
+<p>实际强平价格(在<a href="#ca04484e3e">历史成交接口</a>中可以查看)</p>
+
+<p>预估强平价格：</p>
 
 <p>持仓方向  posiQty &gt; 0 ? 1 : -1</p>
 
-<p>持仓记录为全仓，marginType=1时：强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin +可用资金 ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }</p>
+<p>持仓记录为全仓，marginType=1时：预估强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin +可用资金 ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }</p>
 
-<p>持仓记录为逐仓，marginType=2时：强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }</p>
+<p>持仓记录为逐仓，marginType=2时：预估强平价=开仓价- 持仓方向 *  { ( initMargin + extraMargin ) / ( abs(持仓数量)*合约单位 )- maintainMarginRate * 开仓价  }</p>
 
 <p>保证金： 初始保证金</p>
 
