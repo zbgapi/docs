@@ -1195,6 +1195,7 @@ maintainMarginRate  | string  | 维持保证金率
 frozenCloseQty  | string  | 平仓委托冻结量
 frozenOpenQty  | string  | 开仓委托冻结量
 contractUnit  | string  | 合约单位
+extraMargin  | string  | 额外保证金
 
 
 
