@@ -815,6 +815,7 @@ symbol      |   string   |  true  |	交易对
         "ip":"6934.03752",
         "w24pc":"-391.5",
         "w24pcr":"-0.053450747491296334",
+        "volumeUsd24h":"293153245.992",
         "bids":[
             ["6932.5","4556"],
             ["6932", "14112"],
@@ -846,6 +847,7 @@ hph  | string  | 历史最高价：historyPriceHigh
 hpl  | string  | 历史最低价：historyPriceLow
 tt  | string  | 24小时成交额：totalTurnover
 tv  | string  | 24小时成交量：totalVolume
+volumeUsd24h  | string  | 24小时成交额折合USD
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
