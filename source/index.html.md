@@ -805,6 +805,7 @@ symbol      |   string   |  true  | trading pairs
         "ip":"6934.03752",
         "w24pc":"-391.5",
         "w24pcr":"-0.053450747491296334",
+        "volumeUsd24h": "293153245.992",
         "bids":[
             ["6932.5","4556"],
             ["6932", "14112"],
@@ -836,6 +837,7 @@ hph  | string    | historyPriceHigh
 hpl  | string  | historyPriceLow 
 tt  | string  | totalTurnover 
 tv  | string  | totalVolume 
+volumeUsd24h  | string  | total Turnover of 24h convert USD
 tbv  | string  | totalBidVol 
 tav  | string  | totalAskVol 
 pp  | string  | prevPrice 
