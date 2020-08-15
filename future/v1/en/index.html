@@ -1096,6 +1096,9 @@ Body mode *application/json* is slightly different for Post requests. In this ca
             </span><span class="s2">"commodityId"</span><span class="p">:</span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000250000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityName"</span><span class="p">:</span><span class="err">XRP</span><span class="p">,</span><span class="w">
             </span><span class="s2">"priceTick"</span><span class="p">:</span><span class="s2">"0.000100000000000000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1105,9 +1108,25 @@ Body mode *application/json* is slightly different for Post requests. In this ca
             </span><span class="s2">"takerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000750000000000000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"commodityId"</span><span class="p">:</span><span class="s2">"6"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityName"</span><span class="p">:</span><span class="err">BCH</span><span class="p">,</span><span class="w">
             </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="s2">"0.000250000000000000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"priceTick"</span><span class="p">:</span><span class="s2">"0.050000000000000000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USD-R"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"lotSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000000000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000001</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"takerFeeRatio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000750000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityId"</span><span class="p">:</span><span class="w"> </span><span class="mi">100001</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"commodityName"</span><span class="p">:</span><span class="err">USD</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"makerFeeRatio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.000250000000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"priceTick"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
         </span><span class="err">...</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1147,6 +1166,11 @@ Body mode *application/json* is slightly different for Post requests. In this ca
 <td>priceTick</td>
 <td>string</td>
 <td>Minimum quoted unit</td>
+</tr>
+<tr>
+<td>contractUnit</td>
+<td>decimal</td>
+<td>unit of contract</td>
 </tr>
 <tr>
 <td>makerFeeRatio</td>
@@ -1328,7 +1352,7 @@ Body mode *application/json* is slightly different for Post requests. In this ca
         </span><span class="s2">"mt"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ai"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ci"</span><span class="p">:</span><span class="mi">999999</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sb"</span><span class="p">:</span><span class="s2">"BTC_ZUSD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sb"</span><span class="p">:</span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"td"</span><span class="p">:</span><span class="mi">20200410</span><span class="p">,</span><span class="w">
         </span><span class="s2">"te"</span><span class="p">:</span><span class="mi">1586505026969341</span><span class="p">,</span><span class="w">
         </span><span class="s2">"lp"</span><span class="p">:</span><span class="s2">"6933"</span><span class="p">,</span><span class="w">
@@ -1361,6 +1385,10 @@ Body mode *application/json* is slightly different for Post requests. In this ca
         </span><span class="s2">"ip"</span><span class="p">:</span><span class="s2">"6934.03752"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"w24pc"</span><span class="p">:</span><span class="s2">"-391.5"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"w24pcr"</span><span class="p">:</span><span class="s2">"-0.053450747491296334"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"volumeUsd24h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"293153245.992"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"commodityName"</span><span class="p">:</span><span class="err">BTC</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000000000000000000"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
             </span><span class="p">[</span><span class="s2">"6932.5"</span><span class="p">,</span><span class="s2">"4556"</span><span class="p">],</span><span class="w">
             </span><span class="p">[</span><span class="s2">"6932"</span><span class="p">,</span><span class="w"> </span><span class="s2">"14112"</span><span class="p">],</span><span class="w">
@@ -1459,6 +1487,26 @@ Body mode *application/json* is slightly different for Post requests. In this ca
 <td>tv</td>
 <td>string</td>
 <td>totalVolume</td>
+</tr>
+<tr>
+<td>volumeUsd24h</td>
+<td>string</td>
+<td>total Turnover of 24h convert USD</td>
+</tr>
+<tr>
+<td>currencyName</td>
+<td>string</td>
+<td>Name of settlement currency</td>
+</tr>
+<tr>
+<td>commodityName</td>
+<td>string</td>
+<td>Name of commodity currency</td>
+</tr>
+<tr>
+<td>contractUnit</td>
+<td>string</td>
+<td>unit of contract. e.g. 0.01btc</td>
 </tr>
 <tr>
 <td>tbv</td>
