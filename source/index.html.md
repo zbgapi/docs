@@ -643,7 +643,7 @@ commodityId       | int       |     base currency ID
 currencyId      |	int  | quote currency ID 
 lotSize     |	string | Minimum trading unit 
 priceTick    |	string | Minimum quoted unit 
-contractUnit   |	string  | unit of contract 
+contractUnit   |	decimal  | unit of contract 
 makerFeeRatio   |	string  | maker trading fee 
 takerFeeRatio   |	string  | taker  trading fee 
 
