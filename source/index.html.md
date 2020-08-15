@@ -864,11 +864,11 @@ volumeUsd24h  | string  | total Turnover of 24h convert USD
 currencyName  | string  | Name of settlement currency
 commodityName  | string  | Name of commodity currency
 contractUnit  | string  | unit of contract. e.g. 0.01btc
+pv  | string  | The open interest in the last 24 hours in contracts
 tbv  | string  | totalBidVol 
 tav  | string  | totalAskVol 
 pp  | string  | prevPrice 
 cp  | string  | clearPrice 
-pv  | string  | posiVol 
 pcr  | string  | priceChangeRadio 
 pc  | string  | priceChange 
 lui  | number  | lastUpdateId 
