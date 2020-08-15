@@ -625,8 +625,10 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
             "contractId":1000010,
             "takerFeeRatio":"0.000750000000000000",
             "commodityId":"1000000",
-            "contractUnit": 10,
             "currencyId":"7",
+            "currencyName":"USDT",
+            "commodityName":"XRP",
+            "contractUnit": 10,
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.000100000000000000"
         },
@@ -637,9 +639,24 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
             "takerFeeRatio":"0.000750000000000000",
             "commodityId":"6",
             "currencyId":"7",
+            "currencyName":"USDT",
+            "commodityName":"BCH",
             "contractUnit": 0.1,
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.050000000000000000"
+        },
+        {
+          "symbol": "BTC_USD-R",
+          "lotSize": "1.000000000000000000",
+          "contractId": 1000001,
+          "takerFeeRatio": "0.000750000000000000",
+          "commodityId": 100001,
+          "currencyId": 2,
+          "currencyName":"BTC",
+          "commodityName":USD,
+          "contractUnit": "1.000000000000000000",
+          "makerFeeRatio": "0.000250000000000000",
+          "priceTick": "0.5"
         },
         ...
 ]
@@ -651,6 +668,8 @@ contractId       |	int  |	合约ID
 symbol              |	string  |	合约名称
 commodityId       |	int  |	商品币种ID
 currencyId      |	int  |	货币币种ID
+commodityName       |	int  |	商品币种名称
+currencyName      |	int  |	货币币种名称
 lotSize     |	string |	最小交易单位
 priceTick    |	string |	最小报价单位
 contractUnit   |	decimal  | 每张合约的大小 
@@ -785,7 +804,7 @@ symbol      |   string   |  true  |	交易对
         "mt":4,
         "ai":2,
         "ci":999999,
-        "sb":"BTC_ZUSD",
+        "sb":"BTC_USDT",
         "td":20200410,
         "te":1586505026969341,
         "lp":"6933",
@@ -819,6 +838,9 @@ symbol      |   string   |  true  |	交易对
         "w24pc":"-391.5",
         "w24pcr":"-0.053450747491296334",
         "volumeUsd24h":"293153245.992",
+        "currencyName":"USDT",
+        "commodityName":BTC,
+        "contractUnit": "1.000000000000000000",
         "bids":[
             ["6932.5","4556"],
             ["6932", "14112"],
@@ -851,6 +873,9 @@ hpl  | string  | 历史最低价：historyPriceLow
 tt  | string  | 24小时成交额：totalTurnover
 tv  | string  | 24小时成交量：totalVolume
 volumeUsd24h  | string  | 24小时成交额折合USD
+currencyName  | string  | 结算货币名称
+commodityName  | string  | 商品货币名称
+contractUnit  | string  | 每张合约的大小
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
