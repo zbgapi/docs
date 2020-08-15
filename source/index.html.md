@@ -654,7 +654,7 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
           "currencyId": 2,
           "currencyName":"BTC",
           "commodityName":USD,
-          "contractUnit": "1.000000000000000000",
+          "contractUnit": "1",
           "makerFeeRatio": "0.000250000000000000",
           "priceTick": "0.5"
         },
