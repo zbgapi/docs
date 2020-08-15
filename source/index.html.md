@@ -625,6 +625,7 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
             "contractId":1000010,
             "takerFeeRatio":"0.000750000000000000",
             "commodityId":"1000000",
+            "contractUnit": 10,
             "currencyId":"7",
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.000100000000000000"
@@ -636,6 +637,7 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
             "takerFeeRatio":"0.000750000000000000",
             "commodityId":"6",
             "currencyId":"7",
+            "contractUnit": 0.1,
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.050000000000000000"
         },
@@ -651,6 +653,7 @@ commodityId       |	int  |	商品币种ID
 currencyId      |	int  |	货币币种ID
 lotSize     |	string |	最小交易单位
 priceTick    |	string |	最小报价单位
+contractUnit   |	decimal  | 每张合约的大小 
 makerFeeRatio   |	string  | maker 手续费率
 takerFeeRatio   |	string  | taker 手续费率
 
