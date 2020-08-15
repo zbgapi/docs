@@ -617,6 +617,7 @@ None
             "commodityId":"1000000",
             "currencyId":"7",
             "makerFeeRatio":"0.000250000000000000",
+            "contractUnit": 10,
             "priceTick":"0.000100000000000000"
         },
         {
@@ -626,6 +627,7 @@ None
             "takerFeeRatio":"0.000750000000000000",
             "commodityId":"6",
             "currencyId":"7",
+            "contractUnit": 0.1,
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.050000000000000000"
         },
@@ -641,6 +643,7 @@ commodityId       | int       |     base currency ID
 currencyId      |	int  | quote currency ID 
 lotSize     |	string | Minimum trading unit 
 priceTick    |	string | Minimum quoted unit 
+contractUnit   |	string  | unit of contract 
 makerFeeRatio   |	string  | maker trading fee 
 takerFeeRatio   |	string  | taker  trading fee 
 
