@@ -618,6 +618,8 @@ None
             "currencyId":"7",
             "makerFeeRatio":"0.000250000000000000",
             "contractUnit": 10,
+            "currencyName":"USDT",
+            "commodityName":XRP,
             "priceTick":"0.000100000000000000"
         },
         {
@@ -628,9 +630,24 @@ None
             "commodityId":"6",
             "currencyId":"7",
             "contractUnit": 0.1,
+            "currencyName":"USDT",
+            "commodityName":BCH,
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.050000000000000000"
         },
+        {
+            "symbol": "BTC_USD-R",
+            "lotSize": "1.000000000000000000",
+            "contractId": 1000001,
+            "takerFeeRatio": "0.000750000000000000",
+            "commodityId": 100001,
+            "currencyId": 2,
+            "contractUnit": 1,
+            "currencyName":"BTC",
+            "commodityName":USD,
+            "makerFeeRatio": "0.000250000000000000",
+            "priceTick": "0.5"
+          },
         ...
 ]
 ```
@@ -775,7 +792,7 @@ symbol      |   string   |  true  | trading pairs
         "mt":4,
         "ai":2,
         "ci":999999,
-        "sb":"BTC_ZUSD",
+        "sb":"BTC_USDT",
         "td":20200410,
         "te":1586505026969341,
         "lp":"6933",
@@ -809,6 +826,9 @@ symbol      |   string   |  true  | trading pairs
         "w24pc":"-391.5",
         "w24pcr":"-0.053450747491296334",
         "volumeUsd24h": "293153245.992",
+        "currencyName":"USDT",
+        "commodityName":BTC,
+        "contractUnit": "1.000000000000000000",
         "bids":[
             ["6932.5","4556"],
             ["6932", "14112"],
@@ -841,6 +861,9 @@ hpl  | string  | historyPriceLow
 tt  | string  | totalTurnover 
 tv  | string  | totalVolume 
 volumeUsd24h  | string  | total Turnover of 24h convert USD
+currencyName  | string  | Name of settlement currency
+commodityName  | string  | Name of commodity currency
+contractUnit  | string  | unit of contract. e.g. 0.01btc
 tbv  | string  | totalBidVol 
 tav  | string  | totalAskVol 
 pp  | string  | prevPrice 
