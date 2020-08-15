@@ -876,11 +876,11 @@ volumeUsd24h  | string  | 24小时成交额折合USD
 currencyName  | string  | 结算货币名称
 commodityName  | string  | 商品货币名称
 contractUnit  | string  | 每张合约的大小
+pv  | string  | The open interest in the last 24 hours in contracts
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
 cp  | string  | 标记价格，结算价：clearPrice
-pv  | string  | 总持仓量：posiVol
 pcr  | string  | 24小时涨跌幅度：priceChangeRadio
 pc  | string  | 24小时涨跌：priceChange
 w24pcr  | string  | 近24小时涨跌幅度：priceChangeRadio
