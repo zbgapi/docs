@@ -619,7 +619,7 @@ None
             "makerFeeRatio":"0.000250000000000000",
             "contractUnit": 10,
             "currencyName":"USDT",
-            "commodityName":XRP,
+            "commodityName":"XRP",
             "priceTick":"0.000100000000000000"
         },
         {
@@ -631,7 +631,7 @@ None
             "currencyId":"7",
             "contractUnit": 0.1,
             "currencyName":"USDT",
-            "commodityName":BCH,
+            "commodityName":"BCH",
             "makerFeeRatio":"0.000250000000000000",
             "priceTick":"0.050000000000000000"
         },
@@ -644,7 +644,7 @@ None
             "currencyId": 2,
             "contractUnit": 1,
             "currencyName":"BTC",
-            "commodityName":USD,
+            "commodityName":"USD",
             "makerFeeRatio": "0.000250000000000000",
             "priceTick": "0.5"
           },
@@ -827,7 +827,7 @@ symbol      |   string   |  true  | trading pairs
         "w24pcr":"-0.053450747491296334",
         "volumeUsd24h": "293153245.992",
         "currencyName":"USDT",
-        "commodityName":BTC,
+        "commodityName":"BTC",
         "contractUnit": "1.000000000000000000",
         "bids":[
             ["6932.5","4556"],
