@@ -653,7 +653,7 @@ Post 请求下 Body 方式 application/json 的情况略有差异。这种情况
           "commodityId": 100001,
           "currencyId": 2,
           "currencyName":"BTC",
-          "commodityName":USD,
+          "commodityName":"USD",
           "contractUnit": "1",
           "makerFeeRatio": "0.000250000000000000",
           "priceTick": "0.5"
@@ -839,7 +839,7 @@ symbol      |   string   |  true  |	交易对
         "w24pcr":"-0.053450747491296334",
         "volumeUsd24h":"293153245.992",
         "currencyName":"USDT",
-        "commodityName":BTC,
+        "commodityName":"BTC",
         "contractUnit": "1.000000000000000000",
         "bids":[
             ["6932.5","4556"],
