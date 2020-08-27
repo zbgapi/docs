@@ -586,7 +586,41 @@ Code    | Description
 6992|The quantity accuracy of the order is wrong, and the number of decimal places is up to %s digits
 6993|The minimum order quantity of the order is wrong, the minimum amount is %s"
 6999|access forbidden
-
+| 1001 | Account not existed                          |
+| 1002 | Contract not existed                         |
+| 1003 | Application Signal Error                     |
+| 1004 | Illegal Order Price                          |
+| 1005 | Illegal Order Quantity                       |
+| 1006 | Over Limit Order Quantity                    |
+| 1007 | Insufficient Margin                          |
+| 1008 | Insufficient Quantity                        |
+| 1009 | Account is taken over, trade banned          |
+| 1010 | Account is taken over, transfer out banned   |
+| 1011 | Trade Banned in this contract                |
+| 1012 | Illegal Order Side                           |
+| 1013 | Illegal Order Type                           |
+| 1016 | Minimum Order quantity is not reached        |
+| 1018 | Illegal Order Value                          |
+| 1019 | Order is not existed                         |
+| 1020 | There is no order from the opponent          |
+| 1022 | Invalid closable quantity in current position|
+| 1023 | Account is taken over, close banned          |
+| 1027 | Contract Already Existed                     |
+| 1028 | Order amount is over the limit               |
+| 1029 | Position amount is over the limit            |
+| 1031 | Conflict happens about margin type between existed position and the placing order in current contract |
+| 1032 | Initiate Margin Error                        |
+| 1035 | Margin Transfer in/out Banned                |
+| 1036 | Order price is over the limit                |
+| 1037 | Order value is over the limit                |
+| 1041 | System is not ready, index is not sent or the previous data is not stored in SQL   |
+| 1042 | Forbidden to open isolated order             |
+| 1044 | Market price order costs too much spread     |
+| 1046 | the passive order cannot be placed in current price, the order will be canceled  |
+| 1050 | Trigger type is not settled                  |
+| 1051 | Invalid trigger price                        |
+| 1053 | conditional order amount is over limit       |
+| 1056 | Order or position is already placed under this currency, switch position mode is forbidden  |
 
 
 # Reference Data
