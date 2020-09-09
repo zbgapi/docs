@@ -898,6 +898,12 @@ volumeUsd24h  | string  | total Turnover of 24h convert USD
 currencyName  | string  | Name of settlement currency
 commodityName  | string  | Name of commodity currency
 contractUnit  | string  | unit of contract. e.g. 0.01btc
+orderLimit  | string  | order limit
+openInterestUSD  | string  | The total value of outstanding derivative contracts that have not been settled.
+indexPrice  | string  | The Spot price of an asset, aggregated from several exchanges to form an Index. The Index price methodology varies for each derivative exchange.
+basis  | string  | basis=Index Price - Futrues Price
+fundingRate  | string  | funding Rate
+spread  | string  | The difference between the highest bid and lowest ask
 pv  | string  | The open interest in the last 24 hours in contracts
 tbv  | string  | totalBidVol 
 tav  | string  | totalAskVol 
