@@ -875,7 +875,17 @@ symbol      |   string   |  true  |	交易对
         "volumeUsd24h":"293153245.992",
         "currencyName":"USDT",
         "commodityName":"BTC",
-        "contractUnit": "1.000000000000000000",
+        "contractUnit": "0.01",
+        "orderLimit": "3000",
+        "openInterestUSD": "139026674.44",
+        "indexPrice": "10182.984",
+        "basis": "-0.01%",
+        "fundingRate": "0.01%",
+        "symbol": "BTC_USDT",
+        "contractId": "1000000",
+        "ask": "10184.5",
+        "bid": "10184",
+        "spread": "0.0049%"
         "bids":[
             ["6932.5","4556"],
             ["6932", "14112"],
@@ -911,7 +921,13 @@ volumeUsd24h  | string  | 24小时成交额折合USD
 currencyName  | string  | 结算货币名称
 commodityName  | string  | 商品货币名称
 contractUnit  | string  | 每张合约的大小
-pv  | string  | The open interest in the last 24 hours in contracts
+orderLimit  | string  | 委托限额
+openInterestUSD  | string  | 尚未结算的未平仓衍生产品合约的总价值USD
+indexPrice  | string  | 指数价格
+basis  | string  | 基差, 基差=指数价格-期货价格
+fundingRate  | string  | 基准利率
+spread  | string  | 价差(最低要价格-最高出价)/最高出价
+pv  | string  | 合同中最近24小时的持仓量
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
