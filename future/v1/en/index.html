@@ -1528,7 +1528,17 @@ Body mode *application/json* is slightly different for Post requests. In this ca
         </span><span class="s2">"volumeUsd24h"</span><span class="p">:</span><span class="w"> </span><span class="s2">"293153245.992"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"currencyName"</span><span class="p">:</span><span class="s2">"USDT"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"commodityName"</span><span class="p">:</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.000000000000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractUnit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderLimit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"openInterestUSD"</span><span class="p">:</span><span class="w"> </span><span class="s2">"139026674.44"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"indexPrice"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10182.984"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"basis"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-0.01%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fundingRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.01%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC_USDT"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"contractId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1000000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10184.5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"bid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10184"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"spread"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0049%"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"bids"</span><span class="p">:[</span><span class="w">
             </span><span class="p">[</span><span class="s2">"6932.5"</span><span class="p">,</span><span class="s2">"4556"</span><span class="p">],</span><span class="w">
             </span><span class="p">[</span><span class="s2">"6932"</span><span class="p">,</span><span class="w"> </span><span class="s2">"14112"</span><span class="p">],</span><span class="w">
@@ -1647,6 +1657,36 @@ Body mode *application/json* is slightly different for Post requests. In this ca
 <td>contractUnit</td>
 <td>string</td>
 <td>unit of contract. e.g. 0.01btc</td>
+</tr>
+<tr>
+<td>orderLimit</td>
+<td>string</td>
+<td>order limit</td>
+</tr>
+<tr>
+<td>openInterestUSD</td>
+<td>string</td>
+<td>The total value of outstanding derivative contracts that have not been settled.</td>
+</tr>
+<tr>
+<td>indexPrice</td>
+<td>string</td>
+<td>The Spot price of an asset, aggregated from several exchanges to form an Index. The Index price methodology varies for each derivative exchange.</td>
+</tr>
+<tr>
+<td>basis</td>
+<td>string</td>
+<td>basis=Index Price - Futrues Price</td>
+</tr>
+<tr>
+<td>fundingRate</td>
+<td>string</td>
+<td>funding Rate</td>
+</tr>
+<tr>
+<td>spread</td>
+<td>string</td>
+<td>The difference between the highest bid and lowest ask</td>
 </tr>
 <tr>
 <td>pv</td>
