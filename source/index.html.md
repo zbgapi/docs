@@ -914,7 +914,7 @@ indexPrice  | string  | The Spot price of an asset, aggregated from several exch
 basis  | string  | basis=Index Price - Futrues Price
 fundingRate  | string  | funding Rate
 spread  | string  | The difference between the highest bid and lowest ask
-pv  | string  | The open interest in the last 24 hours in contracts
+pv  | string  | The open interest in contracts
 tbv  | string  | totalBidVol 
 tav  | string  | totalAskVol 
 pp  | string  | prevPrice 
