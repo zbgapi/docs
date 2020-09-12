@@ -927,7 +927,7 @@ indexPrice  | string  | 指数价格
 basis  | string  | 基差, 基差=指数价格-期货价格
 fundingRate  | string  | 基准利率
 spread  | string  | 价差(最低要价格-最高出价)/最高出价
-pv  | string  | 合同中最近24小时的持仓量
+pv  | string  | 合同中总持仓量
 tbv  | string  | 买总委托数：totalBidVol
 tav  | string  | 卖总委托数：totalAskVol
 pp  | string  | 上一交易日收盘价：prevPrice
